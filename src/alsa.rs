@@ -26,9 +26,15 @@ macro_rules! alsa_ok(
     )
 )
 
-pub struct PCM {
+pub struct PCM<State> {
     i: *mut ffi::snd_pcm_t,
-    channels: Option<uint>
+    data: State
+}
+
+pub struct Open { #[allow(dead_code)] no_constr: () }
+pub struct Prepared {
+    channels: uint,
+    sample_fmt: Format
 }
 
 pub enum Stream {
@@ -89,49 +95,66 @@ impl Format {
             FloatLE => ffi::SND_PCM_FORMAT_FLOAT_LE
         }
     }
+
+    fn size(self) -> uint {
+        use std::mem::size_of;
+        match self {
+            Unsigned8 => 1,
+            Signed16 => 2,
+            FloatLE => size_of::<libc::c_float>()
+        }
+    }
 }
 
-impl PCM {
-    pub fn open(name: &str, stream: Stream, mode: Mode) -> Result<PCM, int> {
+impl PCM<Open> {
+    pub fn open(name: &str, stream: Stream, mode: Mode) -> Result<PCM<Open>, int> {
         let mut pcm = PCM {
             i: ptr::mut_null(),
-            channels: None
+            data: Open { no_constr: () }
         };
 
         unsafe {
+            let name = name.to_c_str();
             alsa_ok!(
-                name.to_c_str().with_ref(|name| {
-                    ffi::snd_pcm_open(&mut pcm.i, name, stream.to_ffi(), mode.to_ffi())
-                })
+                ffi::snd_pcm_open(&mut pcm.i, name.as_ptr(), stream.to_ffi(), mode.to_ffi())
             );
         }
 
         Ok(pcm)
     }
+}
 
-    pub fn prepare(&mut self) -> Result<(), int> {
-        unsafe {
-            alsa_ok!(ffi::snd_pcm_prepare(self.i));
-        }
-        Ok(())
-    }
-
-    pub fn set_parameters(&mut self, format: Format, access: Access, channels: uint, rate: uint)
-        -> Result<(), int>
+impl PCM<Open> {
+    pub fn set_parameters(self, format: Format, access: Access, channels: uint, rate: uint)
+        -> Result<PCM<Prepared>, (PCM<Open>, int)>
     {
         unsafe {
-            alsa_ok!(ffi::snd_pcm_set_params(self.i, format.to_ffi(), access.to_ffi(),
-                                             channels as u32, rate as u32, 1i32, 500000u32));
+            let err = ffi::snd_pcm_set_params(self.i, format.to_ffi(), access.to_ffi(),
+                                              channels as u32, rate as u32, 1i32, 500000u32);
+            if err < 0 {
+                return Err((self, err as int))
+            }
         }
 
-        self.channels = Some(channels);
-
-        Ok(())
+        Ok(
+            PCM {
+                i: self.i,
+                data: Prepared {
+                    channels: channels,
+                    sample_fmt: format
+                }
+            }
+        )
     }
 
+}
+
+impl PCM<Prepared> {
     pub fn write_interleaved<T: Copy>(&mut self, buffer: &[T]) -> Result<uint, int> {
-        let channels = self.channels.expect("write_interleaved called but parameters not set");
+        let channels = self.data.channels;
+
         assert_eq!(buffer.len() % channels, 0);
+        assert_eq!(::std::mem::size_of::<T>(), self.data.sample_fmt.size());
 
         let n_written = unsafe {
             alsa_ok!(ffi::snd_pcm_writei(self.i, buffer.as_ptr() as *const libc::c_void,
