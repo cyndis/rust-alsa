@@ -1,4 +1,4 @@
-# rust-alsa - rustic bindings for libasound
+# rust-alsa - rustic bindings for libasound ![Build status](https://travis-ci.org/cyndis/rust-alsa.png)
 
 For now, only very basic PCM usage is wrapped.
 
