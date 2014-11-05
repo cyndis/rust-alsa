@@ -1408,7 +1408,7 @@ pub static SND_MIXER_SABSTRACT_BASIC: ::libc::c_uint = 1;
 #[repr(C)]
 pub struct Struct_snd_mixer_selem_regopt {
     pub ver: ::libc::c_int,
-    pub abstract: Enum_snd_mixer_selem_regopt_abstract,
+    pub _abstract: Enum_snd_mixer_selem_regopt_abstract,
     pub device: *const ::libc::c_char,
     pub playback_pcm: *mut snd_pcm_t,
     pub capture_pcm: *mut snd_pcm_t,

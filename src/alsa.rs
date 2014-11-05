@@ -5,7 +5,7 @@ extern crate libc;
 
 use std::ptr;
 
-#[allow(dead_code, unused_attribute, non_camel_case_types)]
+#[allow(dead_code, unused_attributes, bad_style)]
 mod ffi;
 
 #[cfg(test)]
@@ -109,7 +109,7 @@ impl Format {
 impl PCM<Open> {
     pub fn open(name: &str, stream: Stream, mode: Mode) -> Result<PCM<Open>, int> {
         let mut pcm = PCM {
-            i: ptr::mut_null(),
+            i: ptr::null_mut(),
             data: Open { no_constr: () }
         };
 

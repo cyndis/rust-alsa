@@ -3,7 +3,7 @@ name = "alsa"
 version = "0.0.1"
 authors = [ "Mikko Perttunen <cyndis@kapsi.fi>" ]
 
-[[lib]]
+[lib]
 name = "alsa"
 
 
