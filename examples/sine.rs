@@ -2,6 +2,7 @@ extern crate alsa;
 
 use alsa::{PCM, Playback, Blocking, FloatLE, Interleaved};
 use std::f32::consts::PI_2;
+use std::num::FloatMath;
 
 fn main() {
     let pcm = PCM::open("default", Playback, Blocking).unwrap();

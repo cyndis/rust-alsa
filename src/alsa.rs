@@ -8,9 +8,6 @@ use std::ptr;
 #[allow(dead_code, unused_attributes, bad_style)]
 mod ffi;
 
-#[cfg(test)]
-mod test;
-
 #[link(name = "asound")]
 extern { }
 
