@@ -9,15 +9,16 @@ This plays one second of a 441Hz tone.
 ```rust
 extern crate alsa;
 
-use alsa::{PCM, Playback, Blocking, FloatLE, Interleaved};
+use alsa::{PCM, Stream, Mode, Format, Access};
 use std::f32::consts::PI_2;
+use std::num::FloatMath;
 
 fn main() {
-    let pcm = PCM::open("default", Playback, Blocking).unwrap();
-    let mut pcm = pcm.set_parameters(FloatLE, Interleaved, 1, 44100).ok().unwrap();
+    let pcm = PCM::open("default", Stream::Playback, Mode::Blocking).unwrap();
+    let mut pcm = pcm.set_parameters(Format::FloatLE, Access::Interleaved, 1, 44100).ok().unwrap();
 
     let mut buf = [0.0f32, ..44100];
-    for (idx, sample) in buf.as_mut_slice().mut_iter().enumerate() {
+    for (idx, sample) in buf.as_mut_slice().iter_mut().enumerate() {
         let phase = (idx as f32) / 100.0 * PI_2;
         *sample = phase.sin();
     }
