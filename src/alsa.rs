@@ -42,8 +42,8 @@ pub enum Stream {
 impl Stream {
     fn to_ffi(self) -> ffi::snd_pcm_stream_t {
         match self {
-            Playback => ffi::SND_PCM_STREAM_PLAYBACK,
-            Capture  => ffi::SND_PCM_STREAM_CAPTURE
+            Stream::Playback => ffi::SND_PCM_STREAM_PLAYBACK,
+            Stream::Capture  => ffi::SND_PCM_STREAM_CAPTURE
         }
     }
 }
@@ -57,9 +57,9 @@ pub enum Mode {
 impl Mode {
     fn to_ffi(self) -> i32 {
         match self {
-            Blocking => 0,
-            Nonblocking => ffi::SND_PCM_NONBLOCK,
-            Asynchronous => ffi::SND_PCM_ASYNC
+            Mode::Blocking => 0,
+            Mode::Nonblocking => ffi::SND_PCM_NONBLOCK,
+            Mode::Asynchronous => ffi::SND_PCM_ASYNC
         }
     }
 }
@@ -72,8 +72,8 @@ pub enum Access {
 impl Access {
     fn to_ffi(self) -> ffi::snd_pcm_access_t {
         match self {
-            Interleaved => ffi::SND_PCM_ACCESS_RW_INTERLEAVED,
-            Noninterleaved => ffi::SND_PCM_ACCESS_RW_NONINTERLEAVED
+            Access::Interleaved => ffi::SND_PCM_ACCESS_RW_INTERLEAVED,
+            Access::Noninterleaved => ffi::SND_PCM_ACCESS_RW_NONINTERLEAVED
         }
     }
 }
@@ -87,18 +87,18 @@ pub enum Format {
 impl Format {
     fn to_ffi(self) -> ffi::snd_pcm_format_t {
         match self {
-            Unsigned8 => ffi::SND_PCM_FORMAT_U8,
-            Signed16 => ffi::SND_PCM_FORMAT_S16,
-            FloatLE => ffi::SND_PCM_FORMAT_FLOAT_LE
+            Format::Unsigned8 => ffi::SND_PCM_FORMAT_U8,
+            Format::Signed16 => ffi::SND_PCM_FORMAT_S16,
+            Format::FloatLE => ffi::SND_PCM_FORMAT_FLOAT_LE
         }
     }
 
     fn size(self) -> uint {
         use std::mem::size_of;
         match self {
-            Unsigned8 => 1,
-            Signed16 => 2,
-            FloatLE => size_of::<libc::c_float>()
+            Format::Unsigned8 => 1,
+            Format::Signed16 => 2,
+            Format::FloatLE => size_of::<libc::c_float>()
         }
     }
 }
