@@ -28,12 +28,16 @@ pub struct PCM<State> {
     data: State
 }
 
+#[allow(missing_copy_implementations)]
 pub struct Open { #[allow(dead_code)] no_constr: () }
+
+#[allow(missing_copy_implementations)]
 pub struct Prepared {
     channels: uint,
     sample_fmt: Format
 }
 
+#[deriving(Copy, PartialEq, Eq, Show)]
 pub enum Stream {
     Playback,
     Capture
@@ -48,6 +52,7 @@ impl Stream {
     }
 }
 
+#[deriving(Copy, PartialEq, Eq, Show)]
 pub enum Mode {
     Blocking,
     Nonblocking,
@@ -64,6 +69,7 @@ impl Mode {
     }
 }
 
+#[deriving(Copy, PartialEq, Eq, Show)]
 pub enum Access {
     Interleaved,
     Noninterleaved
@@ -78,6 +84,7 @@ impl Access {
     }
 }
 
+#[deriving(Copy, PartialEq, Eq, Show)]
 pub enum Format {
     Unsigned8,
     Signed16,
