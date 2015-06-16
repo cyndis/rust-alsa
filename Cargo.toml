@@ -8,3 +8,5 @@ authors = [ "Mikko Perttunen <cyndis@kapsi.fi>" ]
 name = "alsa"
 path = "src/alsa.rs"
 
+[dependencies]
+libc = "0.1.8"
