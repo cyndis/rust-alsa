@@ -117,7 +117,7 @@ impl PCM<Open> {
         };
 
         unsafe {
-            let name = name.to_c_str();
+            let name = std::ffi::CString::new(name).unwrap();
             alsa_ok!(
                 ffi::snd_pcm_open(&mut pcm.i, name.as_ptr(), stream.to_ffi(), mode.to_ffi())
             );
