@@ -10,7 +10,7 @@ mod ffi;
 #[link(name = "asound")]
 extern { }
 
-macro_rules! alsa_ok(
+macro_rules! alsa_ok {
     ($e:expr) => (
         {
             let err = $e;
@@ -20,7 +20,7 @@ macro_rules! alsa_ok(
             err
         }
     )
-)
+}
 
 pub struct PCM<State> {
     i: *mut ffi::snd_pcm_t,
