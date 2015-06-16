@@ -1,5 +1,4 @@
 #![crate_type = "lib"]
-#![feature(globs, macro_rules)]
 
 extern crate libc;
 
