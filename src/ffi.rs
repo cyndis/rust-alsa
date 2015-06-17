@@ -28,9 +28,17 @@ pub type __off_t = ::libc::c_long;
 pub type __off64_t = ::libc::c_long;
 pub type __pid_t = ::libc::c_int;
 #[repr(C)]
-pub struct __fsid_t {
-    pub __val: [::libc::c_int, ..2u],
+#[derive(Copy)]
+pub struct Struct_Unnamed1 {
+    pub __val: [::libc::c_int; 2usize],
 }
+impl ::std::clone::Clone for Struct_Unnamed1 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed1 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type __fsid_t = Struct_Unnamed1;
 pub type __clock_t = ::libc::c_long;
 pub type __rlim_t = ::libc::c_ulong;
 pub type __rlim64_t = ::libc::c_ulong;
@@ -67,353 +75,395 @@ pub type useconds_t = __useconds_t;
 pub type pid_t = __pid_t;
 pub type intptr_t = __intptr_t;
 pub type socklen_t = __socklen_t;
-pub type Enum_Unnamed1 = ::libc::c_uint;
-pub static _PC_LINK_MAX: ::libc::c_uint = 0;
-pub static _PC_MAX_CANON: ::libc::c_uint = 1;
-pub static _PC_MAX_INPUT: ::libc::c_uint = 2;
-pub static _PC_NAME_MAX: ::libc::c_uint = 3;
-pub static _PC_PATH_MAX: ::libc::c_uint = 4;
-pub static _PC_PIPE_BUF: ::libc::c_uint = 5;
-pub static _PC_CHOWN_RESTRICTED: ::libc::c_uint = 6;
-pub static _PC_NO_TRUNC: ::libc::c_uint = 7;
-pub static _PC_VDISABLE: ::libc::c_uint = 8;
-pub static _PC_SYNC_IO: ::libc::c_uint = 9;
-pub static _PC_ASYNC_IO: ::libc::c_uint = 10;
-pub static _PC_PRIO_IO: ::libc::c_uint = 11;
-pub static _PC_SOCK_MAXBUF: ::libc::c_uint = 12;
-pub static _PC_FILESIZEBITS: ::libc::c_uint = 13;
-pub static _PC_REC_INCR_XFER_SIZE: ::libc::c_uint = 14;
-pub static _PC_REC_MAX_XFER_SIZE: ::libc::c_uint = 15;
-pub static _PC_REC_MIN_XFER_SIZE: ::libc::c_uint = 16;
-pub static _PC_REC_XFER_ALIGN: ::libc::c_uint = 17;
-pub static _PC_ALLOC_SIZE_MIN: ::libc::c_uint = 18;
-pub static _PC_SYMLINK_MAX: ::libc::c_uint = 19;
-pub static _PC_2_SYMLINKS: ::libc::c_uint = 20;
 pub type Enum_Unnamed2 = ::libc::c_uint;
-pub static _SC_ARG_MAX: ::libc::c_uint = 0;
-pub static _SC_CHILD_MAX: ::libc::c_uint = 1;
-pub static _SC_CLK_TCK: ::libc::c_uint = 2;
-pub static _SC_NGROUPS_MAX: ::libc::c_uint = 3;
-pub static _SC_OPEN_MAX: ::libc::c_uint = 4;
-pub static _SC_STREAM_MAX: ::libc::c_uint = 5;
-pub static _SC_TZNAME_MAX: ::libc::c_uint = 6;
-pub static _SC_JOB_CONTROL: ::libc::c_uint = 7;
-pub static _SC_SAVED_IDS: ::libc::c_uint = 8;
-pub static _SC_REALTIME_SIGNALS: ::libc::c_uint = 9;
-pub static _SC_PRIORITY_SCHEDULING: ::libc::c_uint = 10;
-pub static _SC_TIMERS: ::libc::c_uint = 11;
-pub static _SC_ASYNCHRONOUS_IO: ::libc::c_uint = 12;
-pub static _SC_PRIORITIZED_IO: ::libc::c_uint = 13;
-pub static _SC_SYNCHRONIZED_IO: ::libc::c_uint = 14;
-pub static _SC_FSYNC: ::libc::c_uint = 15;
-pub static _SC_MAPPED_FILES: ::libc::c_uint = 16;
-pub static _SC_MEMLOCK: ::libc::c_uint = 17;
-pub static _SC_MEMLOCK_RANGE: ::libc::c_uint = 18;
-pub static _SC_MEMORY_PROTECTION: ::libc::c_uint = 19;
-pub static _SC_MESSAGE_PASSING: ::libc::c_uint = 20;
-pub static _SC_SEMAPHORES: ::libc::c_uint = 21;
-pub static _SC_SHARED_MEMORY_OBJECTS: ::libc::c_uint = 22;
-pub static _SC_AIO_LISTIO_MAX: ::libc::c_uint = 23;
-pub static _SC_AIO_MAX: ::libc::c_uint = 24;
-pub static _SC_AIO_PRIO_DELTA_MAX: ::libc::c_uint = 25;
-pub static _SC_DELAYTIMER_MAX: ::libc::c_uint = 26;
-pub static _SC_MQ_OPEN_MAX: ::libc::c_uint = 27;
-pub static _SC_MQ_PRIO_MAX: ::libc::c_uint = 28;
-pub static _SC_VERSION: ::libc::c_uint = 29;
-pub static _SC_PAGESIZE: ::libc::c_uint = 30;
-pub static _SC_RTSIG_MAX: ::libc::c_uint = 31;
-pub static _SC_SEM_NSEMS_MAX: ::libc::c_uint = 32;
-pub static _SC_SEM_VALUE_MAX: ::libc::c_uint = 33;
-pub static _SC_SIGQUEUE_MAX: ::libc::c_uint = 34;
-pub static _SC_TIMER_MAX: ::libc::c_uint = 35;
-pub static _SC_BC_BASE_MAX: ::libc::c_uint = 36;
-pub static _SC_BC_DIM_MAX: ::libc::c_uint = 37;
-pub static _SC_BC_SCALE_MAX: ::libc::c_uint = 38;
-pub static _SC_BC_STRING_MAX: ::libc::c_uint = 39;
-pub static _SC_COLL_WEIGHTS_MAX: ::libc::c_uint = 40;
-pub static _SC_EQUIV_CLASS_MAX: ::libc::c_uint = 41;
-pub static _SC_EXPR_NEST_MAX: ::libc::c_uint = 42;
-pub static _SC_LINE_MAX: ::libc::c_uint = 43;
-pub static _SC_RE_DUP_MAX: ::libc::c_uint = 44;
-pub static _SC_CHARCLASS_NAME_MAX: ::libc::c_uint = 45;
-pub static _SC_2_VERSION: ::libc::c_uint = 46;
-pub static _SC_2_C_BIND: ::libc::c_uint = 47;
-pub static _SC_2_C_DEV: ::libc::c_uint = 48;
-pub static _SC_2_FORT_DEV: ::libc::c_uint = 49;
-pub static _SC_2_FORT_RUN: ::libc::c_uint = 50;
-pub static _SC_2_SW_DEV: ::libc::c_uint = 51;
-pub static _SC_2_LOCALEDEF: ::libc::c_uint = 52;
-pub static _SC_PII: ::libc::c_uint = 53;
-pub static _SC_PII_XTI: ::libc::c_uint = 54;
-pub static _SC_PII_SOCKET: ::libc::c_uint = 55;
-pub static _SC_PII_INTERNET: ::libc::c_uint = 56;
-pub static _SC_PII_OSI: ::libc::c_uint = 57;
-pub static _SC_POLL: ::libc::c_uint = 58;
-pub static _SC_SELECT: ::libc::c_uint = 59;
-pub static _SC_UIO_MAXIOV: ::libc::c_uint = 60;
-pub static _SC_IOV_MAX: ::libc::c_uint = 60;
-pub static _SC_PII_INTERNET_STREAM: ::libc::c_uint = 61;
-pub static _SC_PII_INTERNET_DGRAM: ::libc::c_uint = 62;
-pub static _SC_PII_OSI_COTS: ::libc::c_uint = 63;
-pub static _SC_PII_OSI_CLTS: ::libc::c_uint = 64;
-pub static _SC_PII_OSI_M: ::libc::c_uint = 65;
-pub static _SC_T_IOV_MAX: ::libc::c_uint = 66;
-pub static _SC_THREADS: ::libc::c_uint = 67;
-pub static _SC_THREAD_SAFE_FUNCTIONS: ::libc::c_uint = 68;
-pub static _SC_GETGR_R_SIZE_MAX: ::libc::c_uint = 69;
-pub static _SC_GETPW_R_SIZE_MAX: ::libc::c_uint = 70;
-pub static _SC_LOGIN_NAME_MAX: ::libc::c_uint = 71;
-pub static _SC_TTY_NAME_MAX: ::libc::c_uint = 72;
-pub static _SC_THREAD_DESTRUCTOR_ITERATIONS: ::libc::c_uint = 73;
-pub static _SC_THREAD_KEYS_MAX: ::libc::c_uint = 74;
-pub static _SC_THREAD_STACK_MIN: ::libc::c_uint = 75;
-pub static _SC_THREAD_THREADS_MAX: ::libc::c_uint = 76;
-pub static _SC_THREAD_ATTR_STACKADDR: ::libc::c_uint = 77;
-pub static _SC_THREAD_ATTR_STACKSIZE: ::libc::c_uint = 78;
-pub static _SC_THREAD_PRIORITY_SCHEDULING: ::libc::c_uint = 79;
-pub static _SC_THREAD_PRIO_INHERIT: ::libc::c_uint = 80;
-pub static _SC_THREAD_PRIO_PROTECT: ::libc::c_uint = 81;
-pub static _SC_THREAD_PROCESS_SHARED: ::libc::c_uint = 82;
-pub static _SC_NPROCESSORS_CONF: ::libc::c_uint = 83;
-pub static _SC_NPROCESSORS_ONLN: ::libc::c_uint = 84;
-pub static _SC_PHYS_PAGES: ::libc::c_uint = 85;
-pub static _SC_AVPHYS_PAGES: ::libc::c_uint = 86;
-pub static _SC_ATEXIT_MAX: ::libc::c_uint = 87;
-pub static _SC_PASS_MAX: ::libc::c_uint = 88;
-pub static _SC_XOPEN_VERSION: ::libc::c_uint = 89;
-pub static _SC_XOPEN_XCU_VERSION: ::libc::c_uint = 90;
-pub static _SC_XOPEN_UNIX: ::libc::c_uint = 91;
-pub static _SC_XOPEN_CRYPT: ::libc::c_uint = 92;
-pub static _SC_XOPEN_ENH_I18N: ::libc::c_uint = 93;
-pub static _SC_XOPEN_SHM: ::libc::c_uint = 94;
-pub static _SC_2_CHAR_TERM: ::libc::c_uint = 95;
-pub static _SC_2_C_VERSION: ::libc::c_uint = 96;
-pub static _SC_2_UPE: ::libc::c_uint = 97;
-pub static _SC_XOPEN_XPG2: ::libc::c_uint = 98;
-pub static _SC_XOPEN_XPG3: ::libc::c_uint = 99;
-pub static _SC_XOPEN_XPG4: ::libc::c_uint = 100;
-pub static _SC_CHAR_BIT: ::libc::c_uint = 101;
-pub static _SC_CHAR_MAX: ::libc::c_uint = 102;
-pub static _SC_CHAR_MIN: ::libc::c_uint = 103;
-pub static _SC_INT_MAX: ::libc::c_uint = 104;
-pub static _SC_INT_MIN: ::libc::c_uint = 105;
-pub static _SC_LONG_BIT: ::libc::c_uint = 106;
-pub static _SC_WORD_BIT: ::libc::c_uint = 107;
-pub static _SC_MB_LEN_MAX: ::libc::c_uint = 108;
-pub static _SC_NZERO: ::libc::c_uint = 109;
-pub static _SC_SSIZE_MAX: ::libc::c_uint = 110;
-pub static _SC_SCHAR_MAX: ::libc::c_uint = 111;
-pub static _SC_SCHAR_MIN: ::libc::c_uint = 112;
-pub static _SC_SHRT_MAX: ::libc::c_uint = 113;
-pub static _SC_SHRT_MIN: ::libc::c_uint = 114;
-pub static _SC_UCHAR_MAX: ::libc::c_uint = 115;
-pub static _SC_UINT_MAX: ::libc::c_uint = 116;
-pub static _SC_ULONG_MAX: ::libc::c_uint = 117;
-pub static _SC_USHRT_MAX: ::libc::c_uint = 118;
-pub static _SC_NL_ARGMAX: ::libc::c_uint = 119;
-pub static _SC_NL_LANGMAX: ::libc::c_uint = 120;
-pub static _SC_NL_MSGMAX: ::libc::c_uint = 121;
-pub static _SC_NL_NMAX: ::libc::c_uint = 122;
-pub static _SC_NL_SETMAX: ::libc::c_uint = 123;
-pub static _SC_NL_TEXTMAX: ::libc::c_uint = 124;
-pub static _SC_XBS5_ILP32_OFF32: ::libc::c_uint = 125;
-pub static _SC_XBS5_ILP32_OFFBIG: ::libc::c_uint = 126;
-pub static _SC_XBS5_LP64_OFF64: ::libc::c_uint = 127;
-pub static _SC_XBS5_LPBIG_OFFBIG: ::libc::c_uint = 128;
-pub static _SC_XOPEN_LEGACY: ::libc::c_uint = 129;
-pub static _SC_XOPEN_REALTIME: ::libc::c_uint = 130;
-pub static _SC_XOPEN_REALTIME_THREADS: ::libc::c_uint = 131;
-pub static _SC_ADVISORY_INFO: ::libc::c_uint = 132;
-pub static _SC_BARRIERS: ::libc::c_uint = 133;
-pub static _SC_BASE: ::libc::c_uint = 134;
-pub static _SC_C_LANG_SUPPORT: ::libc::c_uint = 135;
-pub static _SC_C_LANG_SUPPORT_R: ::libc::c_uint = 136;
-pub static _SC_CLOCK_SELECTION: ::libc::c_uint = 137;
-pub static _SC_CPUTIME: ::libc::c_uint = 138;
-pub static _SC_THREAD_CPUTIME: ::libc::c_uint = 139;
-pub static _SC_DEVICE_IO: ::libc::c_uint = 140;
-pub static _SC_DEVICE_SPECIFIC: ::libc::c_uint = 141;
-pub static _SC_DEVICE_SPECIFIC_R: ::libc::c_uint = 142;
-pub static _SC_FD_MGMT: ::libc::c_uint = 143;
-pub static _SC_FIFO: ::libc::c_uint = 144;
-pub static _SC_PIPE: ::libc::c_uint = 145;
-pub static _SC_FILE_ATTRIBUTES: ::libc::c_uint = 146;
-pub static _SC_FILE_LOCKING: ::libc::c_uint = 147;
-pub static _SC_FILE_SYSTEM: ::libc::c_uint = 148;
-pub static _SC_MONOTONIC_CLOCK: ::libc::c_uint = 149;
-pub static _SC_MULTI_PROCESS: ::libc::c_uint = 150;
-pub static _SC_SINGLE_PROCESS: ::libc::c_uint = 151;
-pub static _SC_NETWORKING: ::libc::c_uint = 152;
-pub static _SC_READER_WRITER_LOCKS: ::libc::c_uint = 153;
-pub static _SC_SPIN_LOCKS: ::libc::c_uint = 154;
-pub static _SC_REGEXP: ::libc::c_uint = 155;
-pub static _SC_REGEX_VERSION: ::libc::c_uint = 156;
-pub static _SC_SHELL: ::libc::c_uint = 157;
-pub static _SC_SIGNALS: ::libc::c_uint = 158;
-pub static _SC_SPAWN: ::libc::c_uint = 159;
-pub static _SC_SPORADIC_SERVER: ::libc::c_uint = 160;
-pub static _SC_THREAD_SPORADIC_SERVER: ::libc::c_uint = 161;
-pub static _SC_SYSTEM_DATABASE: ::libc::c_uint = 162;
-pub static _SC_SYSTEM_DATABASE_R: ::libc::c_uint = 163;
-pub static _SC_TIMEOUTS: ::libc::c_uint = 164;
-pub static _SC_TYPED_MEMORY_OBJECTS: ::libc::c_uint = 165;
-pub static _SC_USER_GROUPS: ::libc::c_uint = 166;
-pub static _SC_USER_GROUPS_R: ::libc::c_uint = 167;
-pub static _SC_2_PBS: ::libc::c_uint = 168;
-pub static _SC_2_PBS_ACCOUNTING: ::libc::c_uint = 169;
-pub static _SC_2_PBS_LOCATE: ::libc::c_uint = 170;
-pub static _SC_2_PBS_MESSAGE: ::libc::c_uint = 171;
-pub static _SC_2_PBS_TRACK: ::libc::c_uint = 172;
-pub static _SC_SYMLOOP_MAX: ::libc::c_uint = 173;
-pub static _SC_STREAMS: ::libc::c_uint = 174;
-pub static _SC_2_PBS_CHECKPOINT: ::libc::c_uint = 175;
-pub static _SC_V6_ILP32_OFF32: ::libc::c_uint = 176;
-pub static _SC_V6_ILP32_OFFBIG: ::libc::c_uint = 177;
-pub static _SC_V6_LP64_OFF64: ::libc::c_uint = 178;
-pub static _SC_V6_LPBIG_OFFBIG: ::libc::c_uint = 179;
-pub static _SC_HOST_NAME_MAX: ::libc::c_uint = 180;
-pub static _SC_TRACE: ::libc::c_uint = 181;
-pub static _SC_TRACE_EVENT_FILTER: ::libc::c_uint = 182;
-pub static _SC_TRACE_INHERIT: ::libc::c_uint = 183;
-pub static _SC_TRACE_LOG: ::libc::c_uint = 184;
-pub static _SC_LEVEL1_ICACHE_SIZE: ::libc::c_uint = 185;
-pub static _SC_LEVEL1_ICACHE_ASSOC: ::libc::c_uint = 186;
-pub static _SC_LEVEL1_ICACHE_LINESIZE: ::libc::c_uint = 187;
-pub static _SC_LEVEL1_DCACHE_SIZE: ::libc::c_uint = 188;
-pub static _SC_LEVEL1_DCACHE_ASSOC: ::libc::c_uint = 189;
-pub static _SC_LEVEL1_DCACHE_LINESIZE: ::libc::c_uint = 190;
-pub static _SC_LEVEL2_CACHE_SIZE: ::libc::c_uint = 191;
-pub static _SC_LEVEL2_CACHE_ASSOC: ::libc::c_uint = 192;
-pub static _SC_LEVEL2_CACHE_LINESIZE: ::libc::c_uint = 193;
-pub static _SC_LEVEL3_CACHE_SIZE: ::libc::c_uint = 194;
-pub static _SC_LEVEL3_CACHE_ASSOC: ::libc::c_uint = 195;
-pub static _SC_LEVEL3_CACHE_LINESIZE: ::libc::c_uint = 196;
-pub static _SC_LEVEL4_CACHE_SIZE: ::libc::c_uint = 197;
-pub static _SC_LEVEL4_CACHE_ASSOC: ::libc::c_uint = 198;
-pub static _SC_LEVEL4_CACHE_LINESIZE: ::libc::c_uint = 199;
-pub static _SC_IPV6: ::libc::c_uint = 235;
-pub static _SC_RAW_SOCKETS: ::libc::c_uint = 236;
-pub static _SC_V7_ILP32_OFF32: ::libc::c_uint = 237;
-pub static _SC_V7_ILP32_OFFBIG: ::libc::c_uint = 238;
-pub static _SC_V7_LP64_OFF64: ::libc::c_uint = 239;
-pub static _SC_V7_LPBIG_OFFBIG: ::libc::c_uint = 240;
-pub static _SC_SS_REPL_MAX: ::libc::c_uint = 241;
-pub static _SC_TRACE_EVENT_NAME_MAX: ::libc::c_uint = 242;
-pub static _SC_TRACE_NAME_MAX: ::libc::c_uint = 243;
-pub static _SC_TRACE_SYS_MAX: ::libc::c_uint = 244;
-pub static _SC_TRACE_USER_EVENT_MAX: ::libc::c_uint = 245;
-pub static _SC_XOPEN_STREAMS: ::libc::c_uint = 246;
-pub static _SC_THREAD_ROBUST_PRIO_INHERIT: ::libc::c_uint = 247;
-pub static _SC_THREAD_ROBUST_PRIO_PROTECT: ::libc::c_uint = 248;
+pub const _PC_LINK_MAX: ::libc::c_uint = 0;
+pub const _PC_MAX_CANON: ::libc::c_uint = 1;
+pub const _PC_MAX_INPUT: ::libc::c_uint = 2;
+pub const _PC_NAME_MAX: ::libc::c_uint = 3;
+pub const _PC_PATH_MAX: ::libc::c_uint = 4;
+pub const _PC_PIPE_BUF: ::libc::c_uint = 5;
+pub const _PC_CHOWN_RESTRICTED: ::libc::c_uint = 6;
+pub const _PC_NO_TRUNC: ::libc::c_uint = 7;
+pub const _PC_VDISABLE: ::libc::c_uint = 8;
+pub const _PC_SYNC_IO: ::libc::c_uint = 9;
+pub const _PC_ASYNC_IO: ::libc::c_uint = 10;
+pub const _PC_PRIO_IO: ::libc::c_uint = 11;
+pub const _PC_SOCK_MAXBUF: ::libc::c_uint = 12;
+pub const _PC_FILESIZEBITS: ::libc::c_uint = 13;
+pub const _PC_REC_INCR_XFER_SIZE: ::libc::c_uint = 14;
+pub const _PC_REC_MAX_XFER_SIZE: ::libc::c_uint = 15;
+pub const _PC_REC_MIN_XFER_SIZE: ::libc::c_uint = 16;
+pub const _PC_REC_XFER_ALIGN: ::libc::c_uint = 17;
+pub const _PC_ALLOC_SIZE_MIN: ::libc::c_uint = 18;
+pub const _PC_SYMLINK_MAX: ::libc::c_uint = 19;
+pub const _PC_2_SYMLINKS: ::libc::c_uint = 20;
 pub type Enum_Unnamed3 = ::libc::c_uint;
-pub static _CS_PATH: ::libc::c_uint = 0;
-pub static _CS_V6_WIDTH_RESTRICTED_ENVS: ::libc::c_uint = 1;
-pub static _CS_GNU_LIBC_VERSION: ::libc::c_uint = 2;
-pub static _CS_GNU_LIBPTHREAD_VERSION: ::libc::c_uint = 3;
-pub static _CS_V5_WIDTH_RESTRICTED_ENVS: ::libc::c_uint = 4;
-pub static _CS_V7_WIDTH_RESTRICTED_ENVS: ::libc::c_uint = 5;
-pub static _CS_LFS_CFLAGS: ::libc::c_uint = 1000;
-pub static _CS_LFS_LDFLAGS: ::libc::c_uint = 1001;
-pub static _CS_LFS_LIBS: ::libc::c_uint = 1002;
-pub static _CS_LFS_LINTFLAGS: ::libc::c_uint = 1003;
-pub static _CS_LFS64_CFLAGS: ::libc::c_uint = 1004;
-pub static _CS_LFS64_LDFLAGS: ::libc::c_uint = 1005;
-pub static _CS_LFS64_LIBS: ::libc::c_uint = 1006;
-pub static _CS_LFS64_LINTFLAGS: ::libc::c_uint = 1007;
-pub static _CS_XBS5_ILP32_OFF32_CFLAGS: ::libc::c_uint = 1100;
-pub static _CS_XBS5_ILP32_OFF32_LDFLAGS: ::libc::c_uint = 1101;
-pub static _CS_XBS5_ILP32_OFF32_LIBS: ::libc::c_uint = 1102;
-pub static _CS_XBS5_ILP32_OFF32_LINTFLAGS: ::libc::c_uint = 1103;
-pub static _CS_XBS5_ILP32_OFFBIG_CFLAGS: ::libc::c_uint = 1104;
-pub static _CS_XBS5_ILP32_OFFBIG_LDFLAGS: ::libc::c_uint = 1105;
-pub static _CS_XBS5_ILP32_OFFBIG_LIBS: ::libc::c_uint = 1106;
-pub static _CS_XBS5_ILP32_OFFBIG_LINTFLAGS: ::libc::c_uint = 1107;
-pub static _CS_XBS5_LP64_OFF64_CFLAGS: ::libc::c_uint = 1108;
-pub static _CS_XBS5_LP64_OFF64_LDFLAGS: ::libc::c_uint = 1109;
-pub static _CS_XBS5_LP64_OFF64_LIBS: ::libc::c_uint = 1110;
-pub static _CS_XBS5_LP64_OFF64_LINTFLAGS: ::libc::c_uint = 1111;
-pub static _CS_XBS5_LPBIG_OFFBIG_CFLAGS: ::libc::c_uint = 1112;
-pub static _CS_XBS5_LPBIG_OFFBIG_LDFLAGS: ::libc::c_uint = 1113;
-pub static _CS_XBS5_LPBIG_OFFBIG_LIBS: ::libc::c_uint = 1114;
-pub static _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS: ::libc::c_uint = 1115;
-pub static _CS_POSIX_V6_ILP32_OFF32_CFLAGS: ::libc::c_uint = 1116;
-pub static _CS_POSIX_V6_ILP32_OFF32_LDFLAGS: ::libc::c_uint = 1117;
-pub static _CS_POSIX_V6_ILP32_OFF32_LIBS: ::libc::c_uint = 1118;
-pub static _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS: ::libc::c_uint = 1119;
-pub static _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS: ::libc::c_uint = 1120;
-pub static _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS: ::libc::c_uint = 1121;
-pub static _CS_POSIX_V6_ILP32_OFFBIG_LIBS: ::libc::c_uint = 1122;
-pub static _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS: ::libc::c_uint = 1123;
-pub static _CS_POSIX_V6_LP64_OFF64_CFLAGS: ::libc::c_uint = 1124;
-pub static _CS_POSIX_V6_LP64_OFF64_LDFLAGS: ::libc::c_uint = 1125;
-pub static _CS_POSIX_V6_LP64_OFF64_LIBS: ::libc::c_uint = 1126;
-pub static _CS_POSIX_V6_LP64_OFF64_LINTFLAGS: ::libc::c_uint = 1127;
-pub static _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS: ::libc::c_uint = 1128;
-pub static _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS: ::libc::c_uint = 1129;
-pub static _CS_POSIX_V6_LPBIG_OFFBIG_LIBS: ::libc::c_uint = 1130;
-pub static _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS: ::libc::c_uint = 1131;
-pub static _CS_POSIX_V7_ILP32_OFF32_CFLAGS: ::libc::c_uint = 1132;
-pub static _CS_POSIX_V7_ILP32_OFF32_LDFLAGS: ::libc::c_uint = 1133;
-pub static _CS_POSIX_V7_ILP32_OFF32_LIBS: ::libc::c_uint = 1134;
-pub static _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS: ::libc::c_uint = 1135;
-pub static _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS: ::libc::c_uint = 1136;
-pub static _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS: ::libc::c_uint = 1137;
-pub static _CS_POSIX_V7_ILP32_OFFBIG_LIBS: ::libc::c_uint = 1138;
-pub static _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS: ::libc::c_uint = 1139;
-pub static _CS_POSIX_V7_LP64_OFF64_CFLAGS: ::libc::c_uint = 1140;
-pub static _CS_POSIX_V7_LP64_OFF64_LDFLAGS: ::libc::c_uint = 1141;
-pub static _CS_POSIX_V7_LP64_OFF64_LIBS: ::libc::c_uint = 1142;
-pub static _CS_POSIX_V7_LP64_OFF64_LINTFLAGS: ::libc::c_uint = 1143;
-pub static _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS: ::libc::c_uint = 1144;
-pub static _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS: ::libc::c_uint = 1145;
-pub static _CS_POSIX_V7_LPBIG_OFFBIG_LIBS: ::libc::c_uint = 1146;
-pub static _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS: ::libc::c_uint = 1147;
-pub static _CS_V6_ENV: ::libc::c_uint = 1148;
-pub static _CS_V7_ENV: ::libc::c_uint = 1149;
+pub const _SC_ARG_MAX: ::libc::c_uint = 0;
+pub const _SC_CHILD_MAX: ::libc::c_uint = 1;
+pub const _SC_CLK_TCK: ::libc::c_uint = 2;
+pub const _SC_NGROUPS_MAX: ::libc::c_uint = 3;
+pub const _SC_OPEN_MAX: ::libc::c_uint = 4;
+pub const _SC_STREAM_MAX: ::libc::c_uint = 5;
+pub const _SC_TZNAME_MAX: ::libc::c_uint = 6;
+pub const _SC_JOB_CONTROL: ::libc::c_uint = 7;
+pub const _SC_SAVED_IDS: ::libc::c_uint = 8;
+pub const _SC_REALTIME_SIGNALS: ::libc::c_uint = 9;
+pub const _SC_PRIORITY_SCHEDULING: ::libc::c_uint = 10;
+pub const _SC_TIMERS: ::libc::c_uint = 11;
+pub const _SC_ASYNCHRONOUS_IO: ::libc::c_uint = 12;
+pub const _SC_PRIORITIZED_IO: ::libc::c_uint = 13;
+pub const _SC_SYNCHRONIZED_IO: ::libc::c_uint = 14;
+pub const _SC_FSYNC: ::libc::c_uint = 15;
+pub const _SC_MAPPED_FILES: ::libc::c_uint = 16;
+pub const _SC_MEMLOCK: ::libc::c_uint = 17;
+pub const _SC_MEMLOCK_RANGE: ::libc::c_uint = 18;
+pub const _SC_MEMORY_PROTECTION: ::libc::c_uint = 19;
+pub const _SC_MESSAGE_PASSING: ::libc::c_uint = 20;
+pub const _SC_SEMAPHORES: ::libc::c_uint = 21;
+pub const _SC_SHARED_MEMORY_OBJECTS: ::libc::c_uint = 22;
+pub const _SC_AIO_LISTIO_MAX: ::libc::c_uint = 23;
+pub const _SC_AIO_MAX: ::libc::c_uint = 24;
+pub const _SC_AIO_PRIO_DELTA_MAX: ::libc::c_uint = 25;
+pub const _SC_DELAYTIMER_MAX: ::libc::c_uint = 26;
+pub const _SC_MQ_OPEN_MAX: ::libc::c_uint = 27;
+pub const _SC_MQ_PRIO_MAX: ::libc::c_uint = 28;
+pub const _SC_VERSION: ::libc::c_uint = 29;
+pub const _SC_PAGESIZE: ::libc::c_uint = 30;
+pub const _SC_RTSIG_MAX: ::libc::c_uint = 31;
+pub const _SC_SEM_NSEMS_MAX: ::libc::c_uint = 32;
+pub const _SC_SEM_VALUE_MAX: ::libc::c_uint = 33;
+pub const _SC_SIGQUEUE_MAX: ::libc::c_uint = 34;
+pub const _SC_TIMER_MAX: ::libc::c_uint = 35;
+pub const _SC_BC_BASE_MAX: ::libc::c_uint = 36;
+pub const _SC_BC_DIM_MAX: ::libc::c_uint = 37;
+pub const _SC_BC_SCALE_MAX: ::libc::c_uint = 38;
+pub const _SC_BC_STRING_MAX: ::libc::c_uint = 39;
+pub const _SC_COLL_WEIGHTS_MAX: ::libc::c_uint = 40;
+pub const _SC_EQUIV_CLASS_MAX: ::libc::c_uint = 41;
+pub const _SC_EXPR_NEST_MAX: ::libc::c_uint = 42;
+pub const _SC_LINE_MAX: ::libc::c_uint = 43;
+pub const _SC_RE_DUP_MAX: ::libc::c_uint = 44;
+pub const _SC_CHARCLASS_NAME_MAX: ::libc::c_uint = 45;
+pub const _SC_2_VERSION: ::libc::c_uint = 46;
+pub const _SC_2_C_BIND: ::libc::c_uint = 47;
+pub const _SC_2_C_DEV: ::libc::c_uint = 48;
+pub const _SC_2_FORT_DEV: ::libc::c_uint = 49;
+pub const _SC_2_FORT_RUN: ::libc::c_uint = 50;
+pub const _SC_2_SW_DEV: ::libc::c_uint = 51;
+pub const _SC_2_LOCALEDEF: ::libc::c_uint = 52;
+pub const _SC_PII: ::libc::c_uint = 53;
+pub const _SC_PII_XTI: ::libc::c_uint = 54;
+pub const _SC_PII_SOCKET: ::libc::c_uint = 55;
+pub const _SC_PII_INTERNET: ::libc::c_uint = 56;
+pub const _SC_PII_OSI: ::libc::c_uint = 57;
+pub const _SC_POLL: ::libc::c_uint = 58;
+pub const _SC_SELECT: ::libc::c_uint = 59;
+pub const _SC_UIO_MAXIOV: ::libc::c_uint = 60;
+pub const _SC_IOV_MAX: ::libc::c_uint = 60;
+pub const _SC_PII_INTERNET_STREAM: ::libc::c_uint = 61;
+pub const _SC_PII_INTERNET_DGRAM: ::libc::c_uint = 62;
+pub const _SC_PII_OSI_COTS: ::libc::c_uint = 63;
+pub const _SC_PII_OSI_CLTS: ::libc::c_uint = 64;
+pub const _SC_PII_OSI_M: ::libc::c_uint = 65;
+pub const _SC_T_IOV_MAX: ::libc::c_uint = 66;
+pub const _SC_THREADS: ::libc::c_uint = 67;
+pub const _SC_THREAD_SAFE_FUNCTIONS: ::libc::c_uint = 68;
+pub const _SC_GETGR_R_SIZE_MAX: ::libc::c_uint = 69;
+pub const _SC_GETPW_R_SIZE_MAX: ::libc::c_uint = 70;
+pub const _SC_LOGIN_NAME_MAX: ::libc::c_uint = 71;
+pub const _SC_TTY_NAME_MAX: ::libc::c_uint = 72;
+pub const _SC_THREAD_DESTRUCTOR_ITERATIONS: ::libc::c_uint = 73;
+pub const _SC_THREAD_KEYS_MAX: ::libc::c_uint = 74;
+pub const _SC_THREAD_STACK_MIN: ::libc::c_uint = 75;
+pub const _SC_THREAD_THREADS_MAX: ::libc::c_uint = 76;
+pub const _SC_THREAD_ATTR_STACKADDR: ::libc::c_uint = 77;
+pub const _SC_THREAD_ATTR_STACKSIZE: ::libc::c_uint = 78;
+pub const _SC_THREAD_PRIORITY_SCHEDULING: ::libc::c_uint = 79;
+pub const _SC_THREAD_PRIO_INHERIT: ::libc::c_uint = 80;
+pub const _SC_THREAD_PRIO_PROTECT: ::libc::c_uint = 81;
+pub const _SC_THREAD_PROCESS_SHARED: ::libc::c_uint = 82;
+pub const _SC_NPROCESSORS_CONF: ::libc::c_uint = 83;
+pub const _SC_NPROCESSORS_ONLN: ::libc::c_uint = 84;
+pub const _SC_PHYS_PAGES: ::libc::c_uint = 85;
+pub const _SC_AVPHYS_PAGES: ::libc::c_uint = 86;
+pub const _SC_ATEXIT_MAX: ::libc::c_uint = 87;
+pub const _SC_PASS_MAX: ::libc::c_uint = 88;
+pub const _SC_XOPEN_VERSION: ::libc::c_uint = 89;
+pub const _SC_XOPEN_XCU_VERSION: ::libc::c_uint = 90;
+pub const _SC_XOPEN_UNIX: ::libc::c_uint = 91;
+pub const _SC_XOPEN_CRYPT: ::libc::c_uint = 92;
+pub const _SC_XOPEN_ENH_I18N: ::libc::c_uint = 93;
+pub const _SC_XOPEN_SHM: ::libc::c_uint = 94;
+pub const _SC_2_CHAR_TERM: ::libc::c_uint = 95;
+pub const _SC_2_C_VERSION: ::libc::c_uint = 96;
+pub const _SC_2_UPE: ::libc::c_uint = 97;
+pub const _SC_XOPEN_XPG2: ::libc::c_uint = 98;
+pub const _SC_XOPEN_XPG3: ::libc::c_uint = 99;
+pub const _SC_XOPEN_XPG4: ::libc::c_uint = 100;
+pub const _SC_CHAR_BIT: ::libc::c_uint = 101;
+pub const _SC_CHAR_MAX: ::libc::c_uint = 102;
+pub const _SC_CHAR_MIN: ::libc::c_uint = 103;
+pub const _SC_INT_MAX: ::libc::c_uint = 104;
+pub const _SC_INT_MIN: ::libc::c_uint = 105;
+pub const _SC_LONG_BIT: ::libc::c_uint = 106;
+pub const _SC_WORD_BIT: ::libc::c_uint = 107;
+pub const _SC_MB_LEN_MAX: ::libc::c_uint = 108;
+pub const _SC_NZERO: ::libc::c_uint = 109;
+pub const _SC_SSIZE_MAX: ::libc::c_uint = 110;
+pub const _SC_SCHAR_MAX: ::libc::c_uint = 111;
+pub const _SC_SCHAR_MIN: ::libc::c_uint = 112;
+pub const _SC_SHRT_MAX: ::libc::c_uint = 113;
+pub const _SC_SHRT_MIN: ::libc::c_uint = 114;
+pub const _SC_UCHAR_MAX: ::libc::c_uint = 115;
+pub const _SC_UINT_MAX: ::libc::c_uint = 116;
+pub const _SC_ULONG_MAX: ::libc::c_uint = 117;
+pub const _SC_USHRT_MAX: ::libc::c_uint = 118;
+pub const _SC_NL_ARGMAX: ::libc::c_uint = 119;
+pub const _SC_NL_LANGMAX: ::libc::c_uint = 120;
+pub const _SC_NL_MSGMAX: ::libc::c_uint = 121;
+pub const _SC_NL_NMAX: ::libc::c_uint = 122;
+pub const _SC_NL_SETMAX: ::libc::c_uint = 123;
+pub const _SC_NL_TEXTMAX: ::libc::c_uint = 124;
+pub const _SC_XBS5_ILP32_OFF32: ::libc::c_uint = 125;
+pub const _SC_XBS5_ILP32_OFFBIG: ::libc::c_uint = 126;
+pub const _SC_XBS5_LP64_OFF64: ::libc::c_uint = 127;
+pub const _SC_XBS5_LPBIG_OFFBIG: ::libc::c_uint = 128;
+pub const _SC_XOPEN_LEGACY: ::libc::c_uint = 129;
+pub const _SC_XOPEN_REALTIME: ::libc::c_uint = 130;
+pub const _SC_XOPEN_REALTIME_THREADS: ::libc::c_uint = 131;
+pub const _SC_ADVISORY_INFO: ::libc::c_uint = 132;
+pub const _SC_BARRIERS: ::libc::c_uint = 133;
+pub const _SC_BASE: ::libc::c_uint = 134;
+pub const _SC_C_LANG_SUPPORT: ::libc::c_uint = 135;
+pub const _SC_C_LANG_SUPPORT_R: ::libc::c_uint = 136;
+pub const _SC_CLOCK_SELECTION: ::libc::c_uint = 137;
+pub const _SC_CPUTIME: ::libc::c_uint = 138;
+pub const _SC_THREAD_CPUTIME: ::libc::c_uint = 139;
+pub const _SC_DEVICE_IO: ::libc::c_uint = 140;
+pub const _SC_DEVICE_SPECIFIC: ::libc::c_uint = 141;
+pub const _SC_DEVICE_SPECIFIC_R: ::libc::c_uint = 142;
+pub const _SC_FD_MGMT: ::libc::c_uint = 143;
+pub const _SC_FIFO: ::libc::c_uint = 144;
+pub const _SC_PIPE: ::libc::c_uint = 145;
+pub const _SC_FILE_ATTRIBUTES: ::libc::c_uint = 146;
+pub const _SC_FILE_LOCKING: ::libc::c_uint = 147;
+pub const _SC_FILE_SYSTEM: ::libc::c_uint = 148;
+pub const _SC_MONOTONIC_CLOCK: ::libc::c_uint = 149;
+pub const _SC_MULTI_PROCESS: ::libc::c_uint = 150;
+pub const _SC_SINGLE_PROCESS: ::libc::c_uint = 151;
+pub const _SC_NETWORKING: ::libc::c_uint = 152;
+pub const _SC_READER_WRITER_LOCKS: ::libc::c_uint = 153;
+pub const _SC_SPIN_LOCKS: ::libc::c_uint = 154;
+pub const _SC_REGEXP: ::libc::c_uint = 155;
+pub const _SC_REGEX_VERSION: ::libc::c_uint = 156;
+pub const _SC_SHELL: ::libc::c_uint = 157;
+pub const _SC_SIGNALS: ::libc::c_uint = 158;
+pub const _SC_SPAWN: ::libc::c_uint = 159;
+pub const _SC_SPORADIC_SERVER: ::libc::c_uint = 160;
+pub const _SC_THREAD_SPORADIC_SERVER: ::libc::c_uint = 161;
+pub const _SC_SYSTEM_DATABASE: ::libc::c_uint = 162;
+pub const _SC_SYSTEM_DATABASE_R: ::libc::c_uint = 163;
+pub const _SC_TIMEOUTS: ::libc::c_uint = 164;
+pub const _SC_TYPED_MEMORY_OBJECTS: ::libc::c_uint = 165;
+pub const _SC_USER_GROUPS: ::libc::c_uint = 166;
+pub const _SC_USER_GROUPS_R: ::libc::c_uint = 167;
+pub const _SC_2_PBS: ::libc::c_uint = 168;
+pub const _SC_2_PBS_ACCOUNTING: ::libc::c_uint = 169;
+pub const _SC_2_PBS_LOCATE: ::libc::c_uint = 170;
+pub const _SC_2_PBS_MESSAGE: ::libc::c_uint = 171;
+pub const _SC_2_PBS_TRACK: ::libc::c_uint = 172;
+pub const _SC_SYMLOOP_MAX: ::libc::c_uint = 173;
+pub const _SC_STREAMS: ::libc::c_uint = 174;
+pub const _SC_2_PBS_CHECKPOINT: ::libc::c_uint = 175;
+pub const _SC_V6_ILP32_OFF32: ::libc::c_uint = 176;
+pub const _SC_V6_ILP32_OFFBIG: ::libc::c_uint = 177;
+pub const _SC_V6_LP64_OFF64: ::libc::c_uint = 178;
+pub const _SC_V6_LPBIG_OFFBIG: ::libc::c_uint = 179;
+pub const _SC_HOST_NAME_MAX: ::libc::c_uint = 180;
+pub const _SC_TRACE: ::libc::c_uint = 181;
+pub const _SC_TRACE_EVENT_FILTER: ::libc::c_uint = 182;
+pub const _SC_TRACE_INHERIT: ::libc::c_uint = 183;
+pub const _SC_TRACE_LOG: ::libc::c_uint = 184;
+pub const _SC_LEVEL1_ICACHE_SIZE: ::libc::c_uint = 185;
+pub const _SC_LEVEL1_ICACHE_ASSOC: ::libc::c_uint = 186;
+pub const _SC_LEVEL1_ICACHE_LINESIZE: ::libc::c_uint = 187;
+pub const _SC_LEVEL1_DCACHE_SIZE: ::libc::c_uint = 188;
+pub const _SC_LEVEL1_DCACHE_ASSOC: ::libc::c_uint = 189;
+pub const _SC_LEVEL1_DCACHE_LINESIZE: ::libc::c_uint = 190;
+pub const _SC_LEVEL2_CACHE_SIZE: ::libc::c_uint = 191;
+pub const _SC_LEVEL2_CACHE_ASSOC: ::libc::c_uint = 192;
+pub const _SC_LEVEL2_CACHE_LINESIZE: ::libc::c_uint = 193;
+pub const _SC_LEVEL3_CACHE_SIZE: ::libc::c_uint = 194;
+pub const _SC_LEVEL3_CACHE_ASSOC: ::libc::c_uint = 195;
+pub const _SC_LEVEL3_CACHE_LINESIZE: ::libc::c_uint = 196;
+pub const _SC_LEVEL4_CACHE_SIZE: ::libc::c_uint = 197;
+pub const _SC_LEVEL4_CACHE_ASSOC: ::libc::c_uint = 198;
+pub const _SC_LEVEL4_CACHE_LINESIZE: ::libc::c_uint = 199;
+pub const _SC_IPV6: ::libc::c_uint = 235;
+pub const _SC_RAW_SOCKETS: ::libc::c_uint = 236;
+pub const _SC_V7_ILP32_OFF32: ::libc::c_uint = 237;
+pub const _SC_V7_ILP32_OFFBIG: ::libc::c_uint = 238;
+pub const _SC_V7_LP64_OFF64: ::libc::c_uint = 239;
+pub const _SC_V7_LPBIG_OFFBIG: ::libc::c_uint = 240;
+pub const _SC_SS_REPL_MAX: ::libc::c_uint = 241;
+pub const _SC_TRACE_EVENT_NAME_MAX: ::libc::c_uint = 242;
+pub const _SC_TRACE_NAME_MAX: ::libc::c_uint = 243;
+pub const _SC_TRACE_SYS_MAX: ::libc::c_uint = 244;
+pub const _SC_TRACE_USER_EVENT_MAX: ::libc::c_uint = 245;
+pub const _SC_XOPEN_STREAMS: ::libc::c_uint = 246;
+pub const _SC_THREAD_ROBUST_PRIO_INHERIT: ::libc::c_uint = 247;
+pub const _SC_THREAD_ROBUST_PRIO_PROTECT: ::libc::c_uint = 248;
+pub type Enum_Unnamed4 = ::libc::c_uint;
+pub const _CS_PATH: ::libc::c_uint = 0;
+pub const _CS_V6_WIDTH_RESTRICTED_ENVS: ::libc::c_uint = 1;
+pub const _CS_GNU_LIBC_VERSION: ::libc::c_uint = 2;
+pub const _CS_GNU_LIBPTHREAD_VERSION: ::libc::c_uint = 3;
+pub const _CS_V5_WIDTH_RESTRICTED_ENVS: ::libc::c_uint = 4;
+pub const _CS_V7_WIDTH_RESTRICTED_ENVS: ::libc::c_uint = 5;
+pub const _CS_LFS_CFLAGS: ::libc::c_uint = 1000;
+pub const _CS_LFS_LDFLAGS: ::libc::c_uint = 1001;
+pub const _CS_LFS_LIBS: ::libc::c_uint = 1002;
+pub const _CS_LFS_LINTFLAGS: ::libc::c_uint = 1003;
+pub const _CS_LFS64_CFLAGS: ::libc::c_uint = 1004;
+pub const _CS_LFS64_LDFLAGS: ::libc::c_uint = 1005;
+pub const _CS_LFS64_LIBS: ::libc::c_uint = 1006;
+pub const _CS_LFS64_LINTFLAGS: ::libc::c_uint = 1007;
+pub const _CS_XBS5_ILP32_OFF32_CFLAGS: ::libc::c_uint = 1100;
+pub const _CS_XBS5_ILP32_OFF32_LDFLAGS: ::libc::c_uint = 1101;
+pub const _CS_XBS5_ILP32_OFF32_LIBS: ::libc::c_uint = 1102;
+pub const _CS_XBS5_ILP32_OFF32_LINTFLAGS: ::libc::c_uint = 1103;
+pub const _CS_XBS5_ILP32_OFFBIG_CFLAGS: ::libc::c_uint = 1104;
+pub const _CS_XBS5_ILP32_OFFBIG_LDFLAGS: ::libc::c_uint = 1105;
+pub const _CS_XBS5_ILP32_OFFBIG_LIBS: ::libc::c_uint = 1106;
+pub const _CS_XBS5_ILP32_OFFBIG_LINTFLAGS: ::libc::c_uint = 1107;
+pub const _CS_XBS5_LP64_OFF64_CFLAGS: ::libc::c_uint = 1108;
+pub const _CS_XBS5_LP64_OFF64_LDFLAGS: ::libc::c_uint = 1109;
+pub const _CS_XBS5_LP64_OFF64_LIBS: ::libc::c_uint = 1110;
+pub const _CS_XBS5_LP64_OFF64_LINTFLAGS: ::libc::c_uint = 1111;
+pub const _CS_XBS5_LPBIG_OFFBIG_CFLAGS: ::libc::c_uint = 1112;
+pub const _CS_XBS5_LPBIG_OFFBIG_LDFLAGS: ::libc::c_uint = 1113;
+pub const _CS_XBS5_LPBIG_OFFBIG_LIBS: ::libc::c_uint = 1114;
+pub const _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS: ::libc::c_uint = 1115;
+pub const _CS_POSIX_V6_ILP32_OFF32_CFLAGS: ::libc::c_uint = 1116;
+pub const _CS_POSIX_V6_ILP32_OFF32_LDFLAGS: ::libc::c_uint = 1117;
+pub const _CS_POSIX_V6_ILP32_OFF32_LIBS: ::libc::c_uint = 1118;
+pub const _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS: ::libc::c_uint = 1119;
+pub const _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS: ::libc::c_uint = 1120;
+pub const _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS: ::libc::c_uint = 1121;
+pub const _CS_POSIX_V6_ILP32_OFFBIG_LIBS: ::libc::c_uint = 1122;
+pub const _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS: ::libc::c_uint = 1123;
+pub const _CS_POSIX_V6_LP64_OFF64_CFLAGS: ::libc::c_uint = 1124;
+pub const _CS_POSIX_V6_LP64_OFF64_LDFLAGS: ::libc::c_uint = 1125;
+pub const _CS_POSIX_V6_LP64_OFF64_LIBS: ::libc::c_uint = 1126;
+pub const _CS_POSIX_V6_LP64_OFF64_LINTFLAGS: ::libc::c_uint = 1127;
+pub const _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS: ::libc::c_uint = 1128;
+pub const _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS: ::libc::c_uint = 1129;
+pub const _CS_POSIX_V6_LPBIG_OFFBIG_LIBS: ::libc::c_uint = 1130;
+pub const _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS: ::libc::c_uint = 1131;
+pub const _CS_POSIX_V7_ILP32_OFF32_CFLAGS: ::libc::c_uint = 1132;
+pub const _CS_POSIX_V7_ILP32_OFF32_LDFLAGS: ::libc::c_uint = 1133;
+pub const _CS_POSIX_V7_ILP32_OFF32_LIBS: ::libc::c_uint = 1134;
+pub const _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS: ::libc::c_uint = 1135;
+pub const _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS: ::libc::c_uint = 1136;
+pub const _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS: ::libc::c_uint = 1137;
+pub const _CS_POSIX_V7_ILP32_OFFBIG_LIBS: ::libc::c_uint = 1138;
+pub const _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS: ::libc::c_uint = 1139;
+pub const _CS_POSIX_V7_LP64_OFF64_CFLAGS: ::libc::c_uint = 1140;
+pub const _CS_POSIX_V7_LP64_OFF64_LDFLAGS: ::libc::c_uint = 1141;
+pub const _CS_POSIX_V7_LP64_OFF64_LIBS: ::libc::c_uint = 1142;
+pub const _CS_POSIX_V7_LP64_OFF64_LINTFLAGS: ::libc::c_uint = 1143;
+pub const _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS: ::libc::c_uint = 1144;
+pub const _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS: ::libc::c_uint = 1145;
+pub const _CS_POSIX_V7_LPBIG_OFFBIG_LIBS: ::libc::c_uint = 1146;
+pub const _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS: ::libc::c_uint = 1147;
+pub const _CS_V6_ENV: ::libc::c_uint = 1148;
+pub const _CS_V7_ENV: ::libc::c_uint = 1149;
 pub type FILE = Struct__IO_FILE;
 pub type __FILE = Struct__IO_FILE;
 #[repr(C)]
-pub struct Union_Unnamed4 {
-    pub data: [u32, ..1u],
-}
-impl Union_Unnamed4 {
-    pub fn __wch(&mut self) -> *mut ::libc::c_uint {
-        unsafe { ::std::mem::transmute(self) }
-    }
-    pub fn __wchb(&mut self) -> *mut [::libc::c_char, ..4u] {
-        unsafe { ::std::mem::transmute(self) }
-    }
-}
-#[repr(C)]
-pub struct __mbstate_t {
+#[derive(Copy)]
+pub struct Struct_Unnamed5 {
     pub __count: ::libc::c_int,
-    pub __value: Union_Unnamed4,
+    pub __value: Union_Unnamed6,
+}
+impl ::std::clone::Clone for Struct_Unnamed5 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed5 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 #[repr(C)]
-pub struct _G_fpos_t {
+#[derive(Copy)]
+pub struct Union_Unnamed6 {
+    pub _bindgen_data_: [u32; 1usize],
+}
+impl Union_Unnamed6 {
+    pub unsafe fn __wch(&mut self) -> *mut ::libc::c_uint {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+    pub unsafe fn __wchb(&mut self) -> *mut [::libc::c_char; 4usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+}
+impl ::std::clone::Clone for Union_Unnamed6 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed6 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type __mbstate_t = Struct_Unnamed5;
+#[repr(C)]
+#[derive(Copy)]
+pub struct Struct_Unnamed7 {
     pub __pos: __off_t,
     pub __state: __mbstate_t,
 }
+impl ::std::clone::Clone for Struct_Unnamed7 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed7 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type _G_fpos_t = Struct_Unnamed7;
 #[repr(C)]
-pub struct _G_fpos64_t {
+#[derive(Copy)]
+pub struct Struct_Unnamed8 {
     pub __pos: __off64_t,
     pub __state: __mbstate_t,
 }
-pub type __gnuc_va_list = *mut ();
+impl ::std::clone::Clone for Struct_Unnamed8 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed8 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type _G_fpos64_t = Struct_Unnamed8;
+pub type va_list = __gnuc_va_list;
+pub type __gnuc_va_list = __builtin_va_list;
 pub enum Struct__IO_jump_t { }
 pub type _IO_lock_t = ::libc::c_void;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct__IO_marker {
     pub _next: *mut Struct__IO_marker,
     pub _sbuf: *mut Struct__IO_FILE,
     pub _pos: ::libc::c_int,
 }
+impl ::std::clone::Clone for Struct__IO_marker {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct__IO_marker {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type Enum___codecvt_result = ::libc::c_uint;
-pub static __codecvt_ok: ::libc::c_uint = 0;
-pub static __codecvt_partial: ::libc::c_uint = 1;
-pub static __codecvt_error: ::libc::c_uint = 2;
-pub static __codecvt_noconv: ::libc::c_uint = 3;
+pub const __codecvt_ok: ::libc::c_uint = 0;
+pub const __codecvt_partial: ::libc::c_uint = 1;
+pub const __codecvt_error: ::libc::c_uint = 2;
+pub const __codecvt_noconv: ::libc::c_uint = 3;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct__IO_FILE {
     pub _flags: ::libc::c_int,
     pub _IO_read_ptr: *mut ::libc::c_char,
@@ -434,7 +484,7 @@ pub struct Struct__IO_FILE {
     pub _old_offset: __off_t,
     pub _cur_column: ::libc::c_ushort,
     pub _vtable_offset: ::libc::c_char,
-    pub _shortbuf: [::libc::c_char, ..1u],
+    pub _shortbuf: [::libc::c_char; 1usize],
     pub _lock: *mut _IO_lock_t,
     pub _offset: __off64_t,
     pub __pad1: *mut ::libc::c_void,
@@ -443,72 +493,137 @@ pub struct Struct__IO_FILE {
     pub __pad4: *mut ::libc::c_void,
     pub __pad5: size_t,
     pub _mode: ::libc::c_int,
-    pub _unused2: [::libc::c_char, ..20u],
+    pub _unused2: [::libc::c_char; 20usize],
+}
+impl ::std::clone::Clone for Struct__IO_FILE {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct__IO_FILE {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type _IO_FILE = Struct__IO_FILE;
 pub enum Struct__IO_FILE_plus { }
-pub type __io_read_fn = ::libc::c_void;
-pub type __io_write_fn = ::libc::c_void;
-pub type __io_seek_fn = ::libc::c_void;
-pub type __io_close_fn = ::libc::c_void;
-pub type va_list = __gnuc_va_list;
+pub type __io_read_fn =
+    extern "C" fn(__cookie: *mut ::libc::c_void, __buf: *mut ::libc::c_char,
+                  __nbytes: size_t) -> __ssize_t;
+pub type __io_write_fn =
+    extern "C" fn(__cookie: *mut ::libc::c_void, __buf: *const ::libc::c_char,
+                  __n: size_t) -> __ssize_t;
+pub type __io_seek_fn =
+    extern "C" fn(__cookie: *mut ::libc::c_void, __pos: *mut __off64_t,
+                  __w: ::libc::c_int) -> ::libc::c_int;
+pub type __io_close_fn =
+    extern "C" fn(__cookie: *mut ::libc::c_void) -> ::libc::c_int;
 pub type fpos_t = _G_fpos_t;
 pub type wchar_t = ::libc::c_int;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Union_wait {
-    pub data: [u32, ..1u],
+    pub _bindgen_data_: [u32; 1usize],
 }
 impl Union_wait {
-    pub fn w_status(&mut self) -> *mut ::libc::c_int {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn w_status(&mut self) -> *mut ::libc::c_int {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __wait_terminated(&mut self) -> *mut Struct_Unnamed5 {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __wait_terminated(&mut self) -> *mut Struct_Unnamed9 {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __wait_stopped(&mut self) -> *mut Struct_Unnamed6 {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __wait_stopped(&mut self) -> *mut Struct_Unnamed10 {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
+}
+impl ::std::clone::Clone for Union_wait {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_wait {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 #[repr(C)]
-pub struct Struct_Unnamed5 {
-    pub __w_termsig: ::libc::c_uint,
-    pub __w_coredump: ::libc::c_uint,
-    pub __w_retcode: ::libc::c_uint,
-    pub unnamed_field1: ::libc::c_uint,
+#[derive(Copy)]
+pub struct Struct_Unnamed9 {
+    pub _bindgen_bitfield_1_: ::libc::c_uint,
+}
+impl ::std::clone::Clone for Struct_Unnamed9 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed9 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 #[repr(C)]
-pub struct Struct_Unnamed6 {
-    pub __w_stopval: ::libc::c_uint,
-    pub __w_stopsig: ::libc::c_uint,
-    pub unnamed_field1: ::libc::c_uint,
+#[derive(Copy)]
+pub struct Struct_Unnamed10 {
+    pub _bindgen_bitfield_1_: ::libc::c_uint,
+}
+impl ::std::clone::Clone for Struct_Unnamed10 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed10 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 #[repr(C)]
-pub struct __WAIT_STATUS {
-    pub data: [u64, ..1u],
+#[derive(Copy)]
+pub struct Union_Unnamed11 {
+    pub _bindgen_data_: [u64; 1usize],
 }
-impl __WAIT_STATUS {
-    pub fn __uptr(&mut self) -> *mut *mut Union_wait {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed11 {
+    pub unsafe fn __uptr(&mut self) -> *mut *mut Union_wait {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __iptr(&mut self) -> *mut *mut ::libc::c_int {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __iptr(&mut self) -> *mut *mut ::libc::c_int {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
 }
+impl ::std::clone::Clone for Union_Unnamed11 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed11 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type __WAIT_STATUS = Union_Unnamed11;
 #[repr(C)]
-pub struct div_t {
+#[derive(Copy)]
+pub struct Struct_Unnamed12 {
     pub quot: ::libc::c_int,
     pub rem: ::libc::c_int,
 }
+impl ::std::clone::Clone for Struct_Unnamed12 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed12 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type div_t = Struct_Unnamed12;
 #[repr(C)]
-pub struct ldiv_t {
+#[derive(Copy)]
+pub struct Struct_Unnamed13 {
     pub quot: ::libc::c_long,
     pub rem: ::libc::c_long,
 }
+impl ::std::clone::Clone for Struct_Unnamed13 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed13 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type ldiv_t = Struct_Unnamed13;
 #[repr(C)]
-pub struct lldiv_t {
+#[derive(Copy)]
+pub struct Struct_Unnamed14 {
     pub quot: ::libc::c_longlong,
     pub rem: ::libc::c_longlong,
 }
+impl ::std::clone::Clone for Struct_Unnamed14 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed14 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type lldiv_t = Struct_Unnamed14;
 pub type u_char = __u_char;
 pub type u_short = __u_short;
 pub type u_int = __u_int;
@@ -543,26 +658,56 @@ pub type u_int64_t = ::libc::c_ulong;
 pub type register_t = ::libc::c_long;
 pub type __sig_atomic_t = ::libc::c_int;
 #[repr(C)]
-pub struct __sigset_t {
-    pub __val: [::libc::c_ulong, ..16u],
+#[derive(Copy)]
+pub struct Struct_Unnamed15 {
+    pub __val: [::libc::c_ulong; 16usize],
 }
+impl ::std::clone::Clone for Struct_Unnamed15 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed15 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type __sigset_t = Struct_Unnamed15;
 pub type sigset_t = __sigset_t;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_timespec {
     pub tv_sec: __time_t,
     pub tv_nsec: __syscall_slong_t,
 }
+impl ::std::clone::Clone for Struct_timespec {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_timespec {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_timeval {
     pub tv_sec: __time_t,
     pub tv_usec: __suseconds_t,
 }
+impl ::std::clone::Clone for Struct_timeval {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_timeval {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type suseconds_t = __suseconds_t;
 pub type __fd_mask = ::libc::c_long;
 #[repr(C)]
-pub struct fd_set {
-    pub __fds_bits: [__fd_mask, ..16u],
+#[derive(Copy)]
+pub struct Struct_Unnamed16 {
+    pub __fds_bits: [__fd_mask; 16usize],
 }
+impl ::std::clone::Clone for Struct_Unnamed16 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed16 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type fd_set = Struct_Unnamed16;
 pub type fd_mask = __fd_mask;
 pub type blksize_t = __blksize_t;
 pub type blkcnt_t = __blkcnt_t;
@@ -570,25 +715,67 @@ pub type fsblkcnt_t = __fsblkcnt_t;
 pub type fsfilcnt_t = __fsfilcnt_t;
 pub type pthread_t = ::libc::c_ulong;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Union_pthread_attr_t {
-    pub data: [u64, ..7u],
+    pub _bindgen_data_: [u64; 7usize],
 }
 impl Union_pthread_attr_t {
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..56u] {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 56usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __align(&mut self) -> *mut ::libc::c_long {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_long {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
+}
+impl ::std::clone::Clone for Union_pthread_attr_t {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_pthread_attr_t {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type pthread_attr_t = Union_pthread_attr_t;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct___pthread_internal_list {
     pub __prev: *mut Struct___pthread_internal_list,
     pub __next: *mut Struct___pthread_internal_list,
 }
+impl ::std::clone::Clone for Struct___pthread_internal_list {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct___pthread_internal_list {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type __pthread_list_t = Struct___pthread_internal_list;
 #[repr(C)]
+#[derive(Copy)]
+pub struct Union_Unnamed17 {
+    pub _bindgen_data_: [u64; 5usize],
+}
+impl Union_Unnamed17 {
+    pub unsafe fn __data(&mut self) -> *mut Struct___pthread_mutex_s {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 40usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_long {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+}
+impl ::std::clone::Clone for Union_Unnamed17 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed17 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+#[repr(C)]
+#[derive(Copy)]
 pub struct Struct___pthread_mutex_s {
     pub __lock: ::libc::c_int,
     pub __count: ::libc::c_uint,
@@ -599,35 +786,63 @@ pub struct Struct___pthread_mutex_s {
     pub __elision: ::libc::c_short,
     pub __list: __pthread_list_t,
 }
+impl ::std::clone::Clone for Struct___pthread_mutex_s {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct___pthread_mutex_s {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_mutex_t = Union_Unnamed17;
 #[repr(C)]
-pub struct pthread_mutex_t {
-    pub data: [u64, ..5u],
+#[derive(Copy)]
+pub struct Union_Unnamed18 {
+    pub _bindgen_data_: [u32; 1usize],
 }
-impl pthread_mutex_t {
-    pub fn __data(&mut self) -> *mut Struct___pthread_mutex_s {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed18 {
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 4usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..40u] {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_int {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __align(&mut self) -> *mut ::libc::c_long {
-        unsafe { ::std::mem::transmute(self) }
+}
+impl ::std::clone::Clone for Union_Unnamed18 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed18 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_mutexattr_t = Union_Unnamed18;
+#[repr(C)]
+#[derive(Copy)]
+pub struct Union_Unnamed19 {
+    pub _bindgen_data_: [u64; 6usize],
+}
+impl Union_Unnamed19 {
+    pub unsafe fn __data(&mut self) -> *mut Struct_Unnamed20 {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 48usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_longlong {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+}
+impl ::std::clone::Clone for Union_Unnamed19 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed19 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 #[repr(C)]
-pub struct pthread_mutexattr_t {
-    pub data: [u32, ..1u],
-}
-impl pthread_mutexattr_t {
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..4u] {
-        unsafe { ::std::mem::transmute(self) }
-    }
-    pub fn __align(&mut self) -> *mut ::libc::c_int {
-        unsafe { ::std::mem::transmute(self) }
-    }
-}
-#[repr(C)]
-pub struct Struct_Unnamed7 {
+#[derive(Copy)]
+pub struct Struct_Unnamed20 {
     pub __lock: ::libc::c_int,
     pub __futex: ::libc::c_uint,
     pub __total_seq: ::libc::c_ulonglong,
@@ -637,37 +852,65 @@ pub struct Struct_Unnamed7 {
     pub __nwaiters: ::libc::c_uint,
     pub __broadcast_seq: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct_Unnamed20 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed20 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_cond_t = Union_Unnamed19;
 #[repr(C)]
-pub struct pthread_cond_t {
-    pub data: [u64, ..6u],
+#[derive(Copy)]
+pub struct Union_Unnamed21 {
+    pub _bindgen_data_: [u32; 1usize],
 }
-impl pthread_cond_t {
-    pub fn __data(&mut self) -> *mut Struct_Unnamed7 {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed21 {
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 4usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..48u] {
-        unsafe { ::std::mem::transmute(self) }
-    }
-    pub fn __align(&mut self) -> *mut ::libc::c_longlong {
-        unsafe { ::std::mem::transmute(self) }
-    }
-}
-#[repr(C)]
-pub struct pthread_condattr_t {
-    pub data: [u32, ..1u],
-}
-impl pthread_condattr_t {
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..4u] {
-        unsafe { ::std::mem::transmute(self) }
-    }
-    pub fn __align(&mut self) -> *mut ::libc::c_int {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_int {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
 }
+impl ::std::clone::Clone for Union_Unnamed21 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed21 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_condattr_t = Union_Unnamed21;
 pub type pthread_key_t = ::libc::c_uint;
 pub type pthread_once_t = ::libc::c_int;
 #[repr(C)]
-pub struct Struct_Unnamed8 {
+#[derive(Copy)]
+pub struct Union_Unnamed22 {
+    pub _bindgen_data_: [u64; 7usize],
+}
+impl Union_Unnamed22 {
+    pub unsafe fn __data(&mut self) -> *mut Struct_Unnamed23 {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 56usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_long {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
+    }
+}
+impl ::std::clone::Clone for Union_Unnamed22 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed22 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+#[repr(C)]
+#[derive(Copy)]
+pub struct Struct_Unnamed23 {
     pub __lock: ::libc::c_int,
     pub __nr_readers: ::libc::c_uint,
     pub __readers_wakeup: ::libc::c_uint,
@@ -676,63 +919,87 @@ pub struct Struct_Unnamed8 {
     pub __nr_writers_queued: ::libc::c_uint,
     pub __writer: ::libc::c_int,
     pub __shared: ::libc::c_int,
-    pub __pad1: ::libc::c_ulong,
+    pub __rwelision: ::libc::c_char,
+    pub __pad1: [::libc::c_uchar; 7usize],
     pub __pad2: ::libc::c_ulong,
     pub __flags: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct_Unnamed23 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_Unnamed23 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_rwlock_t = Union_Unnamed22;
 #[repr(C)]
-pub struct pthread_rwlock_t {
-    pub data: [u64, ..7u],
+#[derive(Copy)]
+pub struct Union_Unnamed24 {
+    pub _bindgen_data_: [u64; 1usize],
 }
-impl pthread_rwlock_t {
-    pub fn __data(&mut self) -> *mut Struct_Unnamed8 {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed24 {
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 8usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..56u] {
-        unsafe { ::std::mem::transmute(self) }
-    }
-    pub fn __align(&mut self) -> *mut ::libc::c_long {
-        unsafe { ::std::mem::transmute(self) }
-    }
-}
-#[repr(C)]
-pub struct pthread_rwlockattr_t {
-    pub data: [u64, ..1u],
-}
-impl pthread_rwlockattr_t {
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..8u] {
-        unsafe { ::std::mem::transmute(self) }
-    }
-    pub fn __align(&mut self) -> *mut ::libc::c_long {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_long {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
 }
+impl ::std::clone::Clone for Union_Unnamed24 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed24 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_rwlockattr_t = Union_Unnamed24;
 pub type pthread_spinlock_t = ::libc::c_int;
 #[repr(C)]
-pub struct pthread_barrier_t {
-    pub data: [u64, ..4u],
+#[derive(Copy)]
+pub struct Union_Unnamed25 {
+    pub _bindgen_data_: [u64; 4usize],
 }
-impl pthread_barrier_t {
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..32u] {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed25 {
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 32usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __align(&mut self) -> *mut ::libc::c_long {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_long {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
 }
+impl ::std::clone::Clone for Union_Unnamed25 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed25 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_barrier_t = Union_Unnamed25;
 #[repr(C)]
-pub struct pthread_barrierattr_t {
-    pub data: [u32, ..1u],
+#[derive(Copy)]
+pub struct Union_Unnamed26 {
+    pub _bindgen_data_: [u32; 1usize],
 }
-impl pthread_barrierattr_t {
-    pub fn __size(&mut self) -> *mut [::libc::c_char, ..4u] {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed26 {
+    pub unsafe fn __size(&mut self) -> *mut [::libc::c_char; 4usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn __align(&mut self) -> *mut ::libc::c_int {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn __align(&mut self) -> *mut ::libc::c_int {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
 }
+impl ::std::clone::Clone for Union_Unnamed26 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed26 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type pthread_barrierattr_t = Union_Unnamed26;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_random_data {
     pub fptr: *mut int32_t,
     pub rptr: *mut int32_t,
@@ -742,30 +1009,51 @@ pub struct Struct_random_data {
     pub rand_sep: ::libc::c_int,
     pub end_ptr: *mut int32_t,
 }
+impl ::std::clone::Clone for Struct_random_data {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_random_data {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_drand48_data {
-    pub __x: [::libc::c_ushort, ..3u],
-    pub __old_x: [::libc::c_ushort, ..3u],
+    pub __x: [::libc::c_ushort; 3usize],
+    pub __old_x: [::libc::c_ushort; 3usize],
     pub __c: ::libc::c_ushort,
     pub __init: ::libc::c_ushort,
     pub __a: ::libc::c_ulonglong,
 }
+impl ::std::clone::Clone for Struct_drand48_data {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_drand48_data {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type __compar_fn_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *const ::libc::c_void,
-                               arg2: *const ::libc::c_void) -> ::libc::c_int>;
+    ::std::option::Option<extern "C" fn(arg1: *const ::libc::c_void,
+                                        arg2: *const ::libc::c_void)
+                              -> ::libc::c_int>;
+pub enum Struct___locale_data { }
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct___locale_struct {
-    pub __locales: [*mut Struct___locale_data, ..13u],
+    pub __locales: [*mut Struct___locale_data; 13usize],
     pub __ctype_b: *const ::libc::c_ushort,
     pub __ctype_tolower: *const ::libc::c_int,
     pub __ctype_toupper: *const ::libc::c_int,
-    pub __names: [*const ::libc::c_char, ..13u],
+    pub __names: [*const ::libc::c_char; 13usize],
 }
-pub enum Struct___locale_data { }
+impl ::std::clone::Clone for Struct___locale_struct {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct___locale_struct {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type __locale_t = *mut Struct___locale_struct;
 pub type locale_t = __locale_t;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_flock {
     pub l_type: ::libc::c_short,
     pub l_whence: ::libc::c_short,
@@ -773,7 +1061,14 @@ pub struct Struct_flock {
     pub l_len: __off_t,
     pub l_pid: __pid_t,
 }
+impl ::std::clone::Clone for Struct_flock {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_flock {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_stat {
     pub st_dev: __dev_t,
     pub st_ino: __ino_t,
@@ -789,16 +1084,30 @@ pub struct Struct_stat {
     pub st_atim: Struct_timespec,
     pub st_mtim: Struct_timespec,
     pub st_ctim: Struct_timespec,
-    pub __glibc_reserved: [__syscall_slong_t, ..3u],
+    pub __glibc_reserved: [__syscall_slong_t; 3usize],
+}
+impl ::std::clone::Clone for Struct_stat {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_stat {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfds_t = ::libc::c_ulong;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_pollfd {
     pub fd: ::libc::c_int,
     pub events: ::libc::c_short,
     pub revents: ::libc::c_short,
 }
+impl ::std::clone::Clone for Struct_pollfd {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_pollfd {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_tm {
     pub tm_sec: ::libc::c_int,
     pub tm_min: ::libc::c_int,
@@ -812,58 +1121,79 @@ pub struct Struct_tm {
     pub tm_gmtoff: ::libc::c_long,
     pub tm_zone: *const ::libc::c_char,
 }
+impl ::std::clone::Clone for Struct_tm {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_tm {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_itimerspec {
     pub it_interval: Struct_timespec,
     pub it_value: Struct_timespec,
 }
+impl ::std::clone::Clone for Struct_itimerspec {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_itimerspec {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub enum Struct_sigevent { }
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_dlsym_link {
     pub next: *mut Struct_snd_dlsym_link,
     pub dlsym_name: *const ::libc::c_char,
     pub dlsym_ptr: *const ::libc::c_void,
 }
+impl ::std::clone::Clone for Struct_snd_dlsym_link {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_dlsym_link {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub enum Struct__snd_async_handler { }
 pub type snd_async_handler_t = Struct__snd_async_handler;
 pub type snd_async_callback_t =
-    ::std::option::Option<extern "C" fn(arg1: *mut snd_async_handler_t)>;
+    ::std::option::Option<extern "C" fn(handler: *mut snd_async_handler_t)
+                              -> ()>;
 pub enum Struct_snd_shm_area { }
 pub type snd_timestamp_t = Struct_timeval;
 pub type snd_htimestamp_t = Struct_timespec;
 pub enum Struct__snd_input { }
 pub type snd_input_t = Struct__snd_input;
 pub type Enum__snd_input_type = ::libc::c_uint;
-pub static SND_INPUT_STDIO: ::libc::c_uint = 0;
-pub static SND_INPUT_BUFFER: ::libc::c_uint = 1;
+pub const SND_INPUT_STDIO: ::libc::c_uint = 0;
+pub const SND_INPUT_BUFFER: ::libc::c_uint = 1;
 pub type snd_input_type_t = Enum__snd_input_type;
 pub enum Struct__snd_output { }
 pub type snd_output_t = Struct__snd_output;
 pub type Enum__snd_output_type = ::libc::c_uint;
-pub static SND_OUTPUT_STDIO: ::libc::c_uint = 0;
-pub static SND_OUTPUT_BUFFER: ::libc::c_uint = 1;
+pub const SND_OUTPUT_STDIO: ::libc::c_uint = 0;
+pub const SND_OUTPUT_BUFFER: ::libc::c_uint = 1;
 pub type snd_output_type_t = Enum__snd_output_type;
 pub type snd_lib_error_handler_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *const ::libc::c_char,
-                               arg2: ::libc::c_int,
-                               arg3: *const ::libc::c_char,
-                               arg4: ::libc::c_int,
-                               arg5: *const ::libc::c_char, ...)>;
+    ::std::option::Option<extern "C" fn(file: *const ::libc::c_char,
+                                        line: ::libc::c_int,
+                                        function: *const ::libc::c_char,
+                                        err: ::libc::c_int,
+                                        fmt: *const ::libc::c_char, ...)
+                              -> ()>;
 pub type snd_local_error_handler_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *const ::libc::c_char,
-                               arg2: ::libc::c_int,
-                               arg3: *const ::libc::c_char,
-                               arg4: ::libc::c_int,
-                               arg5: *const ::libc::c_char, arg6: va_list)>;
+    ::std::option::Option<extern "C" fn(file: *const ::libc::c_char,
+                                        line: ::libc::c_int,
+                                        func: *const ::libc::c_char,
+                                        err: ::libc::c_int,
+                                        fmt: *const ::libc::c_char,
+                                        arg: va_list) -> ()>;
 pub type Enum__snd_config_type = ::libc::c_uint;
-pub static SND_CONFIG_TYPE_INTEGER: ::libc::c_uint = 0;
-pub static SND_CONFIG_TYPE_INTEGER64: ::libc::c_uint = 1;
-pub static SND_CONFIG_TYPE_REAL: ::libc::c_uint = 2;
-pub static SND_CONFIG_TYPE_STRING: ::libc::c_uint = 3;
-pub static SND_CONFIG_TYPE_POINTER: ::libc::c_uint = 4;
-pub static SND_CONFIG_TYPE_COMPOUND: ::libc::c_uint = 1024;
+pub const SND_CONFIG_TYPE_INTEGER: ::libc::c_uint = 0;
+pub const SND_CONFIG_TYPE_INTEGER64: ::libc::c_uint = 1;
+pub const SND_CONFIG_TYPE_REAL: ::libc::c_uint = 2;
+pub const SND_CONFIG_TYPE_STRING: ::libc::c_uint = 3;
+pub const SND_CONFIG_TYPE_POINTER: ::libc::c_uint = 4;
+pub const SND_CONFIG_TYPE_COMPOUND: ::libc::c_uint = 1024;
 pub type snd_config_type_t = Enum__snd_config_type;
 pub enum Struct__snd_config { }
 pub type snd_config_t = Struct__snd_config;
@@ -873,10 +1203,17 @@ pub enum Struct__snd_config_update { }
 pub type snd_config_update_t = Struct__snd_config_update;
 pub type snd_devname_t = Struct_snd_devname;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_devname {
     pub name: *mut ::libc::c_char,
     pub comment: *mut ::libc::c_char,
     pub next: *mut snd_devname_t,
+}
+impl ::std::clone::Clone for Struct_snd_devname {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_devname {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub enum Struct__snd_pcm_info { }
 pub type snd_pcm_info_t = Struct__snd_pcm_info;
@@ -893,281 +1230,333 @@ pub type snd_pcm_format_mask_t = Struct__snd_pcm_format_mask;
 pub enum Struct__snd_pcm_subformat_mask { }
 pub type snd_pcm_subformat_mask_t = Struct__snd_pcm_subformat_mask;
 pub type Enum__snd_pcm_class = ::libc::c_uint;
-pub static SND_PCM_CLASS_GENERIC: ::libc::c_uint = 0;
-pub static SND_PCM_CLASS_MULTI: ::libc::c_uint = 1;
-pub static SND_PCM_CLASS_MODEM: ::libc::c_uint = 2;
-pub static SND_PCM_CLASS_DIGITIZER: ::libc::c_uint = 3;
-pub static SND_PCM_CLASS_LAST: ::libc::c_uint = 3;
+pub const SND_PCM_CLASS_GENERIC: ::libc::c_uint = 0;
+pub const SND_PCM_CLASS_MULTI: ::libc::c_uint = 1;
+pub const SND_PCM_CLASS_MODEM: ::libc::c_uint = 2;
+pub const SND_PCM_CLASS_DIGITIZER: ::libc::c_uint = 3;
+pub const SND_PCM_CLASS_LAST: ::libc::c_uint = 3;
 pub type snd_pcm_class_t = Enum__snd_pcm_class;
 pub type Enum__snd_pcm_subclass = ::libc::c_uint;
-pub static SND_PCM_SUBCLASS_GENERIC_MIX: ::libc::c_uint = 0;
-pub static SND_PCM_SUBCLASS_MULTI_MIX: ::libc::c_uint = 1;
-pub static SND_PCM_SUBCLASS_LAST: ::libc::c_uint = 1;
+pub const SND_PCM_SUBCLASS_GENERIC_MIX: ::libc::c_uint = 0;
+pub const SND_PCM_SUBCLASS_MULTI_MIX: ::libc::c_uint = 1;
+pub const SND_PCM_SUBCLASS_LAST: ::libc::c_uint = 1;
 pub type snd_pcm_subclass_t = Enum__snd_pcm_subclass;
 pub type Enum__snd_pcm_stream = ::libc::c_uint;
-pub static SND_PCM_STREAM_PLAYBACK: ::libc::c_uint = 0;
-pub static SND_PCM_STREAM_CAPTURE: ::libc::c_uint = 1;
-pub static SND_PCM_STREAM_LAST: ::libc::c_uint = 1;
+pub const SND_PCM_STREAM_PLAYBACK: ::libc::c_uint = 0;
+pub const SND_PCM_STREAM_CAPTURE: ::libc::c_uint = 1;
+pub const SND_PCM_STREAM_LAST: ::libc::c_uint = 1;
 pub type snd_pcm_stream_t = Enum__snd_pcm_stream;
 pub type Enum__snd_pcm_access = ::libc::c_uint;
-pub static SND_PCM_ACCESS_MMAP_INTERLEAVED: ::libc::c_uint = 0;
-pub static SND_PCM_ACCESS_MMAP_NONINTERLEAVED: ::libc::c_uint = 1;
-pub static SND_PCM_ACCESS_MMAP_COMPLEX: ::libc::c_uint = 2;
-pub static SND_PCM_ACCESS_RW_INTERLEAVED: ::libc::c_uint = 3;
-pub static SND_PCM_ACCESS_RW_NONINTERLEAVED: ::libc::c_uint = 4;
-pub static SND_PCM_ACCESS_LAST: ::libc::c_uint = 4;
+pub const SND_PCM_ACCESS_MMAP_INTERLEAVED: ::libc::c_uint = 0;
+pub const SND_PCM_ACCESS_MMAP_NONINTERLEAVED: ::libc::c_uint = 1;
+pub const SND_PCM_ACCESS_MMAP_COMPLEX: ::libc::c_uint = 2;
+pub const SND_PCM_ACCESS_RW_INTERLEAVED: ::libc::c_uint = 3;
+pub const SND_PCM_ACCESS_RW_NONINTERLEAVED: ::libc::c_uint = 4;
+pub const SND_PCM_ACCESS_LAST: ::libc::c_uint = 4;
 pub type snd_pcm_access_t = Enum__snd_pcm_access;
 pub type Enum__snd_pcm_format = ::libc::c_int;
-pub static SND_PCM_FORMAT_UNKNOWN: ::libc::c_int = -1;
-pub static SND_PCM_FORMAT_S8: ::libc::c_int = 0;
-pub static SND_PCM_FORMAT_U8: ::libc::c_int = 1;
-pub static SND_PCM_FORMAT_S16_LE: ::libc::c_int = 2;
-pub static SND_PCM_FORMAT_S16_BE: ::libc::c_int = 3;
-pub static SND_PCM_FORMAT_U16_LE: ::libc::c_int = 4;
-pub static SND_PCM_FORMAT_U16_BE: ::libc::c_int = 5;
-pub static SND_PCM_FORMAT_S24_LE: ::libc::c_int = 6;
-pub static SND_PCM_FORMAT_S24_BE: ::libc::c_int = 7;
-pub static SND_PCM_FORMAT_U24_LE: ::libc::c_int = 8;
-pub static SND_PCM_FORMAT_U24_BE: ::libc::c_int = 9;
-pub static SND_PCM_FORMAT_S32_LE: ::libc::c_int = 10;
-pub static SND_PCM_FORMAT_S32_BE: ::libc::c_int = 11;
-pub static SND_PCM_FORMAT_U32_LE: ::libc::c_int = 12;
-pub static SND_PCM_FORMAT_U32_BE: ::libc::c_int = 13;
-pub static SND_PCM_FORMAT_FLOAT_LE: ::libc::c_int = 14;
-pub static SND_PCM_FORMAT_FLOAT_BE: ::libc::c_int = 15;
-pub static SND_PCM_FORMAT_FLOAT64_LE: ::libc::c_int = 16;
-pub static SND_PCM_FORMAT_FLOAT64_BE: ::libc::c_int = 17;
-pub static SND_PCM_FORMAT_IEC958_SUBFRAME_LE: ::libc::c_int = 18;
-pub static SND_PCM_FORMAT_IEC958_SUBFRAME_BE: ::libc::c_int = 19;
-pub static SND_PCM_FORMAT_MU_LAW: ::libc::c_int = 20;
-pub static SND_PCM_FORMAT_A_LAW: ::libc::c_int = 21;
-pub static SND_PCM_FORMAT_IMA_ADPCM: ::libc::c_int = 22;
-pub static SND_PCM_FORMAT_MPEG: ::libc::c_int = 23;
-pub static SND_PCM_FORMAT_GSM: ::libc::c_int = 24;
-pub static SND_PCM_FORMAT_SPECIAL: ::libc::c_int = 31;
-pub static SND_PCM_FORMAT_S24_3LE: ::libc::c_int = 32;
-pub static SND_PCM_FORMAT_S24_3BE: ::libc::c_int = 33;
-pub static SND_PCM_FORMAT_U24_3LE: ::libc::c_int = 34;
-pub static SND_PCM_FORMAT_U24_3BE: ::libc::c_int = 35;
-pub static SND_PCM_FORMAT_S20_3LE: ::libc::c_int = 36;
-pub static SND_PCM_FORMAT_S20_3BE: ::libc::c_int = 37;
-pub static SND_PCM_FORMAT_U20_3LE: ::libc::c_int = 38;
-pub static SND_PCM_FORMAT_U20_3BE: ::libc::c_int = 39;
-pub static SND_PCM_FORMAT_S18_3LE: ::libc::c_int = 40;
-pub static SND_PCM_FORMAT_S18_3BE: ::libc::c_int = 41;
-pub static SND_PCM_FORMAT_U18_3LE: ::libc::c_int = 42;
-pub static SND_PCM_FORMAT_U18_3BE: ::libc::c_int = 43;
-pub static SND_PCM_FORMAT_G723_24: ::libc::c_int = 44;
-pub static SND_PCM_FORMAT_G723_24_1B: ::libc::c_int = 45;
-pub static SND_PCM_FORMAT_G723_40: ::libc::c_int = 46;
-pub static SND_PCM_FORMAT_G723_40_1B: ::libc::c_int = 47;
-pub static SND_PCM_FORMAT_DSD_U8: ::libc::c_int = 48;
-pub static SND_PCM_FORMAT_DSD_U16_LE: ::libc::c_int = 49;
-pub static SND_PCM_FORMAT_LAST: ::libc::c_int = 49;
-pub static SND_PCM_FORMAT_S16: ::libc::c_int = 2;
-pub static SND_PCM_FORMAT_U16: ::libc::c_int = 4;
-pub static SND_PCM_FORMAT_S24: ::libc::c_int = 6;
-pub static SND_PCM_FORMAT_U24: ::libc::c_int = 8;
-pub static SND_PCM_FORMAT_S32: ::libc::c_int = 10;
-pub static SND_PCM_FORMAT_U32: ::libc::c_int = 12;
-pub static SND_PCM_FORMAT_FLOAT: ::libc::c_int = 14;
-pub static SND_PCM_FORMAT_FLOAT64: ::libc::c_int = 16;
-pub static SND_PCM_FORMAT_IEC958_SUBFRAME: ::libc::c_int = 18;
+pub const SND_PCM_FORMAT_UNKNOWN: ::libc::c_int = -1;
+pub const SND_PCM_FORMAT_S8: ::libc::c_int = 0;
+pub const SND_PCM_FORMAT_U8: ::libc::c_int = 1;
+pub const SND_PCM_FORMAT_S16_LE: ::libc::c_int = 2;
+pub const SND_PCM_FORMAT_S16_BE: ::libc::c_int = 3;
+pub const SND_PCM_FORMAT_U16_LE: ::libc::c_int = 4;
+pub const SND_PCM_FORMAT_U16_BE: ::libc::c_int = 5;
+pub const SND_PCM_FORMAT_S24_LE: ::libc::c_int = 6;
+pub const SND_PCM_FORMAT_S24_BE: ::libc::c_int = 7;
+pub const SND_PCM_FORMAT_U24_LE: ::libc::c_int = 8;
+pub const SND_PCM_FORMAT_U24_BE: ::libc::c_int = 9;
+pub const SND_PCM_FORMAT_S32_LE: ::libc::c_int = 10;
+pub const SND_PCM_FORMAT_S32_BE: ::libc::c_int = 11;
+pub const SND_PCM_FORMAT_U32_LE: ::libc::c_int = 12;
+pub const SND_PCM_FORMAT_U32_BE: ::libc::c_int = 13;
+pub const SND_PCM_FORMAT_FLOAT_LE: ::libc::c_int = 14;
+pub const SND_PCM_FORMAT_FLOAT_BE: ::libc::c_int = 15;
+pub const SND_PCM_FORMAT_FLOAT64_LE: ::libc::c_int = 16;
+pub const SND_PCM_FORMAT_FLOAT64_BE: ::libc::c_int = 17;
+pub const SND_PCM_FORMAT_IEC958_SUBFRAME_LE: ::libc::c_int = 18;
+pub const SND_PCM_FORMAT_IEC958_SUBFRAME_BE: ::libc::c_int = 19;
+pub const SND_PCM_FORMAT_MU_LAW: ::libc::c_int = 20;
+pub const SND_PCM_FORMAT_A_LAW: ::libc::c_int = 21;
+pub const SND_PCM_FORMAT_IMA_ADPCM: ::libc::c_int = 22;
+pub const SND_PCM_FORMAT_MPEG: ::libc::c_int = 23;
+pub const SND_PCM_FORMAT_GSM: ::libc::c_int = 24;
+pub const SND_PCM_FORMAT_SPECIAL: ::libc::c_int = 31;
+pub const SND_PCM_FORMAT_S24_3LE: ::libc::c_int = 32;
+pub const SND_PCM_FORMAT_S24_3BE: ::libc::c_int = 33;
+pub const SND_PCM_FORMAT_U24_3LE: ::libc::c_int = 34;
+pub const SND_PCM_FORMAT_U24_3BE: ::libc::c_int = 35;
+pub const SND_PCM_FORMAT_S20_3LE: ::libc::c_int = 36;
+pub const SND_PCM_FORMAT_S20_3BE: ::libc::c_int = 37;
+pub const SND_PCM_FORMAT_U20_3LE: ::libc::c_int = 38;
+pub const SND_PCM_FORMAT_U20_3BE: ::libc::c_int = 39;
+pub const SND_PCM_FORMAT_S18_3LE: ::libc::c_int = 40;
+pub const SND_PCM_FORMAT_S18_3BE: ::libc::c_int = 41;
+pub const SND_PCM_FORMAT_U18_3LE: ::libc::c_int = 42;
+pub const SND_PCM_FORMAT_U18_3BE: ::libc::c_int = 43;
+pub const SND_PCM_FORMAT_G723_24: ::libc::c_int = 44;
+pub const SND_PCM_FORMAT_G723_24_1B: ::libc::c_int = 45;
+pub const SND_PCM_FORMAT_G723_40: ::libc::c_int = 46;
+pub const SND_PCM_FORMAT_G723_40_1B: ::libc::c_int = 47;
+pub const SND_PCM_FORMAT_DSD_U8: ::libc::c_int = 48;
+pub const SND_PCM_FORMAT_DSD_U16_LE: ::libc::c_int = 49;
+pub const SND_PCM_FORMAT_DSD_U32_LE: ::libc::c_int = 50;
+pub const SND_PCM_FORMAT_DSD_U16_BE: ::libc::c_int = 51;
+pub const SND_PCM_FORMAT_DSD_U32_BE: ::libc::c_int = 52;
+pub const SND_PCM_FORMAT_LAST: ::libc::c_int = 52;
+pub const SND_PCM_FORMAT_S16: ::libc::c_int = 2;
+pub const SND_PCM_FORMAT_U16: ::libc::c_int = 4;
+pub const SND_PCM_FORMAT_S24: ::libc::c_int = 6;
+pub const SND_PCM_FORMAT_U24: ::libc::c_int = 8;
+pub const SND_PCM_FORMAT_S32: ::libc::c_int = 10;
+pub const SND_PCM_FORMAT_U32: ::libc::c_int = 12;
+pub const SND_PCM_FORMAT_FLOAT: ::libc::c_int = 14;
+pub const SND_PCM_FORMAT_FLOAT64: ::libc::c_int = 16;
+pub const SND_PCM_FORMAT_IEC958_SUBFRAME: ::libc::c_int = 18;
 pub type snd_pcm_format_t = Enum__snd_pcm_format;
 pub type Enum__snd_pcm_subformat = ::libc::c_uint;
-pub static SND_PCM_SUBFORMAT_STD: ::libc::c_uint = 0;
-pub static SND_PCM_SUBFORMAT_LAST: ::libc::c_uint = 0;
+pub const SND_PCM_SUBFORMAT_STD: ::libc::c_uint = 0;
+pub const SND_PCM_SUBFORMAT_LAST: ::libc::c_uint = 0;
 pub type snd_pcm_subformat_t = Enum__snd_pcm_subformat;
 pub type Enum__snd_pcm_state = ::libc::c_uint;
-pub static SND_PCM_STATE_OPEN: ::libc::c_uint = 0;
-pub static SND_PCM_STATE_SETUP: ::libc::c_uint = 1;
-pub static SND_PCM_STATE_PREPARED: ::libc::c_uint = 2;
-pub static SND_PCM_STATE_RUNNING: ::libc::c_uint = 3;
-pub static SND_PCM_STATE_XRUN: ::libc::c_uint = 4;
-pub static SND_PCM_STATE_DRAINING: ::libc::c_uint = 5;
-pub static SND_PCM_STATE_PAUSED: ::libc::c_uint = 6;
-pub static SND_PCM_STATE_SUSPENDED: ::libc::c_uint = 7;
-pub static SND_PCM_STATE_DISCONNECTED: ::libc::c_uint = 8;
-pub static SND_PCM_STATE_LAST: ::libc::c_uint = 8;
+pub const SND_PCM_STATE_OPEN: ::libc::c_uint = 0;
+pub const SND_PCM_STATE_SETUP: ::libc::c_uint = 1;
+pub const SND_PCM_STATE_PREPARED: ::libc::c_uint = 2;
+pub const SND_PCM_STATE_RUNNING: ::libc::c_uint = 3;
+pub const SND_PCM_STATE_XRUN: ::libc::c_uint = 4;
+pub const SND_PCM_STATE_DRAINING: ::libc::c_uint = 5;
+pub const SND_PCM_STATE_PAUSED: ::libc::c_uint = 6;
+pub const SND_PCM_STATE_SUSPENDED: ::libc::c_uint = 7;
+pub const SND_PCM_STATE_DISCONNECTED: ::libc::c_uint = 8;
+pub const SND_PCM_STATE_LAST: ::libc::c_uint = 8;
 pub type snd_pcm_state_t = Enum__snd_pcm_state;
 pub type Enum__snd_pcm_start = ::libc::c_uint;
-pub static SND_PCM_START_DATA: ::libc::c_uint = 0;
-pub static SND_PCM_START_EXPLICIT: ::libc::c_uint = 1;
-pub static SND_PCM_START_LAST: ::libc::c_uint = 1;
+pub const SND_PCM_START_DATA: ::libc::c_uint = 0;
+pub const SND_PCM_START_EXPLICIT: ::libc::c_uint = 1;
+pub const SND_PCM_START_LAST: ::libc::c_uint = 1;
 pub type snd_pcm_start_t = Enum__snd_pcm_start;
 pub type Enum__snd_pcm_xrun = ::libc::c_uint;
-pub static SND_PCM_XRUN_NONE: ::libc::c_uint = 0;
-pub static SND_PCM_XRUN_STOP: ::libc::c_uint = 1;
-pub static SND_PCM_XRUN_LAST: ::libc::c_uint = 1;
+pub const SND_PCM_XRUN_NONE: ::libc::c_uint = 0;
+pub const SND_PCM_XRUN_STOP: ::libc::c_uint = 1;
+pub const SND_PCM_XRUN_LAST: ::libc::c_uint = 1;
 pub type snd_pcm_xrun_t = Enum__snd_pcm_xrun;
 pub type Enum__snd_pcm_tstamp = ::libc::c_uint;
-pub static SND_PCM_TSTAMP_NONE: ::libc::c_uint = 0;
-pub static SND_PCM_TSTAMP_ENABLE: ::libc::c_uint = 1;
-pub static SND_PCM_TSTAMP_MMAP: ::libc::c_uint = 1;
-pub static SND_PCM_TSTAMP_LAST: ::libc::c_uint = 1;
+pub const SND_PCM_TSTAMP_NONE: ::libc::c_uint = 0;
+pub const SND_PCM_TSTAMP_ENABLE: ::libc::c_uint = 1;
+pub const SND_PCM_TSTAMP_MMAP: ::libc::c_uint = 1;
+pub const SND_PCM_TSTAMP_LAST: ::libc::c_uint = 1;
 pub type snd_pcm_tstamp_t = Enum__snd_pcm_tstamp;
+pub type Enum__snd_pcm_tstamp_type = ::libc::c_uint;
+pub const SND_PCM_TSTAMP_TYPE_GETTIMEOFDAY: ::libc::c_uint = 0;
+pub const SND_PCM_TSTAMP_TYPE_MONOTONIC: ::libc::c_uint = 1;
+pub const SND_PCM_TSTAMP_TYPE_MONOTONIC_RAW: ::libc::c_uint = 2;
+pub const SND_PCM_TSTAMP_TYPE_LAST: ::libc::c_uint = 2;
+pub type snd_pcm_tstamp_type_t = Enum__snd_pcm_tstamp_type;
 pub type snd_pcm_uframes_t = ::libc::c_ulong;
 pub type snd_pcm_sframes_t = ::libc::c_long;
 pub enum Struct__snd_pcm { }
 pub type snd_pcm_t = Struct__snd_pcm;
 pub type Enum__snd_pcm_type = ::libc::c_uint;
-pub static SND_PCM_TYPE_HW: ::libc::c_uint = 0;
-pub static SND_PCM_TYPE_HOOKS: ::libc::c_uint = 1;
-pub static SND_PCM_TYPE_MULTI: ::libc::c_uint = 2;
-pub static SND_PCM_TYPE_FILE: ::libc::c_uint = 3;
-pub static SND_PCM_TYPE_NULL: ::libc::c_uint = 4;
-pub static SND_PCM_TYPE_SHM: ::libc::c_uint = 5;
-pub static SND_PCM_TYPE_INET: ::libc::c_uint = 6;
-pub static SND_PCM_TYPE_COPY: ::libc::c_uint = 7;
-pub static SND_PCM_TYPE_LINEAR: ::libc::c_uint = 8;
-pub static SND_PCM_TYPE_ALAW: ::libc::c_uint = 9;
-pub static SND_PCM_TYPE_MULAW: ::libc::c_uint = 10;
-pub static SND_PCM_TYPE_ADPCM: ::libc::c_uint = 11;
-pub static SND_PCM_TYPE_RATE: ::libc::c_uint = 12;
-pub static SND_PCM_TYPE_ROUTE: ::libc::c_uint = 13;
-pub static SND_PCM_TYPE_PLUG: ::libc::c_uint = 14;
-pub static SND_PCM_TYPE_SHARE: ::libc::c_uint = 15;
-pub static SND_PCM_TYPE_METER: ::libc::c_uint = 16;
-pub static SND_PCM_TYPE_MIX: ::libc::c_uint = 17;
-pub static SND_PCM_TYPE_DROUTE: ::libc::c_uint = 18;
-pub static SND_PCM_TYPE_LBSERVER: ::libc::c_uint = 19;
-pub static SND_PCM_TYPE_LINEAR_FLOAT: ::libc::c_uint = 20;
-pub static SND_PCM_TYPE_LADSPA: ::libc::c_uint = 21;
-pub static SND_PCM_TYPE_DMIX: ::libc::c_uint = 22;
-pub static SND_PCM_TYPE_JACK: ::libc::c_uint = 23;
-pub static SND_PCM_TYPE_DSNOOP: ::libc::c_uint = 24;
-pub static SND_PCM_TYPE_DSHARE: ::libc::c_uint = 25;
-pub static SND_PCM_TYPE_IEC958: ::libc::c_uint = 26;
-pub static SND_PCM_TYPE_SOFTVOL: ::libc::c_uint = 27;
-pub static SND_PCM_TYPE_IOPLUG: ::libc::c_uint = 28;
-pub static SND_PCM_TYPE_EXTPLUG: ::libc::c_uint = 29;
-pub static SND_PCM_TYPE_MMAP_EMUL: ::libc::c_uint = 30;
-pub static SND_PCM_TYPE_LAST: ::libc::c_uint = 30;
+pub const SND_PCM_TYPE_HW: ::libc::c_uint = 0;
+pub const SND_PCM_TYPE_HOOKS: ::libc::c_uint = 1;
+pub const SND_PCM_TYPE_MULTI: ::libc::c_uint = 2;
+pub const SND_PCM_TYPE_FILE: ::libc::c_uint = 3;
+pub const SND_PCM_TYPE_NULL: ::libc::c_uint = 4;
+pub const SND_PCM_TYPE_SHM: ::libc::c_uint = 5;
+pub const SND_PCM_TYPE_INET: ::libc::c_uint = 6;
+pub const SND_PCM_TYPE_COPY: ::libc::c_uint = 7;
+pub const SND_PCM_TYPE_LINEAR: ::libc::c_uint = 8;
+pub const SND_PCM_TYPE_ALAW: ::libc::c_uint = 9;
+pub const SND_PCM_TYPE_MULAW: ::libc::c_uint = 10;
+pub const SND_PCM_TYPE_ADPCM: ::libc::c_uint = 11;
+pub const SND_PCM_TYPE_RATE: ::libc::c_uint = 12;
+pub const SND_PCM_TYPE_ROUTE: ::libc::c_uint = 13;
+pub const SND_PCM_TYPE_PLUG: ::libc::c_uint = 14;
+pub const SND_PCM_TYPE_SHARE: ::libc::c_uint = 15;
+pub const SND_PCM_TYPE_METER: ::libc::c_uint = 16;
+pub const SND_PCM_TYPE_MIX: ::libc::c_uint = 17;
+pub const SND_PCM_TYPE_DROUTE: ::libc::c_uint = 18;
+pub const SND_PCM_TYPE_LBSERVER: ::libc::c_uint = 19;
+pub const SND_PCM_TYPE_LINEAR_FLOAT: ::libc::c_uint = 20;
+pub const SND_PCM_TYPE_LADSPA: ::libc::c_uint = 21;
+pub const SND_PCM_TYPE_DMIX: ::libc::c_uint = 22;
+pub const SND_PCM_TYPE_JACK: ::libc::c_uint = 23;
+pub const SND_PCM_TYPE_DSNOOP: ::libc::c_uint = 24;
+pub const SND_PCM_TYPE_DSHARE: ::libc::c_uint = 25;
+pub const SND_PCM_TYPE_IEC958: ::libc::c_uint = 26;
+pub const SND_PCM_TYPE_SOFTVOL: ::libc::c_uint = 27;
+pub const SND_PCM_TYPE_IOPLUG: ::libc::c_uint = 28;
+pub const SND_PCM_TYPE_EXTPLUG: ::libc::c_uint = 29;
+pub const SND_PCM_TYPE_MMAP_EMUL: ::libc::c_uint = 30;
+pub const SND_PCM_TYPE_LAST: ::libc::c_uint = 30;
 pub type snd_pcm_type_t = Enum__snd_pcm_type;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct__snd_pcm_channel_area {
     pub addr: *mut ::libc::c_void,
     pub first: ::libc::c_uint,
     pub step: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct__snd_pcm_channel_area {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct__snd_pcm_channel_area {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_pcm_channel_area_t = Struct__snd_pcm_channel_area;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Union__snd_pcm_sync_id {
-    pub data: [u32, ..4u],
+    pub _bindgen_data_: [u32; 4usize],
 }
 impl Union__snd_pcm_sync_id {
-    pub fn id(&mut self) -> *mut [::libc::c_uchar, ..16u] {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn id(&mut self) -> *mut [::libc::c_uchar; 16usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn id16(&mut self) -> *mut [::libc::c_ushort, ..8u] {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn id16(&mut self) -> *mut [::libc::c_ushort; 8usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn id32(&mut self) -> *mut [::libc::c_uint, ..4u] {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn id32(&mut self) -> *mut [::libc::c_uint; 4usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
+}
+impl ::std::clone::Clone for Union__snd_pcm_sync_id {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union__snd_pcm_sync_id {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_pcm_sync_id_t = Union__snd_pcm_sync_id;
 pub enum Struct__snd_pcm_scope { }
 pub type snd_pcm_scope_t = Struct__snd_pcm_scope;
 pub type Enum_snd_pcm_chmap_type = ::libc::c_uint;
-pub static SND_CHMAP_TYPE_NONE: ::libc::c_uint = 0;
-pub static SND_CHMAP_TYPE_FIXED: ::libc::c_uint = 1;
-pub static SND_CHMAP_TYPE_VAR: ::libc::c_uint = 2;
-pub static SND_CHMAP_TYPE_PAIRED: ::libc::c_uint = 3;
-pub static SND_CHMAP_TYPE_LAST: ::libc::c_uint = 3;
+pub const SND_CHMAP_TYPE_NONE: ::libc::c_uint = 0;
+pub const SND_CHMAP_TYPE_FIXED: ::libc::c_uint = 1;
+pub const SND_CHMAP_TYPE_VAR: ::libc::c_uint = 2;
+pub const SND_CHMAP_TYPE_PAIRED: ::libc::c_uint = 3;
+pub const SND_CHMAP_TYPE_LAST: ::libc::c_uint = 3;
 pub type Enum_snd_pcm_chmap_position = ::libc::c_uint;
-pub static SND_CHMAP_UNKNOWN: ::libc::c_uint = 0;
-pub static SND_CHMAP_NA: ::libc::c_uint = 1;
-pub static SND_CHMAP_MONO: ::libc::c_uint = 2;
-pub static SND_CHMAP_FL: ::libc::c_uint = 3;
-pub static SND_CHMAP_FR: ::libc::c_uint = 4;
-pub static SND_CHMAP_RL: ::libc::c_uint = 5;
-pub static SND_CHMAP_RR: ::libc::c_uint = 6;
-pub static SND_CHMAP_FC: ::libc::c_uint = 7;
-pub static SND_CHMAP_LFE: ::libc::c_uint = 8;
-pub static SND_CHMAP_SL: ::libc::c_uint = 9;
-pub static SND_CHMAP_SR: ::libc::c_uint = 10;
-pub static SND_CHMAP_RC: ::libc::c_uint = 11;
-pub static SND_CHMAP_FLC: ::libc::c_uint = 12;
-pub static SND_CHMAP_FRC: ::libc::c_uint = 13;
-pub static SND_CHMAP_RLC: ::libc::c_uint = 14;
-pub static SND_CHMAP_RRC: ::libc::c_uint = 15;
-pub static SND_CHMAP_FLW: ::libc::c_uint = 16;
-pub static SND_CHMAP_FRW: ::libc::c_uint = 17;
-pub static SND_CHMAP_FLH: ::libc::c_uint = 18;
-pub static SND_CHMAP_FCH: ::libc::c_uint = 19;
-pub static SND_CHMAP_FRH: ::libc::c_uint = 20;
-pub static SND_CHMAP_TC: ::libc::c_uint = 21;
-pub static SND_CHMAP_TFL: ::libc::c_uint = 22;
-pub static SND_CHMAP_TFR: ::libc::c_uint = 23;
-pub static SND_CHMAP_TFC: ::libc::c_uint = 24;
-pub static SND_CHMAP_TRL: ::libc::c_uint = 25;
-pub static SND_CHMAP_TRR: ::libc::c_uint = 26;
-pub static SND_CHMAP_TRC: ::libc::c_uint = 27;
-pub static SND_CHMAP_TFLC: ::libc::c_uint = 28;
-pub static SND_CHMAP_TFRC: ::libc::c_uint = 29;
-pub static SND_CHMAP_TSL: ::libc::c_uint = 30;
-pub static SND_CHMAP_TSR: ::libc::c_uint = 31;
-pub static SND_CHMAP_LLFE: ::libc::c_uint = 32;
-pub static SND_CHMAP_RLFE: ::libc::c_uint = 33;
-pub static SND_CHMAP_BC: ::libc::c_uint = 34;
-pub static SND_CHMAP_BLC: ::libc::c_uint = 35;
-pub static SND_CHMAP_BRC: ::libc::c_uint = 36;
-pub static SND_CHMAP_LAST: ::libc::c_uint = 36;
+pub const SND_CHMAP_UNKNOWN: ::libc::c_uint = 0;
+pub const SND_CHMAP_NA: ::libc::c_uint = 1;
+pub const SND_CHMAP_MONO: ::libc::c_uint = 2;
+pub const SND_CHMAP_FL: ::libc::c_uint = 3;
+pub const SND_CHMAP_FR: ::libc::c_uint = 4;
+pub const SND_CHMAP_RL: ::libc::c_uint = 5;
+pub const SND_CHMAP_RR: ::libc::c_uint = 6;
+pub const SND_CHMAP_FC: ::libc::c_uint = 7;
+pub const SND_CHMAP_LFE: ::libc::c_uint = 8;
+pub const SND_CHMAP_SL: ::libc::c_uint = 9;
+pub const SND_CHMAP_SR: ::libc::c_uint = 10;
+pub const SND_CHMAP_RC: ::libc::c_uint = 11;
+pub const SND_CHMAP_FLC: ::libc::c_uint = 12;
+pub const SND_CHMAP_FRC: ::libc::c_uint = 13;
+pub const SND_CHMAP_RLC: ::libc::c_uint = 14;
+pub const SND_CHMAP_RRC: ::libc::c_uint = 15;
+pub const SND_CHMAP_FLW: ::libc::c_uint = 16;
+pub const SND_CHMAP_FRW: ::libc::c_uint = 17;
+pub const SND_CHMAP_FLH: ::libc::c_uint = 18;
+pub const SND_CHMAP_FCH: ::libc::c_uint = 19;
+pub const SND_CHMAP_FRH: ::libc::c_uint = 20;
+pub const SND_CHMAP_TC: ::libc::c_uint = 21;
+pub const SND_CHMAP_TFL: ::libc::c_uint = 22;
+pub const SND_CHMAP_TFR: ::libc::c_uint = 23;
+pub const SND_CHMAP_TFC: ::libc::c_uint = 24;
+pub const SND_CHMAP_TRL: ::libc::c_uint = 25;
+pub const SND_CHMAP_TRR: ::libc::c_uint = 26;
+pub const SND_CHMAP_TRC: ::libc::c_uint = 27;
+pub const SND_CHMAP_TFLC: ::libc::c_uint = 28;
+pub const SND_CHMAP_TFRC: ::libc::c_uint = 29;
+pub const SND_CHMAP_TSL: ::libc::c_uint = 30;
+pub const SND_CHMAP_TSR: ::libc::c_uint = 31;
+pub const SND_CHMAP_LLFE: ::libc::c_uint = 32;
+pub const SND_CHMAP_RLFE: ::libc::c_uint = 33;
+pub const SND_CHMAP_BC: ::libc::c_uint = 34;
+pub const SND_CHMAP_BLC: ::libc::c_uint = 35;
+pub const SND_CHMAP_BRC: ::libc::c_uint = 36;
+pub const SND_CHMAP_LAST: ::libc::c_uint = 36;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_pcm_chmap {
     pub channels: ::libc::c_uint,
-    pub pos: [::libc::c_uint, ..0u],
+    pub pos: [::libc::c_uint; 0usize],
+}
+impl ::std::clone::Clone for Struct_snd_pcm_chmap {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_pcm_chmap {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_pcm_chmap_t = Struct_snd_pcm_chmap;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_pcm_chmap_query {
     pub _type: Enum_snd_pcm_chmap_type,
     pub map: snd_pcm_chmap_t,
 }
+impl ::std::clone::Clone for Struct_snd_pcm_chmap_query {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_pcm_chmap_query {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_pcm_chmap_query_t = Struct_snd_pcm_chmap_query;
 pub type Enum__snd_pcm_hook_type = ::libc::c_uint;
-pub static SND_PCM_HOOK_TYPE_HW_PARAMS: ::libc::c_uint = 0;
-pub static SND_PCM_HOOK_TYPE_HW_FREE: ::libc::c_uint = 1;
-pub static SND_PCM_HOOK_TYPE_CLOSE: ::libc::c_uint = 2;
-pub static SND_PCM_HOOK_TYPE_LAST: ::libc::c_uint = 2;
+pub const SND_PCM_HOOK_TYPE_HW_PARAMS: ::libc::c_uint = 0;
+pub const SND_PCM_HOOK_TYPE_HW_FREE: ::libc::c_uint = 1;
+pub const SND_PCM_HOOK_TYPE_CLOSE: ::libc::c_uint = 2;
+pub const SND_PCM_HOOK_TYPE_LAST: ::libc::c_uint = 2;
 pub type snd_pcm_hook_type_t = Enum__snd_pcm_hook_type;
 pub enum Struct__snd_pcm_hook { }
 pub type snd_pcm_hook_t = Struct__snd_pcm_hook;
 pub type snd_pcm_hook_func_t =
-    ::std::option::Option<extern "C" fn(arg1: *mut snd_pcm_hook_t)
+    ::std::option::Option<extern "C" fn(hook: *mut snd_pcm_hook_t)
                               -> ::libc::c_int>;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct__snd_pcm_scope_ops {
-    pub enable: ::std::option::Option<extern "C" fn
-                                          (arg1: *mut snd_pcm_scope_t)
+    pub enable: ::std::option::Option<extern "C" fn(scope:
+                                                        *mut snd_pcm_scope_t)
                                           -> ::libc::c_int>,
-    pub disable: ::std::option::Option<extern "C" fn
-                                           (arg1: *mut snd_pcm_scope_t)>,
-    pub start: ::std::option::Option<extern "C" fn
-                                         (arg1: *mut snd_pcm_scope_t)>,
-    pub stop: ::std::option::Option<extern "C" fn
-                                        (arg1: *mut snd_pcm_scope_t)>,
-    pub update: ::std::option::Option<extern "C" fn
-                                          (arg1: *mut snd_pcm_scope_t)>,
-    pub reset: ::std::option::Option<extern "C" fn
-                                         (arg1: *mut snd_pcm_scope_t)>,
-    pub close: ::std::option::Option<extern "C" fn
-                                         (arg1: *mut snd_pcm_scope_t)>,
+    pub disable: ::std::option::Option<extern "C" fn(scope:
+                                                         *mut snd_pcm_scope_t)
+                                           -> ()>,
+    pub start: ::std::option::Option<extern "C" fn(scope:
+                                                       *mut snd_pcm_scope_t)
+                                         -> ()>,
+    pub stop: ::std::option::Option<extern "C" fn(scope: *mut snd_pcm_scope_t)
+                                        -> ()>,
+    pub update: ::std::option::Option<extern "C" fn(scope:
+                                                        *mut snd_pcm_scope_t)
+                                          -> ()>,
+    pub reset: ::std::option::Option<extern "C" fn(scope:
+                                                       *mut snd_pcm_scope_t)
+                                         -> ()>,
+    pub close: ::std::option::Option<extern "C" fn(scope:
+                                                       *mut snd_pcm_scope_t)
+                                         -> ()>,
+}
+impl ::std::clone::Clone for Struct__snd_pcm_scope_ops {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct__snd_pcm_scope_ops {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_pcm_scope_ops_t = Struct__snd_pcm_scope_ops;
 pub type Enum__snd_spcm_latency = ::libc::c_uint;
-pub static SND_SPCM_LATENCY_STANDARD: ::libc::c_uint = 0;
-pub static SND_SPCM_LATENCY_MEDIUM: ::libc::c_uint = 1;
-pub static SND_SPCM_LATENCY_REALTIME: ::libc::c_uint = 2;
+pub const SND_SPCM_LATENCY_STANDARD: ::libc::c_uint = 0;
+pub const SND_SPCM_LATENCY_MEDIUM: ::libc::c_uint = 1;
+pub const SND_SPCM_LATENCY_REALTIME: ::libc::c_uint = 2;
 pub type snd_spcm_latency_t = Enum__snd_spcm_latency;
 pub type Enum__snd_spcm_xrun_type = ::libc::c_uint;
-pub static SND_SPCM_XRUN_IGNORE: ::libc::c_uint = 0;
-pub static SND_SPCM_XRUN_STOP: ::libc::c_uint = 1;
+pub const SND_SPCM_XRUN_IGNORE: ::libc::c_uint = 0;
+pub const SND_SPCM_XRUN_STOP: ::libc::c_uint = 1;
 pub type snd_spcm_xrun_type_t = Enum__snd_spcm_xrun_type;
 pub type Enum__snd_spcm_duplex_type = ::libc::c_uint;
-pub static SND_SPCM_DUPLEX_LIBERAL: ::libc::c_uint = 0;
-pub static SND_SPCM_DUPLEX_PEDANTIC: ::libc::c_uint = 1;
+pub const SND_SPCM_DUPLEX_LIBERAL: ::libc::c_uint = 0;
+pub const SND_SPCM_DUPLEX_PEDANTIC: ::libc::c_uint = 1;
 pub type snd_spcm_duplex_type_t = Enum__snd_spcm_duplex_type;
 pub enum Struct__snd_rawmidi_info { }
 pub type snd_rawmidi_info_t = Struct__snd_rawmidi_info;
@@ -1176,17 +1565,17 @@ pub type snd_rawmidi_params_t = Struct__snd_rawmidi_params;
 pub enum Struct__snd_rawmidi_status { }
 pub type snd_rawmidi_status_t = Struct__snd_rawmidi_status;
 pub type Enum__snd_rawmidi_stream = ::libc::c_uint;
-pub static SND_RAWMIDI_STREAM_OUTPUT: ::libc::c_uint = 0;
-pub static SND_RAWMIDI_STREAM_INPUT: ::libc::c_uint = 1;
-pub static SND_RAWMIDI_STREAM_LAST: ::libc::c_uint = 1;
+pub const SND_RAWMIDI_STREAM_OUTPUT: ::libc::c_uint = 0;
+pub const SND_RAWMIDI_STREAM_INPUT: ::libc::c_uint = 1;
+pub const SND_RAWMIDI_STREAM_LAST: ::libc::c_uint = 1;
 pub type snd_rawmidi_stream_t = Enum__snd_rawmidi_stream;
 pub enum Struct__snd_rawmidi { }
 pub type snd_rawmidi_t = Struct__snd_rawmidi;
 pub type Enum__snd_rawmidi_type = ::libc::c_uint;
-pub static SND_RAWMIDI_TYPE_HW: ::libc::c_uint = 0;
-pub static SND_RAWMIDI_TYPE_SHM: ::libc::c_uint = 1;
-pub static SND_RAWMIDI_TYPE_INET: ::libc::c_uint = 2;
-pub static SND_RAWMIDI_TYPE_VIRTUAL: ::libc::c_uint = 3;
+pub const SND_RAWMIDI_TYPE_HW: ::libc::c_uint = 0;
+pub const SND_RAWMIDI_TYPE_SHM: ::libc::c_uint = 1;
+pub const SND_RAWMIDI_TYPE_INET: ::libc::c_uint = 2;
+pub const SND_RAWMIDI_TYPE_VIRTUAL: ::libc::c_uint = 3;
 pub type snd_rawmidi_type_t = Enum__snd_rawmidi_type;
 pub enum Struct__snd_timer_id { }
 pub type snd_timer_id_t = Struct__snd_timer_id;
@@ -1203,54 +1592,68 @@ pub type snd_timer_params_t = Struct__snd_timer_params;
 pub enum Struct__snd_timer_status { }
 pub type snd_timer_status_t = Struct__snd_timer_status;
 pub type Enum__snd_timer_class = ::libc::c_int;
-pub static SND_TIMER_CLASS_NONE: ::libc::c_int = -1;
-pub static SND_TIMER_CLASS_SLAVE: ::libc::c_int = 0;
-pub static SND_TIMER_CLASS_GLOBAL: ::libc::c_int = 1;
-pub static SND_TIMER_CLASS_CARD: ::libc::c_int = 2;
-pub static SND_TIMER_CLASS_PCM: ::libc::c_int = 3;
-pub static SND_TIMER_CLASS_LAST: ::libc::c_int = 3;
+pub const SND_TIMER_CLASS_NONE: ::libc::c_int = -1;
+pub const SND_TIMER_CLASS_SLAVE: ::libc::c_int = 0;
+pub const SND_TIMER_CLASS_GLOBAL: ::libc::c_int = 1;
+pub const SND_TIMER_CLASS_CARD: ::libc::c_int = 2;
+pub const SND_TIMER_CLASS_PCM: ::libc::c_int = 3;
+pub const SND_TIMER_CLASS_LAST: ::libc::c_int = 3;
 pub type snd_timer_class_t = Enum__snd_timer_class;
 pub type Enum__snd_timer_slave_class = ::libc::c_uint;
-pub static SND_TIMER_SCLASS_NONE: ::libc::c_uint = 0;
-pub static SND_TIMER_SCLASS_APPLICATION: ::libc::c_uint = 1;
-pub static SND_TIMER_SCLASS_SEQUENCER: ::libc::c_uint = 2;
-pub static SND_TIMER_SCLASS_OSS_SEQUENCER: ::libc::c_uint = 3;
-pub static SND_TIMER_SCLASS_LAST: ::libc::c_uint = 3;
+pub const SND_TIMER_SCLASS_NONE: ::libc::c_uint = 0;
+pub const SND_TIMER_SCLASS_APPLICATION: ::libc::c_uint = 1;
+pub const SND_TIMER_SCLASS_SEQUENCER: ::libc::c_uint = 2;
+pub const SND_TIMER_SCLASS_OSS_SEQUENCER: ::libc::c_uint = 3;
+pub const SND_TIMER_SCLASS_LAST: ::libc::c_uint = 3;
 pub type snd_timer_slave_class_t = Enum__snd_timer_slave_class;
 pub type Enum__snd_timer_event = ::libc::c_uint;
-pub static SND_TIMER_EVENT_RESOLUTION: ::libc::c_uint = 0;
-pub static SND_TIMER_EVENT_TICK: ::libc::c_uint = 1;
-pub static SND_TIMER_EVENT_START: ::libc::c_uint = 2;
-pub static SND_TIMER_EVENT_STOP: ::libc::c_uint = 3;
-pub static SND_TIMER_EVENT_CONTINUE: ::libc::c_uint = 4;
-pub static SND_TIMER_EVENT_PAUSE: ::libc::c_uint = 5;
-pub static SND_TIMER_EVENT_EARLY: ::libc::c_uint = 6;
-pub static SND_TIMER_EVENT_SUSPEND: ::libc::c_uint = 7;
-pub static SND_TIMER_EVENT_RESUME: ::libc::c_uint = 8;
-pub static SND_TIMER_EVENT_MSTART: ::libc::c_uint = 12;
-pub static SND_TIMER_EVENT_MSTOP: ::libc::c_uint = 13;
-pub static SND_TIMER_EVENT_MCONTINUE: ::libc::c_uint = 14;
-pub static SND_TIMER_EVENT_MPAUSE: ::libc::c_uint = 15;
-pub static SND_TIMER_EVENT_MSUSPEND: ::libc::c_uint = 17;
-pub static SND_TIMER_EVENT_MRESUME: ::libc::c_uint = 18;
+pub const SND_TIMER_EVENT_RESOLUTION: ::libc::c_uint = 0;
+pub const SND_TIMER_EVENT_TICK: ::libc::c_uint = 1;
+pub const SND_TIMER_EVENT_START: ::libc::c_uint = 2;
+pub const SND_TIMER_EVENT_STOP: ::libc::c_uint = 3;
+pub const SND_TIMER_EVENT_CONTINUE: ::libc::c_uint = 4;
+pub const SND_TIMER_EVENT_PAUSE: ::libc::c_uint = 5;
+pub const SND_TIMER_EVENT_EARLY: ::libc::c_uint = 6;
+pub const SND_TIMER_EVENT_SUSPEND: ::libc::c_uint = 7;
+pub const SND_TIMER_EVENT_RESUME: ::libc::c_uint = 8;
+pub const SND_TIMER_EVENT_MSTART: ::libc::c_uint = 12;
+pub const SND_TIMER_EVENT_MSTOP: ::libc::c_uint = 13;
+pub const SND_TIMER_EVENT_MCONTINUE: ::libc::c_uint = 14;
+pub const SND_TIMER_EVENT_MPAUSE: ::libc::c_uint = 15;
+pub const SND_TIMER_EVENT_MSUSPEND: ::libc::c_uint = 17;
+pub const SND_TIMER_EVENT_MRESUME: ::libc::c_uint = 18;
 pub type snd_timer_event_t = Enum__snd_timer_event;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct__snd_timer_read {
     pub resolution: ::libc::c_uint,
     pub ticks: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct__snd_timer_read {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct__snd_timer_read {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_timer_read_t = Struct__snd_timer_read;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct__snd_timer_tread {
     pub event: snd_timer_event_t,
     pub tstamp: snd_htimestamp_t,
     pub val: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct__snd_timer_tread {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct__snd_timer_tread {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_timer_tread_t = Struct__snd_timer_tread;
 pub type Enum__snd_timer_type = ::libc::c_uint;
-pub static SND_TIMER_TYPE_HW: ::libc::c_uint = 0;
-pub static SND_TIMER_TYPE_SHM: ::libc::c_uint = 1;
-pub static SND_TIMER_TYPE_INET: ::libc::c_uint = 2;
+pub const SND_TIMER_TYPE_HW: ::libc::c_uint = 0;
+pub const SND_TIMER_TYPE_SHM: ::libc::c_uint = 1;
+pub const SND_TIMER_TYPE_INET: ::libc::c_uint = 2;
 pub type snd_timer_type_t = Enum__snd_timer_type;
 pub enum Struct__snd_timer_query { }
 pub type snd_timer_query_t = Struct__snd_timer_query;
@@ -1263,37 +1666,50 @@ pub type snd_hwdep_dsp_status_t = Struct__snd_hwdep_dsp_status;
 pub enum Struct__snd_hwdep_dsp_image { }
 pub type snd_hwdep_dsp_image_t = Struct__snd_hwdep_dsp_image;
 pub type Enum__snd_hwdep_iface = ::libc::c_uint;
-pub static SND_HWDEP_IFACE_OPL2: ::libc::c_uint = 0;
-pub static SND_HWDEP_IFACE_OPL3: ::libc::c_uint = 1;
-pub static SND_HWDEP_IFACE_OPL4: ::libc::c_uint = 2;
-pub static SND_HWDEP_IFACE_SB16CSP: ::libc::c_uint = 3;
-pub static SND_HWDEP_IFACE_EMU10K1: ::libc::c_uint = 4;
-pub static SND_HWDEP_IFACE_YSS225: ::libc::c_uint = 5;
-pub static SND_HWDEP_IFACE_ICS2115: ::libc::c_uint = 6;
-pub static SND_HWDEP_IFACE_SSCAPE: ::libc::c_uint = 7;
-pub static SND_HWDEP_IFACE_VX: ::libc::c_uint = 8;
-pub static SND_HWDEP_IFACE_MIXART: ::libc::c_uint = 9;
-pub static SND_HWDEP_IFACE_USX2Y: ::libc::c_uint = 10;
-pub static SND_HWDEP_IFACE_EMUX_WAVETABLE: ::libc::c_uint = 11;
-pub static SND_HWDEP_IFACE_BLUETOOTH: ::libc::c_uint = 12;
-pub static SND_HWDEP_IFACE_USX2Y_PCM: ::libc::c_uint = 13;
-pub static SND_HWDEP_IFACE_PCXHR: ::libc::c_uint = 14;
-pub static SND_HWDEP_IFACE_SB_RC: ::libc::c_uint = 15;
-pub static SND_HWDEP_IFACE_LAST: ::libc::c_uint = 15;
+pub const SND_HWDEP_IFACE_OPL2: ::libc::c_uint = 0;
+pub const SND_HWDEP_IFACE_OPL3: ::libc::c_uint = 1;
+pub const SND_HWDEP_IFACE_OPL4: ::libc::c_uint = 2;
+pub const SND_HWDEP_IFACE_SB16CSP: ::libc::c_uint = 3;
+pub const SND_HWDEP_IFACE_EMU10K1: ::libc::c_uint = 4;
+pub const SND_HWDEP_IFACE_YSS225: ::libc::c_uint = 5;
+pub const SND_HWDEP_IFACE_ICS2115: ::libc::c_uint = 6;
+pub const SND_HWDEP_IFACE_SSCAPE: ::libc::c_uint = 7;
+pub const SND_HWDEP_IFACE_VX: ::libc::c_uint = 8;
+pub const SND_HWDEP_IFACE_MIXART: ::libc::c_uint = 9;
+pub const SND_HWDEP_IFACE_USX2Y: ::libc::c_uint = 10;
+pub const SND_HWDEP_IFACE_EMUX_WAVETABLE: ::libc::c_uint = 11;
+pub const SND_HWDEP_IFACE_BLUETOOTH: ::libc::c_uint = 12;
+pub const SND_HWDEP_IFACE_USX2Y_PCM: ::libc::c_uint = 13;
+pub const SND_HWDEP_IFACE_PCXHR: ::libc::c_uint = 14;
+pub const SND_HWDEP_IFACE_SB_RC: ::libc::c_uint = 15;
+pub const SND_HWDEP_IFACE_HDA: ::libc::c_uint = 16;
+pub const SND_HWDEP_IFACE_USB_STREAM: ::libc::c_uint = 17;
+pub const SND_HWDEP_IFACE_FW_DICE: ::libc::c_uint = 18;
+pub const SND_HWDEP_IFACE_FW_FIREWORKS: ::libc::c_uint = 19;
+pub const SND_HWDEP_IFACE_FW_BEBOB: ::libc::c_uint = 20;
+pub const SND_HWDEP_IFACE_FW_OXFW: ::libc::c_uint = 21;
+pub const SND_HWDEP_IFACE_LAST: ::libc::c_uint = 21;
 pub type snd_hwdep_iface_t = Enum__snd_hwdep_iface;
 pub type Enum__snd_hwdep_type = ::libc::c_uint;
-pub static SND_HWDEP_TYPE_HW: ::libc::c_uint = 0;
-pub static SND_HWDEP_TYPE_SHM: ::libc::c_uint = 1;
-pub static SND_HWDEP_TYPE_INET: ::libc::c_uint = 2;
+pub const SND_HWDEP_TYPE_HW: ::libc::c_uint = 0;
+pub const SND_HWDEP_TYPE_SHM: ::libc::c_uint = 1;
+pub const SND_HWDEP_TYPE_INET: ::libc::c_uint = 2;
 pub type snd_hwdep_type_t = Enum__snd_hwdep_type;
 pub enum Struct__snd_hwdep { }
 pub type snd_hwdep_t = Struct__snd_hwdep;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_aes_iec958 {
-    pub status: [::libc::c_uchar, ..24u],
-    pub subcode: [::libc::c_uchar, ..147u],
+    pub status: [::libc::c_uchar; 24usize],
+    pub subcode: [::libc::c_uchar; 147usize],
     pub pad: ::libc::c_uchar,
-    pub dig_subframe: [::libc::c_uchar, ..4u],
+    pub dig_subframe: [::libc::c_uchar; 4usize],
+}
+impl ::std::clone::Clone for Struct_snd_aes_iec958 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_aes_iec958 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_aes_iec958_t = Struct_snd_aes_iec958;
 pub enum Struct__snd_ctl_card_info { }
@@ -1309,34 +1725,34 @@ pub type snd_ctl_elem_value_t = Struct__snd_ctl_elem_value;
 pub enum Struct__snd_ctl_event { }
 pub type snd_ctl_event_t = Struct__snd_ctl_event;
 pub type Enum__snd_ctl_elem_type = ::libc::c_uint;
-pub static SND_CTL_ELEM_TYPE_NONE: ::libc::c_uint = 0;
-pub static SND_CTL_ELEM_TYPE_BOOLEAN: ::libc::c_uint = 1;
-pub static SND_CTL_ELEM_TYPE_INTEGER: ::libc::c_uint = 2;
-pub static SND_CTL_ELEM_TYPE_ENUMERATED: ::libc::c_uint = 3;
-pub static SND_CTL_ELEM_TYPE_BYTES: ::libc::c_uint = 4;
-pub static SND_CTL_ELEM_TYPE_IEC958: ::libc::c_uint = 5;
-pub static SND_CTL_ELEM_TYPE_INTEGER64: ::libc::c_uint = 6;
-pub static SND_CTL_ELEM_TYPE_LAST: ::libc::c_uint = 6;
+pub const SND_CTL_ELEM_TYPE_NONE: ::libc::c_uint = 0;
+pub const SND_CTL_ELEM_TYPE_BOOLEAN: ::libc::c_uint = 1;
+pub const SND_CTL_ELEM_TYPE_INTEGER: ::libc::c_uint = 2;
+pub const SND_CTL_ELEM_TYPE_ENUMERATED: ::libc::c_uint = 3;
+pub const SND_CTL_ELEM_TYPE_BYTES: ::libc::c_uint = 4;
+pub const SND_CTL_ELEM_TYPE_IEC958: ::libc::c_uint = 5;
+pub const SND_CTL_ELEM_TYPE_INTEGER64: ::libc::c_uint = 6;
+pub const SND_CTL_ELEM_TYPE_LAST: ::libc::c_uint = 6;
 pub type snd_ctl_elem_type_t = Enum__snd_ctl_elem_type;
 pub type Enum__snd_ctl_elem_iface = ::libc::c_uint;
-pub static SND_CTL_ELEM_IFACE_CARD: ::libc::c_uint = 0;
-pub static SND_CTL_ELEM_IFACE_HWDEP: ::libc::c_uint = 1;
-pub static SND_CTL_ELEM_IFACE_MIXER: ::libc::c_uint = 2;
-pub static SND_CTL_ELEM_IFACE_PCM: ::libc::c_uint = 3;
-pub static SND_CTL_ELEM_IFACE_RAWMIDI: ::libc::c_uint = 4;
-pub static SND_CTL_ELEM_IFACE_TIMER: ::libc::c_uint = 5;
-pub static SND_CTL_ELEM_IFACE_SEQUENCER: ::libc::c_uint = 6;
-pub static SND_CTL_ELEM_IFACE_LAST: ::libc::c_uint = 6;
+pub const SND_CTL_ELEM_IFACE_CARD: ::libc::c_uint = 0;
+pub const SND_CTL_ELEM_IFACE_HWDEP: ::libc::c_uint = 1;
+pub const SND_CTL_ELEM_IFACE_MIXER: ::libc::c_uint = 2;
+pub const SND_CTL_ELEM_IFACE_PCM: ::libc::c_uint = 3;
+pub const SND_CTL_ELEM_IFACE_RAWMIDI: ::libc::c_uint = 4;
+pub const SND_CTL_ELEM_IFACE_TIMER: ::libc::c_uint = 5;
+pub const SND_CTL_ELEM_IFACE_SEQUENCER: ::libc::c_uint = 6;
+pub const SND_CTL_ELEM_IFACE_LAST: ::libc::c_uint = 6;
 pub type snd_ctl_elem_iface_t = Enum__snd_ctl_elem_iface;
 pub type Enum__snd_ctl_event_type = ::libc::c_uint;
-pub static SND_CTL_EVENT_ELEM: ::libc::c_uint = 0;
-pub static SND_CTL_EVENT_LAST: ::libc::c_uint = 0;
+pub const SND_CTL_EVENT_ELEM: ::libc::c_uint = 0;
+pub const SND_CTL_EVENT_LAST: ::libc::c_uint = 0;
 pub type snd_ctl_event_type_t = Enum__snd_ctl_event_type;
 pub type Enum__snd_ctl_type = ::libc::c_uint;
-pub static SND_CTL_TYPE_HW: ::libc::c_uint = 0;
-pub static SND_CTL_TYPE_SHM: ::libc::c_uint = 1;
-pub static SND_CTL_TYPE_INET: ::libc::c_uint = 2;
-pub static SND_CTL_TYPE_EXT: ::libc::c_uint = 3;
+pub const SND_CTL_TYPE_HW: ::libc::c_uint = 0;
+pub const SND_CTL_TYPE_SHM: ::libc::c_uint = 1;
+pub const SND_CTL_TYPE_INET: ::libc::c_uint = 2;
+pub const SND_CTL_TYPE_EXT: ::libc::c_uint = 3;
 pub type snd_ctl_type_t = Enum__snd_ctl_type;
 pub enum Struct__snd_ctl { }
 pub type snd_ctl_t = Struct__snd_ctl;
@@ -1347,18 +1763,18 @@ pub type snd_hctl_elem_t = Struct__snd_hctl_elem;
 pub enum Struct__snd_hctl { }
 pub type snd_hctl_t = Struct__snd_hctl;
 pub type snd_hctl_compare_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *const snd_hctl_elem_t,
-                               arg2: *const snd_hctl_elem_t)
+    ::std::option::Option<extern "C" fn(e1: *const snd_hctl_elem_t,
+                                        e2: *const snd_hctl_elem_t)
                               -> ::libc::c_int>;
 pub type snd_hctl_callback_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *mut snd_hctl_t, arg2: ::libc::c_uint,
-                               arg3: *mut snd_hctl_elem_t) -> ::libc::c_int>;
+    ::std::option::Option<extern "C" fn(hctl: *mut snd_hctl_t,
+                                        mask: ::libc::c_uint,
+                                        elem: *mut snd_hctl_elem_t)
+                              -> ::libc::c_int>;
 pub type snd_hctl_elem_callback_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *mut snd_hctl_elem_t,
-                               arg2: ::libc::c_uint) -> ::libc::c_int>;
+    ::std::option::Option<extern "C" fn(elem: *mut snd_hctl_elem_t,
+                                        mask: ::libc::c_uint)
+                              -> ::libc::c_int>;
 pub enum Struct__snd_mixer { }
 pub type snd_mixer_t = Struct__snd_mixer;
 pub enum Struct__snd_mixer_class { }
@@ -1366,46 +1782,47 @@ pub type snd_mixer_class_t = Struct__snd_mixer_class;
 pub enum Struct__snd_mixer_elem { }
 pub type snd_mixer_elem_t = Struct__snd_mixer_elem;
 pub type snd_mixer_callback_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *mut snd_mixer_t, arg2: ::libc::c_uint,
-                               arg3: *mut snd_mixer_elem_t) -> ::libc::c_int>;
+    ::std::option::Option<extern "C" fn(ctl: *mut snd_mixer_t,
+                                        mask: ::libc::c_uint,
+                                        elem: *mut snd_mixer_elem_t)
+                              -> ::libc::c_int>;
 pub type snd_mixer_elem_callback_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *mut snd_mixer_elem_t,
-                               arg2: ::libc::c_uint) -> ::libc::c_int>;
+    ::std::option::Option<extern "C" fn(elem: *mut snd_mixer_elem_t,
+                                        mask: ::libc::c_uint)
+                              -> ::libc::c_int>;
 pub type snd_mixer_compare_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *const snd_mixer_elem_t,
-                               arg2: *const snd_mixer_elem_t)
+    ::std::option::Option<extern "C" fn(e1: *const snd_mixer_elem_t,
+                                        e2: *const snd_mixer_elem_t)
                               -> ::libc::c_int>;
 pub type snd_mixer_event_t =
-    ::std::option::Option<extern "C" fn
-                              (arg1: *mut snd_mixer_class_t,
-                               arg2: ::libc::c_uint,
-                               arg3: *mut snd_hctl_elem_t,
-                               arg4: *mut snd_mixer_elem_t) -> ::libc::c_int>;
+    ::std::option::Option<extern "C" fn(class_: *mut snd_mixer_class_t,
+                                        mask: ::libc::c_uint,
+                                        helem: *mut snd_hctl_elem_t,
+                                        melem: *mut snd_mixer_elem_t)
+                              -> ::libc::c_int>;
 pub type Enum__snd_mixer_elem_type = ::libc::c_uint;
-pub static SND_MIXER_ELEM_SIMPLE: ::libc::c_uint = 0;
-pub static SND_MIXER_ELEM_LAST: ::libc::c_uint = 0;
+pub const SND_MIXER_ELEM_SIMPLE: ::libc::c_uint = 0;
+pub const SND_MIXER_ELEM_LAST: ::libc::c_uint = 0;
 pub type snd_mixer_elem_type_t = Enum__snd_mixer_elem_type;
 pub type Enum__snd_mixer_selem_channel_id = ::libc::c_int;
-pub static SND_MIXER_SCHN_UNKNOWN: ::libc::c_int = -1;
-pub static SND_MIXER_SCHN_FRONT_LEFT: ::libc::c_int = 0;
-pub static SND_MIXER_SCHN_FRONT_RIGHT: ::libc::c_int = 1;
-pub static SND_MIXER_SCHN_REAR_LEFT: ::libc::c_int = 2;
-pub static SND_MIXER_SCHN_REAR_RIGHT: ::libc::c_int = 3;
-pub static SND_MIXER_SCHN_FRONT_CENTER: ::libc::c_int = 4;
-pub static SND_MIXER_SCHN_WOOFER: ::libc::c_int = 5;
-pub static SND_MIXER_SCHN_SIDE_LEFT: ::libc::c_int = 6;
-pub static SND_MIXER_SCHN_SIDE_RIGHT: ::libc::c_int = 7;
-pub static SND_MIXER_SCHN_REAR_CENTER: ::libc::c_int = 8;
-pub static SND_MIXER_SCHN_LAST: ::libc::c_int = 31;
-pub static SND_MIXER_SCHN_MONO: ::libc::c_int = 0;
+pub const SND_MIXER_SCHN_UNKNOWN: ::libc::c_int = -1;
+pub const SND_MIXER_SCHN_FRONT_LEFT: ::libc::c_int = 0;
+pub const SND_MIXER_SCHN_FRONT_RIGHT: ::libc::c_int = 1;
+pub const SND_MIXER_SCHN_REAR_LEFT: ::libc::c_int = 2;
+pub const SND_MIXER_SCHN_REAR_RIGHT: ::libc::c_int = 3;
+pub const SND_MIXER_SCHN_FRONT_CENTER: ::libc::c_int = 4;
+pub const SND_MIXER_SCHN_WOOFER: ::libc::c_int = 5;
+pub const SND_MIXER_SCHN_SIDE_LEFT: ::libc::c_int = 6;
+pub const SND_MIXER_SCHN_SIDE_RIGHT: ::libc::c_int = 7;
+pub const SND_MIXER_SCHN_REAR_CENTER: ::libc::c_int = 8;
+pub const SND_MIXER_SCHN_LAST: ::libc::c_int = 31;
+pub const SND_MIXER_SCHN_MONO: ::libc::c_int = 0;
 pub type snd_mixer_selem_channel_id_t = Enum__snd_mixer_selem_channel_id;
 pub type Enum_snd_mixer_selem_regopt_abstract = ::libc::c_uint;
-pub static SND_MIXER_SABSTRACT_NONE: ::libc::c_uint = 0;
-pub static SND_MIXER_SABSTRACT_BASIC: ::libc::c_uint = 1;
+pub const SND_MIXER_SABSTRACT_NONE: ::libc::c_uint = 0;
+pub const SND_MIXER_SABSTRACT_BASIC: ::libc::c_uint = 1;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_mixer_selem_regopt {
     pub ver: ::libc::c_int,
     pub _abstract: Enum_snd_mixer_selem_regopt_abstract,
@@ -1413,102 +1830,139 @@ pub struct Struct_snd_mixer_selem_regopt {
     pub playback_pcm: *mut snd_pcm_t,
     pub capture_pcm: *mut snd_pcm_t,
 }
+impl ::std::clone::Clone for Struct_snd_mixer_selem_regopt {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_mixer_selem_regopt {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub enum Struct__snd_mixer_selem_id { }
 pub type snd_mixer_selem_id_t = Struct__snd_mixer_selem_id;
 pub type snd_seq_event_type_t = ::libc::c_uchar;
 pub type Enum_snd_seq_event_type = ::libc::c_uint;
-pub static SND_SEQ_EVENT_SYSTEM: ::libc::c_uint = 0;
-pub static SND_SEQ_EVENT_RESULT: ::libc::c_uint = 1;
-pub static SND_SEQ_EVENT_NOTE: ::libc::c_uint = 5;
-pub static SND_SEQ_EVENT_NOTEON: ::libc::c_uint = 6;
-pub static SND_SEQ_EVENT_NOTEOFF: ::libc::c_uint = 7;
-pub static SND_SEQ_EVENT_KEYPRESS: ::libc::c_uint = 8;
-pub static SND_SEQ_EVENT_CONTROLLER: ::libc::c_uint = 10;
-pub static SND_SEQ_EVENT_PGMCHANGE: ::libc::c_uint = 11;
-pub static SND_SEQ_EVENT_CHANPRESS: ::libc::c_uint = 12;
-pub static SND_SEQ_EVENT_PITCHBEND: ::libc::c_uint = 13;
-pub static SND_SEQ_EVENT_CONTROL14: ::libc::c_uint = 14;
-pub static SND_SEQ_EVENT_NONREGPARAM: ::libc::c_uint = 15;
-pub static SND_SEQ_EVENT_REGPARAM: ::libc::c_uint = 16;
-pub static SND_SEQ_EVENT_SONGPOS: ::libc::c_uint = 20;
-pub static SND_SEQ_EVENT_SONGSEL: ::libc::c_uint = 21;
-pub static SND_SEQ_EVENT_QFRAME: ::libc::c_uint = 22;
-pub static SND_SEQ_EVENT_TIMESIGN: ::libc::c_uint = 23;
-pub static SND_SEQ_EVENT_KEYSIGN: ::libc::c_uint = 24;
-pub static SND_SEQ_EVENT_START: ::libc::c_uint = 30;
-pub static SND_SEQ_EVENT_CONTINUE: ::libc::c_uint = 31;
-pub static SND_SEQ_EVENT_STOP: ::libc::c_uint = 32;
-pub static SND_SEQ_EVENT_SETPOS_TICK: ::libc::c_uint = 33;
-pub static SND_SEQ_EVENT_SETPOS_TIME: ::libc::c_uint = 34;
-pub static SND_SEQ_EVENT_TEMPO: ::libc::c_uint = 35;
-pub static SND_SEQ_EVENT_CLOCK: ::libc::c_uint = 36;
-pub static SND_SEQ_EVENT_TICK: ::libc::c_uint = 37;
-pub static SND_SEQ_EVENT_QUEUE_SKEW: ::libc::c_uint = 38;
-pub static SND_SEQ_EVENT_SYNC_POS: ::libc::c_uint = 39;
-pub static SND_SEQ_EVENT_TUNE_REQUEST: ::libc::c_uint = 40;
-pub static SND_SEQ_EVENT_RESET: ::libc::c_uint = 41;
-pub static SND_SEQ_EVENT_SENSING: ::libc::c_uint = 42;
-pub static SND_SEQ_EVENT_ECHO: ::libc::c_uint = 50;
-pub static SND_SEQ_EVENT_OSS: ::libc::c_uint = 51;
-pub static SND_SEQ_EVENT_CLIENT_START: ::libc::c_uint = 60;
-pub static SND_SEQ_EVENT_CLIENT_EXIT: ::libc::c_uint = 61;
-pub static SND_SEQ_EVENT_CLIENT_CHANGE: ::libc::c_uint = 62;
-pub static SND_SEQ_EVENT_PORT_START: ::libc::c_uint = 63;
-pub static SND_SEQ_EVENT_PORT_EXIT: ::libc::c_uint = 64;
-pub static SND_SEQ_EVENT_PORT_CHANGE: ::libc::c_uint = 65;
-pub static SND_SEQ_EVENT_PORT_SUBSCRIBED: ::libc::c_uint = 66;
-pub static SND_SEQ_EVENT_PORT_UNSUBSCRIBED: ::libc::c_uint = 67;
-pub static SND_SEQ_EVENT_USR0: ::libc::c_uint = 90;
-pub static SND_SEQ_EVENT_USR1: ::libc::c_uint = 91;
-pub static SND_SEQ_EVENT_USR2: ::libc::c_uint = 92;
-pub static SND_SEQ_EVENT_USR3: ::libc::c_uint = 93;
-pub static SND_SEQ_EVENT_USR4: ::libc::c_uint = 94;
-pub static SND_SEQ_EVENT_USR5: ::libc::c_uint = 95;
-pub static SND_SEQ_EVENT_USR6: ::libc::c_uint = 96;
-pub static SND_SEQ_EVENT_USR7: ::libc::c_uint = 97;
-pub static SND_SEQ_EVENT_USR8: ::libc::c_uint = 98;
-pub static SND_SEQ_EVENT_USR9: ::libc::c_uint = 99;
-pub static SND_SEQ_EVENT_SYSEX: ::libc::c_uint = 130;
-pub static SND_SEQ_EVENT_BOUNCE: ::libc::c_uint = 131;
-pub static SND_SEQ_EVENT_USR_VAR0: ::libc::c_uint = 135;
-pub static SND_SEQ_EVENT_USR_VAR1: ::libc::c_uint = 136;
-pub static SND_SEQ_EVENT_USR_VAR2: ::libc::c_uint = 137;
-pub static SND_SEQ_EVENT_USR_VAR3: ::libc::c_uint = 138;
-pub static SND_SEQ_EVENT_USR_VAR4: ::libc::c_uint = 139;
-pub static SND_SEQ_EVENT_NONE: ::libc::c_uint = 255;
+pub const SND_SEQ_EVENT_SYSTEM: ::libc::c_uint = 0;
+pub const SND_SEQ_EVENT_RESULT: ::libc::c_uint = 1;
+pub const SND_SEQ_EVENT_NOTE: ::libc::c_uint = 5;
+pub const SND_SEQ_EVENT_NOTEON: ::libc::c_uint = 6;
+pub const SND_SEQ_EVENT_NOTEOFF: ::libc::c_uint = 7;
+pub const SND_SEQ_EVENT_KEYPRESS: ::libc::c_uint = 8;
+pub const SND_SEQ_EVENT_CONTROLLER: ::libc::c_uint = 10;
+pub const SND_SEQ_EVENT_PGMCHANGE: ::libc::c_uint = 11;
+pub const SND_SEQ_EVENT_CHANPRESS: ::libc::c_uint = 12;
+pub const SND_SEQ_EVENT_PITCHBEND: ::libc::c_uint = 13;
+pub const SND_SEQ_EVENT_CONTROL14: ::libc::c_uint = 14;
+pub const SND_SEQ_EVENT_NONREGPARAM: ::libc::c_uint = 15;
+pub const SND_SEQ_EVENT_REGPARAM: ::libc::c_uint = 16;
+pub const SND_SEQ_EVENT_SONGPOS: ::libc::c_uint = 20;
+pub const SND_SEQ_EVENT_SONGSEL: ::libc::c_uint = 21;
+pub const SND_SEQ_EVENT_QFRAME: ::libc::c_uint = 22;
+pub const SND_SEQ_EVENT_TIMESIGN: ::libc::c_uint = 23;
+pub const SND_SEQ_EVENT_KEYSIGN: ::libc::c_uint = 24;
+pub const SND_SEQ_EVENT_START: ::libc::c_uint = 30;
+pub const SND_SEQ_EVENT_CONTINUE: ::libc::c_uint = 31;
+pub const SND_SEQ_EVENT_STOP: ::libc::c_uint = 32;
+pub const SND_SEQ_EVENT_SETPOS_TICK: ::libc::c_uint = 33;
+pub const SND_SEQ_EVENT_SETPOS_TIME: ::libc::c_uint = 34;
+pub const SND_SEQ_EVENT_TEMPO: ::libc::c_uint = 35;
+pub const SND_SEQ_EVENT_CLOCK: ::libc::c_uint = 36;
+pub const SND_SEQ_EVENT_TICK: ::libc::c_uint = 37;
+pub const SND_SEQ_EVENT_QUEUE_SKEW: ::libc::c_uint = 38;
+pub const SND_SEQ_EVENT_SYNC_POS: ::libc::c_uint = 39;
+pub const SND_SEQ_EVENT_TUNE_REQUEST: ::libc::c_uint = 40;
+pub const SND_SEQ_EVENT_RESET: ::libc::c_uint = 41;
+pub const SND_SEQ_EVENT_SENSING: ::libc::c_uint = 42;
+pub const SND_SEQ_EVENT_ECHO: ::libc::c_uint = 50;
+pub const SND_SEQ_EVENT_OSS: ::libc::c_uint = 51;
+pub const SND_SEQ_EVENT_CLIENT_START: ::libc::c_uint = 60;
+pub const SND_SEQ_EVENT_CLIENT_EXIT: ::libc::c_uint = 61;
+pub const SND_SEQ_EVENT_CLIENT_CHANGE: ::libc::c_uint = 62;
+pub const SND_SEQ_EVENT_PORT_START: ::libc::c_uint = 63;
+pub const SND_SEQ_EVENT_PORT_EXIT: ::libc::c_uint = 64;
+pub const SND_SEQ_EVENT_PORT_CHANGE: ::libc::c_uint = 65;
+pub const SND_SEQ_EVENT_PORT_SUBSCRIBED: ::libc::c_uint = 66;
+pub const SND_SEQ_EVENT_PORT_UNSUBSCRIBED: ::libc::c_uint = 67;
+pub const SND_SEQ_EVENT_USR0: ::libc::c_uint = 90;
+pub const SND_SEQ_EVENT_USR1: ::libc::c_uint = 91;
+pub const SND_SEQ_EVENT_USR2: ::libc::c_uint = 92;
+pub const SND_SEQ_EVENT_USR3: ::libc::c_uint = 93;
+pub const SND_SEQ_EVENT_USR4: ::libc::c_uint = 94;
+pub const SND_SEQ_EVENT_USR5: ::libc::c_uint = 95;
+pub const SND_SEQ_EVENT_USR6: ::libc::c_uint = 96;
+pub const SND_SEQ_EVENT_USR7: ::libc::c_uint = 97;
+pub const SND_SEQ_EVENT_USR8: ::libc::c_uint = 98;
+pub const SND_SEQ_EVENT_USR9: ::libc::c_uint = 99;
+pub const SND_SEQ_EVENT_SYSEX: ::libc::c_uint = 130;
+pub const SND_SEQ_EVENT_BOUNCE: ::libc::c_uint = 131;
+pub const SND_SEQ_EVENT_USR_VAR0: ::libc::c_uint = 135;
+pub const SND_SEQ_EVENT_USR_VAR1: ::libc::c_uint = 136;
+pub const SND_SEQ_EVENT_USR_VAR2: ::libc::c_uint = 137;
+pub const SND_SEQ_EVENT_USR_VAR3: ::libc::c_uint = 138;
+pub const SND_SEQ_EVENT_USR_VAR4: ::libc::c_uint = 139;
+pub const SND_SEQ_EVENT_NONE: ::libc::c_uint = 255;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_addr {
     pub client: ::libc::c_uchar,
     pub port: ::libc::c_uchar,
 }
+impl ::std::clone::Clone for Struct_snd_seq_addr {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_addr {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_addr_t = Struct_snd_seq_addr;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_connect {
     pub sender: snd_seq_addr_t,
     pub dest: snd_seq_addr_t,
 }
+impl ::std::clone::Clone for Struct_snd_seq_connect {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_connect {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_connect_t = Struct_snd_seq_connect;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_real_time {
     pub tv_sec: ::libc::c_uint,
     pub tv_nsec: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct_snd_seq_real_time {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_real_time {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_real_time_t = Struct_snd_seq_real_time;
 pub type snd_seq_tick_time_t = ::libc::c_uint;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Union_snd_seq_timestamp {
-    pub data: [u32, ..2u],
+    pub _bindgen_data_: [u32; 2usize],
 }
 impl Union_snd_seq_timestamp {
-    pub fn tick(&mut self) -> *mut snd_seq_tick_time_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn tick(&mut self) -> *mut snd_seq_tick_time_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn time(&mut self) -> *mut Struct_snd_seq_real_time {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn time(&mut self) -> *mut Struct_snd_seq_real_time {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
+}
+impl ::std::clone::Clone for Union_snd_seq_timestamp {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_snd_seq_timestamp {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_seq_timestamp_t = Union_snd_seq_timestamp;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_ev_note {
     pub channel: ::libc::c_uchar,
     pub note: ::libc::c_uchar,
@@ -1516,75 +1970,144 @@ pub struct Struct_snd_seq_ev_note {
     pub off_velocity: ::libc::c_uchar,
     pub duration: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct_snd_seq_ev_note {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_ev_note {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_ev_note_t = Struct_snd_seq_ev_note;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_ev_ctrl {
     pub channel: ::libc::c_uchar,
-    pub unused: [::libc::c_uchar, ..3u],
+    pub unused: [::libc::c_uchar; 3usize],
     pub param: ::libc::c_uint,
     pub value: ::libc::c_int,
 }
+impl ::std::clone::Clone for Struct_snd_seq_ev_ctrl {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_ev_ctrl {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_ev_ctrl_t = Struct_snd_seq_ev_ctrl;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_ev_raw8 {
-    pub d: [::libc::c_uchar, ..12u],
+    pub d: [::libc::c_uchar; 12usize],
+}
+impl ::std::clone::Clone for Struct_snd_seq_ev_raw8 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_ev_raw8 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_seq_ev_raw8_t = Struct_snd_seq_ev_raw8;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_ev_raw32 {
-    pub d: [::libc::c_uint, ..3u],
+    pub d: [::libc::c_uint; 3usize],
+}
+impl ::std::clone::Clone for Struct_snd_seq_ev_raw32 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_ev_raw32 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_seq_ev_raw32_t = Struct_snd_seq_ev_raw32;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_ev_ext {
     pub len: ::libc::c_uint,
     pub ptr: *mut ::libc::c_void,
 }
+impl ::std::clone::Clone for Struct_snd_seq_ev_ext {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_ev_ext {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_ev_ext_t = Struct_snd_seq_ev_ext;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_result {
     pub event: ::libc::c_int,
     pub result: ::libc::c_int,
 }
+impl ::std::clone::Clone for Struct_snd_seq_result {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_result {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_result_t = Struct_snd_seq_result;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_queue_skew {
     pub value: ::libc::c_uint,
     pub base: ::libc::c_uint,
 }
+impl ::std::clone::Clone for Struct_snd_seq_queue_skew {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_queue_skew {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
 pub type snd_seq_queue_skew_t = Struct_snd_seq_queue_skew;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_ev_queue_control {
     pub queue: ::libc::c_uchar,
-    pub unused: [::libc::c_uchar, ..3u],
-    pub param: Union_Unnamed9,
+    pub unused: [::libc::c_uchar; 3usize],
+    pub param: Union_Unnamed27,
+}
+impl ::std::clone::Clone for Struct_snd_seq_ev_queue_control {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_ev_queue_control {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 #[repr(C)]
-pub struct Union_Unnamed9 {
-    pub data: [u32, ..2u],
+#[derive(Copy)]
+pub struct Union_Unnamed27 {
+    pub _bindgen_data_: [u32; 2usize],
 }
-impl Union_Unnamed9 {
-    pub fn value(&mut self) -> *mut ::libc::c_int {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed27 {
+    pub unsafe fn value(&mut self) -> *mut ::libc::c_int {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn time(&mut self) -> *mut snd_seq_timestamp_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn time(&mut self) -> *mut snd_seq_timestamp_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn position(&mut self) -> *mut ::libc::c_uint {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn position(&mut self) -> *mut ::libc::c_uint {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn skew(&mut self) -> *mut snd_seq_queue_skew_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn skew(&mut self) -> *mut snd_seq_queue_skew_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn d32(&mut self) -> *mut [::libc::c_uint, ..2u] {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn d32(&mut self) -> *mut [::libc::c_uint; 2usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn d8(&mut self) -> *mut [::libc::c_uchar, ..8u] {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn d8(&mut self) -> *mut [::libc::c_uchar; 8usize] {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
+}
+impl ::std::clone::Clone for Union_Unnamed27 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed27 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_seq_ev_queue_control_t = Struct_snd_seq_ev_queue_control;
 #[repr(C)]
+#[derive(Copy)]
 pub struct Struct_snd_seq_event {
     pub _type: snd_seq_event_type_t,
     pub flags: ::libc::c_uchar,
@@ -1593,59 +2116,82 @@ pub struct Struct_snd_seq_event {
     pub time: snd_seq_timestamp_t,
     pub source: snd_seq_addr_t,
     pub dest: snd_seq_addr_t,
-    pub data: Union_Unnamed10,
+    pub data: Union_Unnamed28,
+}
+impl ::std::clone::Clone for Struct_snd_seq_event {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_snd_seq_event {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 #[repr(C)]
-pub struct Union_Unnamed10 {
-    pub data: [u32, ..3u],
+#[derive(Copy)]
+pub struct Union_Unnamed28 {
+    pub _bindgen_data_: [u32; 3usize],
 }
-impl Union_Unnamed10 {
-    pub fn note(&mut self) -> *mut snd_seq_ev_note_t {
-        unsafe { ::std::mem::transmute(self) }
+impl Union_Unnamed28 {
+    pub unsafe fn note(&mut self) -> *mut snd_seq_ev_note_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn control(&mut self) -> *mut snd_seq_ev_ctrl_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn control(&mut self) -> *mut snd_seq_ev_ctrl_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn raw8(&mut self) -> *mut snd_seq_ev_raw8_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn raw8(&mut self) -> *mut snd_seq_ev_raw8_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn raw32(&mut self) -> *mut snd_seq_ev_raw32_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn raw32(&mut self) -> *mut snd_seq_ev_raw32_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn ext(&mut self) -> *mut snd_seq_ev_ext_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn ext(&mut self) -> *mut snd_seq_ev_ext_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn queue(&mut self) -> *mut snd_seq_ev_queue_control_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn queue(&mut self) -> *mut snd_seq_ev_queue_control_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn time(&mut self) -> *mut snd_seq_timestamp_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn time(&mut self) -> *mut snd_seq_timestamp_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn addr(&mut self) -> *mut snd_seq_addr_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn addr(&mut self) -> *mut snd_seq_addr_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn connect(&mut self) -> *mut snd_seq_connect_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn connect(&mut self) -> *mut snd_seq_connect_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
-    pub fn result(&mut self) -> *mut snd_seq_result_t {
-        unsafe { ::std::mem::transmute(self) }
+    pub unsafe fn result(&mut self) -> *mut snd_seq_result_t {
+        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
+        ::std::mem::transmute(raw.offset(0))
     }
+}
+impl ::std::clone::Clone for Union_Unnamed28 {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Union_Unnamed28 {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type snd_seq_event_t = Struct_snd_seq_event;
 pub enum Struct__snd_seq { }
 pub type snd_seq_t = Struct__snd_seq;
 pub type Enum__snd_seq_type = ::libc::c_uint;
-pub static SND_SEQ_TYPE_HW: ::libc::c_uint = 0;
-pub static SND_SEQ_TYPE_SHM: ::libc::c_uint = 1;
-pub static SND_SEQ_TYPE_INET: ::libc::c_uint = 2;
+pub const SND_SEQ_TYPE_HW: ::libc::c_uint = 0;
+pub const SND_SEQ_TYPE_SHM: ::libc::c_uint = 1;
+pub const SND_SEQ_TYPE_INET: ::libc::c_uint = 2;
 pub type snd_seq_type_t = Enum__snd_seq_type;
 pub enum Struct__snd_seq_system_info { }
 pub type snd_seq_system_info_t = Struct__snd_seq_system_info;
 pub enum Struct__snd_seq_client_info { }
 pub type snd_seq_client_info_t = Struct__snd_seq_client_info;
 pub type Enum_snd_seq_client_type = ::libc::c_uint;
-pub static SND_SEQ_USER_CLIENT: ::libc::c_uint = 1;
-pub static SND_SEQ_KERNEL_CLIENT: ::libc::c_uint = 2;
+pub const SND_SEQ_USER_CLIENT: ::libc::c_uint = 1;
+pub const SND_SEQ_KERNEL_CLIENT: ::libc::c_uint = 2;
 pub type snd_seq_client_type_t = Enum_snd_seq_client_type;
 pub enum Struct__snd_seq_client_pool { }
 pub type snd_seq_client_pool_t = Struct__snd_seq_client_pool;
@@ -1655,9 +2201,10 @@ pub enum Struct__snd_seq_port_subscribe { }
 pub type snd_seq_port_subscribe_t = Struct__snd_seq_port_subscribe;
 pub enum Struct__snd_seq_query_subscribe { }
 pub type snd_seq_query_subscribe_t = Struct__snd_seq_query_subscribe;
-pub type snd_seq_query_subs_type_t = ::libc::c_uint;
-pub static SND_SEQ_QUERY_SUBS_READ: ::libc::c_uint = 0;
-pub static SND_SEQ_QUERY_SUBS_WRITE: ::libc::c_uint = 1;
+pub type Enum_Unnamed29 = ::libc::c_uint;
+pub const SND_SEQ_QUERY_SUBS_READ: ::libc::c_uint = 0;
+pub const SND_SEQ_QUERY_SUBS_WRITE: ::libc::c_uint = 1;
+pub type snd_seq_query_subs_type_t = Enum_Unnamed29;
 pub enum Struct__snd_seq_queue_info { }
 pub type snd_seq_queue_info_t = Struct__snd_seq_queue_info;
 pub enum Struct__snd_seq_queue_status { }
@@ -1666,39 +2213,57 @@ pub enum Struct__snd_seq_queue_tempo { }
 pub type snd_seq_queue_tempo_t = Struct__snd_seq_queue_tempo;
 pub enum Struct__snd_seq_queue_timer { }
 pub type snd_seq_queue_timer_t = Struct__snd_seq_queue_timer;
-pub type snd_seq_queue_timer_type_t = ::libc::c_uint;
-pub static SND_SEQ_TIMER_ALSA: ::libc::c_uint = 0;
-pub static SND_SEQ_TIMER_MIDI_CLOCK: ::libc::c_uint = 1;
-pub static SND_SEQ_TIMER_MIDI_TICK: ::libc::c_uint = 2;
+pub type Enum_Unnamed30 = ::libc::c_uint;
+pub const SND_SEQ_TIMER_ALSA: ::libc::c_uint = 0;
+pub const SND_SEQ_TIMER_MIDI_CLOCK: ::libc::c_uint = 1;
+pub const SND_SEQ_TIMER_MIDI_TICK: ::libc::c_uint = 2;
+pub type snd_seq_queue_timer_type_t = Enum_Unnamed30;
 pub enum Struct__snd_seq_remove_events { }
 pub type snd_seq_remove_events_t = Struct__snd_seq_remove_events;
-pub type Enum_Unnamed11 = ::libc::c_uint;
-pub static SND_SEQ_EVFLG_RESULT: ::libc::c_uint = 0;
-pub static SND_SEQ_EVFLG_NOTE: ::libc::c_uint = 1;
-pub static SND_SEQ_EVFLG_CONTROL: ::libc::c_uint = 2;
-pub static SND_SEQ_EVFLG_QUEUE: ::libc::c_uint = 3;
-pub static SND_SEQ_EVFLG_SYSTEM: ::libc::c_uint = 4;
-pub static SND_SEQ_EVFLG_MESSAGE: ::libc::c_uint = 5;
-pub static SND_SEQ_EVFLG_CONNECTION: ::libc::c_uint = 6;
-pub static SND_SEQ_EVFLG_SAMPLE: ::libc::c_uint = 7;
-pub static SND_SEQ_EVFLG_USERS: ::libc::c_uint = 8;
-pub static SND_SEQ_EVFLG_INSTR: ::libc::c_uint = 9;
-pub static SND_SEQ_EVFLG_QUOTE: ::libc::c_uint = 10;
-pub static SND_SEQ_EVFLG_NONE: ::libc::c_uint = 11;
-pub static SND_SEQ_EVFLG_RAW: ::libc::c_uint = 12;
-pub static SND_SEQ_EVFLG_FIXED: ::libc::c_uint = 13;
-pub static SND_SEQ_EVFLG_VARIABLE: ::libc::c_uint = 14;
-pub static SND_SEQ_EVFLG_VARUSR: ::libc::c_uint = 15;
-pub type Enum_Unnamed12 = ::libc::c_uint;
-pub static SND_SEQ_EVFLG_NOTE_ONEARG: ::libc::c_uint = 0;
-pub static SND_SEQ_EVFLG_NOTE_TWOARG: ::libc::c_uint = 1;
-pub type Enum_Unnamed13 = ::libc::c_uint;
-pub static SND_SEQ_EVFLG_QUEUE_NOARG: ::libc::c_uint = 0;
-pub static SND_SEQ_EVFLG_QUEUE_TICK: ::libc::c_uint = 1;
-pub static SND_SEQ_EVFLG_QUEUE_TIME: ::libc::c_uint = 2;
-pub static SND_SEQ_EVFLG_QUEUE_VALUE: ::libc::c_uint = 3;
+pub type Enum_Unnamed31 = ::libc::c_uint;
+pub const SND_SEQ_EVFLG_RESULT: ::libc::c_uint = 0;
+pub const SND_SEQ_EVFLG_NOTE: ::libc::c_uint = 1;
+pub const SND_SEQ_EVFLG_CONTROL: ::libc::c_uint = 2;
+pub const SND_SEQ_EVFLG_QUEUE: ::libc::c_uint = 3;
+pub const SND_SEQ_EVFLG_SYSTEM: ::libc::c_uint = 4;
+pub const SND_SEQ_EVFLG_MESSAGE: ::libc::c_uint = 5;
+pub const SND_SEQ_EVFLG_CONNECTION: ::libc::c_uint = 6;
+pub const SND_SEQ_EVFLG_SAMPLE: ::libc::c_uint = 7;
+pub const SND_SEQ_EVFLG_USERS: ::libc::c_uint = 8;
+pub const SND_SEQ_EVFLG_INSTR: ::libc::c_uint = 9;
+pub const SND_SEQ_EVFLG_QUOTE: ::libc::c_uint = 10;
+pub const SND_SEQ_EVFLG_NONE: ::libc::c_uint = 11;
+pub const SND_SEQ_EVFLG_RAW: ::libc::c_uint = 12;
+pub const SND_SEQ_EVFLG_FIXED: ::libc::c_uint = 13;
+pub const SND_SEQ_EVFLG_VARIABLE: ::libc::c_uint = 14;
+pub const SND_SEQ_EVFLG_VARUSR: ::libc::c_uint = 15;
+pub type Enum_Unnamed32 = ::libc::c_uint;
+pub const SND_SEQ_EVFLG_NOTE_ONEARG: ::libc::c_uint = 0;
+pub const SND_SEQ_EVFLG_NOTE_TWOARG: ::libc::c_uint = 1;
+pub type Enum_Unnamed33 = ::libc::c_uint;
+pub const SND_SEQ_EVFLG_QUEUE_NOARG: ::libc::c_uint = 0;
+pub const SND_SEQ_EVFLG_QUEUE_TICK: ::libc::c_uint = 1;
+pub const SND_SEQ_EVFLG_QUEUE_TIME: ::libc::c_uint = 2;
+pub const SND_SEQ_EVFLG_QUEUE_VALUE: ::libc::c_uint = 3;
 pub enum Struct_snd_midi_event { }
 pub type snd_midi_event_t = Struct_snd_midi_event;
+pub type __builtin_va_list = [__va_list_tag; 1usize];
+pub type __va_list_tag = Struct___va_list_tag;
+#[repr(C)]
+#[derive(Copy)]
+pub struct Struct___va_list_tag {
+    pub gp_offset: ::libc::c_uint,
+    pub fp_offset: ::libc::c_uint,
+    pub overflow_arg_area: *mut ::libc::c_void,
+    pub reg_save_area: *mut ::libc::c_void,
+}
+impl ::std::clone::Clone for Struct___va_list_tag {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct___va_list_tag {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+#[link(name = "asound")]
 extern "C" {
     pub static mut __environ: *mut *mut ::libc::c_char;
     pub static mut optarg: *mut ::libc::c_char;
@@ -1713,21 +2278,24 @@ extern "C" {
     pub static mut stderr: *mut Struct__IO_FILE;
     pub static mut sys_nerr: ::libc::c_int;
     pub static mut sys_errlist: *const *const ::libc::c_char;
-    pub static mut __tzname: [*mut ::libc::c_char, ..2u];
+    pub static mut __tzname: [*mut ::libc::c_char; 2usize];
     pub static mut __daylight: ::libc::c_int;
     pub static mut __timezone: ::libc::c_long;
-    pub static mut tzname: [*mut ::libc::c_char, ..2u];
+    pub static mut tzname: [*mut ::libc::c_char; 2usize];
     pub static mut daylight: ::libc::c_int;
     pub static mut timezone: ::libc::c_long;
     pub static mut snd_dlsym_start: *mut Struct_snd_dlsym_link;
     pub static mut snd_lib_error: snd_lib_error_handler_t;
     pub static mut snd_config: *mut snd_config_t;
     pub static mut snd_seq_event_types: *const ::libc::c_uint;
-    pub fn access(__name: *const ::libc::c_char, __type: ::libc::c_int) ->
-     ::libc::c_int;
+}
+#[link(name = "asound")]
+extern "C" {
+    pub fn access(__name: *const ::libc::c_char, __type: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn faccessat(__fd: ::libc::c_int, __file: *const ::libc::c_char,
-                     __type: ::libc::c_int, __flag: ::libc::c_int) ->
-     ::libc::c_int;
+                     __type: ::libc::c_int, __flag: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn lseek(__fd: ::libc::c_int, __offset: __off_t,
                  __whence: ::libc::c_int) -> __off_t;
     pub fn close(__fd: ::libc::c_int) -> ::libc::c_int;
@@ -1739,17 +2307,17 @@ extern "C" {
                  __nbytes: size_t, __offset: __off_t) -> ssize_t;
     pub fn pwrite(__fd: ::libc::c_int, __buf: *const ::libc::c_void,
                   __n: size_t, __offset: __off_t) -> ssize_t;
-    pub fn pipe(__pipedes: [::libc::c_int, ..2u]) -> ::libc::c_int;
+    pub fn pipe(__pipedes: *mut ::libc::c_int) -> ::libc::c_int;
     pub fn alarm(__seconds: ::libc::c_uint) -> ::libc::c_uint;
     pub fn sleep(__seconds: ::libc::c_uint) -> ::libc::c_uint;
-    pub fn ualarm(__value: __useconds_t, __interval: __useconds_t) ->
-     __useconds_t;
+    pub fn ualarm(__value: __useconds_t, __interval: __useconds_t)
+     -> __useconds_t;
     pub fn usleep(__useconds: __useconds_t) -> ::libc::c_int;
     pub fn pause() -> ::libc::c_int;
     pub fn chown(__file: *const ::libc::c_char, __owner: __uid_t,
                  __group: __gid_t) -> ::libc::c_int;
-    pub fn fchown(__fd: ::libc::c_int, __owner: __uid_t, __group: __gid_t) ->
-     ::libc::c_int;
+    pub fn fchown(__fd: ::libc::c_int, __owner: __uid_t, __group: __gid_t)
+     -> ::libc::c_int;
     pub fn lchown(__file: *const ::libc::c_char, __owner: __uid_t,
                   __group: __gid_t) -> ::libc::c_int;
     pub fn fchownat(__fd: ::libc::c_int, __file: *const ::libc::c_char,
@@ -1757,8 +2325,8 @@ extern "C" {
      -> ::libc::c_int;
     pub fn chdir(__path: *const ::libc::c_char) -> ::libc::c_int;
     pub fn fchdir(__fd: ::libc::c_int) -> ::libc::c_int;
-    pub fn getcwd(__buf: *mut ::libc::c_char, __size: size_t) ->
-     *mut ::libc::c_char;
+    pub fn getcwd(__buf: *mut ::libc::c_char, __size: size_t)
+     -> *mut ::libc::c_char;
     pub fn getwd(__buf: *mut ::libc::c_char) -> *mut ::libc::c_char;
     pub fn dup(__fd: ::libc::c_int) -> ::libc::c_int;
     pub fn dup2(__fd: ::libc::c_int, __fd2: ::libc::c_int) -> ::libc::c_int;
@@ -1778,11 +2346,11 @@ extern "C" {
     pub fn execlp(__file: *const ::libc::c_char,
                   __arg: *const ::libc::c_char, ...) -> ::libc::c_int;
     pub fn nice(__inc: ::libc::c_int) -> ::libc::c_int;
-    pub fn _exit(__status: ::libc::c_int);
-    pub fn pathconf(__path: *const ::libc::c_char, __name: ::libc::c_int) ->
-     ::libc::c_long;
-    pub fn fpathconf(__fd: ::libc::c_int, __name: ::libc::c_int) ->
-     ::libc::c_long;
+    pub fn _exit(__status: ::libc::c_int) -> ();
+    pub fn pathconf(__path: *const ::libc::c_char, __name: ::libc::c_int)
+     -> ::libc::c_long;
+    pub fn fpathconf(__fd: ::libc::c_int, __name: ::libc::c_int)
+     -> ::libc::c_long;
     pub fn sysconf(__name: ::libc::c_int) -> ::libc::c_long;
     pub fn confstr(__name: ::libc::c_int, __buf: *mut ::libc::c_char,
                    __len: size_t) -> size_t;
@@ -1799,8 +2367,8 @@ extern "C" {
     pub fn geteuid() -> __uid_t;
     pub fn getgid() -> __gid_t;
     pub fn getegid() -> __gid_t;
-    pub fn getgroups(__size: ::libc::c_int, __list: *mut __gid_t) ->
-     ::libc::c_int;
+    pub fn getgroups(__size: ::libc::c_int, __list: *mut __gid_t)
+     -> ::libc::c_int;
     pub fn setuid(__uid: __uid_t) -> ::libc::c_int;
     pub fn setreuid(__ruid: __uid_t, __euid: __uid_t) -> ::libc::c_int;
     pub fn seteuid(__uid: __uid_t) -> ::libc::c_int;
@@ -1814,8 +2382,8 @@ extern "C" {
                      __buflen: size_t) -> ::libc::c_int;
     pub fn isatty(__fd: ::libc::c_int) -> ::libc::c_int;
     pub fn ttyslot() -> ::libc::c_int;
-    pub fn link(__from: *const ::libc::c_char, __to: *const ::libc::c_char) ->
-     ::libc::c_int;
+    pub fn link(__from: *const ::libc::c_char, __to: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn linkat(__fromfd: ::libc::c_int, __from: *const ::libc::c_char,
                   __tofd: ::libc::c_int, __to: *const ::libc::c_char,
                   __flags: ::libc::c_int) -> ::libc::c_int;
@@ -1832,64 +2400,64 @@ extern "C" {
                     __flag: ::libc::c_int) -> ::libc::c_int;
     pub fn rmdir(__path: *const ::libc::c_char) -> ::libc::c_int;
     pub fn tcgetpgrp(__fd: ::libc::c_int) -> __pid_t;
-    pub fn tcsetpgrp(__fd: ::libc::c_int, __pgrp_id: __pid_t) ->
-     ::libc::c_int;
+    pub fn tcsetpgrp(__fd: ::libc::c_int, __pgrp_id: __pid_t)
+     -> ::libc::c_int;
     pub fn getlogin() -> *mut ::libc::c_char;
-    pub fn getlogin_r(__name: *mut ::libc::c_char, __name_len: size_t) ->
-     ::libc::c_int;
+    pub fn getlogin_r(__name: *mut ::libc::c_char, __name_len: size_t)
+     -> ::libc::c_int;
     pub fn setlogin(__name: *const ::libc::c_char) -> ::libc::c_int;
     pub fn getopt(___argc: ::libc::c_int, ___argv: *const *mut ::libc::c_char,
                   __shortopts: *const ::libc::c_char) -> ::libc::c_int;
-    pub fn gethostname(__name: *mut ::libc::c_char, __len: size_t) ->
-     ::libc::c_int;
-    pub fn sethostname(__name: *const ::libc::c_char, __len: size_t) ->
-     ::libc::c_int;
+    pub fn gethostname(__name: *mut ::libc::c_char, __len: size_t)
+     -> ::libc::c_int;
+    pub fn sethostname(__name: *const ::libc::c_char, __len: size_t)
+     -> ::libc::c_int;
     pub fn sethostid(__id: ::libc::c_long) -> ::libc::c_int;
-    pub fn getdomainname(__name: *mut ::libc::c_char, __len: size_t) ->
-     ::libc::c_int;
-    pub fn setdomainname(__name: *const ::libc::c_char, __len: size_t) ->
-     ::libc::c_int;
+    pub fn getdomainname(__name: *mut ::libc::c_char, __len: size_t)
+     -> ::libc::c_int;
+    pub fn setdomainname(__name: *const ::libc::c_char, __len: size_t)
+     -> ::libc::c_int;
     pub fn vhangup() -> ::libc::c_int;
     pub fn revoke(__file: *const ::libc::c_char) -> ::libc::c_int;
     pub fn profil(__sample_buffer: *mut ::libc::c_ushort, __size: size_t,
                   __offset: size_t, __scale: ::libc::c_uint) -> ::libc::c_int;
     pub fn acct(__name: *const ::libc::c_char) -> ::libc::c_int;
     pub fn getusershell() -> *mut ::libc::c_char;
-    pub fn endusershell();
-    pub fn setusershell();
-    pub fn daemon(__nochdir: ::libc::c_int, __noclose: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn endusershell() -> ();
+    pub fn setusershell() -> ();
+    pub fn daemon(__nochdir: ::libc::c_int, __noclose: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn chroot(__path: *const ::libc::c_char) -> ::libc::c_int;
     pub fn getpass(__prompt: *const ::libc::c_char) -> *mut ::libc::c_char;
     pub fn fsync(__fd: ::libc::c_int) -> ::libc::c_int;
     pub fn gethostid() -> ::libc::c_long;
-    pub fn sync();
+    pub fn sync() -> ();
     pub fn getpagesize() -> ::libc::c_int;
     pub fn getdtablesize() -> ::libc::c_int;
-    pub fn truncate(__file: *const ::libc::c_char, __length: __off_t) ->
-     ::libc::c_int;
+    pub fn truncate(__file: *const ::libc::c_char, __length: __off_t)
+     -> ::libc::c_int;
     pub fn ftruncate(__fd: ::libc::c_int, __length: __off_t) -> ::libc::c_int;
     pub fn brk(__addr: *mut ::libc::c_void) -> ::libc::c_int;
     pub fn sbrk(__delta: intptr_t) -> *mut ::libc::c_void;
     pub fn syscall(__sysno: ::libc::c_long, ...) -> ::libc::c_long;
-    pub fn lockf(__fd: ::libc::c_int, __cmd: ::libc::c_int, __len: __off_t) ->
-     ::libc::c_int;
+    pub fn lockf(__fd: ::libc::c_int, __cmd: ::libc::c_int, __len: __off_t)
+     -> ::libc::c_int;
     pub fn fdatasync(__fildes: ::libc::c_int) -> ::libc::c_int;
     pub fn __underflow(arg1: *mut _IO_FILE) -> ::libc::c_int;
     pub fn __uflow(arg1: *mut _IO_FILE) -> ::libc::c_int;
-    pub fn __overflow(arg1: *mut _IO_FILE, arg2: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn __overflow(arg1: *mut _IO_FILE, arg2: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn _IO_getc(__fp: *mut _IO_FILE) -> ::libc::c_int;
     pub fn _IO_putc(__c: ::libc::c_int, __fp: *mut _IO_FILE) -> ::libc::c_int;
     pub fn _IO_feof(__fp: *mut _IO_FILE) -> ::libc::c_int;
     pub fn _IO_ferror(__fp: *mut _IO_FILE) -> ::libc::c_int;
     pub fn _IO_peekc_locked(__fp: *mut _IO_FILE) -> ::libc::c_int;
-    pub fn _IO_flockfile(arg1: *mut _IO_FILE);
-    pub fn _IO_funlockfile(arg1: *mut _IO_FILE);
+    pub fn _IO_flockfile(arg1: *mut _IO_FILE) -> ();
+    pub fn _IO_funlockfile(arg1: *mut _IO_FILE) -> ();
     pub fn _IO_ftrylockfile(arg1: *mut _IO_FILE) -> ::libc::c_int;
     pub fn _IO_vfscanf(arg1: *mut _IO_FILE, arg2: *const ::libc::c_char,
-                       arg3: __gnuc_va_list, arg4: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                       arg3: __gnuc_va_list, arg4: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn _IO_vfprintf(arg1: *mut _IO_FILE, arg2: *const ::libc::c_char,
                         arg3: __gnuc_va_list) -> ::libc::c_int;
     pub fn _IO_padn(arg1: *mut _IO_FILE, arg2: ::libc::c_int, arg3: __ssize_t)
@@ -1900,13 +2468,13 @@ extern "C" {
                        arg3: ::libc::c_int, arg4: ::libc::c_int) -> __off64_t;
     pub fn _IO_seekpos(arg1: *mut _IO_FILE, arg2: __off64_t,
                        arg3: ::libc::c_int) -> __off64_t;
-    pub fn _IO_free_backup_area(arg1: *mut _IO_FILE);
+    pub fn _IO_free_backup_area(arg1: *mut _IO_FILE) -> ();
     pub fn remove(__filename: *const ::libc::c_char) -> ::libc::c_int;
     pub fn rename(__old: *const ::libc::c_char, __new: *const ::libc::c_char)
      -> ::libc::c_int;
     pub fn renameat(__oldfd: ::libc::c_int, __old: *const ::libc::c_char,
-                    __newfd: ::libc::c_int, __new: *const ::libc::c_char) ->
-     ::libc::c_int;
+                    __newfd: ::libc::c_int, __new: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn tmpfile() -> *mut FILE;
     pub fn tmpnam(__s: *mut ::libc::c_char) -> *mut ::libc::c_char;
     pub fn tmpnam_r(__s: *mut ::libc::c_char) -> *mut ::libc::c_char;
@@ -1918,20 +2486,20 @@ extern "C" {
     pub fn fopen(__filename: *const ::libc::c_char,
                  __modes: *const ::libc::c_char) -> *mut FILE;
     pub fn freopen(__filename: *const ::libc::c_char,
-                   __modes: *const ::libc::c_char, __stream: *mut FILE) ->
-     *mut FILE;
-    pub fn fdopen(__fd: ::libc::c_int, __modes: *const ::libc::c_char) ->
-     *mut FILE;
+                   __modes: *const ::libc::c_char, __stream: *mut FILE)
+     -> *mut FILE;
+    pub fn fdopen(__fd: ::libc::c_int, __modes: *const ::libc::c_char)
+     -> *mut FILE;
     pub fn fmemopen(__s: *mut ::libc::c_void, __len: size_t,
                     __modes: *const ::libc::c_char) -> *mut FILE;
     pub fn open_memstream(__bufloc: *mut *mut ::libc::c_char,
                           __sizeloc: *mut size_t) -> *mut FILE;
-    pub fn setbuf(__stream: *mut FILE, __buf: *mut ::libc::c_char);
+    pub fn setbuf(__stream: *mut FILE, __buf: *mut ::libc::c_char) -> ();
     pub fn setvbuf(__stream: *mut FILE, __buf: *mut ::libc::c_char,
                    __modes: ::libc::c_int, __n: size_t) -> ::libc::c_int;
     pub fn setbuffer(__stream: *mut FILE, __buf: *mut ::libc::c_char,
-                     __size: size_t);
-    pub fn setlinebuf(__stream: *mut FILE);
+                     __size: size_t) -> ();
+    pub fn setlinebuf(__stream: *mut FILE) -> ();
     pub fn fprintf(__stream: *mut FILE, __format: *const ::libc::c_char, ...)
      -> ::libc::c_int;
     pub fn printf(__format: *const ::libc::c_char, ...) -> ::libc::c_int;
@@ -1939,8 +2507,8 @@ extern "C" {
                    __format: *const ::libc::c_char, ...) -> ::libc::c_int;
     pub fn vfprintf(__s: *mut FILE, __format: *const ::libc::c_char,
                     __arg: __gnuc_va_list) -> ::libc::c_int;
-    pub fn vprintf(__format: *const ::libc::c_char, __arg: __gnuc_va_list) ->
-     ::libc::c_int;
+    pub fn vprintf(__format: *const ::libc::c_char, __arg: __gnuc_va_list)
+     -> ::libc::c_int;
     pub fn vsprintf(__s: *mut ::libc::c_char, __format: *const ::libc::c_char,
                     __arg: __gnuc_va_list) -> ::libc::c_int;
     pub fn snprintf(__s: *mut ::libc::c_char, __maxlen: size_t,
@@ -1950,8 +2518,8 @@ extern "C" {
      -> ::libc::c_int;
     pub fn vdprintf(__fd: ::libc::c_int, __fmt: *const ::libc::c_char,
                     __arg: __gnuc_va_list) -> ::libc::c_int;
-    pub fn dprintf(__fd: ::libc::c_int, __fmt: *const ::libc::c_char, ...) ->
-     ::libc::c_int;
+    pub fn dprintf(__fd: ::libc::c_int, __fmt: *const ::libc::c_char, ...)
+     -> ::libc::c_int;
     pub fn fscanf(__stream: *mut FILE, __format: *const ::libc::c_char, ...)
      -> ::libc::c_int;
     pub fn scanf(__format: *const ::libc::c_char, ...) -> ::libc::c_int;
@@ -1959,11 +2527,11 @@ extern "C" {
                   __format: *const ::libc::c_char, ...) -> ::libc::c_int;
     pub fn vfscanf(__s: *mut FILE, __format: *const ::libc::c_char,
                    __arg: __gnuc_va_list) -> ::libc::c_int;
-    pub fn vscanf(__format: *const ::libc::c_char, __arg: __gnuc_va_list) ->
-     ::libc::c_int;
+    pub fn vscanf(__format: *const ::libc::c_char, __arg: __gnuc_va_list)
+     -> ::libc::c_int;
     pub fn vsscanf(__s: *const ::libc::c_char,
-                   __format: *const ::libc::c_char, __arg: __gnuc_va_list) ->
-     ::libc::c_int;
+                   __format: *const ::libc::c_char, __arg: __gnuc_va_list)
+     -> ::libc::c_int;
     pub fn fgetc(__stream: *mut FILE) -> ::libc::c_int;
     pub fn getc(__stream: *mut FILE) -> ::libc::c_int;
     pub fn getchar() -> ::libc::c_int;
@@ -1973,26 +2541,25 @@ extern "C" {
     pub fn fputc(__c: ::libc::c_int, __stream: *mut FILE) -> ::libc::c_int;
     pub fn putc(__c: ::libc::c_int, __stream: *mut FILE) -> ::libc::c_int;
     pub fn putchar(__c: ::libc::c_int) -> ::libc::c_int;
-    pub fn fputc_unlocked(__c: ::libc::c_int, __stream: *mut FILE) ->
-     ::libc::c_int;
-    pub fn putc_unlocked(__c: ::libc::c_int, __stream: *mut FILE) ->
-     ::libc::c_int;
+    pub fn fputc_unlocked(__c: ::libc::c_int, __stream: *mut FILE)
+     -> ::libc::c_int;
+    pub fn putc_unlocked(__c: ::libc::c_int, __stream: *mut FILE)
+     -> ::libc::c_int;
     pub fn putchar_unlocked(__c: ::libc::c_int) -> ::libc::c_int;
     pub fn getw(__stream: *mut FILE) -> ::libc::c_int;
     pub fn putw(__w: ::libc::c_int, __stream: *mut FILE) -> ::libc::c_int;
     pub fn fgets(__s: *mut ::libc::c_char, __n: ::libc::c_int,
                  __stream: *mut FILE) -> *mut ::libc::c_char;
-    pub fn gets(__s: *mut ::libc::c_char) -> *mut ::libc::c_char;
     pub fn __getdelim(__lineptr: *mut *mut ::libc::c_char, __n: *mut size_t,
-                      __delimiter: ::libc::c_int, __stream: *mut FILE) ->
-     __ssize_t;
+                      __delimiter: ::libc::c_int, __stream: *mut FILE)
+     -> __ssize_t;
     pub fn getdelim(__lineptr: *mut *mut ::libc::c_char, __n: *mut size_t,
-                    __delimiter: ::libc::c_int, __stream: *mut FILE) ->
-     __ssize_t;
+                    __delimiter: ::libc::c_int, __stream: *mut FILE)
+     -> __ssize_t;
     pub fn getline(__lineptr: *mut *mut ::libc::c_char, __n: *mut size_t,
                    __stream: *mut FILE) -> __ssize_t;
-    pub fn fputs(__s: *const ::libc::c_char, __stream: *mut FILE) ->
-     ::libc::c_int;
+    pub fn fputs(__s: *const ::libc::c_char, __stream: *mut FILE)
+     -> ::libc::c_int;
     pub fn puts(__s: *const ::libc::c_char) -> ::libc::c_int;
     pub fn ungetc(__c: ::libc::c_int, __stream: *mut FILE) -> ::libc::c_int;
     pub fn fread(__ptr: *mut ::libc::c_void, __size: size_t, __n: size_t,
@@ -2006,29 +2573,29 @@ extern "C" {
     pub fn fseek(__stream: *mut FILE, __off: ::libc::c_long,
                  __whence: ::libc::c_int) -> ::libc::c_int;
     pub fn ftell(__stream: *mut FILE) -> ::libc::c_long;
-    pub fn rewind(__stream: *mut FILE);
+    pub fn rewind(__stream: *mut FILE) -> ();
     pub fn fseeko(__stream: *mut FILE, __off: __off_t,
                   __whence: ::libc::c_int) -> ::libc::c_int;
     pub fn ftello(__stream: *mut FILE) -> __off_t;
     pub fn fgetpos(__stream: *mut FILE, __pos: *mut fpos_t) -> ::libc::c_int;
-    pub fn fsetpos(__stream: *mut FILE, __pos: *const fpos_t) ->
-     ::libc::c_int;
-    pub fn clearerr(__stream: *mut FILE);
+    pub fn fsetpos(__stream: *mut FILE, __pos: *const fpos_t)
+     -> ::libc::c_int;
+    pub fn clearerr(__stream: *mut FILE) -> ();
     pub fn feof(__stream: *mut FILE) -> ::libc::c_int;
     pub fn ferror(__stream: *mut FILE) -> ::libc::c_int;
-    pub fn clearerr_unlocked(__stream: *mut FILE);
+    pub fn clearerr_unlocked(__stream: *mut FILE) -> ();
     pub fn feof_unlocked(__stream: *mut FILE) -> ::libc::c_int;
     pub fn ferror_unlocked(__stream: *mut FILE) -> ::libc::c_int;
-    pub fn perror(__s: *const ::libc::c_char);
+    pub fn perror(__s: *const ::libc::c_char) -> ();
     pub fn fileno(__stream: *mut FILE) -> ::libc::c_int;
     pub fn fileno_unlocked(__stream: *mut FILE) -> ::libc::c_int;
     pub fn popen(__command: *const ::libc::c_char,
                  __modes: *const ::libc::c_char) -> *mut FILE;
     pub fn pclose(__stream: *mut FILE) -> ::libc::c_int;
     pub fn ctermid(__s: *mut ::libc::c_char) -> *mut ::libc::c_char;
-    pub fn flockfile(__stream: *mut FILE);
+    pub fn flockfile(__stream: *mut FILE) -> ();
     pub fn ftrylockfile(__stream: *mut FILE) -> ::libc::c_int;
-    pub fn funlockfile(__stream: *mut FILE);
+    pub fn funlockfile(__stream: *mut FILE) -> ();
     pub fn __ctype_get_mb_cur_max() -> size_t;
     pub fn atof(__nptr: *const ::libc::c_char) -> ::libc::c_double;
     pub fn atoi(__nptr: *const ::libc::c_char) -> ::libc::c_int;
@@ -2072,12 +2639,12 @@ extern "C" {
     pub fn gnu_dev_makedev(__major: ::libc::c_uint, __minor: ::libc::c_uint)
      -> ::libc::c_ulonglong;
     pub fn random() -> ::libc::c_long;
-    pub fn srandom(__seed: ::libc::c_uint);
+    pub fn srandom(__seed: ::libc::c_uint) -> ();
     pub fn initstate(__seed: ::libc::c_uint, __statebuf: *mut ::libc::c_char,
                      __statelen: size_t) -> *mut ::libc::c_char;
     pub fn setstate(__statebuf: *mut ::libc::c_char) -> *mut ::libc::c_char;
-    pub fn random_r(__buf: *mut Struct_random_data, __result: *mut int32_t) ->
-     ::libc::c_int;
+    pub fn random_r(__buf: *mut Struct_random_data, __result: *mut int32_t)
+     -> ::libc::c_int;
     pub fn srandom_r(__seed: ::libc::c_uint, __buf: *mut Struct_random_data)
      -> ::libc::c_int;
     pub fn initstate_r(__seed: ::libc::c_uint,
@@ -2086,65 +2653,71 @@ extern "C" {
     pub fn setstate_r(__statebuf: *mut ::libc::c_char,
                       __buf: *mut Struct_random_data) -> ::libc::c_int;
     pub fn rand() -> ::libc::c_int;
-    pub fn srand(__seed: ::libc::c_uint);
+    pub fn srand(__seed: ::libc::c_uint) -> ();
     pub fn rand_r(__seed: *mut ::libc::c_uint) -> ::libc::c_int;
     pub fn drand48() -> ::libc::c_double;
-    pub fn erand48(__xsubi: [::libc::c_ushort, ..3u]) -> ::libc::c_double;
+    pub fn erand48(__xsubi: *mut ::libc::c_ushort) -> ::libc::c_double;
     pub fn lrand48() -> ::libc::c_long;
-    pub fn nrand48(__xsubi: [::libc::c_ushort, ..3u]) -> ::libc::c_long;
+    pub fn nrand48(__xsubi: *mut ::libc::c_ushort) -> ::libc::c_long;
     pub fn mrand48() -> ::libc::c_long;
-    pub fn jrand48(__xsubi: [::libc::c_ushort, ..3u]) -> ::libc::c_long;
-    pub fn srand48(__seedval: ::libc::c_long);
-    pub fn seed48(__seed16v: [::libc::c_ushort, ..3u]) ->
-     *mut ::libc::c_ushort;
-    pub fn lcong48(__param: [::libc::c_ushort, ..7u]);
+    pub fn jrand48(__xsubi: *mut ::libc::c_ushort) -> ::libc::c_long;
+    pub fn srand48(__seedval: ::libc::c_long) -> ();
+    pub fn seed48(__seed16v: *mut ::libc::c_ushort) -> *mut ::libc::c_ushort;
+    pub fn lcong48(__param: *mut ::libc::c_ushort) -> ();
     pub fn drand48_r(__buffer: *mut Struct_drand48_data,
                      __result: *mut ::libc::c_double) -> ::libc::c_int;
-    pub fn erand48_r(__xsubi: [::libc::c_ushort, ..3u],
+    pub fn erand48_r(__xsubi: *mut ::libc::c_ushort,
                      __buffer: *mut Struct_drand48_data,
                      __result: *mut ::libc::c_double) -> ::libc::c_int;
     pub fn lrand48_r(__buffer: *mut Struct_drand48_data,
                      __result: *mut ::libc::c_long) -> ::libc::c_int;
-    pub fn nrand48_r(__xsubi: [::libc::c_ushort, ..3u],
+    pub fn nrand48_r(__xsubi: *mut ::libc::c_ushort,
                      __buffer: *mut Struct_drand48_data,
                      __result: *mut ::libc::c_long) -> ::libc::c_int;
     pub fn mrand48_r(__buffer: *mut Struct_drand48_data,
                      __result: *mut ::libc::c_long) -> ::libc::c_int;
-    pub fn jrand48_r(__xsubi: [::libc::c_ushort, ..3u],
+    pub fn jrand48_r(__xsubi: *mut ::libc::c_ushort,
                      __buffer: *mut Struct_drand48_data,
                      __result: *mut ::libc::c_long) -> ::libc::c_int;
     pub fn srand48_r(__seedval: ::libc::c_long,
                      __buffer: *mut Struct_drand48_data) -> ::libc::c_int;
-    pub fn seed48_r(__seed16v: [::libc::c_ushort, ..3u],
+    pub fn seed48_r(__seed16v: *mut ::libc::c_ushort,
                     __buffer: *mut Struct_drand48_data) -> ::libc::c_int;
-    pub fn lcong48_r(__param: [::libc::c_ushort, ..7u],
+    pub fn lcong48_r(__param: *mut ::libc::c_ushort,
                      __buffer: *mut Struct_drand48_data) -> ::libc::c_int;
     pub fn malloc(__size: size_t) -> *mut ::libc::c_void;
     pub fn calloc(__nmemb: size_t, __size: size_t) -> *mut ::libc::c_void;
-    pub fn realloc(__ptr: *mut ::libc::c_void, __size: size_t) ->
-     *mut ::libc::c_void;
-    pub fn free(__ptr: *mut ::libc::c_void);
-    pub fn cfree(__ptr: *mut ::libc::c_void);
+    pub fn realloc(__ptr: *mut ::libc::c_void, __size: size_t)
+     -> *mut ::libc::c_void;
+    pub fn free(__ptr: *mut ::libc::c_void) -> ();
+    pub fn cfree(__ptr: *mut ::libc::c_void) -> ();
     pub fn alloca(__size: size_t) -> *mut ::libc::c_void;
     pub fn valloc(__size: size_t) -> *mut ::libc::c_void;
     pub fn posix_memalign(__memptr: *mut *mut ::libc::c_void,
-                          __alignment: size_t, __size: size_t) ->
-     ::libc::c_int;
-    pub fn abort();
-    pub fn atexit(__func: ::std::option::Option<extern "C" fn()>) ->
-     ::libc::c_int;
+                          __alignment: size_t, __size: size_t)
+     -> ::libc::c_int;
+    pub fn aligned_alloc(__alignment: size_t, __size: size_t)
+     -> *mut ::libc::c_void;
+    pub fn abort() -> ();
+    pub fn atexit(__func: ::std::option::Option<extern "C" fn() -> ()>)
+     -> ::libc::c_int;
+    pub fn at_quick_exit(__func: ::std::option::Option<extern "C" fn() -> ()>)
+     -> ::libc::c_int;
     pub fn on_exit(__func:
-                       ::std::option::Option<extern "C" fn
-                                                 (arg1: ::libc::c_int,
-                                                  arg2: *mut ::libc::c_void)>,
+                       ::std::option::Option<extern "C" fn(__status:
+                                                               ::libc::c_int,
+                                                           __arg:
+                                                               *mut ::libc::c_void)
+                                                 -> ()>,
                    __arg: *mut ::libc::c_void) -> ::libc::c_int;
-    pub fn exit(__status: ::libc::c_int);
-    pub fn _Exit(__status: ::libc::c_int);
+    pub fn exit(__status: ::libc::c_int) -> ();
+    pub fn quick_exit(__status: ::libc::c_int) -> ();
+    pub fn _Exit(__status: ::libc::c_int) -> ();
     pub fn getenv(__name: *const ::libc::c_char) -> *mut ::libc::c_char;
     pub fn putenv(__string: *mut ::libc::c_char) -> ::libc::c_int;
     pub fn setenv(__name: *const ::libc::c_char,
-                  __value: *const ::libc::c_char, __replace: ::libc::c_int) ->
-     ::libc::c_int;
+                  __value: *const ::libc::c_char, __replace: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn unsetenv(__name: *const ::libc::c_char) -> ::libc::c_int;
     pub fn clearenv() -> ::libc::c_int;
     pub fn mktemp(__template: *mut ::libc::c_char) -> *mut ::libc::c_char;
@@ -2157,31 +2730,31 @@ extern "C" {
                     __resolved: *mut ::libc::c_char) -> *mut ::libc::c_char;
     pub fn bsearch(__key: *const ::libc::c_void,
                    __base: *const ::libc::c_void, __nmemb: size_t,
-                   __size: size_t, __compar: __compar_fn_t) ->
-     *mut ::libc::c_void;
+                   __size: size_t, __compar: __compar_fn_t)
+     -> *mut ::libc::c_void;
     pub fn qsort(__base: *mut ::libc::c_void, __nmemb: size_t, __size: size_t,
-                 __compar: __compar_fn_t);
+                 __compar: __compar_fn_t) -> ();
     pub fn abs(__x: ::libc::c_int) -> ::libc::c_int;
     pub fn labs(__x: ::libc::c_long) -> ::libc::c_long;
     pub fn llabs(__x: ::libc::c_longlong) -> ::libc::c_longlong;
     pub fn div(__numer: ::libc::c_int, __denom: ::libc::c_int) -> div_t;
     pub fn ldiv(__numer: ::libc::c_long, __denom: ::libc::c_long) -> ldiv_t;
-    pub fn lldiv(__numer: ::libc::c_longlong, __denom: ::libc::c_longlong) ->
-     lldiv_t;
+    pub fn lldiv(__numer: ::libc::c_longlong, __denom: ::libc::c_longlong)
+     -> lldiv_t;
     pub fn ecvt(__value: ::libc::c_double, __ndigit: ::libc::c_int,
-                __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int) ->
-     *mut ::libc::c_char;
+                __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int)
+     -> *mut ::libc::c_char;
     pub fn fcvt(__value: ::libc::c_double, __ndigit: ::libc::c_int,
-                __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int) ->
-     *mut ::libc::c_char;
+                __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int)
+     -> *mut ::libc::c_char;
     pub fn gcvt(__value: ::libc::c_double, __ndigit: ::libc::c_int,
                 __buf: *mut ::libc::c_char) -> *mut ::libc::c_char;
     pub fn qecvt(__value: ::libc::c_double, __ndigit: ::libc::c_int,
-                 __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int) ->
-     *mut ::libc::c_char;
+                 __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int)
+     -> *mut ::libc::c_char;
     pub fn qfcvt(__value: ::libc::c_double, __ndigit: ::libc::c_int,
-                 __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int) ->
-     *mut ::libc::c_char;
+                 __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int)
+     -> *mut ::libc::c_char;
     pub fn qgcvt(__value: ::libc::c_double, __ndigit: ::libc::c_int,
                  __buf: *mut ::libc::c_char) -> *mut ::libc::c_char;
     pub fn ecvt_r(__value: ::libc::c_double, __ndigit: ::libc::c_int,
@@ -2192,17 +2765,17 @@ extern "C" {
                   __buf: *mut ::libc::c_char, __len: size_t) -> ::libc::c_int;
     pub fn qecvt_r(__value: ::libc::c_double, __ndigit: ::libc::c_int,
                    __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int,
-                   __buf: *mut ::libc::c_char, __len: size_t) ->
-     ::libc::c_int;
+                   __buf: *mut ::libc::c_char, __len: size_t)
+     -> ::libc::c_int;
     pub fn qfcvt_r(__value: ::libc::c_double, __ndigit: ::libc::c_int,
                    __decpt: *mut ::libc::c_int, __sign: *mut ::libc::c_int,
-                   __buf: *mut ::libc::c_char, __len: size_t) ->
-     ::libc::c_int;
+                   __buf: *mut ::libc::c_char, __len: size_t)
+     -> ::libc::c_int;
     pub fn mblen(__s: *const ::libc::c_char, __n: size_t) -> ::libc::c_int;
     pub fn mbtowc(__pwc: *mut wchar_t, __s: *const ::libc::c_char,
                   __n: size_t) -> ::libc::c_int;
-    pub fn wctomb(__s: *mut ::libc::c_char, __wchar: wchar_t) ->
-     ::libc::c_int;
+    pub fn wctomb(__s: *mut ::libc::c_char, __wchar: wchar_t)
+     -> ::libc::c_int;
     pub fn mbstowcs(__pwcs: *mut wchar_t, __s: *const ::libc::c_char,
                     __n: size_t) -> size_t;
     pub fn wcstombs(__s: *mut ::libc::c_char, __pwcs: *const wchar_t,
@@ -2233,8 +2806,8 @@ extern "C" {
      -> *mut ::libc::c_char;
     pub fn strncat(__dest: *mut ::libc::c_char, __src: *const ::libc::c_char,
                    __n: size_t) -> *mut ::libc::c_char;
-    pub fn strcmp(__s1: *const ::libc::c_char, __s2: *const ::libc::c_char) ->
-     ::libc::c_int;
+    pub fn strcmp(__s1: *const ::libc::c_char, __s2: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn strncmp(__s1: *const ::libc::c_char, __s2: *const ::libc::c_char,
                    __n: size_t) -> ::libc::c_int;
     pub fn strcoll(__s1: *const ::libc::c_char, __s2: *const ::libc::c_char)
@@ -2247,12 +2820,12 @@ extern "C" {
                      __src: *const ::libc::c_char, __n: size_t,
                      __l: __locale_t) -> size_t;
     pub fn strdup(__s: *const ::libc::c_char) -> *mut ::libc::c_char;
-    pub fn strndup(__string: *const ::libc::c_char, __n: size_t) ->
-     *mut ::libc::c_char;
-    pub fn strchr(__s: *const ::libc::c_char, __c: ::libc::c_int) ->
-     *mut ::libc::c_char;
-    pub fn strrchr(__s: *const ::libc::c_char, __c: ::libc::c_int) ->
-     *mut ::libc::c_char;
+    pub fn strndup(__string: *const ::libc::c_char, __n: size_t)
+     -> *mut ::libc::c_char;
+    pub fn strchr(__s: *const ::libc::c_char, __c: ::libc::c_int)
+     -> *mut ::libc::c_char;
+    pub fn strrchr(__s: *const ::libc::c_char, __c: ::libc::c_int)
+     -> *mut ::libc::c_char;
     pub fn strcspn(__s: *const ::libc::c_char,
                    __reject: *const ::libc::c_char) -> size_t;
     pub fn strspn(__s: *const ::libc::c_char, __accept: *const ::libc::c_char)
@@ -2261,39 +2834,39 @@ extern "C" {
                    __accept: *const ::libc::c_char) -> *mut ::libc::c_char;
     pub fn strstr(__haystack: *const ::libc::c_char,
                   __needle: *const ::libc::c_char) -> *mut ::libc::c_char;
-    pub fn strtok(__s: *mut ::libc::c_char, __delim: *const ::libc::c_char) ->
-     *mut ::libc::c_char;
+    pub fn strtok(__s: *mut ::libc::c_char, __delim: *const ::libc::c_char)
+     -> *mut ::libc::c_char;
     pub fn __strtok_r(__s: *mut ::libc::c_char,
                       __delim: *const ::libc::c_char,
-                      __save_ptr: *mut *mut ::libc::c_char) ->
-     *mut ::libc::c_char;
+                      __save_ptr: *mut *mut ::libc::c_char)
+     -> *mut ::libc::c_char;
     pub fn strtok_r(__s: *mut ::libc::c_char, __delim: *const ::libc::c_char,
-                    __save_ptr: *mut *mut ::libc::c_char) ->
-     *mut ::libc::c_char;
+                    __save_ptr: *mut *mut ::libc::c_char)
+     -> *mut ::libc::c_char;
     pub fn strlen(__s: *const ::libc::c_char) -> size_t;
-    pub fn strnlen(__string: *const ::libc::c_char, __maxlen: size_t) ->
-     size_t;
+    pub fn strnlen(__string: *const ::libc::c_char, __maxlen: size_t)
+     -> size_t;
     pub fn strerror(__errnum: ::libc::c_int) -> *mut ::libc::c_char;
     pub fn strerror_r(__errnum: ::libc::c_int, __buf: *mut ::libc::c_char,
                       __buflen: size_t) -> ::libc::c_int;
-    pub fn strerror_l(__errnum: ::libc::c_int, __l: __locale_t) ->
-     *mut ::libc::c_char;
-    pub fn __bzero(__s: *mut ::libc::c_void, __n: size_t);
+    pub fn strerror_l(__errnum: ::libc::c_int, __l: __locale_t)
+     -> *mut ::libc::c_char;
+    pub fn __bzero(__s: *mut ::libc::c_void, __n: size_t) -> ();
     pub fn bcopy(__src: *const ::libc::c_void, __dest: *mut ::libc::c_void,
-                 __n: size_t);
-    pub fn bzero(__s: *mut ::libc::c_void, __n: size_t);
+                 __n: size_t) -> ();
+    pub fn bzero(__s: *mut ::libc::c_void, __n: size_t) -> ();
     pub fn bcmp(__s1: *const ::libc::c_void, __s2: *const ::libc::c_void,
                 __n: size_t) -> ::libc::c_int;
-    pub fn index(__s: *const ::libc::c_char, __c: ::libc::c_int) ->
-     *mut ::libc::c_char;
-    pub fn rindex(__s: *const ::libc::c_char, __c: ::libc::c_int) ->
-     *mut ::libc::c_char;
+    pub fn index(__s: *const ::libc::c_char, __c: ::libc::c_int)
+     -> *mut ::libc::c_char;
+    pub fn rindex(__s: *const ::libc::c_char, __c: ::libc::c_int)
+     -> *mut ::libc::c_char;
     pub fn ffs(__i: ::libc::c_int) -> ::libc::c_int;
     pub fn strcasecmp(__s1: *const ::libc::c_char,
                       __s2: *const ::libc::c_char) -> ::libc::c_int;
     pub fn strncasecmp(__s1: *const ::libc::c_char,
-                       __s2: *const ::libc::c_char, __n: size_t) ->
-     ::libc::c_int;
+                       __s2: *const ::libc::c_char, __n: size_t)
+     -> ::libc::c_int;
     pub fn strsep(__stringp: *mut *mut ::libc::c_char,
                   __delim: *const ::libc::c_char) -> *mut ::libc::c_char;
     pub fn strsignal(__sig: ::libc::c_int) -> *mut ::libc::c_char;
@@ -2302,18 +2875,18 @@ extern "C" {
     pub fn stpcpy(__dest: *mut ::libc::c_char, __src: *const ::libc::c_char)
      -> *mut ::libc::c_char;
     pub fn __stpncpy(__dest: *mut ::libc::c_char,
-                     __src: *const ::libc::c_char, __n: size_t) ->
-     *mut ::libc::c_char;
+                     __src: *const ::libc::c_char, __n: size_t)
+     -> *mut ::libc::c_char;
     pub fn stpncpy(__dest: *mut ::libc::c_char, __src: *const ::libc::c_char,
                    __n: size_t) -> *mut ::libc::c_char;
-    pub fn fcntl(__fd: ::libc::c_int, __cmd: ::libc::c_int, ...) ->
-     ::libc::c_int;
-    pub fn open(__file: *const ::libc::c_char, __oflag: ::libc::c_int, ...) ->
-     ::libc::c_int;
+    pub fn fcntl(__fd: ::libc::c_int, __cmd: ::libc::c_int, ...)
+     -> ::libc::c_int;
+    pub fn open(__file: *const ::libc::c_char, __oflag: ::libc::c_int, ...)
+     -> ::libc::c_int;
     pub fn openat(__fd: ::libc::c_int, __file: *const ::libc::c_char,
                   __oflag: ::libc::c_int, ...) -> ::libc::c_int;
-    pub fn creat(__file: *const ::libc::c_char, __mode: mode_t) ->
-     ::libc::c_int;
+    pub fn creat(__file: *const ::libc::c_char, __mode: mode_t)
+     -> ::libc::c_int;
     pub fn posix_fadvise(__fd: ::libc::c_int, __offset: off_t, __len: off_t,
                          __advise: ::libc::c_int) -> ::libc::c_int;
     pub fn posix_fallocate(__fd: ::libc::c_int, __offset: off_t, __len: off_t)
@@ -2321,13 +2894,14 @@ extern "C" {
     pub fn __assert_fail(__assertion: *const ::libc::c_char,
                          __file: *const ::libc::c_char,
                          __line: ::libc::c_uint,
-                         __function: *const ::libc::c_char);
+                         __function: *const ::libc::c_char) -> ();
     pub fn __assert_perror_fail(__errnum: ::libc::c_int,
                                 __file: *const ::libc::c_char,
                                 __line: ::libc::c_uint,
-                                __function: *const ::libc::c_char);
+                                __function: *const ::libc::c_char) -> ();
     pub fn __assert(__assertion: *const ::libc::c_char,
-                    __file: *const ::libc::c_char, __line: ::libc::c_int);
+                    __file: *const ::libc::c_char, __line: ::libc::c_int)
+     -> ();
     pub fn poll(__fds: *mut Struct_pollfd, __nfds: nfds_t,
                 __timeout: ::libc::c_int) -> ::libc::c_int;
     pub fn __errno_location() -> *mut ::libc::c_int;
@@ -2343,34 +2917,34 @@ extern "C" {
                       __loc: __locale_t) -> size_t;
     pub fn gmtime(__timer: *const time_t) -> *mut Struct_tm;
     pub fn localtime(__timer: *const time_t) -> *mut Struct_tm;
-    pub fn gmtime_r(__timer: *const time_t, __tp: *mut Struct_tm) ->
-     *mut Struct_tm;
-    pub fn localtime_r(__timer: *const time_t, __tp: *mut Struct_tm) ->
-     *mut Struct_tm;
+    pub fn gmtime_r(__timer: *const time_t, __tp: *mut Struct_tm)
+     -> *mut Struct_tm;
+    pub fn localtime_r(__timer: *const time_t, __tp: *mut Struct_tm)
+     -> *mut Struct_tm;
     pub fn asctime(__tp: *const Struct_tm) -> *mut ::libc::c_char;
     pub fn ctime(__timer: *const time_t) -> *mut ::libc::c_char;
-    pub fn asctime_r(__tp: *const Struct_tm, __buf: *mut ::libc::c_char) ->
-     *mut ::libc::c_char;
-    pub fn ctime_r(__timer: *const time_t, __buf: *mut ::libc::c_char) ->
-     *mut ::libc::c_char;
-    pub fn tzset();
+    pub fn asctime_r(__tp: *const Struct_tm, __buf: *mut ::libc::c_char)
+     -> *mut ::libc::c_char;
+    pub fn ctime_r(__timer: *const time_t, __buf: *mut ::libc::c_char)
+     -> *mut ::libc::c_char;
+    pub fn tzset() -> ();
     pub fn stime(__when: *const time_t) -> ::libc::c_int;
     pub fn timegm(__tp: *mut Struct_tm) -> time_t;
     pub fn timelocal(__tp: *mut Struct_tm) -> time_t;
     pub fn dysize(__year: ::libc::c_int) -> ::libc::c_int;
     pub fn nanosleep(__requested_time: *const Struct_timespec,
                      __remaining: *mut Struct_timespec) -> ::libc::c_int;
-    pub fn clock_getres(__clock_id: clockid_t, __res: *mut Struct_timespec) ->
-     ::libc::c_int;
-    pub fn clock_gettime(__clock_id: clockid_t, __tp: *mut Struct_timespec) ->
-     ::libc::c_int;
+    pub fn clock_getres(__clock_id: clockid_t, __res: *mut Struct_timespec)
+     -> ::libc::c_int;
+    pub fn clock_gettime(__clock_id: clockid_t, __tp: *mut Struct_timespec)
+     -> ::libc::c_int;
     pub fn clock_settime(__clock_id: clockid_t, __tp: *const Struct_timespec)
      -> ::libc::c_int;
     pub fn clock_nanosleep(__clock_id: clockid_t, __flags: ::libc::c_int,
                            __req: *const Struct_timespec,
                            __rem: *mut Struct_timespec) -> ::libc::c_int;
-    pub fn clock_getcpuclockid(__pid: pid_t, __clock_id: *mut clockid_t) ->
-     ::libc::c_int;
+    pub fn clock_getcpuclockid(__pid: pid_t, __clock_id: *mut clockid_t)
+     -> ::libc::c_int;
     pub fn timer_create(__clock_id: clockid_t, __evp: *mut Struct_sigevent,
                         __timerid: *mut timer_t) -> ::libc::c_int;
     pub fn timer_delete(__timerid: timer_t) -> ::libc::c_int;
@@ -2380,80 +2954,82 @@ extern "C" {
     pub fn timer_gettime(__timerid: timer_t, __value: *mut Struct_itimerspec)
      -> ::libc::c_int;
     pub fn timer_getoverrun(__timerid: timer_t) -> ::libc::c_int;
+    pub fn timespec_get(__ts: *mut Struct_timespec, __base: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_asoundlib_version() -> *const ::libc::c_char;
-    pub fn snd_dlopen(file: *const ::libc::c_char, mode: ::libc::c_int) ->
-     *mut ::libc::c_void;
+    pub fn snd_dlopen(file: *const ::libc::c_char, mode: ::libc::c_int)
+     -> *mut ::libc::c_void;
     pub fn snd_dlsym(handle: *mut ::libc::c_void, name: *const ::libc::c_char,
                      version: *const ::libc::c_char) -> *mut ::libc::c_void;
     pub fn snd_dlclose(handle: *mut ::libc::c_void) -> ::libc::c_int;
     pub fn snd_async_add_handler(handler: *mut *mut snd_async_handler_t,
                                  fd: ::libc::c_int,
                                  callback: snd_async_callback_t,
-                                 private_data: *mut ::libc::c_void) ->
-     ::libc::c_int;
-    pub fn snd_async_del_handler(handler: *mut snd_async_handler_t) ->
-     ::libc::c_int;
-    pub fn snd_async_handler_get_fd(handler: *mut snd_async_handler_t) ->
-     ::libc::c_int;
-    pub fn snd_async_handler_get_signo(handler: *mut snd_async_handler_t) ->
-     ::libc::c_int;
+                                 private_data: *mut ::libc::c_void)
+     -> ::libc::c_int;
+    pub fn snd_async_del_handler(handler: *mut snd_async_handler_t)
+     -> ::libc::c_int;
+    pub fn snd_async_handler_get_fd(handler: *mut snd_async_handler_t)
+     -> ::libc::c_int;
+    pub fn snd_async_handler_get_signo(handler: *mut snd_async_handler_t)
+     -> ::libc::c_int;
     pub fn snd_async_handler_get_callback_private(handler:
                                                       *mut snd_async_handler_t)
      -> *mut ::libc::c_void;
     pub fn snd_shm_area_create(shmid: ::libc::c_int, ptr: *mut ::libc::c_void)
      -> *mut Struct_snd_shm_area;
-    pub fn snd_shm_area_share(area: *mut Struct_snd_shm_area) ->
-     *mut Struct_snd_shm_area;
-    pub fn snd_shm_area_destroy(area: *mut Struct_snd_shm_area) ->
-     ::libc::c_int;
+    pub fn snd_shm_area_share(area: *mut Struct_snd_shm_area)
+     -> *mut Struct_snd_shm_area;
+    pub fn snd_shm_area_destroy(area: *mut Struct_snd_shm_area)
+     -> ::libc::c_int;
     pub fn snd_user_file(file: *const ::libc::c_char,
                          result: *mut *mut ::libc::c_char) -> ::libc::c_int;
     pub fn snd_input_stdio_open(inputp: *mut *mut snd_input_t,
                                 file: *const ::libc::c_char,
                                 mode: *const ::libc::c_char) -> ::libc::c_int;
     pub fn snd_input_stdio_attach(inputp: *mut *mut snd_input_t,
-                                  fp: *mut FILE, _close: ::libc::c_int) ->
-     ::libc::c_int;
+                                  fp: *mut FILE, _close: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_input_buffer_open(inputp: *mut *mut snd_input_t,
                                  buffer: *const ::libc::c_char, size: ssize_t)
      -> ::libc::c_int;
     pub fn snd_input_close(input: *mut snd_input_t) -> ::libc::c_int;
     pub fn snd_input_scanf(input: *mut snd_input_t,
-                           format: *const ::libc::c_char, ...) ->
-     ::libc::c_int;
+                           format: *const ::libc::c_char, ...)
+     -> ::libc::c_int;
     pub fn snd_input_gets(input: *mut snd_input_t, str: *mut ::libc::c_char,
                           size: size_t) -> *mut ::libc::c_char;
     pub fn snd_input_getc(input: *mut snd_input_t) -> ::libc::c_int;
-    pub fn snd_input_ungetc(input: *mut snd_input_t, c: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn snd_input_ungetc(input: *mut snd_input_t, c: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_output_stdio_open(outputp: *mut *mut snd_output_t,
                                  file: *const ::libc::c_char,
-                                 mode: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                 mode: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_output_stdio_attach(outputp: *mut *mut snd_output_t,
-                                   fp: *mut FILE, _close: ::libc::c_int) ->
-     ::libc::c_int;
-    pub fn snd_output_buffer_open(outputp: *mut *mut snd_output_t) ->
-     ::libc::c_int;
+                                   fp: *mut FILE, _close: ::libc::c_int)
+     -> ::libc::c_int;
+    pub fn snd_output_buffer_open(outputp: *mut *mut snd_output_t)
+     -> ::libc::c_int;
     pub fn snd_output_buffer_string(output: *mut snd_output_t,
                                     buf: *mut *mut ::libc::c_char) -> size_t;
     pub fn snd_output_close(output: *mut snd_output_t) -> ::libc::c_int;
     pub fn snd_output_printf(output: *mut snd_output_t,
-                             format: *const ::libc::c_char, ...) ->
-     ::libc::c_int;
+                             format: *const ::libc::c_char, ...)
+     -> ::libc::c_int;
     pub fn snd_output_vprintf(output: *mut snd_output_t,
-                              format: *const ::libc::c_char, args: va_list) ->
-     ::libc::c_int;
+                              format: *const ::libc::c_char, args: va_list)
+     -> ::libc::c_int;
     pub fn snd_output_puts(output: *mut snd_output_t,
                            str: *const ::libc::c_char) -> ::libc::c_int;
-    pub fn snd_output_putc(output: *mut snd_output_t, c: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn snd_output_putc(output: *mut snd_output_t, c: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_output_flush(output: *mut snd_output_t) -> ::libc::c_int;
     pub fn snd_strerror(errnum: ::libc::c_int) -> *const ::libc::c_char;
-    pub fn snd_lib_error_set_handler(handler: snd_lib_error_handler_t) ->
-     ::libc::c_int;
-    pub fn snd_lib_error_set_local(func: snd_local_error_handler_t) ->
-     snd_local_error_handler_t;
+    pub fn snd_lib_error_set_handler(handler: snd_lib_error_handler_t)
+     -> ::libc::c_int;
+    pub fn snd_lib_error_set_local(func: snd_local_error_handler_t)
+     -> snd_local_error_handler_t;
     pub fn snd_config_top(config: *mut *mut snd_config_t) -> ::libc::c_int;
     pub fn snd_config_load(config: *mut snd_config_t, _in: *mut snd_input_t)
      -> ::libc::c_int;
@@ -2465,20 +3041,20 @@ extern "C" {
     pub fn snd_config_update_r(top: *mut *mut snd_config_t,
                                update: *mut *mut snd_config_update_t,
                                path: *const ::libc::c_char) -> ::libc::c_int;
-    pub fn snd_config_update_free(update: *mut snd_config_update_t) ->
-     ::libc::c_int;
+    pub fn snd_config_update_free(update: *mut snd_config_update_t)
+     -> ::libc::c_int;
     pub fn snd_config_update_free_global() -> ::libc::c_int;
     pub fn snd_config_search(config: *mut snd_config_t,
                              key: *const ::libc::c_char,
                              result: *mut *mut snd_config_t) -> ::libc::c_int;
     pub fn snd_config_searchv(config: *mut snd_config_t,
-                              result: *mut *mut snd_config_t, ...) ->
-     ::libc::c_int;
+                              result: *mut *mut snd_config_t, ...)
+     -> ::libc::c_int;
     pub fn snd_config_search_definition(config: *mut snd_config_t,
                                         base: *const ::libc::c_char,
                                         key: *const ::libc::c_char,
-                                        result: *mut *mut snd_config_t) ->
-     ::libc::c_int;
+                                        result: *mut *mut snd_config_t)
+     -> ::libc::c_int;
     pub fn snd_config_expand(config: *mut snd_config_t,
                              root: *mut snd_config_t,
                              args: *const ::libc::c_char,
@@ -2487,32 +3063,32 @@ extern "C" {
     pub fn snd_config_evaluate(config: *mut snd_config_t,
                                root: *mut snd_config_t,
                                private_data: *mut snd_config_t,
-                               result: *mut *mut snd_config_t) ->
-     ::libc::c_int;
+                               result: *mut *mut snd_config_t)
+     -> ::libc::c_int;
     pub fn snd_config_add(config: *mut snd_config_t, leaf: *mut snd_config_t)
      -> ::libc::c_int;
     pub fn snd_config_delete(config: *mut snd_config_t) -> ::libc::c_int;
-    pub fn snd_config_delete_compound_members(config: *const snd_config_t) ->
-     ::libc::c_int;
+    pub fn snd_config_delete_compound_members(config: *const snd_config_t)
+     -> ::libc::c_int;
     pub fn snd_config_copy(dst: *mut *mut snd_config_t,
                            src: *mut snd_config_t) -> ::libc::c_int;
     pub fn snd_config_make(config: *mut *mut snd_config_t,
                            key: *const ::libc::c_char,
                            _type: snd_config_type_t) -> ::libc::c_int;
     pub fn snd_config_make_integer(config: *mut *mut snd_config_t,
-                                   key: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                   key: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_make_integer64(config: *mut *mut snd_config_t,
-                                     key: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                     key: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_make_real(config: *mut *mut snd_config_t,
                                 key: *const ::libc::c_char) -> ::libc::c_int;
     pub fn snd_config_make_string(config: *mut *mut snd_config_t,
-                                  key: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                  key: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_make_pointer(config: *mut *mut snd_config_t,
-                                   key: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                   key: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_make_compound(config: *mut *mut snd_config_t,
                                     key: *const ::libc::c_char,
                                     join: ::libc::c_int) -> ::libc::c_int;
@@ -2521,85 +3097,85 @@ extern "C" {
                                     value: ::libc::c_long) -> ::libc::c_int;
     pub fn snd_config_imake_integer64(config: *mut *mut snd_config_t,
                                       key: *const ::libc::c_char,
-                                      value: ::libc::c_longlong) ->
-     ::libc::c_int;
+                                      value: ::libc::c_longlong)
+     -> ::libc::c_int;
     pub fn snd_config_imake_real(config: *mut *mut snd_config_t,
                                  key: *const ::libc::c_char,
                                  value: ::libc::c_double) -> ::libc::c_int;
     pub fn snd_config_imake_string(config: *mut *mut snd_config_t,
                                    key: *const ::libc::c_char,
-                                   ascii: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                   ascii: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_imake_pointer(config: *mut *mut snd_config_t,
                                     key: *const ::libc::c_char,
-                                    ptr: *const ::libc::c_void) ->
-     ::libc::c_int;
-    pub fn snd_config_get_type(config: *const snd_config_t) ->
-     snd_config_type_t;
+                                    ptr: *const ::libc::c_void)
+     -> ::libc::c_int;
+    pub fn snd_config_get_type(config: *const snd_config_t)
+     -> snd_config_type_t;
     pub fn snd_config_set_id(config: *mut snd_config_t,
                              id: *const ::libc::c_char) -> ::libc::c_int;
     pub fn snd_config_set_integer(config: *mut snd_config_t,
                                   value: ::libc::c_long) -> ::libc::c_int;
     pub fn snd_config_set_integer64(config: *mut snd_config_t,
-                                    value: ::libc::c_longlong) ->
-     ::libc::c_int;
+                                    value: ::libc::c_longlong)
+     -> ::libc::c_int;
     pub fn snd_config_set_real(config: *mut snd_config_t,
                                value: ::libc::c_double) -> ::libc::c_int;
     pub fn snd_config_set_string(config: *mut snd_config_t,
-                                 value: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                 value: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_set_ascii(config: *mut snd_config_t,
-                                ascii: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                ascii: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_set_pointer(config: *mut snd_config_t,
-                                  ptr: *const ::libc::c_void) ->
-     ::libc::c_int;
+                                  ptr: *const ::libc::c_void)
+     -> ::libc::c_int;
     pub fn snd_config_get_id(config: *const snd_config_t,
-                             value: *mut *const ::libc::c_char) ->
-     ::libc::c_int;
+                             value: *mut *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_get_integer(config: *const snd_config_t,
-                                  value: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                  value: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_config_get_integer64(config: *const snd_config_t,
-                                    value: *mut ::libc::c_longlong) ->
-     ::libc::c_int;
+                                    value: *mut ::libc::c_longlong)
+     -> ::libc::c_int;
     pub fn snd_config_get_real(config: *const snd_config_t,
                                value: *mut ::libc::c_double) -> ::libc::c_int;
     pub fn snd_config_get_ireal(config: *const snd_config_t,
-                                value: *mut ::libc::c_double) ->
-     ::libc::c_int;
+                                value: *mut ::libc::c_double)
+     -> ::libc::c_int;
     pub fn snd_config_get_string(config: *const snd_config_t,
-                                 value: *mut *const ::libc::c_char) ->
-     ::libc::c_int;
+                                 value: *mut *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_get_ascii(config: *const snd_config_t,
-                                value: *mut *mut ::libc::c_char) ->
-     ::libc::c_int;
+                                value: *mut *mut ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_get_pointer(config: *const snd_config_t,
-                                  value: *mut *const ::libc::c_void) ->
-     ::libc::c_int;
+                                  value: *mut *const ::libc::c_void)
+     -> ::libc::c_int;
     pub fn snd_config_test_id(config: *const snd_config_t,
                               id: *const ::libc::c_char) -> ::libc::c_int;
-    pub fn snd_config_iterator_first(node: *const snd_config_t) ->
-     snd_config_iterator_t;
-    pub fn snd_config_iterator_next(iterator: snd_config_iterator_t) ->
-     snd_config_iterator_t;
-    pub fn snd_config_iterator_end(node: *const snd_config_t) ->
-     snd_config_iterator_t;
-    pub fn snd_config_iterator_entry(iterator: snd_config_iterator_t) ->
-     *mut snd_config_t;
-    pub fn snd_config_get_bool_ascii(ascii: *const ::libc::c_char) ->
-     ::libc::c_int;
+    pub fn snd_config_iterator_first(node: *const snd_config_t)
+     -> snd_config_iterator_t;
+    pub fn snd_config_iterator_next(iterator: snd_config_iterator_t)
+     -> snd_config_iterator_t;
+    pub fn snd_config_iterator_end(node: *const snd_config_t)
+     -> snd_config_iterator_t;
+    pub fn snd_config_iterator_entry(iterator: snd_config_iterator_t)
+     -> *mut snd_config_t;
+    pub fn snd_config_get_bool_ascii(ascii: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_config_get_bool(conf: *const snd_config_t) -> ::libc::c_int;
-    pub fn snd_config_get_ctl_iface_ascii(ascii: *const ::libc::c_char) ->
-     ::libc::c_int;
-    pub fn snd_config_get_ctl_iface(conf: *const snd_config_t) ->
-     ::libc::c_int;
+    pub fn snd_config_get_ctl_iface_ascii(ascii: *const ::libc::c_char)
+     -> ::libc::c_int;
+    pub fn snd_config_get_ctl_iface(conf: *const snd_config_t)
+     -> ::libc::c_int;
     pub fn snd_names_list(iface: *const ::libc::c_char,
                           list: *mut *mut snd_devname_t) -> ::libc::c_int;
-    pub fn snd_names_list_free(list: *mut snd_devname_t);
+    pub fn snd_names_list_free(list: *mut snd_devname_t) -> ();
     pub fn snd_pcm_open(pcm: *mut *mut snd_pcm_t, name: *const ::libc::c_char,
-                        stream: snd_pcm_stream_t, mode: ::libc::c_int) ->
-     ::libc::c_int;
+                        stream: snd_pcm_stream_t, mode: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_open_lconf(pcm: *mut *mut snd_pcm_t,
                               name: *const ::libc::c_char,
                               stream: snd_pcm_stream_t, mode: ::libc::c_int,
@@ -2614,40 +3190,40 @@ extern "C" {
     pub fn snd_pcm_name(pcm: *mut snd_pcm_t) -> *const ::libc::c_char;
     pub fn snd_pcm_type(pcm: *mut snd_pcm_t) -> snd_pcm_type_t;
     pub fn snd_pcm_stream(pcm: *mut snd_pcm_t) -> snd_pcm_stream_t;
-    pub fn snd_pcm_poll_descriptors_count(pcm: *mut snd_pcm_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_poll_descriptors_count(pcm: *mut snd_pcm_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_poll_descriptors(pcm: *mut snd_pcm_t,
                                     pfds: *mut Struct_pollfd,
                                     space: ::libc::c_uint) -> ::libc::c_int;
     pub fn snd_pcm_poll_descriptors_revents(pcm: *mut snd_pcm_t,
                                             pfds: *mut Struct_pollfd,
                                             nfds: ::libc::c_uint,
-                                            revents: *mut ::libc::c_ushort) ->
-     ::libc::c_int;
-    pub fn snd_pcm_nonblock(pcm: *mut snd_pcm_t, nonblock: ::libc::c_int) ->
-     ::libc::c_int;
+                                            revents: *mut ::libc::c_ushort)
+     -> ::libc::c_int;
+    pub fn snd_pcm_nonblock(pcm: *mut snd_pcm_t, nonblock: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_async_add_pcm_handler(handler: *mut *mut snd_async_handler_t,
                                      pcm: *mut snd_pcm_t,
                                      callback: snd_async_callback_t,
-                                     private_data: *mut ::libc::c_void) ->
-     ::libc::c_int;
-    pub fn snd_async_handler_get_pcm(handler: *mut snd_async_handler_t) ->
-     *mut snd_pcm_t;
-    pub fn snd_pcm_info(pcm: *mut snd_pcm_t, info: *mut snd_pcm_info_t) ->
-     ::libc::c_int;
+                                     private_data: *mut ::libc::c_void)
+     -> ::libc::c_int;
+    pub fn snd_async_handler_get_pcm(handler: *mut snd_async_handler_t)
+     -> *mut snd_pcm_t;
+    pub fn snd_pcm_info(pcm: *mut snd_pcm_t, info: *mut snd_pcm_info_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_current(pcm: *mut snd_pcm_t,
-                                     params: *mut snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+                                     params: *mut snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params(pcm: *mut snd_pcm_t,
-                             params: *mut snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+                             params: *mut snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_free(pcm: *mut snd_pcm_t) -> ::libc::c_int;
     pub fn snd_pcm_sw_params_current(pcm: *mut snd_pcm_t,
-                                     params: *mut snd_pcm_sw_params_t) ->
-     ::libc::c_int;
+                                     params: *mut snd_pcm_sw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params(pcm: *mut snd_pcm_t,
-                             params: *mut snd_pcm_sw_params_t) ->
-     ::libc::c_int;
+                             params: *mut snd_pcm_sw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_prepare(pcm: *mut snd_pcm_t) -> ::libc::c_int;
     pub fn snd_pcm_reset(pcm: *mut snd_pcm_t) -> ::libc::c_int;
     pub fn snd_pcm_status(pcm: *mut snd_pcm_t, status: *mut snd_pcm_status_t)
@@ -2655,8 +3231,8 @@ extern "C" {
     pub fn snd_pcm_start(pcm: *mut snd_pcm_t) -> ::libc::c_int;
     pub fn snd_pcm_drop(pcm: *mut snd_pcm_t) -> ::libc::c_int;
     pub fn snd_pcm_drain(pcm: *mut snd_pcm_t) -> ::libc::c_int;
-    pub fn snd_pcm_pause(pcm: *mut snd_pcm_t, enable: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn snd_pcm_pause(pcm: *mut snd_pcm_t, enable: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_state(pcm: *mut snd_pcm_t) -> snd_pcm_state_t;
     pub fn snd_pcm_hwsync(pcm: *mut snd_pcm_t) -> ::libc::c_int;
     pub fn snd_pcm_delay(pcm: *mut snd_pcm_t, delayp: *mut snd_pcm_sframes_t)
@@ -2669,14 +3245,14 @@ extern "C" {
     pub fn snd_pcm_avail_update(pcm: *mut snd_pcm_t) -> snd_pcm_sframes_t;
     pub fn snd_pcm_avail_delay(pcm: *mut snd_pcm_t,
                                availp: *mut snd_pcm_sframes_t,
-                               delayp: *mut snd_pcm_sframes_t) ->
-     ::libc::c_int;
+                               delayp: *mut snd_pcm_sframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_rewindable(pcm: *mut snd_pcm_t) -> snd_pcm_sframes_t;
-    pub fn snd_pcm_rewind(pcm: *mut snd_pcm_t, frames: snd_pcm_uframes_t) ->
-     snd_pcm_sframes_t;
+    pub fn snd_pcm_rewind(pcm: *mut snd_pcm_t, frames: snd_pcm_uframes_t)
+     -> snd_pcm_sframes_t;
     pub fn snd_pcm_forwardable(pcm: *mut snd_pcm_t) -> snd_pcm_sframes_t;
-    pub fn snd_pcm_forward(pcm: *mut snd_pcm_t, frames: snd_pcm_uframes_t) ->
-     snd_pcm_sframes_t;
+    pub fn snd_pcm_forward(pcm: *mut snd_pcm_t, frames: snd_pcm_uframes_t)
+     -> snd_pcm_sframes_t;
     pub fn snd_pcm_writei(pcm: *mut snd_pcm_t, buffer: *const ::libc::c_void,
                           size: snd_pcm_uframes_t) -> snd_pcm_sframes_t;
     pub fn snd_pcm_readi(pcm: *mut snd_pcm_t, buffer: *mut ::libc::c_void,
@@ -2685,34 +3261,34 @@ extern "C" {
                           size: snd_pcm_uframes_t) -> snd_pcm_sframes_t;
     pub fn snd_pcm_readn(pcm: *mut snd_pcm_t, bufs: *mut *mut ::libc::c_void,
                          size: snd_pcm_uframes_t) -> snd_pcm_sframes_t;
-    pub fn snd_pcm_wait(pcm: *mut snd_pcm_t, timeout: ::libc::c_int) ->
-     ::libc::c_int;
-    pub fn snd_pcm_link(pcm1: *mut snd_pcm_t, pcm2: *mut snd_pcm_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_wait(pcm: *mut snd_pcm_t, timeout: ::libc::c_int)
+     -> ::libc::c_int;
+    pub fn snd_pcm_link(pcm1: *mut snd_pcm_t, pcm2: *mut snd_pcm_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_unlink(pcm: *mut snd_pcm_t) -> ::libc::c_int;
-    pub fn snd_pcm_query_chmaps(pcm: *mut snd_pcm_t) ->
-     *mut *mut snd_pcm_chmap_query_t;
+    pub fn snd_pcm_query_chmaps(pcm: *mut snd_pcm_t)
+     -> *mut *mut snd_pcm_chmap_query_t;
     pub fn snd_pcm_query_chmaps_from_hw(card: ::libc::c_int,
                                         dev: ::libc::c_int,
                                         subdev: ::libc::c_int,
-                                        stream: snd_pcm_stream_t) ->
-     *mut *mut snd_pcm_chmap_query_t;
-    pub fn snd_pcm_free_chmaps(maps: *mut *mut snd_pcm_chmap_query_t);
+                                        stream: snd_pcm_stream_t)
+     -> *mut *mut snd_pcm_chmap_query_t;
+    pub fn snd_pcm_free_chmaps(maps: *mut *mut snd_pcm_chmap_query_t) -> ();
     pub fn snd_pcm_get_chmap(pcm: *mut snd_pcm_t) -> *mut snd_pcm_chmap_t;
     pub fn snd_pcm_set_chmap(pcm: *mut snd_pcm_t, map: *const snd_pcm_chmap_t)
      -> ::libc::c_int;
-    pub fn snd_pcm_chmap_type_name(val: Enum_snd_pcm_chmap_type) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_chmap_name(val: Enum_snd_pcm_chmap_position) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_chmap_long_name(val: Enum_snd_pcm_chmap_position) ->
-     *const ::libc::c_char;
+    pub fn snd_pcm_chmap_type_name(val: Enum_snd_pcm_chmap_type)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_chmap_name(val: Enum_snd_pcm_chmap_position)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_chmap_long_name(val: Enum_snd_pcm_chmap_position)
+     -> *const ::libc::c_char;
     pub fn snd_pcm_chmap_print(map: *const snd_pcm_chmap_t, maxlen: size_t,
                                buf: *mut ::libc::c_char) -> ::libc::c_int;
-    pub fn snd_pcm_chmap_from_string(str: *const ::libc::c_char) ->
-     ::libc::c_uint;
-    pub fn snd_pcm_chmap_parse_string(str: *const ::libc::c_char) ->
-     *mut snd_pcm_chmap_t;
+    pub fn snd_pcm_chmap_from_string(str: *const ::libc::c_char)
+     -> ::libc::c_uint;
+    pub fn snd_pcm_chmap_parse_string(str: *const ::libc::c_char)
+     -> *mut snd_pcm_chmap_t;
     pub fn snd_pcm_recover(pcm: *mut snd_pcm_t, err: ::libc::c_int,
                            silent: ::libc::c_int) -> ::libc::c_int;
     pub fn snd_pcm_set_params(pcm: *mut snd_pcm_t, format: snd_pcm_format_t,
@@ -2722,53 +3298,53 @@ extern "C" {
                               latency: ::libc::c_uint) -> ::libc::c_int;
     pub fn snd_pcm_get_params(pcm: *mut snd_pcm_t,
                               buffer_size: *mut snd_pcm_uframes_t,
-                              period_size: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                              period_size: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_info_sizeof() -> size_t;
-    pub fn snd_pcm_info_malloc(ptr: *mut *mut snd_pcm_info_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_info_free(obj: *mut snd_pcm_info_t);
+    pub fn snd_pcm_info_malloc(ptr: *mut *mut snd_pcm_info_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_info_free(obj: *mut snd_pcm_info_t) -> ();
     pub fn snd_pcm_info_copy(dst: *mut snd_pcm_info_t,
-                             src: *const snd_pcm_info_t);
-    pub fn snd_pcm_info_get_device(obj: *const snd_pcm_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_pcm_info_get_subdevice(obj: *const snd_pcm_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_pcm_info_get_stream(obj: *const snd_pcm_info_t) ->
-     snd_pcm_stream_t;
+                             src: *const snd_pcm_info_t) -> ();
+    pub fn snd_pcm_info_get_device(obj: *const snd_pcm_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_pcm_info_get_subdevice(obj: *const snd_pcm_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_pcm_info_get_stream(obj: *const snd_pcm_info_t)
+     -> snd_pcm_stream_t;
     pub fn snd_pcm_info_get_card(obj: *const snd_pcm_info_t) -> ::libc::c_int;
-    pub fn snd_pcm_info_get_id(obj: *const snd_pcm_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_info_get_name(obj: *const snd_pcm_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_info_get_subdevice_name(obj: *const snd_pcm_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_info_get_class(obj: *const snd_pcm_info_t) ->
-     snd_pcm_class_t;
-    pub fn snd_pcm_info_get_subclass(obj: *const snd_pcm_info_t) ->
-     snd_pcm_subclass_t;
-    pub fn snd_pcm_info_get_subdevices_count(obj: *const snd_pcm_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_pcm_info_get_subdevices_avail(obj: *const snd_pcm_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_pcm_info_get_sync(obj: *const snd_pcm_info_t) ->
-     snd_pcm_sync_id_t;
+    pub fn snd_pcm_info_get_id(obj: *const snd_pcm_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_info_get_name(obj: *const snd_pcm_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_info_get_subdevice_name(obj: *const snd_pcm_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_info_get_class(obj: *const snd_pcm_info_t)
+     -> snd_pcm_class_t;
+    pub fn snd_pcm_info_get_subclass(obj: *const snd_pcm_info_t)
+     -> snd_pcm_subclass_t;
+    pub fn snd_pcm_info_get_subdevices_count(obj: *const snd_pcm_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_pcm_info_get_subdevices_avail(obj: *const snd_pcm_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_pcm_info_get_sync(obj: *const snd_pcm_info_t)
+     -> snd_pcm_sync_id_t;
     pub fn snd_pcm_info_set_device(obj: *mut snd_pcm_info_t,
-                                   val: ::libc::c_uint);
+                                   val: ::libc::c_uint) -> ();
     pub fn snd_pcm_info_set_subdevice(obj: *mut snd_pcm_info_t,
-                                      val: ::libc::c_uint);
+                                      val: ::libc::c_uint) -> ();
     pub fn snd_pcm_info_set_stream(obj: *mut snd_pcm_info_t,
-                                   val: snd_pcm_stream_t);
+                                   val: snd_pcm_stream_t) -> ();
     pub fn snd_pcm_hw_params_any(pcm: *mut snd_pcm_t,
-                                 params: *mut snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+                                 params: *mut snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_can_mmap_sample_resolution(params:
                                                             *const snd_pcm_hw_params_t)
      -> ::libc::c_int;
-    pub fn snd_pcm_hw_params_is_double(params: *const snd_pcm_hw_params_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_hw_params_is_batch(params: *const snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_hw_params_is_double(params: *const snd_pcm_hw_params_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_hw_params_is_batch(params: *const snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_is_block_transfer(params:
                                                    *const snd_pcm_hw_params_t)
      -> ::libc::c_int;
@@ -2776,19 +3352,19 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_can_overrange(params: *const snd_pcm_hw_params_t)
      -> ::libc::c_int;
-    pub fn snd_pcm_hw_params_can_pause(params: *const snd_pcm_hw_params_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_hw_params_can_resume(params: *const snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_hw_params_can_pause(params: *const snd_pcm_hw_params_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_hw_params_can_resume(params: *const snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_is_half_duplex(params:
-                                                *const snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+                                                *const snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_is_joint_duplex(params:
                                                  *const snd_pcm_hw_params_t)
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_can_sync_start(params:
-                                                *const snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+                                                *const snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_can_disable_period_wakeup(params:
                                                            *const snd_pcm_hw_params_t)
      -> ::libc::c_int;
@@ -2798,29 +3374,29 @@ extern "C" {
     pub fn snd_pcm_hw_params_get_rate_numden(params:
                                                  *const snd_pcm_hw_params_t,
                                              rate_num: *mut ::libc::c_uint,
-                                             rate_den: *mut ::libc::c_uint) ->
-     ::libc::c_int;
-    pub fn snd_pcm_hw_params_get_sbits(params: *const snd_pcm_hw_params_t) ->
-     ::libc::c_int;
+                                             rate_den: *mut ::libc::c_uint)
+     -> ::libc::c_int;
+    pub fn snd_pcm_hw_params_get_sbits(params: *const snd_pcm_hw_params_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_fifo_size(params: *const snd_pcm_hw_params_t)
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_sizeof() -> size_t;
-    pub fn snd_pcm_hw_params_malloc(ptr: *mut *mut snd_pcm_hw_params_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_hw_params_free(obj: *mut snd_pcm_hw_params_t);
+    pub fn snd_pcm_hw_params_malloc(ptr: *mut *mut snd_pcm_hw_params_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_hw_params_free(obj: *mut snd_pcm_hw_params_t) -> ();
     pub fn snd_pcm_hw_params_copy(dst: *mut snd_pcm_hw_params_t,
-                                  src: *const snd_pcm_hw_params_t);
+                                  src: *const snd_pcm_hw_params_t) -> ();
     pub fn snd_pcm_hw_params_get_access(params: *const snd_pcm_hw_params_t,
-                                        _access: *mut snd_pcm_access_t) ->
-     ::libc::c_int;
+                                        _access: *mut snd_pcm_access_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_access(pcm: *mut snd_pcm_t,
                                          params: *mut snd_pcm_hw_params_t,
-                                         _access: snd_pcm_access_t) ->
-     ::libc::c_int;
+                                         _access: snd_pcm_access_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_access(pcm: *mut snd_pcm_t,
                                         params: *mut snd_pcm_hw_params_t,
-                                        _access: snd_pcm_access_t) ->
-     ::libc::c_int;
+                                        _access: snd_pcm_access_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_access_first(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
@@ -2838,16 +3414,16 @@ extern "C" {
                                              mask: *mut snd_pcm_access_mask_t)
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_format(params: *const snd_pcm_hw_params_t,
-                                        val: *mut snd_pcm_format_t) ->
-     ::libc::c_int;
+                                        val: *mut snd_pcm_format_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_format(pcm: *mut snd_pcm_t,
                                          params: *mut snd_pcm_hw_params_t,
-                                         val: snd_pcm_format_t) ->
-     ::libc::c_int;
+                                         val: snd_pcm_format_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_format(pcm: *mut snd_pcm_t,
                                         params: *mut snd_pcm_hw_params_t,
-                                        val: snd_pcm_format_t) ->
-     ::libc::c_int;
+                                        val: snd_pcm_format_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_format_first(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
@@ -2855,27 +3431,27 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_format_last(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
-                                             format: *mut snd_pcm_format_t) ->
-     ::libc::c_int;
+                                             format: *mut snd_pcm_format_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_format_mask(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
                                              mask: *mut snd_pcm_format_mask_t)
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_format_mask(params: *mut snd_pcm_hw_params_t,
-                                             mask:
-                                                 *mut snd_pcm_format_mask_t);
+                                             mask: *mut snd_pcm_format_mask_t)
+     -> ();
     pub fn snd_pcm_hw_params_get_subformat(params: *const snd_pcm_hw_params_t,
                                            subformat:
-                                               *mut snd_pcm_subformat_t) ->
-     ::libc::c_int;
+                                               *mut snd_pcm_subformat_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_subformat(pcm: *mut snd_pcm_t,
                                             params: *mut snd_pcm_hw_params_t,
-                                            subformat: snd_pcm_subformat_t) ->
-     ::libc::c_int;
+                                            subformat: snd_pcm_subformat_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_subformat(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_hw_params_t,
-                                           subformat: snd_pcm_subformat_t) ->
-     ::libc::c_int;
+                                           subformat: snd_pcm_subformat_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_subformat_first(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
@@ -2897,69 +3473,70 @@ extern "C" {
     pub fn snd_pcm_hw_params_get_subformat_mask(params:
                                                     *mut snd_pcm_hw_params_t,
                                                 mask:
-                                                    *mut snd_pcm_subformat_mask_t);
+                                                    *mut snd_pcm_subformat_mask_t)
+     -> ();
     pub fn snd_pcm_hw_params_get_channels(params: *const snd_pcm_hw_params_t,
-                                          val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                          val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_channels_min(params:
                                                   *const snd_pcm_hw_params_t,
-                                              val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                              val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_channels_max(params:
                                                   *const snd_pcm_hw_params_t,
-                                              val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                              val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_channels(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_hw_params_t,
-                                           val: ::libc::c_uint) ->
-     ::libc::c_int;
+                                           val: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_channels(pcm: *mut snd_pcm_t,
                                           params: *mut snd_pcm_hw_params_t,
-                                          val: ::libc::c_uint) ->
-     ::libc::c_int;
+                                          val: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_channels_min(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
-                                              val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                              val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_channels_max(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
-                                              val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                              val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_channels_minmax(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  min: *mut ::libc::c_uint,
-                                                 max: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                                 max: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_channels_near(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_channels_first(pcm: *mut snd_pcm_t,
                                                 params:
                                                     *mut snd_pcm_hw_params_t,
-                                                val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                                val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_channels_last(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_rate(params: *const snd_pcm_hw_params_t,
                                       val: *mut ::libc::c_uint,
-                                      dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                      dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_rate_min(params: *const snd_pcm_hw_params_t,
                                           val: *mut ::libc::c_uint,
-                                          dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                          dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_rate_max(params: *const snd_pcm_hw_params_t,
                                           val: *mut ::libc::c_uint,
-                                          dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                          dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_rate(pcm: *mut snd_pcm_t,
                                        params: *mut snd_pcm_hw_params_t,
                                        val: ::libc::c_uint,
@@ -2971,103 +3548,103 @@ extern "C" {
     pub fn snd_pcm_hw_params_set_rate_min(pcm: *mut snd_pcm_t,
                                           params: *mut snd_pcm_hw_params_t,
                                           val: *mut ::libc::c_uint,
-                                          dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                          dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_rate_max(pcm: *mut snd_pcm_t,
                                           params: *mut snd_pcm_hw_params_t,
                                           val: *mut ::libc::c_uint,
-                                          dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                          dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_rate_minmax(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
                                              min: *mut ::libc::c_uint,
                                              mindir: *mut ::libc::c_int,
                                              max: *mut ::libc::c_uint,
-                                             maxdir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             maxdir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_rate_near(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_hw_params_t,
                                            val: *mut ::libc::c_uint,
-                                           dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                           dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_rate_first(pcm: *mut snd_pcm_t,
                                             params: *mut snd_pcm_hw_params_t,
                                             val: *mut ::libc::c_uint,
-                                            dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                            dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_rate_last(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_hw_params_t,
                                            val: *mut ::libc::c_uint,
-                                           dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                           dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_rate_resample(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_rate_resample(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_export_buffer(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_export_buffer(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_wakeup(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_period_wakeup(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
-                                               val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                               val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_period_time(params:
                                                  *const snd_pcm_hw_params_t,
                                              val: *mut ::libc::c_uint,
-                                             dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_period_time_min(params:
                                                      *const snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_period_time_max(params:
                                                      *const snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_period_time(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
                                               val: ::libc::c_uint,
-                                              dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                              dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_time(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
                                              val: ::libc::c_uint,
-                                             dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_time_min(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_time_max(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_time_minmax(pcm: *mut snd_pcm_t,
                                                     params:
                                                         *mut snd_pcm_hw_params_t,
@@ -3076,66 +3653,66 @@ extern "C" {
                                                         *mut ::libc::c_int,
                                                     max: *mut ::libc::c_uint,
                                                     maxdir:
-                                                        *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                        *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_time_near(pcm: *mut snd_pcm_t,
                                                   params:
                                                       *mut snd_pcm_hw_params_t,
                                                   val: *mut ::libc::c_uint,
-                                                  dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                  dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_time_first(pcm: *mut snd_pcm_t,
                                                    params:
                                                        *mut snd_pcm_hw_params_t,
                                                    val: *mut ::libc::c_uint,
-                                                   dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                   dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_time_last(pcm: *mut snd_pcm_t,
                                                   params:
                                                       *mut snd_pcm_hw_params_t,
                                                   val: *mut ::libc::c_uint,
-                                                  dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                  dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_period_size(params:
                                                  *const snd_pcm_hw_params_t,
                                              frames: *mut snd_pcm_uframes_t,
-                                             dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_period_size_min(params:
                                                      *const snd_pcm_hw_params_t,
                                                  frames:
                                                      *mut snd_pcm_uframes_t,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_period_size_max(params:
                                                      *const snd_pcm_hw_params_t,
                                                  frames:
                                                      *mut snd_pcm_uframes_t,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_period_size(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
                                               val: snd_pcm_uframes_t,
-                                              dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                              dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
                                              val: snd_pcm_uframes_t,
-                                             dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size_min(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  val: *mut snd_pcm_uframes_t,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size_max(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  val: *mut snd_pcm_uframes_t,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size_minmax(pcm: *mut snd_pcm_t,
                                                     params:
                                                         *mut snd_pcm_hw_params_t,
@@ -3146,50 +3723,50 @@ extern "C" {
                                                     max:
                                                         *mut snd_pcm_uframes_t,
                                                     maxdir:
-                                                        *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                        *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size_near(pcm: *mut snd_pcm_t,
                                                   params:
                                                       *mut snd_pcm_hw_params_t,
                                                   val: *mut snd_pcm_uframes_t,
-                                                  dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                  dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size_first(pcm: *mut snd_pcm_t,
                                                    params:
                                                        *mut snd_pcm_hw_params_t,
                                                    val:
                                                        *mut snd_pcm_uframes_t,
-                                                   dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                   dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size_last(pcm: *mut snd_pcm_t,
                                                   params:
                                                       *mut snd_pcm_hw_params_t,
                                                   val: *mut snd_pcm_uframes_t,
-                                                  dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                  dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_period_size_integer(pcm: *mut snd_pcm_t,
                                                      params:
                                                          *mut snd_pcm_hw_params_t)
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_periods(params: *const snd_pcm_hw_params_t,
                                          val: *mut ::libc::c_uint,
-                                         dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                         dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_periods_min(params:
                                                  *const snd_pcm_hw_params_t,
                                              val: *mut ::libc::c_uint,
-                                             dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_periods_max(params:
                                                  *const snd_pcm_hw_params_t,
                                              val: *mut ::libc::c_uint,
-                                             dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_periods(pcm: *mut snd_pcm_t,
                                           params: *mut snd_pcm_hw_params_t,
                                           val: ::libc::c_uint,
-                                          dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                          dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_periods(pcm: *mut snd_pcm_t,
                                          params: *mut snd_pcm_hw_params_t,
                                          val: ::libc::c_uint,
@@ -3197,39 +3774,39 @@ extern "C" {
     pub fn snd_pcm_hw_params_set_periods_min(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
                                              val: *mut ::libc::c_uint,
-                                             dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_periods_max(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
                                              val: *mut ::libc::c_uint,
-                                             dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_periods_minmax(pcm: *mut snd_pcm_t,
                                                 params:
                                                     *mut snd_pcm_hw_params_t,
                                                 min: *mut ::libc::c_uint,
                                                 mindir: *mut ::libc::c_int,
                                                 max: *mut ::libc::c_uint,
-                                                maxdir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                maxdir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_periods_near(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
                                               val: *mut ::libc::c_uint,
-                                              dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                              dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_periods_first(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
                                                val: *mut ::libc::c_uint,
-                                               dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                               dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_periods_last(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
                                               val: *mut ::libc::c_uint,
-                                              dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                              dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_periods_integer(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t)
@@ -3237,41 +3814,41 @@ extern "C" {
     pub fn snd_pcm_hw_params_get_buffer_time(params:
                                                  *const snd_pcm_hw_params_t,
                                              val: *mut ::libc::c_uint,
-                                             dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_buffer_time_min(params:
                                                      *const snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_buffer_time_max(params:
                                                      *const snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_buffer_time(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
                                               val: ::libc::c_uint,
-                                              dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                              dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_time(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
                                              val: ::libc::c_uint,
-                                             dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                             dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_time_min(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_time_max(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_time_minmax(pcm: *mut snd_pcm_t,
                                                     params:
                                                         *mut snd_pcm_hw_params_t,
@@ -3280,30 +3857,30 @@ extern "C" {
                                                         *mut ::libc::c_int,
                                                     max: *mut ::libc::c_uint,
                                                     maxdir:
-                                                        *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                        *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_time_near(pcm: *mut snd_pcm_t,
                                                   params:
                                                       *mut snd_pcm_hw_params_t,
                                                   val: *mut ::libc::c_uint,
-                                                  dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                  dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_time_first(pcm: *mut snd_pcm_t,
                                                    params:
                                                        *mut snd_pcm_hw_params_t,
                                                    val: *mut ::libc::c_uint,
-                                                   dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                   dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_time_last(pcm: *mut snd_pcm_t,
                                                   params:
                                                       *mut snd_pcm_hw_params_t,
                                                   val: *mut ::libc::c_uint,
-                                                  dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                  dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_buffer_size(params:
                                                  *const snd_pcm_hw_params_t,
-                                             val: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                             val: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_buffer_size_min(params:
                                                      *const snd_pcm_hw_params_t,
                                                  val: *mut snd_pcm_uframes_t)
@@ -3315,12 +3892,12 @@ extern "C" {
     pub fn snd_pcm_hw_params_test_buffer_size(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_hw_params_t,
-                                              val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                              val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_size(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_hw_params_t,
-                                             val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                             val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_buffer_size_min(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
@@ -3356,46 +3933,54 @@ extern "C" {
                                                   val: *mut snd_pcm_uframes_t)
      -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_min_align(params: *const snd_pcm_hw_params_t,
-                                           val: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                           val: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_sizeof() -> size_t;
-    pub fn snd_pcm_sw_params_malloc(ptr: *mut *mut snd_pcm_sw_params_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_sw_params_free(obj: *mut snd_pcm_sw_params_t);
+    pub fn snd_pcm_sw_params_malloc(ptr: *mut *mut snd_pcm_sw_params_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_sw_params_free(obj: *mut snd_pcm_sw_params_t) -> ();
     pub fn snd_pcm_sw_params_copy(dst: *mut snd_pcm_sw_params_t,
-                                  src: *const snd_pcm_sw_params_t);
+                                  src: *const snd_pcm_sw_params_t) -> ();
     pub fn snd_pcm_sw_params_get_boundary(params: *const snd_pcm_sw_params_t,
-                                          val: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                          val: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_set_tstamp_mode(pcm: *mut snd_pcm_t,
                                              params: *mut snd_pcm_sw_params_t,
-                                             val: snd_pcm_tstamp_t) ->
-     ::libc::c_int;
+                                             val: snd_pcm_tstamp_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_tstamp_mode(params:
                                                  *const snd_pcm_sw_params_t,
-                                             val: *mut snd_pcm_tstamp_t) ->
-     ::libc::c_int;
+                                             val: *mut snd_pcm_tstamp_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_sw_params_set_tstamp_type(pcm: *mut snd_pcm_t,
+                                             params: *mut snd_pcm_sw_params_t,
+                                             val: snd_pcm_tstamp_type_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_sw_params_get_tstamp_type(params:
+                                                 *const snd_pcm_sw_params_t,
+                                             val: *mut snd_pcm_tstamp_type_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_set_avail_min(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_sw_params_t,
-                                           val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                           val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_avail_min(params: *const snd_pcm_sw_params_t,
-                                           val: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                           val: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_set_period_event(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_sw_params_t,
-                                              val: ::libc::c_int) ->
-     ::libc::c_int;
+                                              val: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_period_event(params:
                                                   *const snd_pcm_sw_params_t,
-                                              val: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                              val: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_set_start_threshold(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_sw_params_t,
-                                                 val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                                 val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_start_threshold(paramsm:
                                                      *const snd_pcm_sw_params_t,
                                                  val: *mut snd_pcm_uframes_t)
@@ -3403,8 +3988,8 @@ extern "C" {
     pub fn snd_pcm_sw_params_set_stop_threshold(pcm: *mut snd_pcm_t,
                                                 params:
                                                     *mut snd_pcm_sw_params_t,
-                                                val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                                val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_stop_threshold(params:
                                                     *const snd_pcm_sw_params_t,
                                                 val: *mut snd_pcm_uframes_t)
@@ -3412,8 +3997,8 @@ extern "C" {
     pub fn snd_pcm_sw_params_set_silence_threshold(pcm: *mut snd_pcm_t,
                                                    params:
                                                        *mut snd_pcm_sw_params_t,
-                                                   val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                                   val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_silence_threshold(params:
                                                        *const snd_pcm_sw_params_t,
                                                    val:
@@ -3422,115 +4007,120 @@ extern "C" {
     pub fn snd_pcm_sw_params_set_silence_size(pcm: *mut snd_pcm_t,
                                               params:
                                                   *mut snd_pcm_sw_params_t,
-                                              val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                              val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_silence_size(params:
                                                   *const snd_pcm_sw_params_t,
-                                              val: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                              val: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_access_mask_sizeof() -> size_t;
-    pub fn snd_pcm_access_mask_malloc(ptr: *mut *mut snd_pcm_access_mask_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_access_mask_free(obj: *mut snd_pcm_access_mask_t);
+    pub fn snd_pcm_access_mask_malloc(ptr: *mut *mut snd_pcm_access_mask_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_access_mask_free(obj: *mut snd_pcm_access_mask_t) -> ();
     pub fn snd_pcm_access_mask_copy(dst: *mut snd_pcm_access_mask_t,
-                                    src: *const snd_pcm_access_mask_t);
-    pub fn snd_pcm_access_mask_none(mask: *mut snd_pcm_access_mask_t);
-    pub fn snd_pcm_access_mask_any(mask: *mut snd_pcm_access_mask_t);
+                                    src: *const snd_pcm_access_mask_t) -> ();
+    pub fn snd_pcm_access_mask_none(mask: *mut snd_pcm_access_mask_t) -> ();
+    pub fn snd_pcm_access_mask_any(mask: *mut snd_pcm_access_mask_t) -> ();
     pub fn snd_pcm_access_mask_test(mask: *const snd_pcm_access_mask_t,
                                     val: snd_pcm_access_t) -> ::libc::c_int;
-    pub fn snd_pcm_access_mask_empty(mask: *const snd_pcm_access_mask_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_access_mask_empty(mask: *const snd_pcm_access_mask_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_access_mask_set(mask: *mut snd_pcm_access_mask_t,
-                                   val: snd_pcm_access_t);
+                                   val: snd_pcm_access_t) -> ();
     pub fn snd_pcm_access_mask_reset(mask: *mut snd_pcm_access_mask_t,
-                                     val: snd_pcm_access_t);
+                                     val: snd_pcm_access_t) -> ();
     pub fn snd_pcm_format_mask_sizeof() -> size_t;
-    pub fn snd_pcm_format_mask_malloc(ptr: *mut *mut snd_pcm_format_mask_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_format_mask_free(obj: *mut snd_pcm_format_mask_t);
+    pub fn snd_pcm_format_mask_malloc(ptr: *mut *mut snd_pcm_format_mask_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_format_mask_free(obj: *mut snd_pcm_format_mask_t) -> ();
     pub fn snd_pcm_format_mask_copy(dst: *mut snd_pcm_format_mask_t,
-                                    src: *const snd_pcm_format_mask_t);
-    pub fn snd_pcm_format_mask_none(mask: *mut snd_pcm_format_mask_t);
-    pub fn snd_pcm_format_mask_any(mask: *mut snd_pcm_format_mask_t);
+                                    src: *const snd_pcm_format_mask_t) -> ();
+    pub fn snd_pcm_format_mask_none(mask: *mut snd_pcm_format_mask_t) -> ();
+    pub fn snd_pcm_format_mask_any(mask: *mut snd_pcm_format_mask_t) -> ();
     pub fn snd_pcm_format_mask_test(mask: *const snd_pcm_format_mask_t,
                                     val: snd_pcm_format_t) -> ::libc::c_int;
-    pub fn snd_pcm_format_mask_empty(mask: *const snd_pcm_format_mask_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_format_mask_empty(mask: *const snd_pcm_format_mask_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_format_mask_set(mask: *mut snd_pcm_format_mask_t,
-                                   val: snd_pcm_format_t);
+                                   val: snd_pcm_format_t) -> ();
     pub fn snd_pcm_format_mask_reset(mask: *mut snd_pcm_format_mask_t,
-                                     val: snd_pcm_format_t);
+                                     val: snd_pcm_format_t) -> ();
     pub fn snd_pcm_subformat_mask_sizeof() -> size_t;
     pub fn snd_pcm_subformat_mask_malloc(ptr:
                                              *mut *mut snd_pcm_subformat_mask_t)
      -> ::libc::c_int;
-    pub fn snd_pcm_subformat_mask_free(obj: *mut snd_pcm_subformat_mask_t);
+    pub fn snd_pcm_subformat_mask_free(obj: *mut snd_pcm_subformat_mask_t)
+     -> ();
     pub fn snd_pcm_subformat_mask_copy(dst: *mut snd_pcm_subformat_mask_t,
-                                       src: *const snd_pcm_subformat_mask_t);
-    pub fn snd_pcm_subformat_mask_none(mask: *mut snd_pcm_subformat_mask_t);
-    pub fn snd_pcm_subformat_mask_any(mask: *mut snd_pcm_subformat_mask_t);
+                                       src: *const snd_pcm_subformat_mask_t)
+     -> ();
+    pub fn snd_pcm_subformat_mask_none(mask: *mut snd_pcm_subformat_mask_t)
+     -> ();
+    pub fn snd_pcm_subformat_mask_any(mask: *mut snd_pcm_subformat_mask_t)
+     -> ();
     pub fn snd_pcm_subformat_mask_test(mask: *const snd_pcm_subformat_mask_t,
-                                       val: snd_pcm_subformat_t) ->
-     ::libc::c_int;
+                                       val: snd_pcm_subformat_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_subformat_mask_empty(mask: *const snd_pcm_subformat_mask_t)
      -> ::libc::c_int;
     pub fn snd_pcm_subformat_mask_set(mask: *mut snd_pcm_subformat_mask_t,
-                                      val: snd_pcm_subformat_t);
+                                      val: snd_pcm_subformat_t) -> ();
     pub fn snd_pcm_subformat_mask_reset(mask: *mut snd_pcm_subformat_mask_t,
-                                        val: snd_pcm_subformat_t);
+                                        val: snd_pcm_subformat_t) -> ();
     pub fn snd_pcm_status_sizeof() -> size_t;
-    pub fn snd_pcm_status_malloc(ptr: *mut *mut snd_pcm_status_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_status_free(obj: *mut snd_pcm_status_t);
+    pub fn snd_pcm_status_malloc(ptr: *mut *mut snd_pcm_status_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_status_free(obj: *mut snd_pcm_status_t) -> ();
     pub fn snd_pcm_status_copy(dst: *mut snd_pcm_status_t,
-                               src: *const snd_pcm_status_t);
-    pub fn snd_pcm_status_get_state(obj: *const snd_pcm_status_t) ->
-     snd_pcm_state_t;
+                               src: *const snd_pcm_status_t) -> ();
+    pub fn snd_pcm_status_get_state(obj: *const snd_pcm_status_t)
+     -> snd_pcm_state_t;
     pub fn snd_pcm_status_get_trigger_tstamp(obj: *const snd_pcm_status_t,
-                                             ptr: *mut snd_timestamp_t);
+                                             ptr: *mut snd_timestamp_t) -> ();
     pub fn snd_pcm_status_get_trigger_htstamp(obj: *const snd_pcm_status_t,
-                                              ptr: *mut snd_htimestamp_t);
+                                              ptr: *mut snd_htimestamp_t)
+     -> ();
     pub fn snd_pcm_status_get_tstamp(obj: *const snd_pcm_status_t,
-                                     ptr: *mut snd_timestamp_t);
+                                     ptr: *mut snd_timestamp_t) -> ();
     pub fn snd_pcm_status_get_htstamp(obj: *const snd_pcm_status_t,
-                                      ptr: *mut snd_htimestamp_t);
+                                      ptr: *mut snd_htimestamp_t) -> ();
     pub fn snd_pcm_status_get_audio_htstamp(obj: *const snd_pcm_status_t,
-                                            ptr: *mut snd_htimestamp_t);
-    pub fn snd_pcm_status_get_delay(obj: *const snd_pcm_status_t) ->
-     snd_pcm_sframes_t;
-    pub fn snd_pcm_status_get_avail(obj: *const snd_pcm_status_t) ->
-     snd_pcm_uframes_t;
-    pub fn snd_pcm_status_get_avail_max(obj: *const snd_pcm_status_t) ->
-     snd_pcm_uframes_t;
-    pub fn snd_pcm_status_get_overrange(obj: *const snd_pcm_status_t) ->
-     snd_pcm_uframes_t;
+                                            ptr: *mut snd_htimestamp_t) -> ();
+    pub fn snd_pcm_status_get_delay(obj: *const snd_pcm_status_t)
+     -> snd_pcm_sframes_t;
+    pub fn snd_pcm_status_get_avail(obj: *const snd_pcm_status_t)
+     -> snd_pcm_uframes_t;
+    pub fn snd_pcm_status_get_avail_max(obj: *const snd_pcm_status_t)
+     -> snd_pcm_uframes_t;
+    pub fn snd_pcm_status_get_overrange(obj: *const snd_pcm_status_t)
+     -> snd_pcm_uframes_t;
     pub fn snd_pcm_type_name(_type: snd_pcm_type_t) -> *const ::libc::c_char;
-    pub fn snd_pcm_stream_name(stream: snd_pcm_stream_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_access_name(_access: snd_pcm_access_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_format_name(format: snd_pcm_format_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_format_description(format: snd_pcm_format_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_subformat_name(subformat: snd_pcm_subformat_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_subformat_description(subformat: snd_pcm_subformat_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_format_value(name: *const ::libc::c_char) ->
-     snd_pcm_format_t;
-    pub fn snd_pcm_tstamp_mode_name(mode: snd_pcm_tstamp_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_state_name(state: snd_pcm_state_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_dump(pcm: *mut snd_pcm_t, out: *mut snd_output_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_stream_name(stream: snd_pcm_stream_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_access_name(_access: snd_pcm_access_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_format_name(format: snd_pcm_format_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_format_description(format: snd_pcm_format_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_subformat_name(subformat: snd_pcm_subformat_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_subformat_description(subformat: snd_pcm_subformat_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_format_value(name: *const ::libc::c_char)
+     -> snd_pcm_format_t;
+    pub fn snd_pcm_tstamp_mode_name(mode: snd_pcm_tstamp_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_state_name(state: snd_pcm_state_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_dump(pcm: *mut snd_pcm_t, out: *mut snd_output_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_dump_hw_setup(pcm: *mut snd_pcm_t, out: *mut snd_output_t)
      -> ::libc::c_int;
     pub fn snd_pcm_dump_sw_setup(pcm: *mut snd_pcm_t, out: *mut snd_output_t)
      -> ::libc::c_int;
-    pub fn snd_pcm_dump_setup(pcm: *mut snd_pcm_t, out: *mut snd_output_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_dump_setup(pcm: *mut snd_pcm_t, out: *mut snd_output_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_dump(params: *mut snd_pcm_hw_params_t,
                                   out: *mut snd_output_t) -> ::libc::c_int;
     pub fn snd_pcm_sw_params_dump(params: *mut snd_pcm_sw_params_t,
@@ -3540,11 +4130,11 @@ extern "C" {
     pub fn snd_pcm_mmap_begin(pcm: *mut snd_pcm_t,
                               areas: *mut *const snd_pcm_channel_area_t,
                               offset: *mut snd_pcm_uframes_t,
-                              frames: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                              frames: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_mmap_commit(pcm: *mut snd_pcm_t, offset: snd_pcm_uframes_t,
-                               frames: snd_pcm_uframes_t) ->
-     snd_pcm_sframes_t;
+                               frames: snd_pcm_uframes_t)
+     -> snd_pcm_sframes_t;
     pub fn snd_pcm_mmap_writei(pcm: *mut snd_pcm_t,
                                buffer: *const ::libc::c_void,
                                size: snd_pcm_uframes_t) -> snd_pcm_sframes_t;
@@ -3561,36 +4151,36 @@ extern "C" {
     pub fn snd_pcm_format_unsigned(format: snd_pcm_format_t) -> ::libc::c_int;
     pub fn snd_pcm_format_linear(format: snd_pcm_format_t) -> ::libc::c_int;
     pub fn snd_pcm_format_float(format: snd_pcm_format_t) -> ::libc::c_int;
-    pub fn snd_pcm_format_little_endian(format: snd_pcm_format_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_format_big_endian(format: snd_pcm_format_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_format_cpu_endian(format: snd_pcm_format_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_format_little_endian(format: snd_pcm_format_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_format_big_endian(format: snd_pcm_format_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_format_cpu_endian(format: snd_pcm_format_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_format_width(format: snd_pcm_format_t) -> ::libc::c_int;
-    pub fn snd_pcm_format_physical_width(format: snd_pcm_format_t) ->
-     ::libc::c_int;
+    pub fn snd_pcm_format_physical_width(format: snd_pcm_format_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_build_linear_format(width: ::libc::c_int,
                                        pwidth: ::libc::c_int,
                                        unsignd: ::libc::c_int,
-                                       big_endian: ::libc::c_int) ->
-     snd_pcm_format_t;
-    pub fn snd_pcm_format_size(format: snd_pcm_format_t, samples: size_t) ->
-     ssize_t;
+                                       big_endian: ::libc::c_int)
+     -> snd_pcm_format_t;
+    pub fn snd_pcm_format_size(format: snd_pcm_format_t, samples: size_t)
+     -> ssize_t;
     pub fn snd_pcm_format_silence(format: snd_pcm_format_t) -> u_int8_t;
     pub fn snd_pcm_format_silence_16(format: snd_pcm_format_t) -> u_int16_t;
     pub fn snd_pcm_format_silence_32(format: snd_pcm_format_t) -> u_int32_t;
     pub fn snd_pcm_format_silence_64(format: snd_pcm_format_t) -> u_int64_t;
     pub fn snd_pcm_format_set_silence(format: snd_pcm_format_t,
                                       buf: *mut ::libc::c_void,
-                                      samples: ::libc::c_uint) ->
-     ::libc::c_int;
-    pub fn snd_pcm_bytes_to_frames(pcm: *mut snd_pcm_t, bytes: ssize_t) ->
-     snd_pcm_sframes_t;
+                                      samples: ::libc::c_uint)
+     -> ::libc::c_int;
+    pub fn snd_pcm_bytes_to_frames(pcm: *mut snd_pcm_t, bytes: ssize_t)
+     -> snd_pcm_sframes_t;
     pub fn snd_pcm_frames_to_bytes(pcm: *mut snd_pcm_t,
                                    frames: snd_pcm_sframes_t) -> ssize_t;
-    pub fn snd_pcm_bytes_to_samples(pcm: *mut snd_pcm_t, bytes: ssize_t) ->
-     ::libc::c_long;
+    pub fn snd_pcm_bytes_to_samples(pcm: *mut snd_pcm_t, bytes: ssize_t)
+     -> ::libc::c_long;
     pub fn snd_pcm_samples_to_bytes(pcm: *mut snd_pcm_t,
                                     samples: ::libc::c_long) -> ssize_t;
     pub fn snd_pcm_area_silence(dst_channel: *const snd_pcm_channel_area_t,
@@ -3616,48 +4206,48 @@ extern "C" {
                               frames: snd_pcm_uframes_t,
                               format: snd_pcm_format_t) -> ::libc::c_int;
     pub fn snd_pcm_hook_get_pcm(hook: *mut snd_pcm_hook_t) -> *mut snd_pcm_t;
-    pub fn snd_pcm_hook_get_private(hook: *mut snd_pcm_hook_t) ->
-     *mut ::libc::c_void;
+    pub fn snd_pcm_hook_get_private(hook: *mut snd_pcm_hook_t)
+     -> *mut ::libc::c_void;
     pub fn snd_pcm_hook_set_private(hook: *mut snd_pcm_hook_t,
-                                    private_data: *mut ::libc::c_void);
+                                    private_data: *mut ::libc::c_void) -> ();
     pub fn snd_pcm_hook_add(hookp: *mut *mut snd_pcm_hook_t,
                             pcm: *mut snd_pcm_t, _type: snd_pcm_hook_type_t,
                             func: snd_pcm_hook_func_t,
-                            private_data: *mut ::libc::c_void) ->
-     ::libc::c_int;
+                            private_data: *mut ::libc::c_void)
+     -> ::libc::c_int;
     pub fn snd_pcm_hook_remove(hook: *mut snd_pcm_hook_t) -> ::libc::c_int;
-    pub fn snd_pcm_meter_get_bufsize(pcm: *mut snd_pcm_t) ->
-     snd_pcm_uframes_t;
+    pub fn snd_pcm_meter_get_bufsize(pcm: *mut snd_pcm_t)
+     -> snd_pcm_uframes_t;
     pub fn snd_pcm_meter_get_channels(pcm: *mut snd_pcm_t) -> ::libc::c_uint;
     pub fn snd_pcm_meter_get_rate(pcm: *mut snd_pcm_t) -> ::libc::c_uint;
     pub fn snd_pcm_meter_get_now(pcm: *mut snd_pcm_t) -> snd_pcm_uframes_t;
-    pub fn snd_pcm_meter_get_boundary(pcm: *mut snd_pcm_t) ->
-     snd_pcm_uframes_t;
+    pub fn snd_pcm_meter_get_boundary(pcm: *mut snd_pcm_t)
+     -> snd_pcm_uframes_t;
     pub fn snd_pcm_meter_add_scope(pcm: *mut snd_pcm_t,
-                                   scope: *mut snd_pcm_scope_t) ->
-     ::libc::c_int;
+                                   scope: *mut snd_pcm_scope_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_meter_search_scope(pcm: *mut snd_pcm_t,
-                                      name: *const ::libc::c_char) ->
-     *mut snd_pcm_scope_t;
-    pub fn snd_pcm_scope_malloc(ptr: *mut *mut snd_pcm_scope_t) ->
-     ::libc::c_int;
+                                      name: *const ::libc::c_char)
+     -> *mut snd_pcm_scope_t;
+    pub fn snd_pcm_scope_malloc(ptr: *mut *mut snd_pcm_scope_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_scope_set_ops(scope: *mut snd_pcm_scope_t,
-                                 val: *const snd_pcm_scope_ops_t);
+                                 val: *const snd_pcm_scope_ops_t) -> ();
     pub fn snd_pcm_scope_set_name(scope: *mut snd_pcm_scope_t,
-                                  val: *const ::libc::c_char);
-    pub fn snd_pcm_scope_get_name(scope: *mut snd_pcm_scope_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_scope_get_callback_private(scope: *mut snd_pcm_scope_t) ->
-     *mut ::libc::c_void;
+                                  val: *const ::libc::c_char) -> ();
+    pub fn snd_pcm_scope_get_name(scope: *mut snd_pcm_scope_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_scope_get_callback_private(scope: *mut snd_pcm_scope_t)
+     -> *mut ::libc::c_void;
     pub fn snd_pcm_scope_set_callback_private(scope: *mut snd_pcm_scope_t,
-                                              val: *mut ::libc::c_void);
+                                              val: *mut ::libc::c_void) -> ();
     pub fn snd_pcm_scope_s16_open(pcm: *mut snd_pcm_t,
                                   name: *const ::libc::c_char,
-                                  scopep: *mut *mut snd_pcm_scope_t) ->
-     ::libc::c_int;
+                                  scopep: *mut *mut snd_pcm_scope_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_scope_s16_get_channel_buffer(scope: *mut snd_pcm_scope_t,
-                                                channel: ::libc::c_uint) ->
-     *mut int16_t;
+                                                channel: ::libc::c_uint)
+     -> *mut int16_t;
     pub fn snd_spcm_init(pcm: *mut snd_pcm_t, rate: ::libc::c_uint,
                          channels: ::libc::c_uint, format: snd_pcm_format_t,
                          subformat: snd_pcm_subformat_t,
@@ -3673,81 +4263,81 @@ extern "C" {
                                 latency: snd_spcm_latency_t,
                                 _access: snd_pcm_access_t,
                                 xrun_type: snd_spcm_xrun_type_t,
-                                duplex_type: snd_spcm_duplex_type_t) ->
-     ::libc::c_int;
+                                duplex_type: snd_spcm_duplex_type_t)
+     -> ::libc::c_int;
     pub fn snd_spcm_init_get_params(pcm: *mut snd_pcm_t,
                                     rate: *mut ::libc::c_uint,
                                     buffer_size: *mut snd_pcm_uframes_t,
-                                    period_size: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
-    pub fn snd_pcm_start_mode_name(mode: snd_pcm_start_t) ->
-     *const ::libc::c_char;
-    pub fn snd_pcm_xrun_mode_name(mode: snd_pcm_xrun_t) ->
-     *const ::libc::c_char;
+                                    period_size: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
+    pub fn snd_pcm_start_mode_name(mode: snd_pcm_start_t)
+     -> *const ::libc::c_char;
+    pub fn snd_pcm_xrun_mode_name(mode: snd_pcm_xrun_t)
+     -> *const ::libc::c_char;
     pub fn snd_pcm_sw_params_set_start_mode(pcm: *mut snd_pcm_t,
                                             params: *mut snd_pcm_sw_params_t,
-                                            val: snd_pcm_start_t) ->
-     ::libc::c_int;
+                                            val: snd_pcm_start_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_start_mode(params:
-                                                *const snd_pcm_sw_params_t) ->
-     snd_pcm_start_t;
+                                                *const snd_pcm_sw_params_t)
+     -> snd_pcm_start_t;
     pub fn snd_pcm_sw_params_set_xrun_mode(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_sw_params_t,
-                                           val: snd_pcm_xrun_t) ->
-     ::libc::c_int;
+                                           val: snd_pcm_xrun_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_xrun_mode(params: *const snd_pcm_sw_params_t)
      -> snd_pcm_xrun_t;
     pub fn snd_pcm_sw_params_set_xfer_align(pcm: *mut snd_pcm_t,
                                             params: *mut snd_pcm_sw_params_t,
-                                            val: snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                            val: snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_xfer_align(params:
                                                 *const snd_pcm_sw_params_t,
-                                            val: *mut snd_pcm_uframes_t) ->
-     ::libc::c_int;
+                                            val: *mut snd_pcm_uframes_t)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_set_sleep_min(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_sw_params_t,
-                                           val: ::libc::c_uint) ->
-     ::libc::c_int;
+                                           val: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_sw_params_get_sleep_min(params: *const snd_pcm_sw_params_t,
-                                           val: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                           val: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_tick_time(params: *const snd_pcm_hw_params_t,
                                            val: *mut ::libc::c_uint,
-                                           dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                           dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_tick_time_min(params:
                                                    *const snd_pcm_hw_params_t,
                                                val: *mut ::libc::c_uint,
-                                               dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                               dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_get_tick_time_max(params:
                                                    *const snd_pcm_hw_params_t,
                                                val: *mut ::libc::c_uint,
-                                               dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                               dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_test_tick_time(pcm: *mut snd_pcm_t,
                                             params: *mut snd_pcm_hw_params_t,
                                             val: ::libc::c_uint,
-                                            dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                            dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_tick_time(pcm: *mut snd_pcm_t,
                                            params: *mut snd_pcm_hw_params_t,
                                            val: ::libc::c_uint,
-                                           dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                           dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_tick_time_min(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
                                                val: *mut ::libc::c_uint,
-                                               dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                               dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_tick_time_max(pcm: *mut snd_pcm_t,
                                                params:
                                                    *mut snd_pcm_hw_params_t,
                                                val: *mut ::libc::c_uint,
-                                               dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                               dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_tick_time_minmax(pcm: *mut snd_pcm_t,
                                                   params:
                                                       *mut snd_pcm_hw_params_t,
@@ -3760,20 +4350,20 @@ extern "C" {
                                                 params:
                                                     *mut snd_pcm_hw_params_t,
                                                 val: *mut ::libc::c_uint,
-                                                dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_tick_time_first(pcm: *mut snd_pcm_t,
                                                  params:
                                                      *mut snd_pcm_hw_params_t,
                                                  val: *mut ::libc::c_uint,
-                                                 dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                 dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_pcm_hw_params_set_tick_time_last(pcm: *mut snd_pcm_t,
                                                 params:
                                                     *mut snd_pcm_hw_params_t,
                                                 val: *mut ::libc::c_uint,
-                                                dir: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                                dir: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_rawmidi_open(in_rmidi: *mut *mut snd_rawmidi_t,
                             out_rmidi: *mut *mut snd_rawmidi_t,
                             name: *const ::libc::c_char, mode: ::libc::c_int)
@@ -3784,12 +4374,12 @@ extern "C" {
                                   mode: ::libc::c_int,
                                   lconf: *mut snd_config_t) -> ::libc::c_int;
     pub fn snd_rawmidi_close(rmidi: *mut snd_rawmidi_t) -> ::libc::c_int;
-    pub fn snd_rawmidi_poll_descriptors_count(rmidi: *mut snd_rawmidi_t) ->
-     ::libc::c_int;
+    pub fn snd_rawmidi_poll_descriptors_count(rmidi: *mut snd_rawmidi_t)
+     -> ::libc::c_int;
     pub fn snd_rawmidi_poll_descriptors(rmidi: *mut snd_rawmidi_t,
                                         pfds: *mut Struct_pollfd,
-                                        space: ::libc::c_uint) ->
-     ::libc::c_int;
+                                        space: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_rawmidi_poll_descriptors_revents(rawmidi: *mut snd_rawmidi_t,
                                                 pfds: *mut Struct_pollfd,
                                                 nfds: ::libc::c_uint,
@@ -3798,25 +4388,25 @@ extern "C" {
     pub fn snd_rawmidi_nonblock(rmidi: *mut snd_rawmidi_t,
                                 nonblock: ::libc::c_int) -> ::libc::c_int;
     pub fn snd_rawmidi_info_sizeof() -> size_t;
-    pub fn snd_rawmidi_info_malloc(ptr: *mut *mut snd_rawmidi_info_t) ->
-     ::libc::c_int;
-    pub fn snd_rawmidi_info_free(obj: *mut snd_rawmidi_info_t);
+    pub fn snd_rawmidi_info_malloc(ptr: *mut *mut snd_rawmidi_info_t)
+     -> ::libc::c_int;
+    pub fn snd_rawmidi_info_free(obj: *mut snd_rawmidi_info_t) -> ();
     pub fn snd_rawmidi_info_copy(dst: *mut snd_rawmidi_info_t,
-                                 src: *const snd_rawmidi_info_t);
-    pub fn snd_rawmidi_info_get_device(obj: *const snd_rawmidi_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_rawmidi_info_get_subdevice(obj: *const snd_rawmidi_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_rawmidi_info_get_stream(obj: *const snd_rawmidi_info_t) ->
-     snd_rawmidi_stream_t;
-    pub fn snd_rawmidi_info_get_card(obj: *const snd_rawmidi_info_t) ->
-     ::libc::c_int;
-    pub fn snd_rawmidi_info_get_flags(obj: *const snd_rawmidi_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_rawmidi_info_get_id(obj: *const snd_rawmidi_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_rawmidi_info_get_name(obj: *const snd_rawmidi_info_t) ->
-     *const ::libc::c_char;
+                                 src: *const snd_rawmidi_info_t) -> ();
+    pub fn snd_rawmidi_info_get_device(obj: *const snd_rawmidi_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_rawmidi_info_get_subdevice(obj: *const snd_rawmidi_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_rawmidi_info_get_stream(obj: *const snd_rawmidi_info_t)
+     -> snd_rawmidi_stream_t;
+    pub fn snd_rawmidi_info_get_card(obj: *const snd_rawmidi_info_t)
+     -> ::libc::c_int;
+    pub fn snd_rawmidi_info_get_flags(obj: *const snd_rawmidi_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_rawmidi_info_get_id(obj: *const snd_rawmidi_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_rawmidi_info_get_name(obj: *const snd_rawmidi_info_t)
+     -> *const ::libc::c_char;
     pub fn snd_rawmidi_info_get_subdevice_name(obj: *const snd_rawmidi_info_t)
      -> *const ::libc::c_char;
     pub fn snd_rawmidi_info_get_subdevices_count(obj:
@@ -3826,19 +4416,19 @@ extern "C" {
                                                      *const snd_rawmidi_info_t)
      -> ::libc::c_uint;
     pub fn snd_rawmidi_info_set_device(obj: *mut snd_rawmidi_info_t,
-                                       val: ::libc::c_uint);
+                                       val: ::libc::c_uint) -> ();
     pub fn snd_rawmidi_info_set_subdevice(obj: *mut snd_rawmidi_info_t,
-                                          val: ::libc::c_uint);
+                                          val: ::libc::c_uint) -> ();
     pub fn snd_rawmidi_info_set_stream(obj: *mut snd_rawmidi_info_t,
-                                       val: snd_rawmidi_stream_t);
+                                       val: snd_rawmidi_stream_t) -> ();
     pub fn snd_rawmidi_info(rmidi: *mut snd_rawmidi_t,
                             info: *mut snd_rawmidi_info_t) -> ::libc::c_int;
     pub fn snd_rawmidi_params_sizeof() -> size_t;
-    pub fn snd_rawmidi_params_malloc(ptr: *mut *mut snd_rawmidi_params_t) ->
-     ::libc::c_int;
-    pub fn snd_rawmidi_params_free(obj: *mut snd_rawmidi_params_t);
+    pub fn snd_rawmidi_params_malloc(ptr: *mut *mut snd_rawmidi_params_t)
+     -> ::libc::c_int;
+    pub fn snd_rawmidi_params_free(obj: *mut snd_rawmidi_params_t) -> ();
     pub fn snd_rawmidi_params_copy(dst: *mut snd_rawmidi_params_t,
-                                   src: *const snd_rawmidi_params_t);
+                                   src: *const snd_rawmidi_params_t) -> ();
     pub fn snd_rawmidi_params_set_buffer_size(rmidi: *mut snd_rawmidi_t,
                                               params:
                                                   *mut snd_rawmidi_params_t,
@@ -3855,70 +4445,70 @@ extern "C" {
     pub fn snd_rawmidi_params_set_no_active_sensing(rmidi: *mut snd_rawmidi_t,
                                                     params:
                                                         *mut snd_rawmidi_params_t,
-                                                    val: ::libc::c_int) ->
-     ::libc::c_int;
+                                                    val: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_rawmidi_params_get_no_active_sensing(params:
                                                         *const snd_rawmidi_params_t)
      -> ::libc::c_int;
     pub fn snd_rawmidi_params(rmidi: *mut snd_rawmidi_t,
-                              params: *mut snd_rawmidi_params_t) ->
-     ::libc::c_int;
+                              params: *mut snd_rawmidi_params_t)
+     -> ::libc::c_int;
     pub fn snd_rawmidi_params_current(rmidi: *mut snd_rawmidi_t,
-                                      params: *mut snd_rawmidi_params_t) ->
-     ::libc::c_int;
+                                      params: *mut snd_rawmidi_params_t)
+     -> ::libc::c_int;
     pub fn snd_rawmidi_status_sizeof() -> size_t;
-    pub fn snd_rawmidi_status_malloc(ptr: *mut *mut snd_rawmidi_status_t) ->
-     ::libc::c_int;
-    pub fn snd_rawmidi_status_free(obj: *mut snd_rawmidi_status_t);
+    pub fn snd_rawmidi_status_malloc(ptr: *mut *mut snd_rawmidi_status_t)
+     -> ::libc::c_int;
+    pub fn snd_rawmidi_status_free(obj: *mut snd_rawmidi_status_t) -> ();
     pub fn snd_rawmidi_status_copy(dst: *mut snd_rawmidi_status_t,
-                                   src: *const snd_rawmidi_status_t);
+                                   src: *const snd_rawmidi_status_t) -> ();
     pub fn snd_rawmidi_status_get_tstamp(obj: *const snd_rawmidi_status_t,
-                                         ptr: *mut snd_htimestamp_t);
-    pub fn snd_rawmidi_status_get_avail(obj: *const snd_rawmidi_status_t) ->
-     size_t;
-    pub fn snd_rawmidi_status_get_xruns(obj: *const snd_rawmidi_status_t) ->
-     size_t;
+                                         ptr: *mut snd_htimestamp_t) -> ();
+    pub fn snd_rawmidi_status_get_avail(obj: *const snd_rawmidi_status_t)
+     -> size_t;
+    pub fn snd_rawmidi_status_get_xruns(obj: *const snd_rawmidi_status_t)
+     -> size_t;
     pub fn snd_rawmidi_status(rmidi: *mut snd_rawmidi_t,
-                              status: *mut snd_rawmidi_status_t) ->
-     ::libc::c_int;
+                              status: *mut snd_rawmidi_status_t)
+     -> ::libc::c_int;
     pub fn snd_rawmidi_drain(rmidi: *mut snd_rawmidi_t) -> ::libc::c_int;
     pub fn snd_rawmidi_drop(rmidi: *mut snd_rawmidi_t) -> ::libc::c_int;
     pub fn snd_rawmidi_write(rmidi: *mut snd_rawmidi_t,
-                             buffer: *const ::libc::c_void, size: size_t) ->
-     ssize_t;
+                             buffer: *const ::libc::c_void, size: size_t)
+     -> ssize_t;
     pub fn snd_rawmidi_read(rmidi: *mut snd_rawmidi_t,
-                            buffer: *mut ::libc::c_void, size: size_t) ->
-     ssize_t;
-    pub fn snd_rawmidi_name(rmidi: *mut snd_rawmidi_t) ->
-     *const ::libc::c_char;
+                            buffer: *mut ::libc::c_void, size: size_t)
+     -> ssize_t;
+    pub fn snd_rawmidi_name(rmidi: *mut snd_rawmidi_t)
+     -> *const ::libc::c_char;
     pub fn snd_rawmidi_type(rmidi: *mut snd_rawmidi_t) -> snd_rawmidi_type_t;
-    pub fn snd_rawmidi_stream(rawmidi: *mut snd_rawmidi_t) ->
-     snd_rawmidi_stream_t;
+    pub fn snd_rawmidi_stream(rawmidi: *mut snd_rawmidi_t)
+     -> snd_rawmidi_stream_t;
     pub fn snd_timer_query_open(handle: *mut *mut snd_timer_query_t,
                                 name: *const ::libc::c_char,
                                 mode: ::libc::c_int) -> ::libc::c_int;
     pub fn snd_timer_query_open_lconf(handle: *mut *mut snd_timer_query_t,
                                       name: *const ::libc::c_char,
                                       mode: ::libc::c_int,
-                                      lconf: *mut snd_config_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_query_close(handle: *mut snd_timer_query_t) ->
-     ::libc::c_int;
+                                      lconf: *mut snd_config_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_query_close(handle: *mut snd_timer_query_t)
+     -> ::libc::c_int;
     pub fn snd_timer_query_next_device(handle: *mut snd_timer_query_t,
-                                       tid: *mut snd_timer_id_t) ->
-     ::libc::c_int;
+                                       tid: *mut snd_timer_id_t)
+     -> ::libc::c_int;
     pub fn snd_timer_query_info(handle: *mut snd_timer_query_t,
-                                info: *mut snd_timer_ginfo_t) ->
-     ::libc::c_int;
+                                info: *mut snd_timer_ginfo_t)
+     -> ::libc::c_int;
     pub fn snd_timer_query_params(handle: *mut snd_timer_query_t,
-                                  params: *mut snd_timer_gparams_t) ->
-     ::libc::c_int;
+                                  params: *mut snd_timer_gparams_t)
+     -> ::libc::c_int;
     pub fn snd_timer_query_status(handle: *mut snd_timer_query_t,
-                                  status: *mut snd_timer_gstatus_t) ->
-     ::libc::c_int;
+                                  status: *mut snd_timer_gstatus_t)
+     -> ::libc::c_int;
     pub fn snd_timer_open(handle: *mut *mut snd_timer_t,
-                          name: *const ::libc::c_char, mode: ::libc::c_int) ->
-     ::libc::c_int;
+                          name: *const ::libc::c_char, mode: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_timer_open_lconf(handle: *mut *mut snd_timer_t,
                                 name: *const ::libc::c_char,
                                 mode: ::libc::c_int, lconf: *mut snd_config_t)
@@ -3927,12 +4517,12 @@ extern "C" {
     pub fn snd_async_add_timer_handler(handler: *mut *mut snd_async_handler_t,
                                        timer: *mut snd_timer_t,
                                        callback: snd_async_callback_t,
-                                       private_data: *mut ::libc::c_void) ->
-     ::libc::c_int;
-    pub fn snd_async_handler_get_timer(handler: *mut snd_async_handler_t) ->
-     *mut snd_timer_t;
-    pub fn snd_timer_poll_descriptors_count(handle: *mut snd_timer_t) ->
-     ::libc::c_int;
+                                       private_data: *mut ::libc::c_void)
+     -> ::libc::c_int;
+    pub fn snd_async_handler_get_timer(handler: *mut snd_async_handler_t)
+     -> *mut snd_timer_t;
+    pub fn snd_timer_poll_descriptors_count(handle: *mut snd_timer_t)
+     -> ::libc::c_int;
     pub fn snd_timer_poll_descriptors(handle: *mut snd_timer_t,
                                       pfds: *mut Struct_pollfd,
                                       space: ::libc::c_uint) -> ::libc::c_int;
@@ -3951,130 +4541,132 @@ extern "C" {
     pub fn snd_timer_stop(handle: *mut snd_timer_t) -> ::libc::c_int;
     pub fn snd_timer_continue(handle: *mut snd_timer_t) -> ::libc::c_int;
     pub fn snd_timer_read(handle: *mut snd_timer_t,
-                          buffer: *mut ::libc::c_void, size: size_t) ->
-     ssize_t;
+                          buffer: *mut ::libc::c_void, size: size_t)
+     -> ssize_t;
     pub fn snd_timer_id_sizeof() -> size_t;
-    pub fn snd_timer_id_malloc(ptr: *mut *mut snd_timer_id_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_id_free(obj: *mut snd_timer_id_t);
+    pub fn snd_timer_id_malloc(ptr: *mut *mut snd_timer_id_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_id_free(obj: *mut snd_timer_id_t) -> ();
     pub fn snd_timer_id_copy(dst: *mut snd_timer_id_t,
-                             src: *const snd_timer_id_t);
+                             src: *const snd_timer_id_t) -> ();
     pub fn snd_timer_id_set_class(id: *mut snd_timer_id_t,
-                                  dev_class: ::libc::c_int);
+                                  dev_class: ::libc::c_int) -> ();
     pub fn snd_timer_id_get_class(id: *mut snd_timer_id_t) -> ::libc::c_int;
     pub fn snd_timer_id_set_sclass(id: *mut snd_timer_id_t,
-                                   dev_sclass: ::libc::c_int);
+                                   dev_sclass: ::libc::c_int) -> ();
     pub fn snd_timer_id_get_sclass(id: *mut snd_timer_id_t) -> ::libc::c_int;
-    pub fn snd_timer_id_set_card(id: *mut snd_timer_id_t,
-                                 card: ::libc::c_int);
+    pub fn snd_timer_id_set_card(id: *mut snd_timer_id_t, card: ::libc::c_int)
+     -> ();
     pub fn snd_timer_id_get_card(id: *mut snd_timer_id_t) -> ::libc::c_int;
     pub fn snd_timer_id_set_device(id: *mut snd_timer_id_t,
-                                   device: ::libc::c_int);
+                                   device: ::libc::c_int) -> ();
     pub fn snd_timer_id_get_device(id: *mut snd_timer_id_t) -> ::libc::c_int;
     pub fn snd_timer_id_set_subdevice(id: *mut snd_timer_id_t,
-                                      subdevice: ::libc::c_int);
-    pub fn snd_timer_id_get_subdevice(id: *mut snd_timer_id_t) ->
-     ::libc::c_int;
+                                      subdevice: ::libc::c_int) -> ();
+    pub fn snd_timer_id_get_subdevice(id: *mut snd_timer_id_t)
+     -> ::libc::c_int;
     pub fn snd_timer_ginfo_sizeof() -> size_t;
-    pub fn snd_timer_ginfo_malloc(ptr: *mut *mut snd_timer_ginfo_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_ginfo_free(obj: *mut snd_timer_ginfo_t);
+    pub fn snd_timer_ginfo_malloc(ptr: *mut *mut snd_timer_ginfo_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_ginfo_free(obj: *mut snd_timer_ginfo_t) -> ();
     pub fn snd_timer_ginfo_copy(dst: *mut snd_timer_ginfo_t,
-                                src: *const snd_timer_ginfo_t);
+                                src: *const snd_timer_ginfo_t) -> ();
     pub fn snd_timer_ginfo_set_tid(obj: *mut snd_timer_ginfo_t,
                                    tid: *mut snd_timer_id_t) -> ::libc::c_int;
-    pub fn snd_timer_ginfo_get_tid(obj: *mut snd_timer_ginfo_t) ->
-     *mut snd_timer_id_t;
-    pub fn snd_timer_ginfo_get_flags(obj: *mut snd_timer_ginfo_t) ->
-     ::libc::c_uint;
-    pub fn snd_timer_ginfo_get_card(obj: *mut snd_timer_ginfo_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_ginfo_get_id(obj: *mut snd_timer_ginfo_t) ->
-     *mut ::libc::c_char;
-    pub fn snd_timer_ginfo_get_name(obj: *mut snd_timer_ginfo_t) ->
-     *mut ::libc::c_char;
-    pub fn snd_timer_ginfo_get_resolution(obj: *mut snd_timer_ginfo_t) ->
-     ::libc::c_ulong;
-    pub fn snd_timer_ginfo_get_resolution_min(obj: *mut snd_timer_ginfo_t) ->
-     ::libc::c_ulong;
-    pub fn snd_timer_ginfo_get_resolution_max(obj: *mut snd_timer_ginfo_t) ->
-     ::libc::c_ulong;
-    pub fn snd_timer_ginfo_get_clients(obj: *mut snd_timer_ginfo_t) ->
-     ::libc::c_uint;
+    pub fn snd_timer_ginfo_get_tid(obj: *mut snd_timer_ginfo_t)
+     -> *mut snd_timer_id_t;
+    pub fn snd_timer_ginfo_get_flags(obj: *mut snd_timer_ginfo_t)
+     -> ::libc::c_uint;
+    pub fn snd_timer_ginfo_get_card(obj: *mut snd_timer_ginfo_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_ginfo_get_id(obj: *mut snd_timer_ginfo_t)
+     -> *mut ::libc::c_char;
+    pub fn snd_timer_ginfo_get_name(obj: *mut snd_timer_ginfo_t)
+     -> *mut ::libc::c_char;
+    pub fn snd_timer_ginfo_get_resolution(obj: *mut snd_timer_ginfo_t)
+     -> ::libc::c_ulong;
+    pub fn snd_timer_ginfo_get_resolution_min(obj: *mut snd_timer_ginfo_t)
+     -> ::libc::c_ulong;
+    pub fn snd_timer_ginfo_get_resolution_max(obj: *mut snd_timer_ginfo_t)
+     -> ::libc::c_ulong;
+    pub fn snd_timer_ginfo_get_clients(obj: *mut snd_timer_ginfo_t)
+     -> ::libc::c_uint;
     pub fn snd_timer_info_sizeof() -> size_t;
-    pub fn snd_timer_info_malloc(ptr: *mut *mut snd_timer_info_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_info_free(obj: *mut snd_timer_info_t);
+    pub fn snd_timer_info_malloc(ptr: *mut *mut snd_timer_info_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_info_free(obj: *mut snd_timer_info_t) -> ();
     pub fn snd_timer_info_copy(dst: *mut snd_timer_info_t,
-                               src: *const snd_timer_info_t);
-    pub fn snd_timer_info_is_slave(info: *mut snd_timer_info_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_info_get_card(info: *mut snd_timer_info_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_info_get_id(info: *mut snd_timer_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_timer_info_get_name(info: *mut snd_timer_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_timer_info_get_resolution(info: *mut snd_timer_info_t) ->
-     ::libc::c_long;
+                               src: *const snd_timer_info_t) -> ();
+    pub fn snd_timer_info_is_slave(info: *mut snd_timer_info_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_info_get_card(info: *mut snd_timer_info_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_info_get_id(info: *mut snd_timer_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_timer_info_get_name(info: *mut snd_timer_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_timer_info_get_resolution(info: *mut snd_timer_info_t)
+     -> ::libc::c_long;
     pub fn snd_timer_params_sizeof() -> size_t;
-    pub fn snd_timer_params_malloc(ptr: *mut *mut snd_timer_params_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_params_free(obj: *mut snd_timer_params_t);
+    pub fn snd_timer_params_malloc(ptr: *mut *mut snd_timer_params_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_params_free(obj: *mut snd_timer_params_t) -> ();
     pub fn snd_timer_params_copy(dst: *mut snd_timer_params_t,
-                                 src: *const snd_timer_params_t);
+                                 src: *const snd_timer_params_t) -> ();
     pub fn snd_timer_params_set_auto_start(params: *mut snd_timer_params_t,
-                                           auto_start: ::libc::c_int) ->
-     ::libc::c_int;
-    pub fn snd_timer_params_get_auto_start(params: *mut snd_timer_params_t) ->
-     ::libc::c_int;
+                                           auto_start: ::libc::c_int)
+     -> ::libc::c_int;
+    pub fn snd_timer_params_get_auto_start(params: *mut snd_timer_params_t)
+     -> ::libc::c_int;
     pub fn snd_timer_params_set_exclusive(params: *mut snd_timer_params_t,
-                                          exclusive: ::libc::c_int) ->
-     ::libc::c_int;
-    pub fn snd_timer_params_get_exclusive(params: *mut snd_timer_params_t) ->
-     ::libc::c_int;
+                                          exclusive: ::libc::c_int)
+     -> ::libc::c_int;
+    pub fn snd_timer_params_get_exclusive(params: *mut snd_timer_params_t)
+     -> ::libc::c_int;
     pub fn snd_timer_params_set_early_event(params: *mut snd_timer_params_t,
-                                            early_event: ::libc::c_int) ->
-     ::libc::c_int;
+                                            early_event: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_timer_params_get_early_event(params: *mut snd_timer_params_t)
      -> ::libc::c_int;
     pub fn snd_timer_params_set_ticks(params: *mut snd_timer_params_t,
-                                      ticks: ::libc::c_long);
-    pub fn snd_timer_params_get_ticks(params: *mut snd_timer_params_t) ->
-     ::libc::c_long;
+                                      ticks: ::libc::c_long) -> ();
+    pub fn snd_timer_params_get_ticks(params: *mut snd_timer_params_t)
+     -> ::libc::c_long;
     pub fn snd_timer_params_set_queue_size(params: *mut snd_timer_params_t,
-                                           queue_size: ::libc::c_long);
-    pub fn snd_timer_params_get_queue_size(params: *mut snd_timer_params_t) ->
-     ::libc::c_long;
+                                           queue_size: ::libc::c_long) -> ();
+    pub fn snd_timer_params_get_queue_size(params: *mut snd_timer_params_t)
+     -> ::libc::c_long;
     pub fn snd_timer_params_set_filter(params: *mut snd_timer_params_t,
-                                       filter: ::libc::c_uint);
-    pub fn snd_timer_params_get_filter(params: *mut snd_timer_params_t) ->
-     ::libc::c_uint;
+                                       filter: ::libc::c_uint) -> ();
+    pub fn snd_timer_params_get_filter(params: *mut snd_timer_params_t)
+     -> ::libc::c_uint;
     pub fn snd_timer_status_sizeof() -> size_t;
-    pub fn snd_timer_status_malloc(ptr: *mut *mut snd_timer_status_t) ->
-     ::libc::c_int;
-    pub fn snd_timer_status_free(obj: *mut snd_timer_status_t);
+    pub fn snd_timer_status_malloc(ptr: *mut *mut snd_timer_status_t)
+     -> ::libc::c_int;
+    pub fn snd_timer_status_free(obj: *mut snd_timer_status_t) -> ();
     pub fn snd_timer_status_copy(dst: *mut snd_timer_status_t,
-                                 src: *const snd_timer_status_t);
-    pub fn snd_timer_status_get_timestamp(status: *mut snd_timer_status_t) ->
-     snd_htimestamp_t;
-    pub fn snd_timer_status_get_resolution(status: *mut snd_timer_status_t) ->
-     ::libc::c_long;
-    pub fn snd_timer_status_get_lost(status: *mut snd_timer_status_t) ->
-     ::libc::c_long;
-    pub fn snd_timer_status_get_overrun(status: *mut snd_timer_status_t) ->
-     ::libc::c_long;
-    pub fn snd_timer_status_get_queue(status: *mut snd_timer_status_t) ->
-     ::libc::c_long;
-    pub fn snd_timer_info_get_ticks(info: *mut snd_timer_info_t) ->
-     ::libc::c_long;
+                                 src: *const snd_timer_status_t) -> ();
+    pub fn snd_timer_status_get_timestamp(status: *mut snd_timer_status_t)
+     -> snd_htimestamp_t;
+    pub fn snd_timer_status_get_resolution(status: *mut snd_timer_status_t)
+     -> ::libc::c_long;
+    pub fn snd_timer_status_get_lost(status: *mut snd_timer_status_t)
+     -> ::libc::c_long;
+    pub fn snd_timer_status_get_overrun(status: *mut snd_timer_status_t)
+     -> ::libc::c_long;
+    pub fn snd_timer_status_get_queue(status: *mut snd_timer_status_t)
+     -> ::libc::c_long;
+    pub fn snd_timer_info_get_ticks(info: *mut snd_timer_info_t)
+     -> ::libc::c_long;
     pub fn snd_hwdep_open(hwdep: *mut *mut snd_hwdep_t,
-                          name: *const ::libc::c_char, mode: ::libc::c_int) ->
-     ::libc::c_int;
+                          name: *const ::libc::c_char, mode: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_hwdep_close(hwdep: *mut snd_hwdep_t) -> ::libc::c_int;
     pub fn snd_hwdep_poll_descriptors(hwdep: *mut snd_hwdep_t,
                                       pfds: *mut Struct_pollfd,
                                       space: ::libc::c_uint) -> ::libc::c_int;
+    pub fn snd_hwdep_poll_descriptors_count(hwdep: *mut snd_hwdep_t)
+     -> ::libc::c_int;
     pub fn snd_hwdep_poll_descriptors_revents(hwdep: *mut snd_hwdep_t,
                                               pfds: *mut Struct_pollfd,
                                               nfds: ::libc::c_uint,
@@ -4085,48 +4677,49 @@ extern "C" {
     pub fn snd_hwdep_info(hwdep: *mut snd_hwdep_t,
                           info: *mut snd_hwdep_info_t) -> ::libc::c_int;
     pub fn snd_hwdep_dsp_status(hwdep: *mut snd_hwdep_t,
-                                status: *mut snd_hwdep_dsp_status_t) ->
-     ::libc::c_int;
+                                status: *mut snd_hwdep_dsp_status_t)
+     -> ::libc::c_int;
     pub fn snd_hwdep_dsp_load(hwdep: *mut snd_hwdep_t,
-                              block: *mut snd_hwdep_dsp_image_t) ->
-     ::libc::c_int;
+                              block: *mut snd_hwdep_dsp_image_t)
+     -> ::libc::c_int;
     pub fn snd_hwdep_ioctl(hwdep: *mut snd_hwdep_t, request: ::libc::c_uint,
                            arg: *mut ::libc::c_void) -> ::libc::c_int;
     pub fn snd_hwdep_write(hwdep: *mut snd_hwdep_t,
-                           buffer: *const ::libc::c_void, size: size_t) ->
-     ssize_t;
+                           buffer: *const ::libc::c_void, size: size_t)
+     -> ssize_t;
     pub fn snd_hwdep_read(hwdep: *mut snd_hwdep_t,
-                          buffer: *mut ::libc::c_void, size: size_t) ->
-     ssize_t;
+                          buffer: *mut ::libc::c_void, size: size_t)
+     -> ssize_t;
     pub fn snd_hwdep_info_sizeof() -> size_t;
-    pub fn snd_hwdep_info_malloc(ptr: *mut *mut snd_hwdep_info_t) ->
-     ::libc::c_int;
-    pub fn snd_hwdep_info_free(obj: *mut snd_hwdep_info_t);
+    pub fn snd_hwdep_info_malloc(ptr: *mut *mut snd_hwdep_info_t)
+     -> ::libc::c_int;
+    pub fn snd_hwdep_info_free(obj: *mut snd_hwdep_info_t) -> ();
     pub fn snd_hwdep_info_copy(dst: *mut snd_hwdep_info_t,
-                               src: *const snd_hwdep_info_t);
-    pub fn snd_hwdep_info_get_device(obj: *const snd_hwdep_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_hwdep_info_get_card(obj: *const snd_hwdep_info_t) ->
-     ::libc::c_int;
-    pub fn snd_hwdep_info_get_id(obj: *const snd_hwdep_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_hwdep_info_get_name(obj: *const snd_hwdep_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_hwdep_info_get_iface(obj: *const snd_hwdep_info_t) ->
-     snd_hwdep_iface_t;
+                               src: *const snd_hwdep_info_t) -> ();
+    pub fn snd_hwdep_info_get_device(obj: *const snd_hwdep_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_hwdep_info_get_card(obj: *const snd_hwdep_info_t)
+     -> ::libc::c_int;
+    pub fn snd_hwdep_info_get_id(obj: *const snd_hwdep_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_hwdep_info_get_name(obj: *const snd_hwdep_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_hwdep_info_get_iface(obj: *const snd_hwdep_info_t)
+     -> snd_hwdep_iface_t;
     pub fn snd_hwdep_info_set_device(obj: *mut snd_hwdep_info_t,
-                                     val: ::libc::c_uint);
+                                     val: ::libc::c_uint) -> ();
     pub fn snd_hwdep_dsp_status_sizeof() -> size_t;
     pub fn snd_hwdep_dsp_status_malloc(ptr: *mut *mut snd_hwdep_dsp_status_t)
      -> ::libc::c_int;
-    pub fn snd_hwdep_dsp_status_free(obj: *mut snd_hwdep_dsp_status_t);
+    pub fn snd_hwdep_dsp_status_free(obj: *mut snd_hwdep_dsp_status_t) -> ();
     pub fn snd_hwdep_dsp_status_copy(dst: *mut snd_hwdep_dsp_status_t,
-                                     src: *const snd_hwdep_dsp_status_t);
+                                     src: *const snd_hwdep_dsp_status_t)
+     -> ();
     pub fn snd_hwdep_dsp_status_get_version(obj:
                                                 *const snd_hwdep_dsp_status_t)
      -> ::libc::c_uint;
-    pub fn snd_hwdep_dsp_status_get_id(obj: *const snd_hwdep_dsp_status_t) ->
-     *const ::libc::c_char;
+    pub fn snd_hwdep_dsp_status_get_id(obj: *const snd_hwdep_dsp_status_t)
+     -> *const ::libc::c_char;
     pub fn snd_hwdep_dsp_status_get_num_dsps(obj:
                                                  *const snd_hwdep_dsp_status_t)
      -> ::libc::c_uint;
@@ -4137,44 +4730,44 @@ extern "C" {
                                                    *const snd_hwdep_dsp_status_t)
      -> ::libc::c_uint;
     pub fn snd_hwdep_dsp_image_sizeof() -> size_t;
-    pub fn snd_hwdep_dsp_image_malloc(ptr: *mut *mut snd_hwdep_dsp_image_t) ->
-     ::libc::c_int;
-    pub fn snd_hwdep_dsp_image_free(obj: *mut snd_hwdep_dsp_image_t);
+    pub fn snd_hwdep_dsp_image_malloc(ptr: *mut *mut snd_hwdep_dsp_image_t)
+     -> ::libc::c_int;
+    pub fn snd_hwdep_dsp_image_free(obj: *mut snd_hwdep_dsp_image_t) -> ();
     pub fn snd_hwdep_dsp_image_copy(dst: *mut snd_hwdep_dsp_image_t,
-                                    src: *const snd_hwdep_dsp_image_t);
-    pub fn snd_hwdep_dsp_image_get_index(obj: *const snd_hwdep_dsp_image_t) ->
-     ::libc::c_uint;
-    pub fn snd_hwdep_dsp_image_get_name(obj: *const snd_hwdep_dsp_image_t) ->
-     *const ::libc::c_char;
-    pub fn snd_hwdep_dsp_image_get_image(obj: *const snd_hwdep_dsp_image_t) ->
-     *const ::libc::c_void;
+                                    src: *const snd_hwdep_dsp_image_t) -> ();
+    pub fn snd_hwdep_dsp_image_get_index(obj: *const snd_hwdep_dsp_image_t)
+     -> ::libc::c_uint;
+    pub fn snd_hwdep_dsp_image_get_name(obj: *const snd_hwdep_dsp_image_t)
+     -> *const ::libc::c_char;
+    pub fn snd_hwdep_dsp_image_get_image(obj: *const snd_hwdep_dsp_image_t)
+     -> *const ::libc::c_void;
     pub fn snd_hwdep_dsp_image_get_length(obj: *const snd_hwdep_dsp_image_t)
      -> size_t;
     pub fn snd_hwdep_dsp_image_set_index(obj: *mut snd_hwdep_dsp_image_t,
-                                         _index: ::libc::c_uint);
+                                         _index: ::libc::c_uint) -> ();
     pub fn snd_hwdep_dsp_image_set_name(obj: *mut snd_hwdep_dsp_image_t,
-                                        name: *const ::libc::c_char);
+                                        name: *const ::libc::c_char) -> ();
     pub fn snd_hwdep_dsp_image_set_image(obj: *mut snd_hwdep_dsp_image_t,
-                                         buffer: *mut ::libc::c_void);
+                                         buffer: *mut ::libc::c_void) -> ();
     pub fn snd_hwdep_dsp_image_set_length(obj: *mut snd_hwdep_dsp_image_t,
-                                          length: size_t);
+                                          length: size_t) -> ();
     pub fn snd_card_load(card: ::libc::c_int) -> ::libc::c_int;
     pub fn snd_card_next(card: *mut ::libc::c_int) -> ::libc::c_int;
     pub fn snd_card_get_index(name: *const ::libc::c_char) -> ::libc::c_int;
     pub fn snd_card_get_name(card: ::libc::c_int,
                              name: *mut *mut ::libc::c_char) -> ::libc::c_int;
     pub fn snd_card_get_longname(card: ::libc::c_int,
-                                 name: *mut *mut ::libc::c_char) ->
-     ::libc::c_int;
+                                 name: *mut *mut ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_device_name_hint(card: ::libc::c_int,
                                 iface: *const ::libc::c_char,
-                                hints: *mut *mut *mut ::libc::c_void) ->
-     ::libc::c_int;
-    pub fn snd_device_name_free_hint(hints: *mut *mut ::libc::c_void) ->
-     ::libc::c_int;
+                                hints: *mut *mut *mut ::libc::c_void)
+     -> ::libc::c_int;
+    pub fn snd_device_name_free_hint(hints: *mut *mut ::libc::c_void)
+     -> ::libc::c_int;
     pub fn snd_device_name_get_hint(hint: *const ::libc::c_void,
-                                    id: *const ::libc::c_char) ->
-     *mut ::libc::c_char;
+                                    id: *const ::libc::c_char)
+     -> *mut ::libc::c_char;
     pub fn snd_ctl_open(ctl: *mut *mut snd_ctl_t, name: *const ::libc::c_char,
                         mode: ::libc::c_int) -> ::libc::c_int;
     pub fn snd_ctl_open_lconf(ctl: *mut *mut snd_ctl_t,
@@ -4187,28 +4780,28 @@ extern "C" {
                                  orig_name: *const ::libc::c_char,
                                  mode: ::libc::c_int) -> ::libc::c_int;
     pub fn snd_ctl_close(ctl: *mut snd_ctl_t) -> ::libc::c_int;
-    pub fn snd_ctl_nonblock(ctl: *mut snd_ctl_t, nonblock: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn snd_ctl_nonblock(ctl: *mut snd_ctl_t, nonblock: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_async_add_ctl_handler(handler: *mut *mut snd_async_handler_t,
                                      ctl: *mut snd_ctl_t,
                                      callback: snd_async_callback_t,
-                                     private_data: *mut ::libc::c_void) ->
-     ::libc::c_int;
-    pub fn snd_async_handler_get_ctl(handler: *mut snd_async_handler_t) ->
-     *mut snd_ctl_t;
-    pub fn snd_ctl_poll_descriptors_count(ctl: *mut snd_ctl_t) ->
-     ::libc::c_int;
+                                     private_data: *mut ::libc::c_void)
+     -> ::libc::c_int;
+    pub fn snd_async_handler_get_ctl(handler: *mut snd_async_handler_t)
+     -> *mut snd_ctl_t;
+    pub fn snd_ctl_poll_descriptors_count(ctl: *mut snd_ctl_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_poll_descriptors(ctl: *mut snd_ctl_t,
                                     pfds: *mut Struct_pollfd,
                                     space: ::libc::c_uint) -> ::libc::c_int;
     pub fn snd_ctl_poll_descriptors_revents(ctl: *mut snd_ctl_t,
                                             pfds: *mut Struct_pollfd,
                                             nfds: ::libc::c_uint,
-                                            revents: *mut ::libc::c_ushort) ->
-     ::libc::c_int;
+                                            revents: *mut ::libc::c_ushort)
+     -> ::libc::c_int;
     pub fn snd_ctl_subscribe_events(ctl: *mut snd_ctl_t,
-                                    subscribe: ::libc::c_int) ->
-     ::libc::c_int;
+                                    subscribe: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_ctl_card_info(ctl: *mut snd_ctl_t,
                              info: *mut snd_ctl_card_info_t) -> ::libc::c_int;
     pub fn snd_ctl_elem_list(ctl: *mut snd_ctl_t,
@@ -4216,11 +4809,11 @@ extern "C" {
     pub fn snd_ctl_elem_info(ctl: *mut snd_ctl_t,
                              info: *mut snd_ctl_elem_info_t) -> ::libc::c_int;
     pub fn snd_ctl_elem_read(ctl: *mut snd_ctl_t,
-                             value: *mut snd_ctl_elem_value_t) ->
-     ::libc::c_int;
+                             value: *mut snd_ctl_elem_value_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_write(ctl: *mut snd_ctl_t,
-                              value: *mut snd_ctl_elem_value_t) ->
-     ::libc::c_int;
+                              value: *mut snd_ctl_elem_value_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_lock(ctl: *mut snd_ctl_t, id: *mut snd_ctl_elem_id_t)
      -> ::libc::c_int;
     pub fn snd_ctl_elem_unlock(ctl: *mut snd_ctl_t,
@@ -4231,193 +4824,193 @@ extern "C" {
                                  tlv_size: ::libc::c_uint) -> ::libc::c_int;
     pub fn snd_ctl_elem_tlv_write(ctl: *mut snd_ctl_t,
                                   id: *const snd_ctl_elem_id_t,
-                                  tlv: *const ::libc::c_uint) ->
-     ::libc::c_int;
+                                  tlv: *const ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_tlv_command(ctl: *mut snd_ctl_t,
                                     id: *const snd_ctl_elem_id_t,
-                                    tlv: *const ::libc::c_uint) ->
-     ::libc::c_int;
+                                    tlv: *const ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_ctl_hwdep_next_device(ctl: *mut snd_ctl_t,
-                                     device: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                     device: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_ctl_hwdep_info(ctl: *mut snd_ctl_t,
                               info: *mut snd_hwdep_info_t) -> ::libc::c_int;
     pub fn snd_ctl_pcm_next_device(ctl: *mut snd_ctl_t,
-                                   device: *mut ::libc::c_int) ->
-     ::libc::c_int;
-    pub fn snd_ctl_pcm_info(ctl: *mut snd_ctl_t, info: *mut snd_pcm_info_t) ->
-     ::libc::c_int;
+                                   device: *mut ::libc::c_int)
+     -> ::libc::c_int;
+    pub fn snd_ctl_pcm_info(ctl: *mut snd_ctl_t, info: *mut snd_pcm_info_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_pcm_prefer_subdevice(ctl: *mut snd_ctl_t,
-                                        subdev: ::libc::c_int) ->
-     ::libc::c_int;
+                                        subdev: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_ctl_rawmidi_next_device(ctl: *mut snd_ctl_t,
-                                       device: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                       device: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_ctl_rawmidi_info(ctl: *mut snd_ctl_t,
-                                info: *mut snd_rawmidi_info_t) ->
-     ::libc::c_int;
+                                info: *mut snd_rawmidi_info_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_rawmidi_prefer_subdevice(ctl: *mut snd_ctl_t,
-                                            subdev: ::libc::c_int) ->
-     ::libc::c_int;
+                                            subdev: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_ctl_set_power_state(ctl: *mut snd_ctl_t, state: ::libc::c_uint)
      -> ::libc::c_int;
     pub fn snd_ctl_get_power_state(ctl: *mut snd_ctl_t,
-                                   state: *mut ::libc::c_uint) ->
-     ::libc::c_int;
-    pub fn snd_ctl_read(ctl: *mut snd_ctl_t, event: *mut snd_ctl_event_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_wait(ctl: *mut snd_ctl_t, timeout: ::libc::c_int) ->
-     ::libc::c_int;
+                                   state: *mut ::libc::c_uint)
+     -> ::libc::c_int;
+    pub fn snd_ctl_read(ctl: *mut snd_ctl_t, event: *mut snd_ctl_event_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_wait(ctl: *mut snd_ctl_t, timeout: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_ctl_name(ctl: *mut snd_ctl_t) -> *const ::libc::c_char;
     pub fn snd_ctl_type(ctl: *mut snd_ctl_t) -> snd_ctl_type_t;
-    pub fn snd_ctl_elem_type_name(_type: snd_ctl_elem_type_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_elem_iface_name(iface: snd_ctl_elem_iface_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_event_type_name(_type: snd_ctl_event_type_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_event_elem_get_mask(obj: *const snd_ctl_event_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_event_elem_get_numid(obj: *const snd_ctl_event_t) ->
-     ::libc::c_uint;
+    pub fn snd_ctl_elem_type_name(_type: snd_ctl_elem_type_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_elem_iface_name(iface: snd_ctl_elem_iface_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_event_type_name(_type: snd_ctl_event_type_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_event_elem_get_mask(obj: *const snd_ctl_event_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_event_elem_get_numid(obj: *const snd_ctl_event_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_event_elem_get_id(obj: *const snd_ctl_event_t,
-                                     ptr: *mut snd_ctl_elem_id_t);
-    pub fn snd_ctl_event_elem_get_interface(obj: *const snd_ctl_event_t) ->
-     snd_ctl_elem_iface_t;
-    pub fn snd_ctl_event_elem_get_device(obj: *const snd_ctl_event_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_event_elem_get_subdevice(obj: *const snd_ctl_event_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_event_elem_get_name(obj: *const snd_ctl_event_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_event_elem_get_index(obj: *const snd_ctl_event_t) ->
-     ::libc::c_uint;
+                                     ptr: *mut snd_ctl_elem_id_t) -> ();
+    pub fn snd_ctl_event_elem_get_interface(obj: *const snd_ctl_event_t)
+     -> snd_ctl_elem_iface_t;
+    pub fn snd_ctl_event_elem_get_device(obj: *const snd_ctl_event_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_event_elem_get_subdevice(obj: *const snd_ctl_event_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_event_elem_get_name(obj: *const snd_ctl_event_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_event_elem_get_index(obj: *const snd_ctl_event_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_list_alloc_space(obj: *mut snd_ctl_elem_list_t,
-                                         entries: ::libc::c_uint) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_list_free_space(obj: *mut snd_ctl_elem_list_t);
-    pub fn snd_ctl_ascii_elem_id_get(id: *mut snd_ctl_elem_id_t) ->
-     *mut ::libc::c_char;
+                                         entries: ::libc::c_uint)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_list_free_space(obj: *mut snd_ctl_elem_list_t) -> ();
+    pub fn snd_ctl_ascii_elem_id_get(id: *mut snd_ctl_elem_id_t)
+     -> *mut ::libc::c_char;
     pub fn snd_ctl_ascii_elem_id_parse(dst: *mut snd_ctl_elem_id_t,
-                                       str: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                       str: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_ctl_ascii_value_parse(handle: *mut snd_ctl_t,
                                      dst: *mut snd_ctl_elem_value_t,
                                      info: *mut snd_ctl_elem_info_t,
-                                     value: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                     value: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_id_sizeof() -> size_t;
-    pub fn snd_ctl_elem_id_malloc(ptr: *mut *mut snd_ctl_elem_id_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_id_free(obj: *mut snd_ctl_elem_id_t);
-    pub fn snd_ctl_elem_id_clear(obj: *mut snd_ctl_elem_id_t);
+    pub fn snd_ctl_elem_id_malloc(ptr: *mut *mut snd_ctl_elem_id_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_id_free(obj: *mut snd_ctl_elem_id_t) -> ();
+    pub fn snd_ctl_elem_id_clear(obj: *mut snd_ctl_elem_id_t) -> ();
     pub fn snd_ctl_elem_id_copy(dst: *mut snd_ctl_elem_id_t,
-                                src: *const snd_ctl_elem_id_t);
-    pub fn snd_ctl_elem_id_get_numid(obj: *const snd_ctl_elem_id_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_id_get_interface(obj: *const snd_ctl_elem_id_t) ->
-     snd_ctl_elem_iface_t;
-    pub fn snd_ctl_elem_id_get_device(obj: *const snd_ctl_elem_id_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_id_get_subdevice(obj: *const snd_ctl_elem_id_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_id_get_name(obj: *const snd_ctl_elem_id_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_elem_id_get_index(obj: *const snd_ctl_elem_id_t) ->
-     ::libc::c_uint;
+                                src: *const snd_ctl_elem_id_t) -> ();
+    pub fn snd_ctl_elem_id_get_numid(obj: *const snd_ctl_elem_id_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_id_get_interface(obj: *const snd_ctl_elem_id_t)
+     -> snd_ctl_elem_iface_t;
+    pub fn snd_ctl_elem_id_get_device(obj: *const snd_ctl_elem_id_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_id_get_subdevice(obj: *const snd_ctl_elem_id_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_id_get_name(obj: *const snd_ctl_elem_id_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_elem_id_get_index(obj: *const snd_ctl_elem_id_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_id_set_numid(obj: *mut snd_ctl_elem_id_t,
-                                     val: ::libc::c_uint);
+                                     val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_id_set_interface(obj: *mut snd_ctl_elem_id_t,
-                                         val: snd_ctl_elem_iface_t);
+                                         val: snd_ctl_elem_iface_t) -> ();
     pub fn snd_ctl_elem_id_set_device(obj: *mut snd_ctl_elem_id_t,
-                                      val: ::libc::c_uint);
+                                      val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_id_set_subdevice(obj: *mut snd_ctl_elem_id_t,
-                                         val: ::libc::c_uint);
+                                         val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_id_set_name(obj: *mut snd_ctl_elem_id_t,
-                                    val: *const ::libc::c_char);
+                                    val: *const ::libc::c_char) -> ();
     pub fn snd_ctl_elem_id_set_index(obj: *mut snd_ctl_elem_id_t,
-                                     val: ::libc::c_uint);
+                                     val: ::libc::c_uint) -> ();
     pub fn snd_ctl_card_info_sizeof() -> size_t;
-    pub fn snd_ctl_card_info_malloc(ptr: *mut *mut snd_ctl_card_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_card_info_free(obj: *mut snd_ctl_card_info_t);
-    pub fn snd_ctl_card_info_clear(obj: *mut snd_ctl_card_info_t);
+    pub fn snd_ctl_card_info_malloc(ptr: *mut *mut snd_ctl_card_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_card_info_free(obj: *mut snd_ctl_card_info_t) -> ();
+    pub fn snd_ctl_card_info_clear(obj: *mut snd_ctl_card_info_t) -> ();
     pub fn snd_ctl_card_info_copy(dst: *mut snd_ctl_card_info_t,
-                                  src: *const snd_ctl_card_info_t);
-    pub fn snd_ctl_card_info_get_card(obj: *const snd_ctl_card_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_card_info_get_id(obj: *const snd_ctl_card_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_card_info_get_driver(obj: *const snd_ctl_card_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_card_info_get_name(obj: *const snd_ctl_card_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_card_info_get_longname(obj: *const snd_ctl_card_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_card_info_get_mixername(obj: *const snd_ctl_card_info_t) ->
-     *const ::libc::c_char;
+                                  src: *const snd_ctl_card_info_t) -> ();
+    pub fn snd_ctl_card_info_get_card(obj: *const snd_ctl_card_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_card_info_get_id(obj: *const snd_ctl_card_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_card_info_get_driver(obj: *const snd_ctl_card_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_card_info_get_name(obj: *const snd_ctl_card_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_card_info_get_longname(obj: *const snd_ctl_card_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_card_info_get_mixername(obj: *const snd_ctl_card_info_t)
+     -> *const ::libc::c_char;
     pub fn snd_ctl_card_info_get_components(obj: *const snd_ctl_card_info_t)
      -> *const ::libc::c_char;
     pub fn snd_ctl_event_sizeof() -> size_t;
-    pub fn snd_ctl_event_malloc(ptr: *mut *mut snd_ctl_event_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_event_free(obj: *mut snd_ctl_event_t);
-    pub fn snd_ctl_event_clear(obj: *mut snd_ctl_event_t);
+    pub fn snd_ctl_event_malloc(ptr: *mut *mut snd_ctl_event_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_event_free(obj: *mut snd_ctl_event_t) -> ();
+    pub fn snd_ctl_event_clear(obj: *mut snd_ctl_event_t) -> ();
     pub fn snd_ctl_event_copy(dst: *mut snd_ctl_event_t,
-                              src: *const snd_ctl_event_t);
-    pub fn snd_ctl_event_get_type(obj: *const snd_ctl_event_t) ->
-     snd_ctl_event_type_t;
+                              src: *const snd_ctl_event_t) -> ();
+    pub fn snd_ctl_event_get_type(obj: *const snd_ctl_event_t)
+     -> snd_ctl_event_type_t;
     pub fn snd_ctl_elem_list_sizeof() -> size_t;
-    pub fn snd_ctl_elem_list_malloc(ptr: *mut *mut snd_ctl_elem_list_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_list_free(obj: *mut snd_ctl_elem_list_t);
-    pub fn snd_ctl_elem_list_clear(obj: *mut snd_ctl_elem_list_t);
+    pub fn snd_ctl_elem_list_malloc(ptr: *mut *mut snd_ctl_elem_list_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_list_free(obj: *mut snd_ctl_elem_list_t) -> ();
+    pub fn snd_ctl_elem_list_clear(obj: *mut snd_ctl_elem_list_t) -> ();
     pub fn snd_ctl_elem_list_copy(dst: *mut snd_ctl_elem_list_t,
-                                  src: *const snd_ctl_elem_list_t);
+                                  src: *const snd_ctl_elem_list_t) -> ();
     pub fn snd_ctl_elem_list_set_offset(obj: *mut snd_ctl_elem_list_t,
-                                        val: ::libc::c_uint);
-    pub fn snd_ctl_elem_list_get_used(obj: *const snd_ctl_elem_list_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_list_get_count(obj: *const snd_ctl_elem_list_t) ->
-     ::libc::c_uint;
+                                        val: ::libc::c_uint) -> ();
+    pub fn snd_ctl_elem_list_get_used(obj: *const snd_ctl_elem_list_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_list_get_count(obj: *const snd_ctl_elem_list_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_list_get_id(obj: *const snd_ctl_elem_list_t,
                                     idx: ::libc::c_uint,
-                                    ptr: *mut snd_ctl_elem_id_t);
+                                    ptr: *mut snd_ctl_elem_id_t) -> ();
     pub fn snd_ctl_elem_list_get_numid(obj: *const snd_ctl_elem_list_t,
                                        idx: ::libc::c_uint) -> ::libc::c_uint;
     pub fn snd_ctl_elem_list_get_interface(obj: *const snd_ctl_elem_list_t,
-                                           idx: ::libc::c_uint) ->
-     snd_ctl_elem_iface_t;
+                                           idx: ::libc::c_uint)
+     -> snd_ctl_elem_iface_t;
     pub fn snd_ctl_elem_list_get_device(obj: *const snd_ctl_elem_list_t,
-                                        idx: ::libc::c_uint) ->
-     ::libc::c_uint;
+                                        idx: ::libc::c_uint)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_list_get_subdevice(obj: *const snd_ctl_elem_list_t,
-                                           idx: ::libc::c_uint) ->
-     ::libc::c_uint;
+                                           idx: ::libc::c_uint)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_list_get_name(obj: *const snd_ctl_elem_list_t,
-                                      idx: ::libc::c_uint) ->
-     *const ::libc::c_char;
+                                      idx: ::libc::c_uint)
+     -> *const ::libc::c_char;
     pub fn snd_ctl_elem_list_get_index(obj: *const snd_ctl_elem_list_t,
                                        idx: ::libc::c_uint) -> ::libc::c_uint;
     pub fn snd_ctl_elem_info_sizeof() -> size_t;
-    pub fn snd_ctl_elem_info_malloc(ptr: *mut *mut snd_ctl_elem_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_info_free(obj: *mut snd_ctl_elem_info_t);
-    pub fn snd_ctl_elem_info_clear(obj: *mut snd_ctl_elem_info_t);
+    pub fn snd_ctl_elem_info_malloc(ptr: *mut *mut snd_ctl_elem_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_info_free(obj: *mut snd_ctl_elem_info_t) -> ();
+    pub fn snd_ctl_elem_info_clear(obj: *mut snd_ctl_elem_info_t) -> ();
     pub fn snd_ctl_elem_info_copy(dst: *mut snd_ctl_elem_info_t,
-                                  src: *const snd_ctl_elem_info_t);
-    pub fn snd_ctl_elem_info_get_type(obj: *const snd_ctl_elem_info_t) ->
-     snd_ctl_elem_type_t;
-    pub fn snd_ctl_elem_info_is_readable(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_info_is_writable(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_info_is_volatile(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_info_is_inactive(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_info_is_locked(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_int;
+                                  src: *const snd_ctl_elem_info_t) -> ();
+    pub fn snd_ctl_elem_info_get_type(obj: *const snd_ctl_elem_info_t)
+     -> snd_ctl_elem_type_t;
+    pub fn snd_ctl_elem_info_is_readable(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_info_is_writable(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_info_is_volatile(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_info_is_inactive(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_info_is_locked(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_info_is_tlv_readable(obj: *const snd_ctl_elem_info_t)
      -> ::libc::c_int;
     pub fn snd_ctl_elem_info_is_tlv_writable(obj: *const snd_ctl_elem_info_t)
@@ -4425,65 +5018,65 @@ extern "C" {
     pub fn snd_ctl_elem_info_is_tlv_commandable(obj:
                                                     *const snd_ctl_elem_info_t)
      -> ::libc::c_int;
-    pub fn snd_ctl_elem_info_is_owner(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_info_is_user(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_info_get_owner(obj: *const snd_ctl_elem_info_t) ->
-     pid_t;
-    pub fn snd_ctl_elem_info_get_count(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_info_get_min(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_long;
-    pub fn snd_ctl_elem_info_get_max(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_long;
-    pub fn snd_ctl_elem_info_get_step(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_long;
-    pub fn snd_ctl_elem_info_get_min64(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_longlong;
-    pub fn snd_ctl_elem_info_get_max64(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_longlong;
-    pub fn snd_ctl_elem_info_get_step64(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_longlong;
-    pub fn snd_ctl_elem_info_get_items(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_uint;
+    pub fn snd_ctl_elem_info_is_owner(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_info_is_user(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_info_get_owner(obj: *const snd_ctl_elem_info_t)
+     -> pid_t;
+    pub fn snd_ctl_elem_info_get_count(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_info_get_min(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_long;
+    pub fn snd_ctl_elem_info_get_max(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_long;
+    pub fn snd_ctl_elem_info_get_step(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_long;
+    pub fn snd_ctl_elem_info_get_min64(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_longlong;
+    pub fn snd_ctl_elem_info_get_max64(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_longlong;
+    pub fn snd_ctl_elem_info_get_step64(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_longlong;
+    pub fn snd_ctl_elem_info_get_items(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_info_set_item(obj: *mut snd_ctl_elem_info_t,
-                                      val: ::libc::c_uint);
-    pub fn snd_ctl_elem_info_get_item_name(obj: *const snd_ctl_elem_info_t) ->
-     *const ::libc::c_char;
+                                      val: ::libc::c_uint) -> ();
+    pub fn snd_ctl_elem_info_get_item_name(obj: *const snd_ctl_elem_info_t)
+     -> *const ::libc::c_char;
     pub fn snd_ctl_elem_info_get_dimensions(obj: *const snd_ctl_elem_info_t)
      -> ::libc::c_int;
     pub fn snd_ctl_elem_info_get_dimension(obj: *const snd_ctl_elem_info_t,
-                                           idx: ::libc::c_uint) ->
-     ::libc::c_int;
+                                           idx: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_info_get_id(obj: *const snd_ctl_elem_info_t,
-                                    ptr: *mut snd_ctl_elem_id_t);
-    pub fn snd_ctl_elem_info_get_numid(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_info_get_interface(obj: *const snd_ctl_elem_info_t) ->
-     snd_ctl_elem_iface_t;
-    pub fn snd_ctl_elem_info_get_device(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_info_get_subdevice(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_uint;
-    pub fn snd_ctl_elem_info_get_name(obj: *const snd_ctl_elem_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_elem_info_get_index(obj: *const snd_ctl_elem_info_t) ->
-     ::libc::c_uint;
+                                    ptr: *mut snd_ctl_elem_id_t) -> ();
+    pub fn snd_ctl_elem_info_get_numid(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_info_get_interface(obj: *const snd_ctl_elem_info_t)
+     -> snd_ctl_elem_iface_t;
+    pub fn snd_ctl_elem_info_get_device(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_info_get_subdevice(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_uint;
+    pub fn snd_ctl_elem_info_get_name(obj: *const snd_ctl_elem_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_elem_info_get_index(obj: *const snd_ctl_elem_info_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_info_set_id(obj: *mut snd_ctl_elem_info_t,
-                                    ptr: *const snd_ctl_elem_id_t);
+                                    ptr: *const snd_ctl_elem_id_t) -> ();
     pub fn snd_ctl_elem_info_set_numid(obj: *mut snd_ctl_elem_info_t,
-                                       val: ::libc::c_uint);
+                                       val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_info_set_interface(obj: *mut snd_ctl_elem_info_t,
-                                           val: snd_ctl_elem_iface_t);
+                                           val: snd_ctl_elem_iface_t) -> ();
     pub fn snd_ctl_elem_info_set_device(obj: *mut snd_ctl_elem_info_t,
-                                        val: ::libc::c_uint);
+                                        val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_info_set_subdevice(obj: *mut snd_ctl_elem_info_t,
-                                           val: ::libc::c_uint);
+                                           val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_info_set_name(obj: *mut snd_ctl_elem_info_t,
-                                      val: *const ::libc::c_char);
+                                      val: *const ::libc::c_char) -> ();
     pub fn snd_ctl_elem_info_set_index(obj: *mut snd_ctl_elem_info_t,
-                                       val: ::libc::c_uint);
+                                       val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_add_integer(ctl: *mut snd_ctl_t,
                                     id: *const snd_ctl_elem_id_t,
                                     count: ::libc::c_uint,
@@ -4495,8 +5088,8 @@ extern "C" {
                                       count: ::libc::c_uint,
                                       imin: ::libc::c_longlong,
                                       imax: ::libc::c_longlong,
-                                      istep: ::libc::c_longlong) ->
-     ::libc::c_int;
+                                      istep: ::libc::c_longlong)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_add_boolean(ctl: *mut snd_ctl_t,
                                     id: *const snd_ctl_elem_id_t,
                                     count: ::libc::c_uint) -> ::libc::c_int;
@@ -4504,93 +5097,94 @@ extern "C" {
                                        id: *const snd_ctl_elem_id_t,
                                        count: ::libc::c_uint,
                                        items: ::libc::c_uint,
-                                       names: *const *const ::libc::c_char) ->
-     ::libc::c_int;
+                                       names: *const *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_add_iec958(ctl: *mut snd_ctl_t,
-                                   id: *const snd_ctl_elem_id_t) ->
-     ::libc::c_int;
+                                   id: *const snd_ctl_elem_id_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_remove(ctl: *mut snd_ctl_t,
                                id: *mut snd_ctl_elem_id_t) -> ::libc::c_int;
     pub fn snd_ctl_elem_value_sizeof() -> size_t;
-    pub fn snd_ctl_elem_value_malloc(ptr: *mut *mut snd_ctl_elem_value_t) ->
-     ::libc::c_int;
-    pub fn snd_ctl_elem_value_free(obj: *mut snd_ctl_elem_value_t);
-    pub fn snd_ctl_elem_value_clear(obj: *mut snd_ctl_elem_value_t);
+    pub fn snd_ctl_elem_value_malloc(ptr: *mut *mut snd_ctl_elem_value_t)
+     -> ::libc::c_int;
+    pub fn snd_ctl_elem_value_free(obj: *mut snd_ctl_elem_value_t) -> ();
+    pub fn snd_ctl_elem_value_clear(obj: *mut snd_ctl_elem_value_t) -> ();
     pub fn snd_ctl_elem_value_copy(dst: *mut snd_ctl_elem_value_t,
-                                   src: *const snd_ctl_elem_value_t);
+                                   src: *const snd_ctl_elem_value_t) -> ();
     pub fn snd_ctl_elem_value_compare(left: *mut snd_ctl_elem_value_t,
-                                      right: *const snd_ctl_elem_value_t) ->
-     ::libc::c_int;
+                                      right: *const snd_ctl_elem_value_t)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_value_get_id(obj: *const snd_ctl_elem_value_t,
-                                     ptr: *mut snd_ctl_elem_id_t);
-    pub fn snd_ctl_elem_value_get_numid(obj: *const snd_ctl_elem_value_t) ->
-     ::libc::c_uint;
+                                     ptr: *mut snd_ctl_elem_id_t) -> ();
+    pub fn snd_ctl_elem_value_get_numid(obj: *const snd_ctl_elem_value_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_value_get_interface(obj: *const snd_ctl_elem_value_t)
      -> snd_ctl_elem_iface_t;
-    pub fn snd_ctl_elem_value_get_device(obj: *const snd_ctl_elem_value_t) ->
-     ::libc::c_uint;
+    pub fn snd_ctl_elem_value_get_device(obj: *const snd_ctl_elem_value_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_value_get_subdevice(obj: *const snd_ctl_elem_value_t)
      -> ::libc::c_uint;
-    pub fn snd_ctl_elem_value_get_name(obj: *const snd_ctl_elem_value_t) ->
-     *const ::libc::c_char;
-    pub fn snd_ctl_elem_value_get_index(obj: *const snd_ctl_elem_value_t) ->
-     ::libc::c_uint;
+    pub fn snd_ctl_elem_value_get_name(obj: *const snd_ctl_elem_value_t)
+     -> *const ::libc::c_char;
+    pub fn snd_ctl_elem_value_get_index(obj: *const snd_ctl_elem_value_t)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_value_set_id(obj: *mut snd_ctl_elem_value_t,
-                                     ptr: *const snd_ctl_elem_id_t);
+                                     ptr: *const snd_ctl_elem_id_t) -> ();
     pub fn snd_ctl_elem_value_set_numid(obj: *mut snd_ctl_elem_value_t,
-                                        val: ::libc::c_uint);
+                                        val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_value_set_interface(obj: *mut snd_ctl_elem_value_t,
-                                            val: snd_ctl_elem_iface_t);
+                                            val: snd_ctl_elem_iface_t) -> ();
     pub fn snd_ctl_elem_value_set_device(obj: *mut snd_ctl_elem_value_t,
-                                         val: ::libc::c_uint);
+                                         val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_value_set_subdevice(obj: *mut snd_ctl_elem_value_t,
-                                            val: ::libc::c_uint);
+                                            val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_value_set_name(obj: *mut snd_ctl_elem_value_t,
-                                       val: *const ::libc::c_char);
+                                       val: *const ::libc::c_char) -> ();
     pub fn snd_ctl_elem_value_set_index(obj: *mut snd_ctl_elem_value_t,
-                                        val: ::libc::c_uint);
+                                        val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_value_get_boolean(obj: *const snd_ctl_elem_value_t,
-                                          idx: ::libc::c_uint) ->
-     ::libc::c_int;
+                                          idx: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_ctl_elem_value_get_integer(obj: *const snd_ctl_elem_value_t,
-                                          idx: ::libc::c_uint) ->
-     ::libc::c_long;
+                                          idx: ::libc::c_uint)
+     -> ::libc::c_long;
     pub fn snd_ctl_elem_value_get_integer64(obj: *const snd_ctl_elem_value_t,
-                                            idx: ::libc::c_uint) ->
-     ::libc::c_longlong;
+                                            idx: ::libc::c_uint)
+     -> ::libc::c_longlong;
     pub fn snd_ctl_elem_value_get_enumerated(obj: *const snd_ctl_elem_value_t,
-                                             idx: ::libc::c_uint) ->
-     ::libc::c_uint;
+                                             idx: ::libc::c_uint)
+     -> ::libc::c_uint;
     pub fn snd_ctl_elem_value_get_byte(obj: *const snd_ctl_elem_value_t,
-                                       idx: ::libc::c_uint) ->
-     ::libc::c_uchar;
+                                       idx: ::libc::c_uint)
+     -> ::libc::c_uchar;
     pub fn snd_ctl_elem_value_set_boolean(obj: *mut snd_ctl_elem_value_t,
                                           idx: ::libc::c_uint,
-                                          val: ::libc::c_long);
+                                          val: ::libc::c_long) -> ();
     pub fn snd_ctl_elem_value_set_integer(obj: *mut snd_ctl_elem_value_t,
                                           idx: ::libc::c_uint,
-                                          val: ::libc::c_long);
+                                          val: ::libc::c_long) -> ();
     pub fn snd_ctl_elem_value_set_integer64(obj: *mut snd_ctl_elem_value_t,
                                             idx: ::libc::c_uint,
-                                            val: ::libc::c_longlong);
+                                            val: ::libc::c_longlong) -> ();
     pub fn snd_ctl_elem_value_set_enumerated(obj: *mut snd_ctl_elem_value_t,
                                              idx: ::libc::c_uint,
-                                             val: ::libc::c_uint);
+                                             val: ::libc::c_uint) -> ();
     pub fn snd_ctl_elem_value_set_byte(obj: *mut snd_ctl_elem_value_t,
                                        idx: ::libc::c_uint,
-                                       val: ::libc::c_uchar);
+                                       val: ::libc::c_uchar) -> ();
     pub fn snd_ctl_elem_set_bytes(obj: *mut snd_ctl_elem_value_t,
-                                  data: *mut ::libc::c_void, size: size_t);
-    pub fn snd_ctl_elem_value_get_bytes(obj: *const snd_ctl_elem_value_t) ->
-     *const ::libc::c_void;
+                                  data: *mut ::libc::c_void, size: size_t)
+     -> ();
+    pub fn snd_ctl_elem_value_get_bytes(obj: *const snd_ctl_elem_value_t)
+     -> *const ::libc::c_void;
     pub fn snd_ctl_elem_value_get_iec958(obj: *const snd_ctl_elem_value_t,
-                                         ptr: *mut snd_aes_iec958_t);
+                                         ptr: *mut snd_aes_iec958_t) -> ();
     pub fn snd_ctl_elem_value_set_iec958(obj: *mut snd_ctl_elem_value_t,
-                                         ptr: *const snd_aes_iec958_t);
+                                         ptr: *const snd_aes_iec958_t) -> ();
     pub fn snd_tlv_parse_dB_info(tlv: *mut ::libc::c_uint,
                                  tlv_size: ::libc::c_uint,
-                                 db_tlvp: *mut *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                 db_tlvp: *mut *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_tlv_get_dB_range(tlv: *mut ::libc::c_uint,
                                 rangemin: ::libc::c_long,
                                 rangemax: ::libc::c_long,
@@ -4600,8 +5194,8 @@ extern "C" {
                                  rangemin: ::libc::c_long,
                                  rangemax: ::libc::c_long,
                                  volume: ::libc::c_long,
-                                 db_gain: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                 db_gain: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_tlv_convert_from_dB(tlv: *mut ::libc::c_uint,
                                    rangemin: ::libc::c_long,
                                    rangemax: ::libc::c_long,
@@ -4615,8 +5209,8 @@ extern "C" {
     pub fn snd_ctl_convert_to_dB(ctl: *mut snd_ctl_t,
                                  id: *const snd_ctl_elem_id_t,
                                  volume: ::libc::c_long,
-                                 db_gain: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                 db_gain: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_ctl_convert_from_dB(ctl: *mut snd_ctl_t,
                                    id: *const snd_ctl_elem_id_t,
                                    db_gain: ::libc::c_long,
@@ -4625,15 +5219,15 @@ extern "C" {
     pub fn snd_hctl_compare_fast(c1: *const snd_hctl_elem_t,
                                  c2: *const snd_hctl_elem_t) -> ::libc::c_int;
     pub fn snd_hctl_open(hctl: *mut *mut snd_hctl_t,
-                         name: *const ::libc::c_char, mode: ::libc::c_int) ->
-     ::libc::c_int;
+                         name: *const ::libc::c_char, mode: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_hctl_open_ctl(hctlp: *mut *mut snd_hctl_t, ctl: *mut snd_ctl_t)
      -> ::libc::c_int;
     pub fn snd_hctl_close(hctl: *mut snd_hctl_t) -> ::libc::c_int;
     pub fn snd_hctl_nonblock(hctl: *mut snd_hctl_t, nonblock: ::libc::c_int)
      -> ::libc::c_int;
-    pub fn snd_hctl_poll_descriptors_count(hctl: *mut snd_hctl_t) ->
-     ::libc::c_int;
+    pub fn snd_hctl_poll_descriptors_count(hctl: *mut snd_hctl_t)
+     -> ::libc::c_int;
     pub fn snd_hctl_poll_descriptors(hctl: *mut snd_hctl_t,
                                      pfds: *mut Struct_pollfd,
                                      space: ::libc::c_uint) -> ::libc::c_int;
@@ -4648,65 +5242,65 @@ extern "C" {
     pub fn snd_hctl_first_elem(hctl: *mut snd_hctl_t) -> *mut snd_hctl_elem_t;
     pub fn snd_hctl_last_elem(hctl: *mut snd_hctl_t) -> *mut snd_hctl_elem_t;
     pub fn snd_hctl_find_elem(hctl: *mut snd_hctl_t,
-                              id: *const snd_ctl_elem_id_t) ->
-     *mut snd_hctl_elem_t;
+                              id: *const snd_ctl_elem_id_t)
+     -> *mut snd_hctl_elem_t;
     pub fn snd_hctl_set_callback(hctl: *mut snd_hctl_t,
-                                 callback: snd_hctl_callback_t);
+                                 callback: snd_hctl_callback_t) -> ();
     pub fn snd_hctl_set_callback_private(hctl: *mut snd_hctl_t,
-                                         data: *mut ::libc::c_void);
-    pub fn snd_hctl_get_callback_private(hctl: *mut snd_hctl_t) ->
-     *mut ::libc::c_void;
+                                         data: *mut ::libc::c_void) -> ();
+    pub fn snd_hctl_get_callback_private(hctl: *mut snd_hctl_t)
+     -> *mut ::libc::c_void;
     pub fn snd_hctl_load(hctl: *mut snd_hctl_t) -> ::libc::c_int;
     pub fn snd_hctl_free(hctl: *mut snd_hctl_t) -> ::libc::c_int;
     pub fn snd_hctl_handle_events(hctl: *mut snd_hctl_t) -> ::libc::c_int;
     pub fn snd_hctl_name(hctl: *mut snd_hctl_t) -> *const ::libc::c_char;
-    pub fn snd_hctl_wait(hctl: *mut snd_hctl_t, timeout: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn snd_hctl_wait(hctl: *mut snd_hctl_t, timeout: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_hctl_ctl(hctl: *mut snd_hctl_t) -> *mut snd_ctl_t;
-    pub fn snd_hctl_elem_next(elem: *mut snd_hctl_elem_t) ->
-     *mut snd_hctl_elem_t;
-    pub fn snd_hctl_elem_prev(elem: *mut snd_hctl_elem_t) ->
-     *mut snd_hctl_elem_t;
+    pub fn snd_hctl_elem_next(elem: *mut snd_hctl_elem_t)
+     -> *mut snd_hctl_elem_t;
+    pub fn snd_hctl_elem_prev(elem: *mut snd_hctl_elem_t)
+     -> *mut snd_hctl_elem_t;
     pub fn snd_hctl_elem_info(elem: *mut snd_hctl_elem_t,
-                              info: *mut snd_ctl_elem_info_t) ->
-     ::libc::c_int;
+                              info: *mut snd_ctl_elem_info_t)
+     -> ::libc::c_int;
     pub fn snd_hctl_elem_read(elem: *mut snd_hctl_elem_t,
-                              value: *mut snd_ctl_elem_value_t) ->
-     ::libc::c_int;
+                              value: *mut snd_ctl_elem_value_t)
+     -> ::libc::c_int;
     pub fn snd_hctl_elem_write(elem: *mut snd_hctl_elem_t,
-                               value: *mut snd_ctl_elem_value_t) ->
-     ::libc::c_int;
+                               value: *mut snd_ctl_elem_value_t)
+     -> ::libc::c_int;
     pub fn snd_hctl_elem_tlv_read(elem: *mut snd_hctl_elem_t,
                                   tlv: *mut ::libc::c_uint,
                                   tlv_size: ::libc::c_uint) -> ::libc::c_int;
     pub fn snd_hctl_elem_tlv_write(elem: *mut snd_hctl_elem_t,
-                                   tlv: *const ::libc::c_uint) ->
-     ::libc::c_int;
+                                   tlv: *const ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_hctl_elem_tlv_command(elem: *mut snd_hctl_elem_t,
-                                     tlv: *const ::libc::c_uint) ->
-     ::libc::c_int;
-    pub fn snd_hctl_elem_get_hctl(elem: *mut snd_hctl_elem_t) ->
-     *mut snd_hctl_t;
+                                     tlv: *const ::libc::c_uint)
+     -> ::libc::c_int;
+    pub fn snd_hctl_elem_get_hctl(elem: *mut snd_hctl_elem_t)
+     -> *mut snd_hctl_t;
     pub fn snd_hctl_elem_get_id(obj: *const snd_hctl_elem_t,
-                                ptr: *mut snd_ctl_elem_id_t);
-    pub fn snd_hctl_elem_get_numid(obj: *const snd_hctl_elem_t) ->
-     ::libc::c_uint;
-    pub fn snd_hctl_elem_get_interface(obj: *const snd_hctl_elem_t) ->
-     snd_ctl_elem_iface_t;
-    pub fn snd_hctl_elem_get_device(obj: *const snd_hctl_elem_t) ->
-     ::libc::c_uint;
-    pub fn snd_hctl_elem_get_subdevice(obj: *const snd_hctl_elem_t) ->
-     ::libc::c_uint;
-    pub fn snd_hctl_elem_get_name(obj: *const snd_hctl_elem_t) ->
-     *const ::libc::c_char;
-    pub fn snd_hctl_elem_get_index(obj: *const snd_hctl_elem_t) ->
-     ::libc::c_uint;
+                                ptr: *mut snd_ctl_elem_id_t) -> ();
+    pub fn snd_hctl_elem_get_numid(obj: *const snd_hctl_elem_t)
+     -> ::libc::c_uint;
+    pub fn snd_hctl_elem_get_interface(obj: *const snd_hctl_elem_t)
+     -> snd_ctl_elem_iface_t;
+    pub fn snd_hctl_elem_get_device(obj: *const snd_hctl_elem_t)
+     -> ::libc::c_uint;
+    pub fn snd_hctl_elem_get_subdevice(obj: *const snd_hctl_elem_t)
+     -> ::libc::c_uint;
+    pub fn snd_hctl_elem_get_name(obj: *const snd_hctl_elem_t)
+     -> *const ::libc::c_char;
+    pub fn snd_hctl_elem_get_index(obj: *const snd_hctl_elem_t)
+     -> ::libc::c_uint;
     pub fn snd_hctl_elem_set_callback(obj: *mut snd_hctl_elem_t,
-                                      val: snd_hctl_elem_callback_t);
-    pub fn snd_hctl_elem_get_callback_private(obj: *const snd_hctl_elem_t) ->
-     *mut ::libc::c_void;
+                                      val: snd_hctl_elem_callback_t) -> ();
+    pub fn snd_hctl_elem_get_callback_private(obj: *const snd_hctl_elem_t)
+     -> *mut ::libc::c_void;
     pub fn snd_hctl_elem_set_callback_private(obj: *mut snd_hctl_elem_t,
-                                              val: *mut ::libc::c_void);
+                                              val: *mut ::libc::c_void) -> ();
     pub fn snd_sctl_build(ctl: *mut *mut snd_sctl_t, handle: *mut snd_ctl_t,
                           config: *mut snd_config_t,
                           private_data: *mut snd_config_t,
@@ -4717,10 +5311,10 @@ extern "C" {
     pub fn snd_mixer_open(mixer: *mut *mut snd_mixer_t, mode: ::libc::c_int)
      -> ::libc::c_int;
     pub fn snd_mixer_close(mixer: *mut snd_mixer_t) -> ::libc::c_int;
-    pub fn snd_mixer_first_elem(mixer: *mut snd_mixer_t) ->
-     *mut snd_mixer_elem_t;
-    pub fn snd_mixer_last_elem(mixer: *mut snd_mixer_t) ->
-     *mut snd_mixer_elem_t;
+    pub fn snd_mixer_first_elem(mixer: *mut snd_mixer_t)
+     -> *mut snd_mixer_elem_t;
+    pub fn snd_mixer_last_elem(mixer: *mut snd_mixer_t)
+     -> *mut snd_mixer_elem_t;
     pub fn snd_mixer_handle_events(mixer: *mut snd_mixer_t) -> ::libc::c_int;
     pub fn snd_mixer_attach(mixer: *mut snd_mixer_t,
                             name: *const ::libc::c_char) -> ::libc::c_int;
@@ -4733,8 +5327,8 @@ extern "C" {
     pub fn snd_mixer_get_hctl(mixer: *mut snd_mixer_t,
                               name: *const ::libc::c_char,
                               hctl: *mut *mut snd_hctl_t) -> ::libc::c_int;
-    pub fn snd_mixer_poll_descriptors_count(mixer: *mut snd_mixer_t) ->
-     ::libc::c_int;
+    pub fn snd_mixer_poll_descriptors_count(mixer: *mut snd_mixer_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_poll_descriptors(mixer: *mut snd_mixer_t,
                                       pfds: *mut Struct_pollfd,
                                       space: ::libc::c_uint) -> ::libc::c_int;
@@ -4744,32 +5338,33 @@ extern "C" {
                                               revents: *mut ::libc::c_ushort)
      -> ::libc::c_int;
     pub fn snd_mixer_load(mixer: *mut snd_mixer_t) -> ::libc::c_int;
-    pub fn snd_mixer_free(mixer: *mut snd_mixer_t);
-    pub fn snd_mixer_wait(mixer: *mut snd_mixer_t, timeout: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn snd_mixer_free(mixer: *mut snd_mixer_t) -> ();
+    pub fn snd_mixer_wait(mixer: *mut snd_mixer_t, timeout: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_set_compare(mixer: *mut snd_mixer_t,
                                  msort: snd_mixer_compare_t) -> ::libc::c_int;
     pub fn snd_mixer_set_callback(obj: *mut snd_mixer_t,
-                                  val: snd_mixer_callback_t);
-    pub fn snd_mixer_get_callback_private(obj: *const snd_mixer_t) ->
-     *mut ::libc::c_void;
+                                  val: snd_mixer_callback_t) -> ();
+    pub fn snd_mixer_get_callback_private(obj: *const snd_mixer_t)
+     -> *mut ::libc::c_void;
     pub fn snd_mixer_set_callback_private(obj: *mut snd_mixer_t,
-                                          val: *mut ::libc::c_void);
+                                          val: *mut ::libc::c_void) -> ();
     pub fn snd_mixer_get_count(obj: *const snd_mixer_t) -> ::libc::c_uint;
-    pub fn snd_mixer_class_unregister(clss: *mut snd_mixer_class_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_elem_next(elem: *mut snd_mixer_elem_t) ->
-     *mut snd_mixer_elem_t;
-    pub fn snd_mixer_elem_prev(elem: *mut snd_mixer_elem_t) ->
-     *mut snd_mixer_elem_t;
+    pub fn snd_mixer_class_unregister(clss: *mut snd_mixer_class_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_elem_next(elem: *mut snd_mixer_elem_t)
+     -> *mut snd_mixer_elem_t;
+    pub fn snd_mixer_elem_prev(elem: *mut snd_mixer_elem_t)
+     -> *mut snd_mixer_elem_t;
     pub fn snd_mixer_elem_set_callback(obj: *mut snd_mixer_elem_t,
-                                       val: snd_mixer_elem_callback_t);
+                                       val: snd_mixer_elem_callback_t) -> ();
     pub fn snd_mixer_elem_get_callback_private(obj: *const snd_mixer_elem_t)
      -> *mut ::libc::c_void;
     pub fn snd_mixer_elem_set_callback_private(obj: *mut snd_mixer_elem_t,
-                                               val: *mut ::libc::c_void);
-    pub fn snd_mixer_elem_get_type(obj: *const snd_mixer_elem_t) ->
-     snd_mixer_elem_type_t;
+                                               val: *mut ::libc::c_void)
+     -> ();
+    pub fn snd_mixer_elem_get_type(obj: *const snd_mixer_elem_t)
+     -> snd_mixer_elem_type_t;
     pub fn snd_mixer_class_register(class_: *mut snd_mixer_class_t,
                                     mixer: *mut snd_mixer_t) -> ::libc::c_int;
     pub fn snd_mixer_elem_new(elem: *mut *mut snd_mixer_elem_t,
@@ -4777,110 +5372,111 @@ extern "C" {
                               compare_weight: ::libc::c_int,
                               private_data: *mut ::libc::c_void,
                               private_free:
-                                  ::std::option::Option<extern "C" fn
-                                                            (arg1:
-                                                                 *mut snd_mixer_elem_t)>)
+                                  ::std::option::Option<extern "C" fn(elem:
+                                                                          *mut snd_mixer_elem_t)
+                                                            -> ()>)
      -> ::libc::c_int;
     pub fn snd_mixer_elem_add(elem: *mut snd_mixer_elem_t,
-                              class_: *mut snd_mixer_class_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_elem_remove(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_elem_free(elem: *mut snd_mixer_elem_t);
+                              class_: *mut snd_mixer_class_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_elem_remove(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_elem_free(elem: *mut snd_mixer_elem_t) -> ();
     pub fn snd_mixer_elem_info(elem: *mut snd_mixer_elem_t) -> ::libc::c_int;
     pub fn snd_mixer_elem_value(elem: *mut snd_mixer_elem_t) -> ::libc::c_int;
     pub fn snd_mixer_elem_attach(melem: *mut snd_mixer_elem_t,
-                                 helem: *mut snd_hctl_elem_t) ->
-     ::libc::c_int;
+                                 helem: *mut snd_hctl_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_elem_detach(melem: *mut snd_mixer_elem_t,
-                                 helem: *mut snd_hctl_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_elem_empty(melem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_elem_get_private(melem: *const snd_mixer_elem_t) ->
-     *mut ::libc::c_void;
+                                 helem: *mut snd_hctl_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_elem_empty(melem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_elem_get_private(melem: *const snd_mixer_elem_t)
+     -> *mut ::libc::c_void;
     pub fn snd_mixer_class_sizeof() -> size_t;
-    pub fn snd_mixer_class_malloc(ptr: *mut *mut snd_mixer_class_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_class_free(obj: *mut snd_mixer_class_t);
+    pub fn snd_mixer_class_malloc(ptr: *mut *mut snd_mixer_class_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_class_free(obj: *mut snd_mixer_class_t) -> ();
     pub fn snd_mixer_class_copy(dst: *mut snd_mixer_class_t,
-                                src: *const snd_mixer_class_t);
-    pub fn snd_mixer_class_get_mixer(class_: *const snd_mixer_class_t) ->
-     *mut snd_mixer_t;
-    pub fn snd_mixer_class_get_event(class_: *const snd_mixer_class_t) ->
-     snd_mixer_event_t;
-    pub fn snd_mixer_class_get_private(class_: *const snd_mixer_class_t) ->
-     *mut ::libc::c_void;
-    pub fn snd_mixer_class_get_compare(class_: *const snd_mixer_class_t) ->
-     snd_mixer_compare_t;
+                                src: *const snd_mixer_class_t) -> ();
+    pub fn snd_mixer_class_get_mixer(class_: *const snd_mixer_class_t)
+     -> *mut snd_mixer_t;
+    pub fn snd_mixer_class_get_event(class_: *const snd_mixer_class_t)
+     -> snd_mixer_event_t;
+    pub fn snd_mixer_class_get_private(class_: *const snd_mixer_class_t)
+     -> *mut ::libc::c_void;
+    pub fn snd_mixer_class_get_compare(class_: *const snd_mixer_class_t)
+     -> snd_mixer_compare_t;
     pub fn snd_mixer_class_set_event(class_: *mut snd_mixer_class_t,
-                                     event: snd_mixer_event_t) ->
-     ::libc::c_int;
+                                     event: snd_mixer_event_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_class_set_private(class_: *mut snd_mixer_class_t,
-                                       private_data: *mut ::libc::c_void) ->
-     ::libc::c_int;
+                                       private_data: *mut ::libc::c_void)
+     -> ::libc::c_int;
     pub fn snd_mixer_class_set_private_free(class_: *mut snd_mixer_class_t,
                                             private_free:
-                                                ::std::option::Option<extern "C" fn
-                                                                          (arg1:
-                                                                               *mut snd_mixer_class_t)>)
+                                                ::std::option::Option<extern "C" fn(arg1:
+                                                                                        *mut snd_mixer_class_t)
+                                                                          ->
+                                                                              ()>)
      -> ::libc::c_int;
     pub fn snd_mixer_class_set_compare(class_: *mut snd_mixer_class_t,
-                                       compare: snd_mixer_compare_t) ->
-     ::libc::c_int;
+                                       compare: snd_mixer_compare_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_channel_name(channel: snd_mixer_selem_channel_id_t)
      -> *const ::libc::c_char;
     pub fn snd_mixer_selem_register(mixer: *mut snd_mixer_t,
                                     options:
                                         *mut Struct_snd_mixer_selem_regopt,
-                                    classp: *mut *mut snd_mixer_class_t) ->
-     ::libc::c_int;
+                                    classp: *mut *mut snd_mixer_class_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_id(element: *mut snd_mixer_elem_t,
-                                  id: *mut snd_mixer_selem_id_t);
-    pub fn snd_mixer_selem_get_name(elem: *mut snd_mixer_elem_t) ->
-     *const ::libc::c_char;
-    pub fn snd_mixer_selem_get_index(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_uint;
+                                  id: *mut snd_mixer_selem_id_t) -> ();
+    pub fn snd_mixer_selem_get_name(elem: *mut snd_mixer_elem_t)
+     -> *const ::libc::c_char;
+    pub fn snd_mixer_selem_get_index(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_uint;
     pub fn snd_mixer_find_selem(mixer: *mut snd_mixer_t,
-                                id: *const snd_mixer_selem_id_t) ->
-     *mut snd_mixer_elem_t;
-    pub fn snd_mixer_selem_is_active(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_is_playback_mono(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
+                                id: *const snd_mixer_selem_id_t)
+     -> *mut snd_mixer_elem_t;
+    pub fn snd_mixer_selem_is_active(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_is_playback_mono(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_has_playback_channel(obj: *mut snd_mixer_elem_t,
                                                 channel:
                                                     snd_mixer_selem_channel_id_t)
      -> ::libc::c_int;
-    pub fn snd_mixer_selem_is_capture_mono(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
+    pub fn snd_mixer_selem_is_capture_mono(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_has_capture_channel(obj: *mut snd_mixer_elem_t,
                                                channel:
                                                    snd_mixer_selem_channel_id_t)
      -> ::libc::c_int;
-    pub fn snd_mixer_selem_get_capture_group(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_has_common_volume(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_has_playback_volume(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
+    pub fn snd_mixer_selem_get_capture_group(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_has_common_volume(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_has_playback_volume(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_has_playback_volume_joined(elem:
                                                           *mut snd_mixer_elem_t)
      -> ::libc::c_int;
-    pub fn snd_mixer_selem_has_capture_volume(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
+    pub fn snd_mixer_selem_has_capture_volume(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_has_capture_volume_joined(elem:
                                                          *mut snd_mixer_elem_t)
      -> ::libc::c_int;
-    pub fn snd_mixer_selem_has_common_switch(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_has_playback_switch(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
+    pub fn snd_mixer_selem_has_common_switch(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_has_playback_switch(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_has_playback_switch_joined(elem:
                                                           *mut snd_mixer_elem_t)
      -> ::libc::c_int;
-    pub fn snd_mixer_selem_has_capture_switch(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
+    pub fn snd_mixer_selem_has_capture_switch(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_has_capture_switch_joined(elem:
                                                          *mut snd_mixer_elem_t)
      -> ::libc::c_int;
@@ -4893,102 +5489,102 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_mixer_selem_ask_capture_vol_dB(elem: *mut snd_mixer_elem_t,
                                               value: ::libc::c_long,
-                                              dBvalue: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                              dBvalue: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_ask_playback_dB_vol(elem: *mut snd_mixer_elem_t,
                                                dBvalue: ::libc::c_long,
                                                dir: ::libc::c_int,
-                                               value: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                               value: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_ask_capture_dB_vol(elem: *mut snd_mixer_elem_t,
                                               dBvalue: ::libc::c_long,
                                               dir: ::libc::c_int,
-                                              value: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                              value: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_playback_volume(elem: *mut snd_mixer_elem_t,
                                                channel:
                                                    snd_mixer_selem_channel_id_t,
-                                               value: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                               value: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_capture_volume(elem: *mut snd_mixer_elem_t,
                                               channel:
                                                   snd_mixer_selem_channel_id_t,
-                                              value: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                              value: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_playback_dB(elem: *mut snd_mixer_elem_t,
                                            channel:
                                                snd_mixer_selem_channel_id_t,
-                                           value: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                           value: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_capture_dB(elem: *mut snd_mixer_elem_t,
                                           channel:
                                               snd_mixer_selem_channel_id_t,
-                                          value: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                          value: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_playback_switch(elem: *mut snd_mixer_elem_t,
                                                channel:
                                                    snd_mixer_selem_channel_id_t,
-                                               value: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                               value: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_capture_switch(elem: *mut snd_mixer_elem_t,
                                               channel:
                                                   snd_mixer_selem_channel_id_t,
-                                              value: *mut ::libc::c_int) ->
-     ::libc::c_int;
+                                              value: *mut ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_playback_volume(elem: *mut snd_mixer_elem_t,
                                                channel:
                                                    snd_mixer_selem_channel_id_t,
-                                               value: ::libc::c_long) ->
-     ::libc::c_int;
+                                               value: ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_capture_volume(elem: *mut snd_mixer_elem_t,
                                               channel:
                                                   snd_mixer_selem_channel_id_t,
-                                              value: ::libc::c_long) ->
-     ::libc::c_int;
+                                              value: ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_playback_dB(elem: *mut snd_mixer_elem_t,
                                            channel:
                                                snd_mixer_selem_channel_id_t,
                                            value: ::libc::c_long,
-                                           dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                           dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_capture_dB(elem: *mut snd_mixer_elem_t,
                                           channel:
                                               snd_mixer_selem_channel_id_t,
                                           value: ::libc::c_long,
-                                          dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                          dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_playback_volume_all(elem:
                                                        *mut snd_mixer_elem_t,
-                                                   value: ::libc::c_long) ->
-     ::libc::c_int;
+                                                   value: ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_capture_volume_all(elem: *mut snd_mixer_elem_t,
-                                                  value: ::libc::c_long) ->
-     ::libc::c_int;
+                                                  value: ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_playback_dB_all(elem: *mut snd_mixer_elem_t,
                                                value: ::libc::c_long,
-                                               dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                               dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_capture_dB_all(elem: *mut snd_mixer_elem_t,
                                               value: ::libc::c_long,
-                                              dir: ::libc::c_int) ->
-     ::libc::c_int;
+                                              dir: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_playback_switch(elem: *mut snd_mixer_elem_t,
                                                channel:
                                                    snd_mixer_selem_channel_id_t,
-                                               value: ::libc::c_int) ->
-     ::libc::c_int;
+                                               value: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_capture_switch(elem: *mut snd_mixer_elem_t,
                                               channel:
                                                   snd_mixer_selem_channel_id_t,
-                                              value: ::libc::c_int) ->
-     ::libc::c_int;
+                                              value: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_playback_switch_all(elem:
                                                        *mut snd_mixer_elem_t,
-                                                   value: ::libc::c_int) ->
-     ::libc::c_int;
+                                                   value: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_capture_switch_all(elem: *mut snd_mixer_elem_t,
-                                                  value: ::libc::c_int) ->
-     ::libc::c_int;
+                                                  value: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_playback_volume_range(elem:
                                                          *mut snd_mixer_elem_t,
                                                      min: *mut ::libc::c_long,
@@ -4996,13 +5592,13 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_mixer_selem_get_playback_dB_range(elem: *mut snd_mixer_elem_t,
                                                  min: *mut ::libc::c_long,
-                                                 max: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                                 max: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_playback_volume_range(elem:
                                                          *mut snd_mixer_elem_t,
                                                      min: ::libc::c_long,
-                                                     max: ::libc::c_long) ->
-     ::libc::c_int;
+                                                     max: ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_capture_volume_range(elem:
                                                         *mut snd_mixer_elem_t,
                                                     min: *mut ::libc::c_long,
@@ -5010,50 +5606,50 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_mixer_selem_get_capture_dB_range(elem: *mut snd_mixer_elem_t,
                                                 min: *mut ::libc::c_long,
-                                                max: *mut ::libc::c_long) ->
-     ::libc::c_int;
+                                                max: *mut ::libc::c_long)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_capture_volume_range(elem:
                                                         *mut snd_mixer_elem_t,
                                                     min: ::libc::c_long,
-                                                    max: ::libc::c_long) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_is_enumerated(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_is_enum_playback(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_is_enum_capture(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_get_enum_items(elem: *mut snd_mixer_elem_t) ->
-     ::libc::c_int;
+                                                    max: ::libc::c_long)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_is_enumerated(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_is_enum_playback(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_is_enum_capture(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_get_enum_items(elem: *mut snd_mixer_elem_t)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_enum_item_name(elem: *mut snd_mixer_elem_t,
                                               idx: ::libc::c_uint,
                                               maxlen: size_t,
-                                              str: *mut ::libc::c_char) ->
-     ::libc::c_int;
+                                              str: *mut ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_get_enum_item(elem: *mut snd_mixer_elem_t,
                                          channel:
                                              snd_mixer_selem_channel_id_t,
-                                         idxp: *mut ::libc::c_uint) ->
-     ::libc::c_int;
+                                         idxp: *mut ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_set_enum_item(elem: *mut snd_mixer_elem_t,
                                          channel:
                                              snd_mixer_selem_channel_id_t,
-                                         idx: ::libc::c_uint) ->
-     ::libc::c_int;
+                                         idx: ::libc::c_uint)
+     -> ::libc::c_int;
     pub fn snd_mixer_selem_id_sizeof() -> size_t;
-    pub fn snd_mixer_selem_id_malloc(ptr: *mut *mut snd_mixer_selem_id_t) ->
-     ::libc::c_int;
-    pub fn snd_mixer_selem_id_free(obj: *mut snd_mixer_selem_id_t);
+    pub fn snd_mixer_selem_id_malloc(ptr: *mut *mut snd_mixer_selem_id_t)
+     -> ::libc::c_int;
+    pub fn snd_mixer_selem_id_free(obj: *mut snd_mixer_selem_id_t) -> ();
     pub fn snd_mixer_selem_id_copy(dst: *mut snd_mixer_selem_id_t,
-                                   src: *const snd_mixer_selem_id_t);
-    pub fn snd_mixer_selem_id_get_name(obj: *const snd_mixer_selem_id_t) ->
-     *const ::libc::c_char;
-    pub fn snd_mixer_selem_id_get_index(obj: *const snd_mixer_selem_id_t) ->
-     ::libc::c_uint;
+                                   src: *const snd_mixer_selem_id_t) -> ();
+    pub fn snd_mixer_selem_id_get_name(obj: *const snd_mixer_selem_id_t)
+     -> *const ::libc::c_char;
+    pub fn snd_mixer_selem_id_get_index(obj: *const snd_mixer_selem_id_t)
+     -> ::libc::c_uint;
     pub fn snd_mixer_selem_id_set_name(obj: *mut snd_mixer_selem_id_t,
-                                       val: *const ::libc::c_char);
+                                       val: *const ::libc::c_char) -> ();
     pub fn snd_mixer_selem_id_set_index(obj: *mut snd_mixer_selem_id_t,
-                                        val: ::libc::c_uint);
+                                        val: ::libc::c_uint) -> ();
     pub fn snd_seq_open(handle: *mut *mut snd_seq_t,
                         name: *const ::libc::c_char, streams: ::libc::c_int,
                         mode: ::libc::c_int) -> ::libc::c_int;
@@ -5065,8 +5661,8 @@ extern "C" {
     pub fn snd_seq_type(seq: *mut snd_seq_t) -> snd_seq_type_t;
     pub fn snd_seq_close(handle: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_seq_poll_descriptors_count(handle: *mut snd_seq_t,
-                                          events: ::libc::c_short) ->
-     ::libc::c_int;
+                                          events: ::libc::c_short)
+     -> ::libc::c_int;
     pub fn snd_seq_poll_descriptors(handle: *mut snd_seq_t,
                                     pfds: *mut Struct_pollfd,
                                     space: ::libc::c_uint,
@@ -5074,8 +5670,8 @@ extern "C" {
     pub fn snd_seq_poll_descriptors_revents(seq: *mut snd_seq_t,
                                             pfds: *mut Struct_pollfd,
                                             nfds: ::libc::c_uint,
-                                            revents: *mut ::libc::c_ushort) ->
-     ::libc::c_int;
+                                            revents: *mut ::libc::c_ushort)
+     -> ::libc::c_int;
     pub fn snd_seq_nonblock(handle: *mut snd_seq_t, nonblock: ::libc::c_int)
      -> ::libc::c_int;
     pub fn snd_seq_client_id(handle: *mut snd_seq_t) -> ::libc::c_int;
@@ -5086,11 +5682,11 @@ extern "C" {
     pub fn snd_seq_set_input_buffer_size(handle: *mut snd_seq_t, size: size_t)
      -> ::libc::c_int;
     pub fn snd_seq_system_info_sizeof() -> size_t;
-    pub fn snd_seq_system_info_malloc(ptr: *mut *mut snd_seq_system_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_system_info_free(ptr: *mut snd_seq_system_info_t);
+    pub fn snd_seq_system_info_malloc(ptr: *mut *mut snd_seq_system_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_system_info_free(ptr: *mut snd_seq_system_info_t) -> ();
     pub fn snd_seq_system_info_copy(dst: *mut snd_seq_system_info_t,
-                                    src: *const snd_seq_system_info_t);
+                                    src: *const snd_seq_system_info_t) -> ();
     pub fn snd_seq_system_info_get_queues(info: *const snd_seq_system_info_t)
      -> ::libc::c_int;
     pub fn snd_seq_system_info_get_clients(info: *const snd_seq_system_info_t)
@@ -5107,20 +5703,20 @@ extern "C" {
                                                   *const snd_seq_system_info_t)
      -> ::libc::c_int;
     pub fn snd_seq_system_info(handle: *mut snd_seq_t,
-                               info: *mut snd_seq_system_info_t) ->
-     ::libc::c_int;
+                               info: *mut snd_seq_system_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_client_info_sizeof() -> size_t;
-    pub fn snd_seq_client_info_malloc(ptr: *mut *mut snd_seq_client_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_client_info_free(ptr: *mut snd_seq_client_info_t);
+    pub fn snd_seq_client_info_malloc(ptr: *mut *mut snd_seq_client_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_client_info_free(ptr: *mut snd_seq_client_info_t) -> ();
     pub fn snd_seq_client_info_copy(dst: *mut snd_seq_client_info_t,
-                                    src: *const snd_seq_client_info_t);
+                                    src: *const snd_seq_client_info_t) -> ();
     pub fn snd_seq_client_info_get_client(info: *const snd_seq_client_info_t)
      -> ::libc::c_int;
-    pub fn snd_seq_client_info_get_type(info: *const snd_seq_client_info_t) ->
-     snd_seq_client_type_t;
-    pub fn snd_seq_client_info_get_name(info: *mut snd_seq_client_info_t) ->
-     *const ::libc::c_char;
+    pub fn snd_seq_client_info_get_type(info: *const snd_seq_client_info_t)
+     -> snd_seq_client_type_t;
+    pub fn snd_seq_client_info_get_name(info: *mut snd_seq_client_info_t)
+     -> *const ::libc::c_char;
     pub fn snd_seq_client_info_get_broadcast_filter(info:
                                                         *const snd_seq_client_info_t)
      -> ::libc::c_int;
@@ -5137,49 +5733,53 @@ extern "C" {
                                                   *const snd_seq_client_info_t)
      -> ::libc::c_int;
     pub fn snd_seq_client_info_set_client(info: *mut snd_seq_client_info_t,
-                                          client: ::libc::c_int);
+                                          client: ::libc::c_int) -> ();
     pub fn snd_seq_client_info_set_name(info: *mut snd_seq_client_info_t,
-                                        name: *const ::libc::c_char);
+                                        name: *const ::libc::c_char) -> ();
     pub fn snd_seq_client_info_set_broadcast_filter(info:
                                                         *mut snd_seq_client_info_t,
-                                                    val: ::libc::c_int);
+                                                    val: ::libc::c_int) -> ();
     pub fn snd_seq_client_info_set_error_bounce(info:
                                                     *mut snd_seq_client_info_t,
-                                                val: ::libc::c_int);
+                                                val: ::libc::c_int) -> ();
     pub fn snd_seq_client_info_set_event_filter(info:
                                                     *mut snd_seq_client_info_t,
-                                                filter: *mut ::libc::c_uchar);
+                                                filter: *mut ::libc::c_uchar)
+     -> ();
     pub fn snd_seq_client_info_event_filter_clear(info:
-                                                      *mut snd_seq_client_info_t);
+                                                      *mut snd_seq_client_info_t)
+     -> ();
     pub fn snd_seq_client_info_event_filter_add(info:
                                                     *mut snd_seq_client_info_t,
-                                                event_type: ::libc::c_int);
+                                                event_type: ::libc::c_int)
+     -> ();
     pub fn snd_seq_client_info_event_filter_del(info:
                                                     *mut snd_seq_client_info_t,
-                                                event_type: ::libc::c_int);
+                                                event_type: ::libc::c_int)
+     -> ();
     pub fn snd_seq_client_info_event_filter_check(info:
                                                       *mut snd_seq_client_info_t,
                                                   event_type: ::libc::c_int)
      -> ::libc::c_int;
     pub fn snd_seq_get_client_info(handle: *mut snd_seq_t,
-                                   info: *mut snd_seq_client_info_t) ->
-     ::libc::c_int;
+                                   info: *mut snd_seq_client_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_get_any_client_info(handle: *mut snd_seq_t,
                                        client: ::libc::c_int,
-                                       info: *mut snd_seq_client_info_t) ->
-     ::libc::c_int;
+                                       info: *mut snd_seq_client_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_set_client_info(handle: *mut snd_seq_t,
-                                   info: *mut snd_seq_client_info_t) ->
-     ::libc::c_int;
+                                   info: *mut snd_seq_client_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_query_next_client(handle: *mut snd_seq_t,
-                                     info: *mut snd_seq_client_info_t) ->
-     ::libc::c_int;
+                                     info: *mut snd_seq_client_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_client_pool_sizeof() -> size_t;
-    pub fn snd_seq_client_pool_malloc(ptr: *mut *mut snd_seq_client_pool_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_client_pool_free(ptr: *mut snd_seq_client_pool_t);
+    pub fn snd_seq_client_pool_malloc(ptr: *mut *mut snd_seq_client_pool_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_client_pool_free(ptr: *mut snd_seq_client_pool_t) -> ();
     pub fn snd_seq_client_pool_copy(dst: *mut snd_seq_client_pool_t,
-                                    src: *const snd_seq_client_pool_t);
+                                    src: *const snd_seq_client_pool_t) -> ();
     pub fn snd_seq_client_pool_get_client(info: *const snd_seq_client_pool_t)
      -> ::libc::c_int;
     pub fn snd_seq_client_pool_get_output_pool(info:
@@ -5199,37 +5799,37 @@ extern "C" {
      -> size_t;
     pub fn snd_seq_client_pool_set_output_pool(info:
                                                    *mut snd_seq_client_pool_t,
-                                               size: size_t);
+                                               size: size_t) -> ();
     pub fn snd_seq_client_pool_set_input_pool(info:
                                                   *mut snd_seq_client_pool_t,
-                                              size: size_t);
+                                              size: size_t) -> ();
     pub fn snd_seq_client_pool_set_output_room(info:
                                                    *mut snd_seq_client_pool_t,
-                                               size: size_t);
+                                               size: size_t) -> ();
     pub fn snd_seq_get_client_pool(handle: *mut snd_seq_t,
-                                   info: *mut snd_seq_client_pool_t) ->
-     ::libc::c_int;
+                                   info: *mut snd_seq_client_pool_t)
+     -> ::libc::c_int;
     pub fn snd_seq_set_client_pool(handle: *mut snd_seq_t,
-                                   info: *mut snd_seq_client_pool_t) ->
-     ::libc::c_int;
+                                   info: *mut snd_seq_client_pool_t)
+     -> ::libc::c_int;
     pub fn snd_seq_port_info_sizeof() -> size_t;
-    pub fn snd_seq_port_info_malloc(ptr: *mut *mut snd_seq_port_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_port_info_free(ptr: *mut snd_seq_port_info_t);
+    pub fn snd_seq_port_info_malloc(ptr: *mut *mut snd_seq_port_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_port_info_free(ptr: *mut snd_seq_port_info_t) -> ();
     pub fn snd_seq_port_info_copy(dst: *mut snd_seq_port_info_t,
-                                  src: *const snd_seq_port_info_t);
-    pub fn snd_seq_port_info_get_client(info: *const snd_seq_port_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_port_info_get_port(info: *const snd_seq_port_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_port_info_get_addr(info: *const snd_seq_port_info_t) ->
-     *const snd_seq_addr_t;
-    pub fn snd_seq_port_info_get_name(info: *const snd_seq_port_info_t) ->
-     *const ::libc::c_char;
+                                  src: *const snd_seq_port_info_t) -> ();
+    pub fn snd_seq_port_info_get_client(info: *const snd_seq_port_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_port_info_get_port(info: *const snd_seq_port_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_port_info_get_addr(info: *const snd_seq_port_info_t)
+     -> *const snd_seq_addr_t;
+    pub fn snd_seq_port_info_get_name(info: *const snd_seq_port_info_t)
+     -> *const ::libc::c_char;
     pub fn snd_seq_port_info_get_capability(info: *const snd_seq_port_info_t)
      -> ::libc::c_uint;
-    pub fn snd_seq_port_info_get_type(info: *const snd_seq_port_info_t) ->
-     ::libc::c_uint;
+    pub fn snd_seq_port_info_get_type(info: *const snd_seq_port_info_t)
+     -> ::libc::c_uint;
     pub fn snd_seq_port_info_get_midi_channels(info:
                                                    *const snd_seq_port_info_t)
      -> ::libc::c_int;
@@ -5238,8 +5838,8 @@ extern "C" {
     pub fn snd_seq_port_info_get_synth_voices(info:
                                                   *const snd_seq_port_info_t)
      -> ::libc::c_int;
-    pub fn snd_seq_port_info_get_read_use(info: *const snd_seq_port_info_t) ->
-     ::libc::c_int;
+    pub fn snd_seq_port_info_get_read_use(info: *const snd_seq_port_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_port_info_get_write_use(info: *const snd_seq_port_info_t)
      -> ::libc::c_int;
     pub fn snd_seq_port_info_get_port_specified(info:
@@ -5255,60 +5855,63 @@ extern "C" {
                                                      *const snd_seq_port_info_t)
      -> ::libc::c_int;
     pub fn snd_seq_port_info_set_client(info: *mut snd_seq_port_info_t,
-                                        client: ::libc::c_int);
+                                        client: ::libc::c_int) -> ();
     pub fn snd_seq_port_info_set_port(info: *mut snd_seq_port_info_t,
-                                      port: ::libc::c_int);
+                                      port: ::libc::c_int) -> ();
     pub fn snd_seq_port_info_set_addr(info: *mut snd_seq_port_info_t,
-                                      addr: *const snd_seq_addr_t);
+                                      addr: *const snd_seq_addr_t) -> ();
     pub fn snd_seq_port_info_set_name(info: *mut snd_seq_port_info_t,
-                                      name: *const ::libc::c_char);
+                                      name: *const ::libc::c_char) -> ();
     pub fn snd_seq_port_info_set_capability(info: *mut snd_seq_port_info_t,
-                                            capability: ::libc::c_uint);
+                                            capability: ::libc::c_uint) -> ();
     pub fn snd_seq_port_info_set_type(info: *mut snd_seq_port_info_t,
-                                      _type: ::libc::c_uint);
+                                      _type: ::libc::c_uint) -> ();
     pub fn snd_seq_port_info_set_midi_channels(info: *mut snd_seq_port_info_t,
-                                               channels: ::libc::c_int);
+                                               channels: ::libc::c_int) -> ();
     pub fn snd_seq_port_info_set_midi_voices(info: *mut snd_seq_port_info_t,
-                                             voices: ::libc::c_int);
+                                             voices: ::libc::c_int) -> ();
     pub fn snd_seq_port_info_set_synth_voices(info: *mut snd_seq_port_info_t,
-                                              voices: ::libc::c_int);
+                                              voices: ::libc::c_int) -> ();
     pub fn snd_seq_port_info_set_port_specified(info:
                                                     *mut snd_seq_port_info_t,
-                                                val: ::libc::c_int);
+                                                val: ::libc::c_int) -> ();
     pub fn snd_seq_port_info_set_timestamping(info: *mut snd_seq_port_info_t,
-                                              enable: ::libc::c_int);
+                                              enable: ::libc::c_int) -> ();
     pub fn snd_seq_port_info_set_timestamp_real(info:
                                                     *mut snd_seq_port_info_t,
-                                                realtime: ::libc::c_int);
+                                                realtime: ::libc::c_int)
+     -> ();
     pub fn snd_seq_port_info_set_timestamp_queue(info:
                                                      *mut snd_seq_port_info_t,
-                                                 queue: ::libc::c_int);
+                                                 queue: ::libc::c_int) -> ();
     pub fn snd_seq_create_port(handle: *mut snd_seq_t,
-                               info: *mut snd_seq_port_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_delete_port(handle: *mut snd_seq_t, port: ::libc::c_int) ->
-     ::libc::c_int;
+                               info: *mut snd_seq_port_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_delete_port(handle: *mut snd_seq_t, port: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_seq_get_port_info(handle: *mut snd_seq_t, port: ::libc::c_int,
-                                 info: *mut snd_seq_port_info_t) ->
-     ::libc::c_int;
+                                 info: *mut snd_seq_port_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_get_any_port_info(handle: *mut snd_seq_t,
                                      client: ::libc::c_int,
                                      port: ::libc::c_int,
-                                     info: *mut snd_seq_port_info_t) ->
-     ::libc::c_int;
+                                     info: *mut snd_seq_port_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_set_port_info(handle: *mut snd_seq_t, port: ::libc::c_int,
-                                 info: *mut snd_seq_port_info_t) ->
-     ::libc::c_int;
+                                 info: *mut snd_seq_port_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_query_next_port(handle: *mut snd_seq_t,
-                                   info: *mut snd_seq_port_info_t) ->
-     ::libc::c_int;
+                                   info: *mut snd_seq_port_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_port_subscribe_sizeof() -> size_t;
     pub fn snd_seq_port_subscribe_malloc(ptr:
                                              *mut *mut snd_seq_port_subscribe_t)
      -> ::libc::c_int;
-    pub fn snd_seq_port_subscribe_free(ptr: *mut snd_seq_port_subscribe_t);
+    pub fn snd_seq_port_subscribe_free(ptr: *mut snd_seq_port_subscribe_t)
+     -> ();
     pub fn snd_seq_port_subscribe_copy(dst: *mut snd_seq_port_subscribe_t,
-                                       src: *const snd_seq_port_subscribe_t);
+                                       src: *const snd_seq_port_subscribe_t)
+     -> ();
     pub fn snd_seq_port_subscribe_get_sender(info:
                                                  *const snd_seq_port_subscribe_t)
      -> *const snd_seq_addr_t;
@@ -5329,39 +5932,41 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_seq_port_subscribe_set_sender(info:
                                                  *mut snd_seq_port_subscribe_t,
-                                             addr: *const snd_seq_addr_t);
+                                             addr: *const snd_seq_addr_t)
+     -> ();
     pub fn snd_seq_port_subscribe_set_dest(info:
                                                *mut snd_seq_port_subscribe_t,
-                                           addr: *const snd_seq_addr_t);
+                                           addr: *const snd_seq_addr_t) -> ();
     pub fn snd_seq_port_subscribe_set_queue(info:
                                                 *mut snd_seq_port_subscribe_t,
-                                            q: ::libc::c_int);
+                                            q: ::libc::c_int) -> ();
     pub fn snd_seq_port_subscribe_set_exclusive(info:
                                                     *mut snd_seq_port_subscribe_t,
-                                                val: ::libc::c_int);
+                                                val: ::libc::c_int) -> ();
     pub fn snd_seq_port_subscribe_set_time_update(info:
                                                       *mut snd_seq_port_subscribe_t,
-                                                  val: ::libc::c_int);
+                                                  val: ::libc::c_int) -> ();
     pub fn snd_seq_port_subscribe_set_time_real(info:
                                                     *mut snd_seq_port_subscribe_t,
-                                                val: ::libc::c_int);
+                                                val: ::libc::c_int) -> ();
     pub fn snd_seq_get_port_subscription(handle: *mut snd_seq_t,
                                          sub: *mut snd_seq_port_subscribe_t)
      -> ::libc::c_int;
     pub fn snd_seq_subscribe_port(handle: *mut snd_seq_t,
-                                  sub: *mut snd_seq_port_subscribe_t) ->
-     ::libc::c_int;
+                                  sub: *mut snd_seq_port_subscribe_t)
+     -> ::libc::c_int;
     pub fn snd_seq_unsubscribe_port(handle: *mut snd_seq_t,
-                                    sub: *mut snd_seq_port_subscribe_t) ->
-     ::libc::c_int;
+                                    sub: *mut snd_seq_port_subscribe_t)
+     -> ::libc::c_int;
     pub fn snd_seq_query_subscribe_sizeof() -> size_t;
     pub fn snd_seq_query_subscribe_malloc(ptr:
                                               *mut *mut snd_seq_query_subscribe_t)
      -> ::libc::c_int;
-    pub fn snd_seq_query_subscribe_free(ptr: *mut snd_seq_query_subscribe_t);
+    pub fn snd_seq_query_subscribe_free(ptr: *mut snd_seq_query_subscribe_t)
+     -> ();
     pub fn snd_seq_query_subscribe_copy(dst: *mut snd_seq_query_subscribe_t,
-                                        src:
-                                            *const snd_seq_query_subscribe_t);
+                                        src: *const snd_seq_query_subscribe_t)
+     -> ();
     pub fn snd_seq_query_subscribe_get_client(info:
                                                   *const snd_seq_query_subscribe_t)
      -> ::libc::c_int;
@@ -5397,65 +6002,67 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_seq_query_subscribe_set_client(info:
                                                   *mut snd_seq_query_subscribe_t,
-                                              client: ::libc::c_int);
+                                              client: ::libc::c_int) -> ();
     pub fn snd_seq_query_subscribe_set_port(info:
                                                 *mut snd_seq_query_subscribe_t,
-                                            port: ::libc::c_int);
+                                            port: ::libc::c_int) -> ();
     pub fn snd_seq_query_subscribe_set_root(info:
                                                 *mut snd_seq_query_subscribe_t,
-                                            addr: *const snd_seq_addr_t);
+                                            addr: *const snd_seq_addr_t)
+     -> ();
     pub fn snd_seq_query_subscribe_set_type(info:
                                                 *mut snd_seq_query_subscribe_t,
-                                            _type: snd_seq_query_subs_type_t);
+                                            _type: snd_seq_query_subs_type_t)
+     -> ();
     pub fn snd_seq_query_subscribe_set_index(info:
                                                  *mut snd_seq_query_subscribe_t,
-                                             _index: ::libc::c_int);
+                                             _index: ::libc::c_int) -> ();
     pub fn snd_seq_query_port_subscribers(seq: *mut snd_seq_t,
                                           subs:
                                               *mut snd_seq_query_subscribe_t)
      -> ::libc::c_int;
     pub fn snd_seq_queue_info_sizeof() -> size_t;
-    pub fn snd_seq_queue_info_malloc(ptr: *mut *mut snd_seq_queue_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_queue_info_free(ptr: *mut snd_seq_queue_info_t);
+    pub fn snd_seq_queue_info_malloc(ptr: *mut *mut snd_seq_queue_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_queue_info_free(ptr: *mut snd_seq_queue_info_t) -> ();
     pub fn snd_seq_queue_info_copy(dst: *mut snd_seq_queue_info_t,
-                                   src: *const snd_seq_queue_info_t);
-    pub fn snd_seq_queue_info_get_queue(info: *const snd_seq_queue_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_queue_info_get_name(info: *const snd_seq_queue_info_t) ->
-     *const ::libc::c_char;
-    pub fn snd_seq_queue_info_get_owner(info: *const snd_seq_queue_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_queue_info_get_locked(info: *const snd_seq_queue_info_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_queue_info_get_flags(info: *const snd_seq_queue_info_t) ->
-     ::libc::c_uint;
+                                   src: *const snd_seq_queue_info_t) -> ();
+    pub fn snd_seq_queue_info_get_queue(info: *const snd_seq_queue_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_queue_info_get_name(info: *const snd_seq_queue_info_t)
+     -> *const ::libc::c_char;
+    pub fn snd_seq_queue_info_get_owner(info: *const snd_seq_queue_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_queue_info_get_locked(info: *const snd_seq_queue_info_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_queue_info_get_flags(info: *const snd_seq_queue_info_t)
+     -> ::libc::c_uint;
     pub fn snd_seq_queue_info_set_name(info: *mut snd_seq_queue_info_t,
-                                       name: *const ::libc::c_char);
+                                       name: *const ::libc::c_char) -> ();
     pub fn snd_seq_queue_info_set_owner(info: *mut snd_seq_queue_info_t,
-                                        owner: ::libc::c_int);
+                                        owner: ::libc::c_int) -> ();
     pub fn snd_seq_queue_info_set_locked(info: *mut snd_seq_queue_info_t,
-                                         locked: ::libc::c_int);
+                                         locked: ::libc::c_int) -> ();
     pub fn snd_seq_queue_info_set_flags(info: *mut snd_seq_queue_info_t,
-                                        flags: ::libc::c_uint);
+                                        flags: ::libc::c_uint) -> ();
     pub fn snd_seq_create_queue(seq: *mut snd_seq_t,
-                                info: *mut snd_seq_queue_info_t) ->
-     ::libc::c_int;
+                                info: *mut snd_seq_queue_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_alloc_named_queue(seq: *mut snd_seq_t,
-                                     name: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                     name: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_seq_alloc_queue(handle: *mut snd_seq_t) -> ::libc::c_int;
-    pub fn snd_seq_free_queue(handle: *mut snd_seq_t, q: ::libc::c_int) ->
-     ::libc::c_int;
+    pub fn snd_seq_free_queue(handle: *mut snd_seq_t, q: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_seq_get_queue_info(seq: *mut snd_seq_t, q: ::libc::c_int,
-                                  info: *mut snd_seq_queue_info_t) ->
-     ::libc::c_int;
+                                  info: *mut snd_seq_queue_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_set_queue_info(seq: *mut snd_seq_t, q: ::libc::c_int,
-                                  info: *mut snd_seq_queue_info_t) ->
-     ::libc::c_int;
+                                  info: *mut snd_seq_queue_info_t)
+     -> ::libc::c_int;
     pub fn snd_seq_query_named_queue(seq: *mut snd_seq_t,
-                                     name: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                     name: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_seq_get_queue_usage(handle: *mut snd_seq_t, q: ::libc::c_int)
      -> ::libc::c_int;
     pub fn snd_seq_set_queue_usage(handle: *mut snd_seq_t, q: ::libc::c_int,
@@ -5463,9 +6070,10 @@ extern "C" {
     pub fn snd_seq_queue_status_sizeof() -> size_t;
     pub fn snd_seq_queue_status_malloc(ptr: *mut *mut snd_seq_queue_status_t)
      -> ::libc::c_int;
-    pub fn snd_seq_queue_status_free(ptr: *mut snd_seq_queue_status_t);
+    pub fn snd_seq_queue_status_free(ptr: *mut snd_seq_queue_status_t) -> ();
     pub fn snd_seq_queue_status_copy(dst: *mut snd_seq_queue_status_t,
-                                     src: *const snd_seq_queue_status_t);
+                                     src: *const snd_seq_queue_status_t)
+     -> ();
     pub fn snd_seq_queue_status_get_queue(info: *const snd_seq_queue_status_t)
      -> ::libc::c_int;
     pub fn snd_seq_queue_status_get_events(info:
@@ -5481,100 +6089,104 @@ extern "C" {
                                                *const snd_seq_queue_status_t)
      -> ::libc::c_uint;
     pub fn snd_seq_get_queue_status(handle: *mut snd_seq_t, q: ::libc::c_int,
-                                    status: *mut snd_seq_queue_status_t) ->
-     ::libc::c_int;
+                                    status: *mut snd_seq_queue_status_t)
+     -> ::libc::c_int;
     pub fn snd_seq_queue_tempo_sizeof() -> size_t;
-    pub fn snd_seq_queue_tempo_malloc(ptr: *mut *mut snd_seq_queue_tempo_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_queue_tempo_free(ptr: *mut snd_seq_queue_tempo_t);
+    pub fn snd_seq_queue_tempo_malloc(ptr: *mut *mut snd_seq_queue_tempo_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_queue_tempo_free(ptr: *mut snd_seq_queue_tempo_t) -> ();
     pub fn snd_seq_queue_tempo_copy(dst: *mut snd_seq_queue_tempo_t,
-                                    src: *const snd_seq_queue_tempo_t);
+                                    src: *const snd_seq_queue_tempo_t) -> ();
     pub fn snd_seq_queue_tempo_get_queue(info: *const snd_seq_queue_tempo_t)
      -> ::libc::c_int;
     pub fn snd_seq_queue_tempo_get_tempo(info: *const snd_seq_queue_tempo_t)
      -> ::libc::c_uint;
-    pub fn snd_seq_queue_tempo_get_ppq(info: *const snd_seq_queue_tempo_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_queue_tempo_get_skew(info: *const snd_seq_queue_tempo_t) ->
-     ::libc::c_uint;
+    pub fn snd_seq_queue_tempo_get_ppq(info: *const snd_seq_queue_tempo_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_queue_tempo_get_skew(info: *const snd_seq_queue_tempo_t)
+     -> ::libc::c_uint;
     pub fn snd_seq_queue_tempo_get_skew_base(info:
                                                  *const snd_seq_queue_tempo_t)
      -> ::libc::c_uint;
     pub fn snd_seq_queue_tempo_set_tempo(info: *mut snd_seq_queue_tempo_t,
-                                         tempo: ::libc::c_uint);
+                                         tempo: ::libc::c_uint) -> ();
     pub fn snd_seq_queue_tempo_set_ppq(info: *mut snd_seq_queue_tempo_t,
-                                       ppq: ::libc::c_int);
+                                       ppq: ::libc::c_int) -> ();
     pub fn snd_seq_queue_tempo_set_skew(info: *mut snd_seq_queue_tempo_t,
-                                        skew: ::libc::c_uint);
+                                        skew: ::libc::c_uint) -> ();
     pub fn snd_seq_queue_tempo_set_skew_base(info: *mut snd_seq_queue_tempo_t,
-                                             base: ::libc::c_uint);
+                                             base: ::libc::c_uint) -> ();
     pub fn snd_seq_get_queue_tempo(handle: *mut snd_seq_t, q: ::libc::c_int,
-                                   tempo: *mut snd_seq_queue_tempo_t) ->
-     ::libc::c_int;
+                                   tempo: *mut snd_seq_queue_tempo_t)
+     -> ::libc::c_int;
     pub fn snd_seq_set_queue_tempo(handle: *mut snd_seq_t, q: ::libc::c_int,
-                                   tempo: *mut snd_seq_queue_tempo_t) ->
-     ::libc::c_int;
+                                   tempo: *mut snd_seq_queue_tempo_t)
+     -> ::libc::c_int;
     pub fn snd_seq_queue_timer_sizeof() -> size_t;
-    pub fn snd_seq_queue_timer_malloc(ptr: *mut *mut snd_seq_queue_timer_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_queue_timer_free(ptr: *mut snd_seq_queue_timer_t);
+    pub fn snd_seq_queue_timer_malloc(ptr: *mut *mut snd_seq_queue_timer_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_queue_timer_free(ptr: *mut snd_seq_queue_timer_t) -> ();
     pub fn snd_seq_queue_timer_copy(dst: *mut snd_seq_queue_timer_t,
-                                    src: *const snd_seq_queue_timer_t);
+                                    src: *const snd_seq_queue_timer_t) -> ();
     pub fn snd_seq_queue_timer_get_queue(info: *const snd_seq_queue_timer_t)
      -> ::libc::c_int;
-    pub fn snd_seq_queue_timer_get_type(info: *const snd_seq_queue_timer_t) ->
-     snd_seq_queue_timer_type_t;
-    pub fn snd_seq_queue_timer_get_id(info: *const snd_seq_queue_timer_t) ->
-     *const snd_timer_id_t;
+    pub fn snd_seq_queue_timer_get_type(info: *const snd_seq_queue_timer_t)
+     -> snd_seq_queue_timer_type_t;
+    pub fn snd_seq_queue_timer_get_id(info: *const snd_seq_queue_timer_t)
+     -> *const snd_timer_id_t;
     pub fn snd_seq_queue_timer_get_resolution(info:
                                                   *const snd_seq_queue_timer_t)
      -> ::libc::c_uint;
     pub fn snd_seq_queue_timer_set_type(info: *mut snd_seq_queue_timer_t,
-                                        _type: snd_seq_queue_timer_type_t);
+                                        _type: snd_seq_queue_timer_type_t)
+     -> ();
     pub fn snd_seq_queue_timer_set_id(info: *mut snd_seq_queue_timer_t,
-                                      id: *const snd_timer_id_t);
+                                      id: *const snd_timer_id_t) -> ();
     pub fn snd_seq_queue_timer_set_resolution(info:
                                                   *mut snd_seq_queue_timer_t,
-                                              resolution: ::libc::c_uint);
+                                              resolution: ::libc::c_uint)
+     -> ();
     pub fn snd_seq_get_queue_timer(handle: *mut snd_seq_t, q: ::libc::c_int,
-                                   timer: *mut snd_seq_queue_timer_t) ->
-     ::libc::c_int;
+                                   timer: *mut snd_seq_queue_timer_t)
+     -> ::libc::c_int;
     pub fn snd_seq_set_queue_timer(handle: *mut snd_seq_t, q: ::libc::c_int,
-                                   timer: *mut snd_seq_queue_timer_t) ->
-     ::libc::c_int;
+                                   timer: *mut snd_seq_queue_timer_t)
+     -> ::libc::c_int;
     pub fn snd_seq_free_event(ev: *mut snd_seq_event_t) -> ::libc::c_int;
     pub fn snd_seq_event_length(ev: *mut snd_seq_event_t) -> ssize_t;
     pub fn snd_seq_event_output(handle: *mut snd_seq_t,
                                 ev: *mut snd_seq_event_t) -> ::libc::c_int;
     pub fn snd_seq_event_output_buffer(handle: *mut snd_seq_t,
-                                       ev: *mut snd_seq_event_t) ->
-     ::libc::c_int;
+                                       ev: *mut snd_seq_event_t)
+     -> ::libc::c_int;
     pub fn snd_seq_event_output_direct(handle: *mut snd_seq_t,
-                                       ev: *mut snd_seq_event_t) ->
-     ::libc::c_int;
+                                       ev: *mut snd_seq_event_t)
+     -> ::libc::c_int;
     pub fn snd_seq_event_input(handle: *mut snd_seq_t,
-                               ev: *mut *mut snd_seq_event_t) ->
-     ::libc::c_int;
+                               ev: *mut *mut snd_seq_event_t)
+     -> ::libc::c_int;
     pub fn snd_seq_event_input_pending(seq: *mut snd_seq_t,
-                                       fetch_sequencer: ::libc::c_int) ->
-     ::libc::c_int;
+                                       fetch_sequencer: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_seq_drain_output(handle: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_seq_event_output_pending(seq: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_seq_extract_output(handle: *mut snd_seq_t,
-                                  ev: *mut *mut snd_seq_event_t) ->
-     ::libc::c_int;
+                                  ev: *mut *mut snd_seq_event_t)
+     -> ::libc::c_int;
     pub fn snd_seq_drop_output(handle: *mut snd_seq_t) -> ::libc::c_int;
-    pub fn snd_seq_drop_output_buffer(handle: *mut snd_seq_t) ->
-     ::libc::c_int;
+    pub fn snd_seq_drop_output_buffer(handle: *mut snd_seq_t)
+     -> ::libc::c_int;
     pub fn snd_seq_drop_input(handle: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_seq_drop_input_buffer(handle: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_seq_remove_events_sizeof() -> size_t;
     pub fn snd_seq_remove_events_malloc(ptr:
                                             *mut *mut snd_seq_remove_events_t)
      -> ::libc::c_int;
-    pub fn snd_seq_remove_events_free(ptr: *mut snd_seq_remove_events_t);
+    pub fn snd_seq_remove_events_free(ptr: *mut snd_seq_remove_events_t)
+     -> ();
     pub fn snd_seq_remove_events_copy(dst: *mut snd_seq_remove_events_t,
-                                      src: *const snd_seq_remove_events_t);
+                                      src: *const snd_seq_remove_events_t)
+     -> ();
     pub fn snd_seq_remove_events_get_condition(info:
                                                    *const snd_seq_remove_events_t)
      -> ::libc::c_uint;
@@ -5597,30 +6209,33 @@ extern "C" {
      -> ::libc::c_int;
     pub fn snd_seq_remove_events_set_condition(info:
                                                    *mut snd_seq_remove_events_t,
-                                               flags: ::libc::c_uint);
+                                               flags: ::libc::c_uint) -> ();
     pub fn snd_seq_remove_events_set_queue(info: *mut snd_seq_remove_events_t,
-                                           queue: ::libc::c_int);
+                                           queue: ::libc::c_int) -> ();
     pub fn snd_seq_remove_events_set_time(info: *mut snd_seq_remove_events_t,
-                                          time: *const snd_seq_timestamp_t);
+                                          time: *const snd_seq_timestamp_t)
+     -> ();
     pub fn snd_seq_remove_events_set_dest(info: *mut snd_seq_remove_events_t,
-                                          addr: *const snd_seq_addr_t);
+                                          addr: *const snd_seq_addr_t) -> ();
     pub fn snd_seq_remove_events_set_channel(info:
                                                  *mut snd_seq_remove_events_t,
-                                             channel: ::libc::c_int);
+                                             channel: ::libc::c_int) -> ();
     pub fn snd_seq_remove_events_set_event_type(info:
                                                     *mut snd_seq_remove_events_t,
-                                                _type: ::libc::c_int);
+                                                _type: ::libc::c_int) -> ();
     pub fn snd_seq_remove_events_set_tag(info: *mut snd_seq_remove_events_t,
-                                         tag: ::libc::c_int);
+                                         tag: ::libc::c_int) -> ();
     pub fn snd_seq_remove_events(handle: *mut snd_seq_t,
-                                 info: *mut snd_seq_remove_events_t) ->
-     ::libc::c_int;
-    pub fn snd_seq_set_bit(nr: ::libc::c_int, array: *mut ::libc::c_void);
-    pub fn snd_seq_unset_bit(nr: ::libc::c_int, array: *mut ::libc::c_void);
+                                 info: *mut snd_seq_remove_events_t)
+     -> ::libc::c_int;
+    pub fn snd_seq_set_bit(nr: ::libc::c_int, array: *mut ::libc::c_void)
+     -> ();
+    pub fn snd_seq_unset_bit(nr: ::libc::c_int, array: *mut ::libc::c_void)
+     -> ();
     pub fn snd_seq_change_bit(nr: ::libc::c_int, array: *mut ::libc::c_void)
      -> ::libc::c_int;
-    pub fn snd_seq_get_bit(nr: ::libc::c_int, array: *mut ::libc::c_void) ->
-     ::libc::c_int;
+    pub fn snd_seq_get_bit(nr: ::libc::c_int, array: *mut ::libc::c_void)
+     -> ::libc::c_int;
     pub fn snd_seq_control_queue(seq: *mut snd_seq_t, q: ::libc::c_int,
                                  _type: ::libc::c_int, value: ::libc::c_int,
                                  ev: *mut snd_seq_event_t) -> ::libc::c_int;
@@ -5644,17 +6259,17 @@ extern "C" {
                                  dest_client: ::libc::c_int,
                                  dest_port: ::libc::c_int) -> ::libc::c_int;
     pub fn snd_seq_set_client_name(seq: *mut snd_seq_t,
-                                   name: *const ::libc::c_char) ->
-     ::libc::c_int;
+                                   name: *const ::libc::c_char)
+     -> ::libc::c_int;
     pub fn snd_seq_set_client_event_filter(seq: *mut snd_seq_t,
-                                           event_type: ::libc::c_int) ->
-     ::libc::c_int;
+                                           event_type: ::libc::c_int)
+     -> ::libc::c_int;
     pub fn snd_seq_set_client_pool_output(seq: *mut snd_seq_t, size: size_t)
      -> ::libc::c_int;
     pub fn snd_seq_set_client_pool_output_room(seq: *mut snd_seq_t,
                                                size: size_t) -> ::libc::c_int;
-    pub fn snd_seq_set_client_pool_input(seq: *mut snd_seq_t, size: size_t) ->
-     ::libc::c_int;
+    pub fn snd_seq_set_client_pool_input(seq: *mut snd_seq_t, size: size_t)
+     -> ::libc::c_int;
     pub fn snd_seq_sync_output_queue(seq: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_seq_parse_address(seq: *mut snd_seq_t,
                                  addr: *mut snd_seq_addr_t,
@@ -5662,27 +6277,27 @@ extern "C" {
     pub fn snd_seq_reset_pool_output(seq: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_seq_reset_pool_input(seq: *mut snd_seq_t) -> ::libc::c_int;
     pub fn snd_midi_event_new(bufsize: size_t,
-                              rdev: *mut *mut snd_midi_event_t) ->
-     ::libc::c_int;
+                              rdev: *mut *mut snd_midi_event_t)
+     -> ::libc::c_int;
     pub fn snd_midi_event_resize_buffer(dev: *mut snd_midi_event_t,
                                         bufsize: size_t) -> ::libc::c_int;
-    pub fn snd_midi_event_free(dev: *mut snd_midi_event_t);
-    pub fn snd_midi_event_init(dev: *mut snd_midi_event_t);
-    pub fn snd_midi_event_reset_encode(dev: *mut snd_midi_event_t);
-    pub fn snd_midi_event_reset_decode(dev: *mut snd_midi_event_t);
+    pub fn snd_midi_event_free(dev: *mut snd_midi_event_t) -> ();
+    pub fn snd_midi_event_init(dev: *mut snd_midi_event_t) -> ();
+    pub fn snd_midi_event_reset_encode(dev: *mut snd_midi_event_t) -> ();
+    pub fn snd_midi_event_reset_decode(dev: *mut snd_midi_event_t) -> ();
     pub fn snd_midi_event_no_status(dev: *mut snd_midi_event_t,
-                                    on: ::libc::c_int);
+                                    on: ::libc::c_int) -> ();
     pub fn snd_midi_event_encode(dev: *mut snd_midi_event_t,
                                  buf: *const ::libc::c_uchar,
                                  count: ::libc::c_long,
                                  ev: *mut snd_seq_event_t) -> ::libc::c_long;
     pub fn snd_midi_event_encode_byte(dev: *mut snd_midi_event_t,
                                       c: ::libc::c_int,
-                                      ev: *mut snd_seq_event_t) ->
-     ::libc::c_int;
+                                      ev: *mut snd_seq_event_t)
+     -> ::libc::c_int;
     pub fn snd_midi_event_decode(dev: *mut snd_midi_event_t,
                                  buf: *mut ::libc::c_uchar,
                                  count: ::libc::c_long,
-                                 ev: *const snd_seq_event_t) ->
-     ::libc::c_long;
+                                 ev: *const snd_seq_event_t)
+     -> ::libc::c_long;
 }

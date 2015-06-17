@@ -1,5 +1,4 @@
 #![crate_type = "lib"]
-#![feature(globs, macro_rules)]
 
 extern crate libc;
 
@@ -11,17 +10,17 @@ mod ffi;
 #[link(name = "asound")]
 extern { }
 
-macro_rules! alsa_ok(
+macro_rules! alsa_ok {
     ($e:expr) => (
         {
             let err = $e;
             if err < 0 {
-                return Err(err as int)
+                return Err(err as isize)
             }
             err
         }
     )
-)
+}
 
 pub struct PCM<State> {
     i: *mut ffi::snd_pcm_t,
@@ -33,11 +32,11 @@ pub struct Open { #[allow(dead_code)] no_constr: () }
 
 #[allow(missing_copy_implementations)]
 pub struct Prepared {
-    channels: uint,
+    channels: usize,
     sample_fmt: Format
 }
 
-#[deriving(Copy, PartialEq, Eq, Show)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Stream {
     Playback,
     Capture
@@ -52,7 +51,7 @@ impl Stream {
     }
 }
 
-#[deriving(Copy, PartialEq, Eq, Show)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Mode {
     Blocking,
     Nonblocking,
@@ -69,7 +68,7 @@ impl Mode {
     }
 }
 
-#[deriving(Copy, PartialEq, Eq, Show)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Access {
     Interleaved,
     Noninterleaved
@@ -84,7 +83,7 @@ impl Access {
     }
 }
 
-#[deriving(Copy, PartialEq, Eq, Show)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Format {
     Unsigned8,
     Signed16,
@@ -100,7 +99,7 @@ impl Format {
         }
     }
 
-    fn size(self) -> uint {
+    fn size(self) -> usize {
         use std::mem::size_of;
         match self {
             Format::Unsigned8 => 1,
@@ -111,14 +110,14 @@ impl Format {
 }
 
 impl PCM<Open> {
-    pub fn open(name: &str, stream: Stream, mode: Mode) -> Result<PCM<Open>, int> {
+    pub fn open(name: &str, stream: Stream, mode: Mode) -> Result<PCM<Open>, isize> {
         let mut pcm = PCM {
             i: ptr::null_mut(),
             data: Open { no_constr: () }
         };
 
         unsafe {
-            let name = name.to_c_str();
+            let name = std::ffi::CString::new(name).unwrap();
             alsa_ok!(
                 ffi::snd_pcm_open(&mut pcm.i, name.as_ptr(), stream.to_ffi(), mode.to_ffi())
             );
@@ -129,14 +128,14 @@ impl PCM<Open> {
 }
 
 impl PCM<Open> {
-    pub fn set_parameters(self, format: Format, access: Access, channels: uint, rate: uint)
-        -> Result<PCM<Prepared>, (PCM<Open>, int)>
+    pub fn set_parameters(self, format: Format, access: Access, channels: usize, rate: usize)
+        -> Result<PCM<Prepared>, (PCM<Open>, isize)>
     {
         unsafe {
             let err = ffi::snd_pcm_set_params(self.i, format.to_ffi(), access.to_ffi(),
                                               channels as u32, rate as u32, 1i32, 500000u32);
             if err < 0 {
-                return Err((self, err as int))
+                return Err((self, err as isize))
             }
         }
 
@@ -154,7 +153,7 @@ impl PCM<Open> {
 }
 
 impl PCM<Prepared> {
-    pub fn write_interleaved<T: Copy>(&mut self, buffer: &[T]) -> Result<uint, int> {
+    pub fn write_interleaved<T: Copy>(&mut self, buffer: &[T]) -> Result<usize, isize> {
         let channels = self.data.channels;
 
         assert_eq!(buffer.len() % channels, 0);
@@ -165,6 +164,6 @@ impl PCM<Prepared> {
                                          buffer.len() as u64 / channels as u64))
         };
 
-        Ok(n_written as uint)
+        Ok(n_written as usize)
     }
 }
