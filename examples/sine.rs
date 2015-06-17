@@ -2,7 +2,6 @@ extern crate alsa;
 
 use alsa::{PCM, Stream, Mode, Format, Access};
 use std::f32::consts::PI_2;
-use std::num::FloatMath;
 
 fn main() {
     let pcm = PCM::open("default", Stream::Playback, Mode::Blocking).unwrap();
