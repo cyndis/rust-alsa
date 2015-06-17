@@ -36,7 +36,7 @@ pub struct Prepared {
     sample_fmt: Format
 }
 
-#[derive(Copy, PartialEq, Eq, Debug)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Stream {
     Playback,
     Capture
@@ -51,7 +51,7 @@ impl Stream {
     }
 }
 
-#[derive(Copy, PartialEq, Eq, Debug)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Mode {
     Blocking,
     Nonblocking,
@@ -68,7 +68,7 @@ impl Mode {
     }
 }
 
-#[derive(Copy, PartialEq, Eq, Debug)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Access {
     Interleaved,
     Noninterleaved
@@ -83,7 +83,7 @@ impl Access {
     }
 }
 
-#[derive(Copy, PartialEq, Eq, Debug)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Format {
     Unsigned8,
     Signed16,
