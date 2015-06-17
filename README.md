@@ -10,7 +10,7 @@ This plays one second of a 441Hz tone.
 extern crate alsa;
 
 use alsa::{PCM, Stream, Mode, Format, Access};
-use std::f32::consts::PI_2;
+use std::f32::consts::PI;
 
 fn main() {
     let pcm = PCM::open("default", Stream::Playback, Mode::Blocking).unwrap();
@@ -18,7 +18,7 @@ fn main() {
 
     let mut buf = [0.0f32; 44100];
     for (idx, sample) in buf.iter_mut().enumerate() {
-        let phase = (idx as f32) / 100.0 * PI_2;
+        let phase = (idx as f32) / 100.0 * PI * 2.0;
         *sample = phase.sin();
     }
 
